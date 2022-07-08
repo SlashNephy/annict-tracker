@@ -50,7 +50,7 @@
     "webpack-cli": "4.9.2"
   },
   "dependencies": {
-    "@kawaiioverflow/arm": "0.86.0",
+    "@kawaiioverflow/arm": "0.97.0",
     "date-fns": "2.28.0",
     "discord.js": "13.6.0",
     "dotenv": "16.0.0",
