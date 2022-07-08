@@ -1,0 +1,10 @@
+query fetchWorksByIds($annictIds: [Int!]) {
+  searchWorks(
+    annictIds: $annictIds
+  ) {
+    nodes {
+      annictId
+      title
+    }
+  }
+}

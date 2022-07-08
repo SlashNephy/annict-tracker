@@ -1,0 +1,15 @@
+{
+  "name": "Annict GraphQL API",
+  "schemaPath": "src/graphql/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "api.annict.com": {
+        "url": "https://api.annict.com/graphql",
+        "headers": {
+          "Authorization": "Bearer ${env:ANNICT_ACCESS_TOKEN}"
+        },
+        "introspect": true
+      }
+    }
+  }
+}
