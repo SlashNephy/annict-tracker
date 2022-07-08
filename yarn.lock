@@ -840,7 +840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/import-types-preset@npm:^2.1.15":
+"@graphql-codegen/import-types-preset@npm:2.1.15":
   version: 2.1.15
   resolution: "@graphql-codegen/import-types-preset@npm:2.1.15"
   dependencies:
@@ -883,7 +883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-graphql-request@npm:^4.4.5":
+"@graphql-codegen/typescript-graphql-request@npm:4.4.5":
   version: 4.4.5
   resolution: "@graphql-codegen/typescript-graphql-request@npm:4.4.5"
   dependencies:
@@ -1348,7 +1348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kawaiioverflow/arm@npm:^0.86.0":
+"@kawaiioverflow/arm@npm:0.86.0":
   version: 0.86.0
   resolution: "@kawaiioverflow/arm@npm:0.86.0"
   checksum: 536c18805b2dc9228ed3b5c1e3906b0931f35f4835fc7b36001e5a18ca2a1976badfd600a818779c025d57e596dd9fa8b8e5f618530d0ee3aebaab0a1f195fc8
@@ -1524,7 +1524,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:^4.0.0, @types/js-yaml@npm:^4.0.5":
+"@types/js-yaml@npm:4.0.5, @types/js-yaml@npm:^4.0.0":
   version: 4.0.5
   resolution: "@types/js-yaml@npm:4.0.5"
   checksum: 7dcac8c50fec31643cc9d6444b5503239a861414cdfaa7ae9a38bc22597c4d850c4b8cec3d82d73b3fbca408348ce223b0408d598b32e094470dfffc6d486b4d
@@ -1580,7 +1580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17":
+"@types/node@npm:*, @types/node@npm:17.0.25":
   version: 17.0.25
   resolution: "@types/node@npm:17.0.25"
   checksum: 6a820bd624e69ea772f52a6cdb326484eff5829443dc981939373929ade109f58c21698b9f0a831bd6ceea799e722a75dc49c5fa7a6bc32a81e1cbdfc6507b64
@@ -1594,7 +1594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:^2":
+"@types/prettier@npm:2.6.0":
   version: 2.6.0
   resolution: "@types/prettier@npm:2.6.0"
   checksum: 946f1f82ce6f31664e023a5d65931c31b7d677b454f528f67dce851d72e7fcfe713076f4251b16c3646eecf1545f5f5b909b4962966341ed9ddf5b80113b3674
@@ -1610,7 +1610,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack@npm:^5.28.0":
+"@types/webpack@npm:5.28.0":
   version: 5.28.0
   resolution: "@types/webpack@npm:5.28.0"
   dependencies:
@@ -1630,7 +1630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.20.0":
+"@typescript-eslint/eslint-plugin@npm:5.20.0":
   version: 5.20.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.20.0"
   dependencies:
@@ -1653,7 +1653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.20.0":
+"@typescript-eslint/parser@npm:5.20.0":
   version: 5.20.0
   resolution: "@typescript-eslint/parser@npm:5.20.0"
   dependencies:
@@ -2051,39 +2051,39 @@ __metadata:
   resolution: "animetl-bot@workspace:."
   dependencies:
     "@graphql-codegen/cli": 2.6.2
-    "@graphql-codegen/import-types-preset": ^2.1.15
+    "@graphql-codegen/import-types-preset": 2.1.15
     "@graphql-codegen/typescript": 2.4.8
-    "@graphql-codegen/typescript-graphql-request": ^4.4.5
+    "@graphql-codegen/typescript-graphql-request": 4.4.5
     "@graphql-codegen/typescript-operations": 2.3.5
-    "@kawaiioverflow/arm": ^0.86.0
-    "@types/js-yaml": ^4.0.5
-    "@types/node": ^17
-    "@types/prettier": ^2
-    "@types/webpack": ^5.28.0
-    "@typescript-eslint/eslint-plugin": ^5.20.0
-    "@typescript-eslint/parser": ^5.20.0
-    concurrently: ^7.0.0
-    date-fns: ^2.28.0
-    discord.js: ^13.6.0
-    dotenv: ^16.0.0
-    eslint: ^8.14.0
-    eslint-config-prettier: ^8.5.0
-    eslint-import-resolver-typescript: ^2.7.1
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-promise: ^6.0.0
-    eslint-plugin-unused-imports: ^2.0.0
-    fast-xml-parser: ^4.0.7
-    graphql: ^16.3.0
-    graphql-request: ^4.2.0
-    js-yaml: ^4.1.0
-    node-fetch: ^2.6.7
-    nodemon: ^2.0.15
-    prettier: ^2.6.0
-    ts-loader: ^9.2.8
-    ts-node: ^10.7.0
-    typescript: ^4.6.3
-    webpack: ^5.72.0
-    webpack-cli: ^4.9.2
+    "@kawaiioverflow/arm": 0.86.0
+    "@types/js-yaml": 4.0.5
+    "@types/node": 17.0.25
+    "@types/prettier": 2.6.0
+    "@types/webpack": 5.28.0
+    "@typescript-eslint/eslint-plugin": 5.20.0
+    "@typescript-eslint/parser": 5.20.0
+    concurrently: 7.1.0
+    date-fns: 2.28.0
+    discord.js: 13.6.0
+    dotenv: 16.0.0
+    eslint: 8.14.0
+    eslint-config-prettier: 8.5.0
+    eslint-import-resolver-typescript: 2.7.1
+    eslint-plugin-import: 2.26.0
+    eslint-plugin-promise: 6.0.0
+    eslint-plugin-unused-imports: 2.0.0
+    fast-xml-parser: 4.0.7
+    graphql: 16.3.0
+    graphql-request: 4.2.0
+    js-yaml: 4.1.0
+    node-fetch: 2.6.7
+    nodemon: 2.0.15
+    prettier: 2.6.2
+    ts-loader: 9.2.8
+    ts-node: 10.7.0
+    typescript: 4.6.3
+    webpack: 5.72.0
+    webpack-cli: 4.9.2
   languageName: unknown
   linkType: soft
 
@@ -2852,7 +2852,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^7.0.0":
+"concurrently@npm:7.1.0":
   version: 7.1.0
   resolution: "concurrently@npm:7.1.0"
   dependencies:
@@ -3002,17 +3002,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:2.28.0, date-fns@npm:^2.16.1":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
+  languageName: node
+  linkType: hard
+
 "date-fns@npm:^1.27.2":
   version: 1.30.1
   resolution: "date-fns@npm:1.30.1"
   checksum: 86b1f3269cbb1f3ee5ac9959775ea6600436f4ee2b78430cd427b41a0c9fabf740b1a5d401c085f3003539a6f4755c7c56c19fbd70ce11f6f673f6bc8075b710
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:^2.16.1, date-fns@npm:^2.28.0":
-  version: 2.28.0
-  resolution: "date-fns@npm:2.28.0"
-  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -3167,7 +3167,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord.js@npm:^13.6.0":
+"discord.js@npm:13.6.0":
   version: 13.6.0
   resolution: "discord.js@npm:13.6.0"
   dependencies:
@@ -3221,7 +3221,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.0":
+"dotenv@npm:16.0.0, dotenv@npm:^16.0.0":
   version: 16.0.0
   resolution: "dotenv@npm:16.0.0"
   checksum: 664cebb51f0a9a1d1b930f51f0271e72e26d62feaecc9dc03df39453dd494b4e724809ca480fb3ec3213382b1ed3f791aaeb83569a137f9329ce58efd4853dbf
@@ -3415,7 +3415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.5.0":
+"eslint-config-prettier@npm:8.5.0":
   version: 8.5.0
   resolution: "eslint-config-prettier@npm:8.5.0"
   peerDependencies:
@@ -3436,7 +3436,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^2.7.1":
+"eslint-import-resolver-typescript@npm:2.7.1":
   version: 2.7.1
   resolution: "eslint-import-resolver-typescript@npm:2.7.1"
   dependencies:
@@ -3462,7 +3462,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.26.0":
+"eslint-plugin-import@npm:2.26.0":
   version: 2.26.0
   resolution: "eslint-plugin-import@npm:2.26.0"
   dependencies:
@@ -3485,7 +3485,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:^6.0.0":
+"eslint-plugin-promise@npm:6.0.0":
   version: 6.0.0
   resolution: "eslint-plugin-promise@npm:6.0.0"
   peerDependencies:
@@ -3494,7 +3494,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unused-imports@npm:^2.0.0":
+"eslint-plugin-unused-imports@npm:2.0.0":
   version: 2.0.0
   resolution: "eslint-plugin-unused-imports@npm:2.0.0"
   dependencies:
@@ -3561,7 +3561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.14.0":
+"eslint@npm:8.14.0":
   version: 8.14.0
   resolution: "eslint@npm:8.14.0"
   dependencies:
@@ -3746,7 +3746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:^4.0.7":
+"fast-xml-parser@npm:4.0.7":
   version: 4.0.7
   resolution: "fast-xml-parser@npm:4.0.7"
   dependencies:
@@ -4198,7 +4198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-request@npm:^4.0.0, graphql-request@npm:^4.2.0":
+"graphql-request@npm:4.2.0, graphql-request@npm:^4.0.0":
   version: 4.2.0
   resolution: "graphql-request@npm:4.2.0"
   dependencies:
@@ -4231,7 +4231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.3.0":
+"graphql@npm:16.3.0":
   version: 16.3.0
   resolution: "graphql@npm:16.3.0"
   checksum: ba540641e9cd2a8de5b989ff1433b015f232fa73aaef478d6709c1339cd43113347917acb965a5799c004667687852fc8ff0cfaa935eb26374c91c1fd7fdaeb1
@@ -4955,7 +4955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^4.0.0, js-yaml@npm:^4.1.0":
+"js-yaml@npm:4.1.0, js-yaml@npm:^4.0.0, js-yaml@npm:^4.1.0":
   version: 4.1.0
   resolution: "js-yaml@npm:4.1.0"
   dependencies:
@@ -5723,7 +5723,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemon@npm:^2.0.15":
+"nodemon@npm:2.0.15":
   version: 2.0.15
   resolution: "nodemon@npm:2.0.15"
   dependencies:
@@ -6183,7 +6183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.6.0":
+"prettier@npm:2.6.2":
   version: 2.6.2
   resolution: "prettier@npm:2.6.2"
   bin:
@@ -7173,7 +7173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-loader@npm:^9.2.8":
+"ts-loader@npm:9.2.8":
   version: 9.2.8
   resolution: "ts-loader@npm:9.2.8"
   dependencies:
@@ -7202,7 +7202,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.7.0":
+"ts-node@npm:10.7.0":
   version: 10.7.0
   resolution: "ts-node@npm:10.7.0"
   dependencies:
@@ -7337,7 +7337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.3":
+"typescript@npm:4.6.3":
   version: 4.6.3
   resolution: "typescript@npm:4.6.3"
   bin:
@@ -7347,7 +7347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.3#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.6.3#~builtin<compat/typescript>":
   version: 4.6.3
   resolution: "typescript@patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"
   bin:
@@ -7566,7 +7566,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:^4.9.2":
+"webpack-cli@npm:4.9.2":
   version: 4.9.2
   resolution: "webpack-cli@npm:4.9.2"
   dependencies:
@@ -7616,7 +7616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5, webpack@npm:^5.72.0":
+"webpack@npm:5.72.0, webpack@npm:^5":
   version: 5.72.0
   resolution: "webpack@npm:5.72.0"
   dependencies:
