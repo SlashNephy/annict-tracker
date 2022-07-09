@@ -22,11 +22,11 @@
     "format:prettier": "yarn lint:prettier --write"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.6.2",
-    "@graphql-codegen/import-types-preset": "2.1.15",
-    "@graphql-codegen/typescript": "2.4.8",
-    "@graphql-codegen/typescript-graphql-request": "4.4.5",
-    "@graphql-codegen/typescript-operations": "2.3.5",
+    "@graphql-codegen/cli": "2.8.0",
+    "@graphql-codegen/import-types-preset": "2.2.1",
+    "@graphql-codegen/typescript": "2.7.1",
+    "@graphql-codegen/typescript-graphql-request": "4.5.1",
+    "@graphql-codegen/typescript-operations": "2.5.1",
     "@types/js-yaml": "4.0.5",
     "@types/node": "17.0.25",
     "@types/prettier": "2.6.3",
