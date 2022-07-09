@@ -55,7 +55,7 @@
     "discord.js": "13.6.0",
     "dotenv": "16.0.0",
     "fast-xml-parser": "4.0.7",
-    "graphql-request": "4.2.0",
+    "graphql-request": "4.3.0",
     "js-yaml": "4.1.0",
     "node-fetch": "2.6.7"
   },
