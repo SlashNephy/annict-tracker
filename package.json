@@ -47,7 +47,7 @@
     "ts-node": "10.8.2",
     "typescript": "4.7.4",
     "webpack": "5.73.0",
-    "webpack-cli": "4.9.2"
+    "webpack-cli": "4.10.0"
   },
   "dependencies": {
     "@kawaiioverflow/arm": "0.97.0",
