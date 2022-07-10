@@ -52,7 +52,7 @@ jobs:
         run: echo "IMAGE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
 
       - name: Build & Push Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           push: true
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
