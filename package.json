@@ -52,7 +52,7 @@
   "dependencies": {
     "@kawaiioverflow/arm": "0.97.0",
     "date-fns": "2.28.0",
-    "discord.js": "13.6.0",
+    "discord.js": "13.8.1",
     "dotenv": "16.0.0",
     "fast-xml-parser": "4.0.7",
     "graphql-request": "4.3.0",
