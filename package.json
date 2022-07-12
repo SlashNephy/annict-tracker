@@ -53,7 +53,7 @@
     "@kawaiioverflow/arm": "0.97.0",
     "date-fns": "2.28.0",
     "discord.js": "13.8.1",
-    "dotenv": "16.0.0",
+    "dotenv": "16.0.1",
     "fast-xml-parser": "4.0.9",
     "graphql-request": "4.3.0",
     "js-yaml": "4.1.0",
