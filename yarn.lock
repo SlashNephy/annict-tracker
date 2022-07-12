@@ -2231,7 +2231,7 @@ __metadata:
     eslint-plugin-import: 2.26.0
     eslint-plugin-promise: 6.0.0
     eslint-plugin-unused-imports: 2.0.0
-    fast-xml-parser: 4.0.7
+    fast-xml-parser: 4.0.9
     graphql: 16.5.0
     graphql-request: 4.3.0
     js-yaml: 4.1.0
@@ -3729,14 +3729,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:4.0.7":
-  version: 4.0.7
-  resolution: "fast-xml-parser@npm:4.0.7"
+"fast-xml-parser@npm:4.0.9":
+  version: 4.0.9
+  resolution: "fast-xml-parser@npm:4.0.9"
   dependencies:
     strnum: ^1.0.5
   bin:
     fxparser: src/cli/cli.js
-  checksum: c80013da6c5f02bdf02f4f62c7e97c051c202280e3f740ef5e52a7608314466a5e2b7f877b4d9d275ad5934bf6c203e1634ecb78128177faf9d75efefa120db1
+  checksum: 1ef2ba1406ce9985a2e7049a4c412de0e1e64e4ee6b0890f5b5bfce6407d04ce04b61733d2ddc7ba4acf4461b57eb3718cbc595df9a023f5a79ad81f70e8425a
   languageName: node
   linkType: hard
 
