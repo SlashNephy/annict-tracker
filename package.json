@@ -22,7 +22,7 @@
     "format:prettier": "yarn lint:prettier --write"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.9.1",
+    "@graphql-codegen/cli": "2.11.2",
     "@graphql-codegen/import-types-preset": "2.2.2",
     "@graphql-codegen/typescript": "2.7.2",
     "@graphql-codegen/typescript-graphql-request": "4.5.2",
