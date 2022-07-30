@@ -804,9 +804,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:2.11.2":
-  version: 2.11.2
-  resolution: "@graphql-codegen/cli@npm:2.11.2"
+"@graphql-codegen/cli@npm:2.11.3":
+  version: 2.11.3
+  resolution: "@graphql-codegen/cli@npm:2.11.3"
   dependencies:
     "@graphql-codegen/core": 2.6.0
     "@graphql-codegen/plugin-helpers": ^2.6.1
@@ -846,7 +846,7 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 2113ca340b9330344e71a7ca0c258230590af39a382956546e298dc94a020cf80c608fbf8288e40881dccf7a03d4a61d9a234a94212c2a686367c073af3dd16f
+  checksum: 4f86d6095e16d95ea3918d93bd1b68803b7878acfa0b12ca2006d3123f902b43f47b42974dc4de49910b5d7a8b2526344777d7c0dfa60c0a1f0422961e3ae0a4
   languageName: node
   linkType: hard
 
@@ -2337,7 +2337,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "animetl-bot@workspace:."
   dependencies:
-    "@graphql-codegen/cli": 2.11.2
+    "@graphql-codegen/cli": 2.11.3
     "@graphql-codegen/import-types-preset": 2.2.2
     "@graphql-codegen/typescript": 2.7.2
     "@graphql-codegen/typescript-graphql-request": 4.5.2
