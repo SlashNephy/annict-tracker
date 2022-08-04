@@ -672,17 +672,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discordjs/builders@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "@discordjs/builders@npm:0.14.0"
+"@discordjs/builders@npm:^0.16.0":
+  version: 0.16.0
+  resolution: "@discordjs/builders@npm:0.16.0"
   dependencies:
-    "@sapphire/shapeshift": ^3.1.0
-    "@sindresorhus/is": ^4.6.0
-    discord-api-types: ^0.33.3
+    "@sapphire/shapeshift": ^3.5.1
+    discord-api-types: ^0.36.2
     fast-deep-equal: ^3.1.3
     ts-mixer: ^6.0.1
     tslib: ^2.4.0
-  checksum: 044f1864bc5a027c6a4021cc428e98362a8466d7539ae4ec17681157ffc3e9a36a5a8f52b8874eabff11c5d6dca9f7870c516d27d8e090a05a9b23eeb81d6bb8
+  checksum: bf7ab00924bf84678c139b32c3b6bda16d62f190a1674ebaa4ec8767c7105890b1375716296037306661e138fe1c09c535b3141a047b7fceafaa92937a76cb8b
   languageName: node
   linkType: hard
 
@@ -1720,24 +1719,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/async-queue@npm:^1.3.1":
+"@sapphire/async-queue@npm:^1.3.2":
   version: 1.3.2
   resolution: "@sapphire/async-queue@npm:1.3.2"
   checksum: 348f35a278bff68cb6d5e2c2219b03ce66243162522003bb14426e5fdad251300bea8ef3883043eb034c181dddd52296a519e9f377075a5b31074807fe163e76
   languageName: node
   linkType: hard
 
-"@sapphire/shapeshift@npm:^3.1.0":
-  version: 3.4.1
-  resolution: "@sapphire/shapeshift@npm:3.4.1"
-  checksum: 97006b34941136c26dd1a8259c1838df08e7e15e869e515a3e4e844d2c5757c4bb92d79eeec72c73ff856e9be00876c88bf71142d11f4b55e043ec76153365cd
-  languageName: node
-  linkType: hard
-
-"@sindresorhus/is@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "@sindresorhus/is@npm:4.6.0"
-  checksum: 83839f13da2c29d55c97abc3bc2c55b250d33a0447554997a85c539e058e57b8da092da396e252b11ec24a0279a0bed1f537fa26302209327060643e327f81d2
+"@sapphire/shapeshift@npm:^3.5.1":
+  version: 3.5.1
+  resolution: "@sapphire/shapeshift@npm:3.5.1"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    lodash.uniqwith: ^4.5.0
+  checksum: caecfef844c9e43e921a5051da888fae7da8980bfd9f9bb4f7fee85931d40929ffb9b6dfae464c0dccee61e56f7698f998e4d9a54d25f35fad39a51ba1a4f391
   languageName: node
   linkType: hard
 
@@ -1840,7 +1835,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node-fetch@npm:^2.6.1":
+"@types/node-fetch@npm:^2.6.2":
   version: 2.6.2
   resolution: "@types/node-fetch@npm:2.6.2"
   dependencies:
@@ -2351,7 +2346,7 @@ __metadata:
     "@typescript-eslint/parser": 5.31.0
     concurrently: 7.3.0
     date-fns: 2.29.1
-    discord.js: 13.8.1
+    discord.js: 13.9.2
     dotenv: 16.0.1
     eslint: 8.20.0
     eslint-config-prettier: 8.5.0
@@ -3325,20 +3320,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord.js@npm:13.8.1":
-  version: 13.8.1
-  resolution: "discord.js@npm:13.8.1"
+"discord-api-types@npm:^0.36.2":
+  version: 0.36.3
+  resolution: "discord-api-types@npm:0.36.3"
+  checksum: 3089c0fb37425dc5df03c76d82988d43fcc272699b06a02fc830d0a3bef550009aaebdf6d646529e8a7ccea76ae3f43b099d736ea5ef37a0be143142ab49871d
+  languageName: node
+  linkType: hard
+
+"discord.js@npm:13.9.2":
+  version: 13.9.2
+  resolution: "discord.js@npm:13.9.2"
   dependencies:
-    "@discordjs/builders": ^0.14.0
+    "@discordjs/builders": ^0.16.0
     "@discordjs/collection": ^0.7.0
-    "@sapphire/async-queue": ^1.3.1
-    "@types/node-fetch": ^2.6.1
+    "@sapphire/async-queue": ^1.3.2
+    "@types/node-fetch": ^2.6.2
     "@types/ws": ^8.5.3
     discord-api-types: ^0.33.3
     form-data: ^4.0.0
-    node-fetch: ^2.6.1
-    ws: ^8.7.0
-  checksum: 1311aa3be7e61e9173f4d41c0184c5614860145385a00a67840d7a1849c3cbbf248a2f6339200653e23c90f11acfab554b440a6018bb52d532cd688849618a5a
+    node-fetch: ^2.6.7
+    ws: ^8.8.1
+  checksum: e49228e2d786262ef06e611ba0d0edd3b1a773e04ce19f1536dbb5590eecc26a3667280ac8fe6801df55ae7964d01043c7060034fc306176fbbee97efce9efd6
   languageName: node
   linkType: hard
 
@@ -5222,6 +5224,13 @@ __metadata:
   version: 4.1.1
   resolution: "lodash.once@npm:4.1.1"
   checksum: d768fa9f9b4e1dc6453be99b753906f58990e0c45e7b2ca5a3b40a33111e5d17f6edf2f768786e2716af90a8e78f8f91431ab8435f761fef00f9b0c256f6d245
+  languageName: node
+  linkType: hard
+
+"lodash.uniqwith@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.uniqwith@npm:4.5.0"
+  checksum: d49a4565ed64efd86674127d321622673c29cde3e060baebc0f30372f22886c61b2ead44709db8c890053db1b9660e8ed689689812c1a485eb5703caa94d1150
   languageName: node
   linkType: hard
 
@@ -7535,9 +7544,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.7.0":
-  version: 8.8.0
-  resolution: "ws@npm:8.8.0"
+"ws@npm:^8.8.1":
+  version: 8.8.1
+  resolution: "ws@npm:8.8.1"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ^5.0.2
@@ -7546,7 +7555,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 6ceed1ca1cb800ef60c7fc8346c7d5d73d73be754228eb958765abf5d714519338efa20ffe674167039486eb3a813aae5a497f8d319e16b4d96216a31df5bd95
+  checksum: 2152cf862cae0693f3775bc688a6afb2e989d19d626d215e70f5fcd8eb55b1c3b0d3a6a4052905ec320e2d7734e20aeedbf9744496d62f15a26ad79cf4cf7dae
   languageName: node
   linkType: hard
 
