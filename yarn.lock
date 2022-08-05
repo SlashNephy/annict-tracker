@@ -1602,10 +1602,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kawaiioverflow/arm@npm:0.99.0":
-  version: 0.99.0
-  resolution: "@kawaiioverflow/arm@npm:0.99.0"
-  checksum: ffe2ed12d394826a474b00b669f73d487a3d0040121a8e735e792c93cc753a7ac147647779d2f962c89504c0ded2c62f96bbbd0b4734b224957755c4cfde6571
+"@kawaiioverflow/arm@npm:0.100.0":
+  version: 0.100.0
+  resolution: "@kawaiioverflow/arm@npm:0.100.0"
+  checksum: 558da3111cefd9cdb20c4ac01d82f58b7b72592d786b91ed69ab5f3fece93503755c96db88b78fcbd9b29b3b500fbea5c775e629eb509eecb4eb5faa1dcc09f2
   languageName: node
   linkType: hard
 
@@ -2337,7 +2337,7 @@ __metadata:
     "@graphql-codegen/typescript": 2.7.2
     "@graphql-codegen/typescript-graphql-request": 4.5.2
     "@graphql-codegen/typescript-operations": 2.5.2
-    "@kawaiioverflow/arm": 0.99.0
+    "@kawaiioverflow/arm": 0.100.0
     "@types/js-yaml": 4.0.5
     "@types/node": 17.0.25
     "@types/prettier": 2.6.4
