@@ -36,7 +36,7 @@
     "concurrently": "7.3.0",
     "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-import-resolver-typescript": "3.4.1",
+    "eslint-import-resolver-typescript": "3.4.2",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-unused-imports": "2.0.0",
