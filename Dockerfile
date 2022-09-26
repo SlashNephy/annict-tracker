@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM node:18.9.0-bullseye AS build
+FROM --platform=$BUILDPLATFORM node:18.9.1-bullseye AS build
 
 WORKDIR /app
 COPY ./ /app/
@@ -7,7 +7,7 @@ RUN yarn install --immutable && \
     yarn setup && \
     yarn webpack
 
-FROM --platform=$TARGETPLATFORM node:18.9.0-bullseye-slim
+FROM --platform=$TARGETPLATFORM node:18.9.1-bullseye-slim
 
 WORKDIR /app
 USER node
