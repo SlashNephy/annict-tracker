@@ -1,8 +1,8 @@
 overwrite: true
-schema: src/graphql/schema.graphql
-documents: src/graphql/**/*.graphql
+schema: graphql/generated/schema.graphql
+documents: graphql/*.graphql
 generates:
-  src/ts/graphql/types.ts:
+  graphql/generated/types.ts:
     plugins:
       - typescript
     config:
@@ -12,13 +12,22 @@ generates:
       afterOneFileWrite:
         - prettier --write
 
-  src/ts/graphql/operations.ts:
+  graphql/generated/operations.ts:
     plugins:
       - typescript-operations
-      - typescript-graphql-request
     preset: import-types
     presetConfig:
       typesPath: ./types
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+
+  graphql/generated/sdk.ts:
+    plugins:
+      - typescript-graphql-request
+    preset: import-types
+    presetConfig:
+      typesPath: ./operations
     hooks:
       afterOneFileWrite:
         - prettier --write

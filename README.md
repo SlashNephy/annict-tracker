@@ -1,1 +1,1 @@
-# animetl-bot
+# anime-calendar

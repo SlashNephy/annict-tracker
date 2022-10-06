@@ -1,25 +1,44 @@
 {
-  "name": "animetl-bot",
+  "name": "anime-calendar",
   "version": "1.0.0",
-  "license": "MIT",
-  "repository": "https://github.com/SlashNephy/animetl-bot",
   "author": "SlashNephy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SlashNephy/anime-calendar"
+  },
+  "license": "MIT",
   "scripts": {
-    "setup": "yarn graphql:download && yarn graphql:generate",
-    "build": "tsc",
-    "watch": "tsc -w",
-    "start": "ts-node src/ts/main.ts",
-    "dev": "nodemon src/ts/main.ts",
-    "webpack": "webpack",
-    "webpack:watch": "webpack -w",
-    "graphql:download": "curl -o src/graphql/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
-    "graphql:generate": "graphql-codegen --config codegen.yml",
-    "lint": "concurrently 'yarn:lint:*'",
-    "lint:eslint": "eslint",
-    "lint:prettier": "prettier --check .",
-    "format": "concurrently 'yarn:format:*'",
+    "build": "next build",
+    "dev": "next dev",
+    "format": "concurrently -n format: -m 1 'yarn:format:*'",
     "format:eslint": "yarn lint:eslint --fix",
-    "format:prettier": "yarn lint:prettier --write"
+    "format:prettier": "yarn lint:prettier --write",
+    "generate": "concurrently -n generate: -m 1 'yarn:generate:*'",
+    "generate:graphql": "graphql-codegen --config codegen.yml",
+    "generate:introspect": "curl -o graphql/generated/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
+    "lint": "concurrently -n lint: 'yarn:lint:*'",
+    "lint:eslint": "next lint",
+    "lint:prettier": "prettier --check .",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/react": "11.10.4",
+    "@emotion/server": "11.10.0",
+    "@kawaiioverflow/arm": "0.102.0",
+    "@mantine/core": "5.4.1",
+    "@mantine/hooks": "5.4.1",
+    "@mantine/next": "5.4.1",
+    "@mantine/notifications": "5.4.1",
+    "@tabler/icons": "1.100.0",
+    "@tanstack/react-query": "4.10.1",
+    "date-fns": "2.29.3",
+    "fast-xml-parser": "4.0.10",
+    "graphql-request": "4.3.0",
+    "js-yaml": "4.1.0",
+    "next": "12.3.1",
+    "node-fetch": "3.2.10",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.13.4",
@@ -27,40 +46,25 @@
     "@graphql-codegen/typescript": "2.7.3",
     "@graphql-codegen/typescript-graphql-request": "4.5.5",
     "@graphql-codegen/typescript-operations": "2.5.3",
+    "@slashnephy/eslint-config": "0.2.6",
+    "@slashnephy/prettier-config": "0.1.1",
     "@types/js-yaml": "4.0.5",
     "@types/node": "17.0.25",
-    "@types/prettier": "2.7.1",
-    "@types/webpack": "5.28.0",
-    "@typescript-eslint/eslint-plugin": "5.39.0",
-    "@typescript-eslint/parser": "5.39.0",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
     "concurrently": "7.4.0",
-    "eslint": "8.24.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-import-resolver-typescript": "3.5.1",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-promise": "6.0.1",
-    "eslint-plugin-unused-imports": "2.0.0",
+    "eslint": "8.22.0",
     "graphql": "16.6.0",
-    "nodemon": "2.0.20",
     "prettier": "2.7.1",
-    "ts-loader": "9.4.1",
-    "ts-node": "10.9.1",
-    "typescript": "4.8.4",
-    "webpack": "5.74.0",
-    "webpack-cli": "4.10.0"
+    "typescript": "4.8.4"
   },
-  "dependencies": {
-    "@kawaiioverflow/arm": "0.102.0",
-    "date-fns": "2.29.3",
-    "discord.js": "13.11.0",
-    "dotenv": "16.0.2",
-    "fast-xml-parser": "4.0.10",
-    "graphql-request": "4.3.0",
-    "js-yaml": "4.1.0",
-    "node-fetch": "3.2.10"
-  },
+  "packageManager": "yarn@3.2.4",
   "engines": {
-    "node": ">=16.0.0"
+    "node": "18.8.0"
   },
-  "packageManager": "yarn@3.2.4"
+  "eslintConfig": {
+    "extends": [
+      "@slashnephy/eslint-config"
+    ]
+  }
 }
