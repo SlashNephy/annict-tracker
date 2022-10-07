@@ -1,7 +1,6 @@
 import yaml from 'js-yaml'
-import fetch from 'node-fetch'
 
-export type SayaDefinitions = {
+export type SayaDefinition = {
   channels: {
     name: string
     type: 'GR' | 'BS' | 'CS' | 'SKY'
@@ -27,10 +26,10 @@ export type SayaDefinitions = {
   }[]
 }
 
-export const fetchSayaDefinitions = async (branch = 'dev'): Promise<SayaDefinitions> => {
-  const url = `https://raw.githubusercontent.com/SlashNephy/saya/${branch}/docs/definitions.yml`
+export const fetchSayaDefinitions = async (branch = 'master'): Promise<SayaDefinition> => {
+  const url = `https://raw.githubusercontent.com/SlashNephy/saya-definitions/${branch}/definitions.yml`
 
   return fetch(url)
-    .then((response) => response.text())
-    .then((text) => yaml.load(text) as SayaDefinitions)
+    .then(async (response) => response.text())
+    .then((text) => yaml.load(text) as SayaDefinition)
 }

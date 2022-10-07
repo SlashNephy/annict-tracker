@@ -1,8 +1,8 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import { format } from 'date-fns'
 import { XMLParser } from 'fast-xml-parser'
-import fetch from 'node-fetch'
-
-import { USER_AGENT } from './common'
 
 type SyobocalProgramLookupResult = {
   ProgLookupResponse?: {
@@ -101,25 +101,18 @@ export const lookupPrograms = async (): Promise<SyobocalProgramLookupResult> => 
   const url = `https://cal.syoboi.jp/db.php?Command=ProgLookup&JOIN=SubTitles&Range=${makeDatetimeRange()}&ChID=${channelIds.join(
     ','
   )}`
-  console.log(url)
 
-  return fetch(url, {
-    headers: {
-      'User-Agent': USER_AGENT,
-    },
-  })
-    .then((response) => response.text())
-    .then((text) => new XMLParser().parse(text) as SyobocalProgramLookupResult)
+  const response = await fetch(url)
+  const text = await response.text()
+  const parser = new XMLParser()
+  return parser.parse(text)
 }
 
 export const lookupTitles = async (tids: number[]): Promise<SyobocalTitleLookupResult> => {
   const url = `https://cal.syoboi.jp/db.php?Command=TitleLookup&TID=${tids.join(',')}`
 
-  return fetch(url, {
-    headers: {
-      'User-Agent': USER_AGENT,
-    },
-  })
-    .then((response) => response.text())
-    .then((text) => new XMLParser().parse(text) as SyobocalTitleLookupResult)
+  const response = await fetch(url)
+  const text = await response.text()
+  const parser = new XMLParser()
+  return parser.parse(text)
 }
