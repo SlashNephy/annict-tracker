@@ -1,0 +1,33 @@
+query viewerPrograms {
+  viewer {
+    programs(unwatched: true, orderBy: {direction: ASC, field: STARTED_AT}) {
+      nodes {
+        id
+        work {
+          annictId
+          title
+          viewerStatusState
+          image {
+            recommendedImageUrl
+          }
+        }
+        channel {
+          name
+        }
+        episode {
+          annictId
+          number
+          numberText
+          title
+        }
+        startedAt
+        state
+      }
+      pageInfo {
+        hasNextPage
+        startCursor
+        endCursor
+      }
+    }
+  }
+}
