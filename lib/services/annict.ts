@@ -2,7 +2,7 @@ import { GraphQLClient } from 'graphql-request'
 
 import { getSdk } from '../../graphql/generated/sdk'
 
-import type { ViewerProgramsQuery } from '../../graphql/generated/operations'
+import type { GetViewerProgramsQuery } from '../../graphql/generated/operations'
 import type { Sdk } from '../../graphql/generated/sdk'
 
 export const createAnnictClient = (accessToken: string): Sdk => {
@@ -40,5 +40,5 @@ const exampleAnnictProfile = {
 }
 
 export type ViewerProgram = NonNullable<
-  NonNullable<NonNullable<NonNullable<ViewerProgramsQuery['viewer']>['programs']>['nodes']>[0]
+  NonNullable<NonNullable<NonNullable<GetViewerProgramsQuery['viewer']>['programs']>['nodes']>[0]
 >

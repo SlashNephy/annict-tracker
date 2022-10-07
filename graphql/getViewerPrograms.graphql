@@ -1,8 +1,10 @@
-query viewerPrograms {
+query getViewerPrograms {
   viewer {
     programs(unwatched: true, orderBy: {direction: ASC, field: STARTED_AT}) {
       nodes {
         id
+        rebroadcast
+        scPid
         work {
           annictId
           title
@@ -10,6 +12,9 @@ query viewerPrograms {
           image {
             recommendedImageUrl
           }
+          officialSiteUrl
+          seasonName
+          seasonYear
         }
         channel {
           name
