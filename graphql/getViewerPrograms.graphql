@@ -1,6 +1,6 @@
 query getViewerPrograms {
   viewer {
-    programs(unwatched: true, orderBy: {direction: ASC, field: STARTED_AT}) {
+    programs(unwatched: true, orderBy: { direction: ASC, field: STARTED_AT }) {
       nodes {
         id
         rebroadcast
