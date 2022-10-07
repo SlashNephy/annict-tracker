@@ -189,5 +189,11 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# GraphQL
 graphql/generated/*
 !graphql/generated/.gitkeep
+
+# Firebase
+.firebase
+.firebaserc
+firebase-debug.log
