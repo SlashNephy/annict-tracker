@@ -189,4 +189,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-graphql/generated
+graphql/generated/*
+!graphql/generated/.gitkeep
