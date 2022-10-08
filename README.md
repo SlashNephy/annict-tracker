@@ -8,6 +8,8 @@
 
 - `NEXTAUTH_URL`
   - アプリがデプロイされる URL を指定します。例えば、ローカル起動の場合は `http://localhost:3000` としてください。
+- `NEXTAUTH_SECRET`
+  - Cookie のシークレットです。本番環境では必須です。https://next-auth.js.org/configuration/options#secret
 - `ANNICT_CLIENT_ID`, `ANNICT_CLIENT_SECRET`
   - Annict の OAuth 2 クライアント ID 及びシークレットです。https://annict.com/oauth/applications/new で発行できます。
 
