@@ -25,5 +25,3 @@ jobs:
     with:
       image-name: 'ghcr.io/slashnephy/annict-tracker'
       image-platforms: 'linux/amd64'
-      env: |
-        BUILD_DOCKER_IMAGE=1

@@ -193,7 +193,5 @@ dist
 graphql/generated/*
 !graphql/generated/.gitkeep
 
-# Firebase
-.firebase
-.firebaserc
-firebase-debug.log
+# Vercel
+.vercel
