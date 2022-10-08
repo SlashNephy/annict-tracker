@@ -20,7 +20,7 @@ query getViewerPrograms {
           name
         }
         episode {
-          annictId
+          id
           number
           numberText
           title

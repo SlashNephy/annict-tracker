@@ -1,12 +1,15 @@
 import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
 import { IconCheck } from '@tabler/icons'
+import { useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 
 import type { Sdk } from '../graphql/generated/sdk'
 import type { ViewerProgram } from '../lib/services/annict'
 
 export const RecordButton: React.FC<{ program: ViewerProgram; client: Sdk }> = ({ program, client }) => {
+  const query = useQueryClient()
+
   return (
     <Button
       leftIcon={<IconCheck />}
@@ -18,13 +21,14 @@ export const RecordButton: React.FC<{ program: ViewerProgram; client: Sdk }> = (
       onClick={() => {
         client
           .createRecord({
-            episodeId: program.episode.annictId as unknown as string,
+            episodeId: program.episode.id,
           })
           .then(() => {
             showNotification({
               title: '記録しました！',
               message: `${program.work.title} ${program.episode.numberText ?? `#${program.episode.number}`}`,
             })
+            void query.invalidateQueries(['programs'])
           })
           .catch((e) => {
             showNotification({

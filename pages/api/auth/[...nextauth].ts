@@ -13,7 +13,7 @@ const annict: OAuthConfig<AnnictProfile> = {
     url: 'https://api.annict.com/oauth/authorize',
     params: {
       response_type: 'code',
-      scope: 'read',
+      scope: 'read write',
     },
   },
   token: 'https://api.annict.com/oauth/token',
