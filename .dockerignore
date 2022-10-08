@@ -12,7 +12,6 @@ node_modules
 .gitignore
 .graphqlconfig
 .prettierrc.js
-codegen.yml
 Dockerfile
 LICENSE
 README.md

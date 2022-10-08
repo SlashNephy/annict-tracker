@@ -9,6 +9,9 @@ FROM --platform=$BUILDPLATFORM node:18.10.0-bullseye-slim AS build
 ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl
+
 COPY --from=cache /app/node_modules/ ./node_modules/
 COPY ./ ./
 RUN yarn generate && yarn build
