@@ -14,6 +14,7 @@ import { createAnnictClient } from '../lib/services/annict'
 import type { Sdk } from '../graphql/generated/sdk'
 import type { ViewerProgram } from '../lib/services/annict'
 
+// eslint-disable-next-line import/order
 import '@slashnephy/typescript-extension'
 
 const Index: React.FC = () => {
@@ -26,6 +27,7 @@ const Index: React.FC = () => {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
   const client: Sdk = useMemo(() => createAnnictClient(accessToken), [accessToken])
 
