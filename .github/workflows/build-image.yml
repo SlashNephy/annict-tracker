@@ -23,5 +23,5 @@ jobs:
   build:
     uses: SlashNephy/.github/.github/workflows/docker-build.yml@master
     with:
-      image-name: 'ghcr.io/slashnephy/anime-calendar'
+      image-name: 'ghcr.io/slashnephy/annict-tracker'
       image-platforms: 'linux/amd64'

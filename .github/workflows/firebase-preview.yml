@@ -1,15 +1,16 @@
-name: 'Deploy'
+name: 'Firebase Preview'
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    branches-ignore:
+      - 'renovate/**'
 
 permissions:
   contents: read
 
 jobs:
   deploy:
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -32,6 +33,5 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ANIME_CALENDAR_BF747 }}'
-          channelId: 'live'
-          projectId: 'anime-calendar-bf747'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ANNICT_TRACKER }}'
+          projectId: 'annict-tracker'

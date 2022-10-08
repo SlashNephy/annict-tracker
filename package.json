@@ -1,10 +1,10 @@
 {
-  "name": "anime-calendar",
+  "name": "annict-tracker",
   "version": "1.0.0",
   "author": "SlashNephy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SlashNephy/anime-calendar"
+    "url": "https://github.com/SlashNephy/annict-tracker"
   },
   "license": "MIT",
   "scripts": {

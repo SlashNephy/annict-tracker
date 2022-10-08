@@ -2924,9 +2924,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"anime-calendar@workspace:.":
+"annict-tracker@workspace:.":
   version: 0.0.0-use.local
-  resolution: "anime-calendar@workspace:."
+  resolution: "annict-tracker@workspace:."
   dependencies:
     "@emotion/react": 11.10.4
     "@emotion/server": 11.10.0

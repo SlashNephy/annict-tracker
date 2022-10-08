@@ -1,4 +1,4 @@
-# anime-calendar
+# annict-tracker
 
 ## ローカル起動
 
