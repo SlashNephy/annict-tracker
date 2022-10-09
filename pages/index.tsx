@@ -1,8 +1,8 @@
-import { Anchor, Button, Card, Checkbox, Container, Image, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { Anchor, Button, Card, Checkbox, Container, Group, Image, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
 import { IconPhotoOff } from '@tabler/icons'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { format, secondsToMilliseconds } from 'date-fns'
+import { format, getYear, secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
 import React, { useEffect, useMemo } from 'react'
 
@@ -10,8 +10,9 @@ import { DateBadge } from '../components/DateBadge'
 import { RecordButton } from '../components/RecordButton'
 import { RelativeTimeLabel } from '../components/RelativeTimeLabel'
 import { SignInButton } from '../components/SignInButton'
-import { StatusState } from '../graphql/generated/types'
-import { createAnnictClient } from '../lib/services/annict'
+import { SeasonName, StatusState } from '../graphql/generated/types'
+import { createAnnictClient, getCurrentSeason } from '../lib/services/annict'
+import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { intoProgramModel } from '../models/ProgramModel'
 import packageJson from '../package.json'
 
@@ -33,9 +34,18 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
   const query = useQueryClient()
   const client = useMemo(() => createAnnictClient(accessToken), [accessToken])
 
+  const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
+  const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useLocalStorage({
+    key: 'only-current-season',
+    defaultValue: false,
+  })
   const [statusFilters, setStatusFilters] = useLocalStorage<StatusFilter[]>({
     key: 'status-filters',
     defaultValue: ['watching'],
+  })
+  const [seasonFilters, setSeasonFilters] = useLocalStorage<SeasonName[]>({
+    key: 'season-filters',
+    defaultValue: [SeasonName.Spring, SeasonName.Summer, SeasonName.Autumn, SeasonName.Winter],
   })
   const [timeFilters, setTimeFilters] = useLocalStorage<TimeFilter[]>({
     key: 'time-filters',
@@ -63,9 +73,32 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
               return statusFilters.includes('hold')
             case StatusState.StopWatching:
               return statusFilters.includes('dropped')
-            default:
+            case StatusState.NoState:
               return statusFilters.includes('no_status')
+            default:
+              throw new Error('Unexpected value')
           }
+        })
+        ?.filter((p) => {
+          switch (p.work.seasonName) {
+            case SeasonName.Spring:
+              return seasonFilters.includes(SeasonName.Spring)
+            case SeasonName.Summer:
+              return seasonFilters.includes(SeasonName.Summer)
+            case SeasonName.Autumn:
+              return seasonFilters.includes(SeasonName.Autumn)
+            case SeasonName.Winter:
+              return seasonFilters.includes(SeasonName.Winter)
+            default:
+              return true
+          }
+        })
+        ?.filter((p) => {
+          if (!isOnlyCurrentSeason) {
+            return true
+          }
+
+          return p.work.seasonYear === getYear(new Date()) && p.work.seasonName === getCurrentSeason()
         })
         ?.map(intoProgramModel)
         ?.filter((p) => {
@@ -78,8 +111,10 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
               return timeFilters.includes('tomorrow')
             case 'finished':
               return timeFilters.includes('finished')
-            default:
+            case 'future':
               return timeFilters.includes('future')
+            default:
+              throw new Error('Unexpected value')
           }
         })
         ?.filter((p) => {
@@ -96,13 +131,15 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
               return dayFilters.includes('thursday')
             case 'friday':
               return dayFilters.includes('friday')
-            default:
+            case 'saturday':
               return dayFilters.includes('saturday')
+            default:
+              throw new Error('Unexpected value')
           }
         })
         ?.groupBy((p) => p.work.annictId) ?? new Map()
     )
-  }, [data, statusFilters, timeFilters, dayFilters])
+  }, [data, statusFilters, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters])
 
   // 定期的に再取得する
   useEffect(() => {
@@ -118,6 +155,29 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
     <Container>
       <Card shadow="sm" p="lg" radius="md" mb="xl" mt="xl" withBorder>
         <Card.Section>
+          <Group>
+            <Checkbox
+              mt="md"
+              ml="md"
+              mb="md"
+              label="ダークモード"
+              checked={colorScheme === 'dark'}
+              onChange={() => {
+                toggleColorScheme()
+              }}
+            />
+            <Checkbox
+              mt="md"
+              ml="md"
+              mb="md"
+              label="今期に絞る"
+              checked={isOnlyCurrentSeason}
+              onChange={(event) => {
+                setIsOnlyCurrentSeason(event.target.checked)
+              }}
+            />
+          </Group>
+
           <Checkbox.Group
             mt="md"
             ml="md"
@@ -134,6 +194,22 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
             <Checkbox value="hold" label="一時中断" />
             <Checkbox value="dropped" label="視聴中止" />
             <Checkbox value="no_status" label="未設定" />
+          </Checkbox.Group>
+
+          <Checkbox.Group
+            mt="md"
+            ml="md"
+            mb="md"
+            label="シーズン"
+            value={seasonFilters}
+            onChange={(value) => {
+              setSeasonFilters(value as SeasonName[])
+            }}
+          >
+            <Checkbox value={SeasonName.Spring} label="春" />
+            <Checkbox value={SeasonName.Summer} label="夏" />
+            <Checkbox value={SeasonName.Autumn} label="秋" />
+            <Checkbox value={SeasonName.Winter} label="冬" />
           </Checkbox.Group>
 
           <Checkbox.Group
