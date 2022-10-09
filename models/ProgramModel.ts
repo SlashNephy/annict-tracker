@@ -145,7 +145,8 @@ const formatImageUrl = (program: ViewerProgram): string | null => {
     return null
   }
 
-  return url
+  // noinspection HttpUrlsUsage
+  return url.replace('http://', 'https://')
 }
 
 const calculateRemainingEpisodes = (program: ViewerProgram): EpisodeModel[] => {
