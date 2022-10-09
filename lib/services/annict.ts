@@ -42,3 +42,8 @@ const exampleAnnictProfile = {
 export type ViewerProgram = NonNullable<
   NonNullable<NonNullable<NonNullable<GetViewerProgramsQuery['viewer']>['programs']>['nodes']>[0]
 >
+
+export type WorkEpisode = Omit<
+  NonNullable<NonNullable<NonNullable<ViewerProgram['work']['episodes']>['nodes']>[0]>,
+  'sortNumber'
+>

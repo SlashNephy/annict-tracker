@@ -1,78 +1,232 @@
-import { Card, Container, Group, Image, SimpleGrid, Text } from '@mantine/core'
+import { Anchor, Button, Card, Checkbox, Container, Image, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { useLocalStorage } from '@mantine/hooks'
 import { IconPhotoOff } from '@tabler/icons'
-import { useQuery } from '@tanstack/react-query'
-import { format } from 'date-fns'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { format, secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 
 import { DateBadge } from '../components/DateBadge'
 import { RecordButton } from '../components/RecordButton'
+import { RelativeTimeLabel } from '../components/RelativeTimeLabel'
 import { SignInButton } from '../components/SignInButton'
 import { StatusState } from '../graphql/generated/types'
 import { createAnnictClient } from '../lib/services/annict'
+import { intoProgramModel } from '../models/ProgramModel'
+import packageJson from '../package.json'
 
-import type { Sdk } from '../graphql/generated/sdk'
-import type { ViewerProgram } from '../lib/services/annict'
-
-// eslint-disable-next-line import/order
-import '@slashnephy/typescript-extension'
+import type { DayFilter, StatusFilter, TimeFilter } from '../models/filters'
+import type { ProgramModel } from '../models/ProgramModel'
 
 const Index: React.FC = () => {
   const { data: session } = useSession()
 
-  return (
-    <Container>
-      {session?.accessToken === undefined ? <SignInButton /> : <AnnictSession accessToken={session.accessToken} />}
-    </Container>
-  )
+  if (session?.accessToken === undefined) {
+    return <SignInButton />
+  }
+
+  return <AnnictSession accessToken={session.accessToken} />
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
-  const client: Sdk = useMemo(() => createAnnictClient(accessToken), [accessToken])
+  const query = useQueryClient()
+  const client = useMemo(() => createAnnictClient(accessToken), [accessToken])
 
-  const { data: programs } = useQuery<Map<number, ViewerProgram[]>>(
-    [accessToken, client, 'programs'],
-    async () => {
-      const response = await client.getViewerPrograms()
-      const schedules = response.viewer?.programs?.nodes
+  const [statusFilters, setStatusFilters] = useLocalStorage<StatusFilter[]>({
+    key: 'status-filters',
+    defaultValue: ['watching'],
+  })
+  const [timeFilters, setTimeFilters] = useLocalStorage<TimeFilter[]>({
+    key: 'time-filters',
+    defaultValue: ['yesterday', 'today', 'tomorrow', 'finished'],
+  })
+  const [dayFilters, setDayFilters] = useLocalStorage<DayFilter[]>({
+    key: 'day-filters',
+    defaultValue: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
+  })
+
+  const { data } = useQuery([accessToken, client, 'programs'], async () => await client.getViewerPrograms())
+  const programs = useMemo<Map<number, ProgramModel[]>>(() => {
+    return (
+      data?.viewer?.programs?.nodes
         ?.filter((p): p is NonNullable<typeof p> => p !== null)
-        .filter((p) => p.work.viewerStatusState === StatusState.Watching)
+        ?.filter((p) => {
+          switch (p.work.viewerStatusState) {
+            case StatusState.Watching:
+              return statusFilters.includes('watching')
+            case StatusState.Watched:
+              return statusFilters.includes('watched')
+            case StatusState.WannaWatch:
+              return statusFilters.includes('planing')
+            case StatusState.OnHold:
+              return statusFilters.includes('hold')
+            case StatusState.StopWatching:
+              return statusFilters.includes('dropped')
+            default:
+              return statusFilters.includes('no_status')
+          }
+        })
+        ?.map(intoProgramModel)
+        ?.filter((p) => {
+          switch (p.filters.time) {
+            case 'yesterday':
+              return timeFilters.includes('yesterday')
+            case 'today':
+              return timeFilters.includes('today')
+            case 'tomorrow':
+              return timeFilters.includes('tomorrow')
+            case 'finished':
+              return timeFilters.includes('finished')
+            default:
+              return timeFilters.includes('future')
+          }
+        })
+        ?.filter((p) => {
+          switch (p.filters.day) {
+            case 'sunday':
+              return dayFilters.includes('sunday')
+            case 'monday':
+              return dayFilters.includes('monday')
+            case 'tuesday':
+              return dayFilters.includes('tuesday')
+            case 'wednesday':
+              return dayFilters.includes('wednesday')
+            case 'thursday':
+              return dayFilters.includes('thursday')
+            case 'friday':
+              return dayFilters.includes('friday')
+            default:
+              return dayFilters.includes('saturday')
+          }
+        })
+        ?.groupBy((p) => p.work.annictId) ?? new Map()
+    )
+  }, [data, statusFilters, timeFilters, dayFilters])
 
-      return schedules?.groupBy((p) => p.work.annictId) ?? new Map()
-    },
-    {
-      initialData: () => new Map(),
+  // 定期的に再取得する
+  useEffect(() => {
+    const timer = setInterval(() => {
+      void query.invalidateQueries(['programs'])
+    }, secondsToMilliseconds(60))
+    return () => {
+      clearInterval(timer)
     }
-  )
+  }, [query])
 
   return (
-    <SimpleGrid cols={3}>
-      {Array.from(programs.values()).map(([p]) => (
-        <Card key={p.id} shadow="sm" p="lg" radius="md" withBorder>
-          <Card.Section>
-            {typeof p.work.image?.recommendedImageUrl === 'string' ? (
-              <Image src={p.work.image.recommendedImageUrl} height={200} alt={p.work.title} />
-            ) : (
-              <IconPhotoOff />
-            )}
-          </Card.Section>
+    <Container>
+      <Card shadow="sm" p="lg" radius="md" mb="xl" mt="xl" withBorder>
+        <Card.Section>
+          <Checkbox.Group
+            mt="md"
+            ml="md"
+            mb="md"
+            label="視聴ステータス"
+            value={statusFilters}
+            onChange={(value) => {
+              setStatusFilters(value as StatusFilter[])
+            }}
+          >
+            <Checkbox value="watching" label="見てる" />
+            <Checkbox value="watched" label="見た" />
+            <Checkbox value="planing" label="見たい" />
+            <Checkbox value="hold" label="一時中断" />
+            <Checkbox value="dropped" label="視聴中止" />
+            <Checkbox value="no_status" label="未設定" />
+          </Checkbox.Group>
 
-          <Group position="apart" mt="md" mb="xs">
-            <Text>{p.work.title}</Text>
-            <Text weight={500}>
-              {p.episode.numberText ?? `#${p.episode.number}`} {p.episode.title}
-            </Text>
-            <Text>{p.channel.name}</Text>
-            <Text>
-              {format(new Date(p.startedAt), 'yyyy/MM/dd HH:mm')} <DateBadge time={new Date(p.startedAt)} />
-            </Text>
-          </Group>
+          <Checkbox.Group
+            mt="md"
+            ml="md"
+            mb="md"
+            label="放送日"
+            value={timeFilters}
+            onChange={(value) => {
+              setTimeFilters(value as TimeFilter[])
+            }}
+          >
+            <Checkbox value="finished" label="昨日以前" />
+            <Checkbox value="yesterday" label="昨日" />
+            <Checkbox value="today" label="今日" />
+            <Checkbox value="tomorrow" label="明日" />
+            <Checkbox value="future" label="明日以降" />
+          </Checkbox.Group>
 
-          <RecordButton program={p} client={client} />
-        </Card>
-      ))}
-    </SimpleGrid>
+          <Checkbox.Group
+            mt="md"
+            ml="md"
+            mb="md"
+            label="放送曜日"
+            value={dayFilters}
+            onChange={(value) => {
+              setDayFilters(value as DayFilter[])
+            }}
+          >
+            <Checkbox value="sunday" label="日曜" />
+            <Checkbox value="monday" label="月曜" />
+            <Checkbox value="tuesday" label="火曜" />
+            <Checkbox value="wednesday" label="水曜" />
+            <Checkbox value="thursday" label="木曜" />
+            <Checkbox value="friday" label="金曜" />
+            <Checkbox value="saturday" label="土曜" />
+          </Checkbox.Group>
+        </Card.Section>
+      </Card>
+
+      <SimpleGrid cols={3}>
+        {Array.from(programs.values()).map(([p]) => (
+          <Card key={p.id} shadow="sm" p="lg" radius="md" withBorder>
+            <Card.Section>
+              <Image
+                src={p.imageUrl ?? undefined}
+                height={200}
+                alt={p.work.title}
+                withPlaceholder
+                placeholder={<IconPhotoOff />}
+              />
+            </Card.Section>
+
+            <Stack>
+              <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm">
+                <Anchor href={p.workUrl} target="_blank">
+                  {p.work.title}
+                </Anchor>
+              </Title>
+
+              <Text weight={500} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                {p.episode.label}
+              </Text>
+
+              <Text style={{ whiteSpace: 'nowrap' }}>{p.channel.name}</Text>
+
+              <Text>
+                {format(p.startAt, 'yyyy/MM/dd')} ({p.startAtDay}) {format(p.startAt, 'HH:mm')} (
+                <RelativeTimeLabel time={p.startAt} />)
+                <DateBadge program={p} />
+              </Text>
+
+              <Button.Group>
+                <RecordButton program={p} client={client} />
+              </Button.Group>
+            </Stack>
+          </Card>
+        ))}
+      </SimpleGrid>
+
+      <Card mt="md" mb="md">
+        <Text>
+          <Anchor href={packageJson.repository.url} target="_blank">
+            {packageJson.name}
+          </Anchor>{' '}
+          made with &hearts; by{' '}
+          <Anchor href="https://github.com/SlashNephy" target="_blank">
+            @SlashNephy
+          </Anchor>
+          .
+        </Text>
+      </Card>
+    </Container>
   )
 }
 

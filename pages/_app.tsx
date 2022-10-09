@@ -11,6 +11,9 @@ import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import type { Session } from 'next-auth'
 import type { AppProps } from 'next/app'
 
+// eslint-disable-next-line import/order
+import '@slashnephy/typescript-extension'
+
 const queryClient = new QueryClient()
 
 const MyApp: React.FC<AppProps<{ session: Session }>> = ({ Component, pageProps: { session, ...pageProps } }) => {

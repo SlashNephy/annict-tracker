@@ -9,7 +9,7 @@ class MyDocument extends Document {
 
   public render(): React.ReactElement {
     return (
-      <Html lang="en">
+      <Html lang="ja">
         <Head>
           <link rel="icon" href="/favicon.ico" />
         </Head>

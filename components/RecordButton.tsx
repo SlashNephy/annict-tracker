@@ -1,13 +1,13 @@
-import { Button } from '@mantine/core'
+import { Button, Menu } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
-import { IconCheck } from '@tabler/icons'
+import { IconCheck, IconChecks } from '@tabler/icons'
 import { useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 
 import type { Sdk } from '../graphql/generated/sdk'
-import type { ViewerProgram } from '../lib/services/annict'
+import type { ProgramModel } from '../models/ProgramModel'
 
-export const RecordButton: React.FC<{ program: ViewerProgram; client: Sdk }> = ({ program, client }) => {
+export const RecordButton: React.FC<{ program: ProgramModel; client: Sdk }> = ({ program, client }) => {
   const query = useQueryClient()
 
   return (
@@ -26,20 +26,41 @@ export const RecordButton: React.FC<{ program: ViewerProgram; client: Sdk }> = (
           .then(() => {
             showNotification({
               title: '記録しました！',
-              message: `${program.work.title} ${program.episode.numberText ?? `#${program.episode.number}`}`,
+              message: `${program.work.title} ${program.episode.label}`,
             })
             void query.invalidateQueries(['programs'])
           })
           .catch((e) => {
             showNotification({
               title: '記録できませんでした',
-              message: `${program.work.title} ${program.episode.numberText ?? `#${program.episode.number}`}`,
+              message: `${program.work.title} ${program.episode.label}`,
             })
             console.error(e)
           })
       }}
     >
-      記録する
+      記録
     </Button>
+  )
+}
+
+export const BatchRecordButton: React.FC<{ program: ProgramModel; client: Sdk }> = ({ program }) => {
+  return (
+    <Menu shadow="md" width={200}>
+      <Menu.Target>
+        <Button leftIcon={<IconChecks />} variant="light" color="green" mt="md" radius="md">
+          まとめて記録
+        </Button>
+      </Menu.Target>
+
+      <Menu.Dropdown>
+        <Menu.Label>未視聴エピソード</Menu.Label>
+        {program.remainingEpisodes.length > 0 ? (
+          program.remainingEpisodes.map((e) => <Menu.Item key={e.id}>{e.label}</Menu.Item>)
+        ) : (
+          <Menu.Item disabled>未視聴エピソードはありません</Menu.Item>
+        )}
+      </Menu.Dropdown>
+    </Menu>
   )
 }

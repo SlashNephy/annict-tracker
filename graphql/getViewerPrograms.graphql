@@ -15,6 +15,15 @@ query getViewerPrograms {
           officialSiteUrl
           seasonName
           seasonYear
+          episodes {
+            nodes {
+              id
+              number
+              numberText
+              title
+              sortNumber
+            }
+          }
         }
         channel {
           name
