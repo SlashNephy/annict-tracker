@@ -1,5 +1,13 @@
 # annict-tracker
 
+annict-tracker は Annict の視聴記録を便利にする Web アプリケーションです。(鋭意開発中...)
+
+## Gallery
+
+<img width="645" alt="image" src="https://user-images.githubusercontent.com/7302150/194802597-f9b0a1f4-9964-4e9c-8765-b0013491ca56.png">
+
+<img width="1800" alt="image" src="https://user-images.githubusercontent.com/7302150/194802526-4cb9c483-e4b6-4f9f-a578-99aa0430b6ee.png">
+
 ## Get Started
 
 ### 環境変数
