@@ -16,10 +16,10 @@ import {
 } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
 import { IconAlertTriangle, IconBrandGithub, IconPhotoOff } from '@tabler/icons'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { format, getYear, secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 import { DateBadge } from '../components/DateBadge'
 import { RecordButton } from '../components/RecordButton'
@@ -76,7 +76,6 @@ const Index: React.FC = () => {
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
-  const query = useQueryClient()
   const client = useMemo(() => createAnnictClient(accessToken), [accessToken])
 
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
@@ -107,6 +106,7 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
     {
       retry: true,
       retryDelay: secondsToMilliseconds(10),
+      refetchInterval: secondsToMilliseconds(60),
     }
   )
   const programs = useMemo<Map<number, ProgramModel[]>>(() => {
@@ -192,16 +192,6 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
         ?.groupBy((p) => p.work.annictId) ?? new Map()
     )
   }, [data, statusFilters, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters])
-
-  // 定期的に再取得する
-  useEffect(() => {
-    const timer = setInterval(() => {
-      void query.invalidateQueries(['programs'])
-    }, secondsToMilliseconds(60))
-    return () => {
-      clearInterval(timer)
-    }
-  }, [query])
 
   return (
     <Container>
