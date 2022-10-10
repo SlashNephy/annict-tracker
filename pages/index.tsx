@@ -102,7 +102,7 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
   })
 
   const { data, isLoading, isError, error } = useQuery(
-    [accessToken, client, 'programs'],
+    ['programs', accessToken],
     async () => await client.getViewerPrograms(),
     {
       retry: true,

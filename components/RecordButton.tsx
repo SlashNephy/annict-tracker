@@ -28,7 +28,7 @@ export const RecordButton: React.FC<{ program: ProgramModel; client: Sdk }> = ({
               title: '記録しました！',
               message: `${program.work.title} ${program.episode.label}`,
             })
-            void query.invalidateQueries(['programs'])
+            query.invalidateQueries(['programs']).catch(console.error)
           })
           .catch((e) => {
             showNotification({
