@@ -1,9 +1,8 @@
 import NextAuth from 'next-auth'
 
-import type { AnnictProfile } from '../../../lib/services/annict'
 import type { OAuthConfig } from 'next-auth/providers'
 
-const annict: OAuthConfig<AnnictProfile> = {
+const annict: OAuthConfig<unknown> = {
   id: 'annict',
   name: 'Annict',
   type: 'oauth',
@@ -17,15 +16,6 @@ const annict: OAuthConfig<AnnictProfile> = {
     },
   },
   token: 'https://api.annict.com/oauth/token',
-  userinfo: 'https://api.annict.com/v1/me',
-  profile(profile) {
-    return {
-      id: profile.id.toString(),
-      name: profile.name,
-      email: profile.email,
-      image: profile.avatar_url,
-    }
-  },
 }
 
 export default NextAuth({
