@@ -12,7 +12,6 @@ query getViewerPrograms {
           image {
             recommendedImageUrl
           }
-          officialSiteUrl
           seasonName
           seasonYear
           episodes {
@@ -27,12 +26,14 @@ query getViewerPrograms {
         }
         channel {
           name
+          scChid
         }
         episode {
           id
           number
           numberText
           title
+          sortNumber
         }
         startedAt
         state

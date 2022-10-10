@@ -150,15 +150,10 @@ const formatImageUrl = (program: ViewerProgram): string | null => {
 }
 
 const calculateRemainingEpisodes = (program: ViewerProgram): EpisodeModel[] => {
-  const currentEpisodeNumber = program.episode.number
-  if (currentEpisodeNumber === null) {
-    return []
-  }
-
   return (
     program.work.episodes?.nodes
       ?.filter((e): e is NonNullable<typeof e> => e !== null)
-      ?.filter((e) => e.number !== null && currentEpisodeNumber <= e.number)
+      ?.filter((e) => program.episode.sortNumber <= e.sortNumber)
       ?.sort((a, b) => a.sortNumber - b.sortNumber)
       ?.map((e) => ({
         ...e,

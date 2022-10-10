@@ -45,10 +45,7 @@ export type ViewerProgram = NonNullable<
   NonNullable<NonNullable<NonNullable<GetViewerProgramsQuery['viewer']>['programs']>['nodes']>[0]
 >
 
-export type WorkEpisode = Omit<
-  NonNullable<NonNullable<NonNullable<ViewerProgram['work']['episodes']>['nodes']>[0]>,
-  'sortNumber'
->
+export type WorkEpisode = NonNullable<NonNullable<NonNullable<ViewerProgram['work']['episodes']>['nodes']>[0]>
 
 export const getCurrentSeason = (): SeasonName => {
   const month = getMonth(new Date()) + 1
