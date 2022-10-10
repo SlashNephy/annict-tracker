@@ -1,4 +1,5 @@
 import {
+  Alert,
   Anchor,
   Button,
   Card,
@@ -14,7 +15,7 @@ import {
   Title,
 } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
-import { IconBrandGithub, IconPhotoOff } from '@tabler/icons'
+import { IconAlertTriangle, IconBrandGithub, IconPhotoOff } from '@tabler/icons'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { format, getYear, secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
@@ -100,7 +101,14 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
     defaultValue: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
   })
 
-  const { data, isLoading } = useQuery([accessToken, client, 'programs'], async () => await client.getViewerPrograms())
+  const { data, isLoading, isError, error } = useQuery(
+    [accessToken, client, 'programs'],
+    async () => await client.getViewerPrograms(),
+    {
+      retry: true,
+      retryDelay: secondsToMilliseconds(10),
+    }
+  )
   const programs = useMemo<Map<number, ProgramModel[]>>(() => {
     return (
       data?.viewer?.programs?.nodes
@@ -301,6 +309,10 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
             <Text>データ取得中です...</Text>
           </Group>
         </Center>
+      ) : isError ? (
+        <Alert icon={<IconAlertTriangle size={16} />} title="Annict API が利用できません" color="red">
+          {error?.toString()}
+        </Alert>
       ) : (
         <>
           <SimpleGrid cols={3}>
