@@ -5,8 +5,8 @@ import React from 'react'
 
 export const SignInButton: React.FC = () => {
   return (
-    <Button leftIcon={<IconLogin />} onClick={() => void signIn('annict')}>
-      Sign In
+    <Button fullWidth color="pink.6" leftIcon={<IconLogin />} onClick={() => void signIn('annict')}>
+      Annict でログイン
     </Button>
   )
 }

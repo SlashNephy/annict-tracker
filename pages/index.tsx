@@ -1,6 +1,20 @@
-import { Anchor, Button, Card, Checkbox, Container, Group, Image, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import {
+  Anchor,
+  Button,
+  Card,
+  Center,
+  Checkbox,
+  Container,
+  Group,
+  Image,
+  Loader,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
-import { IconPhotoOff } from '@tabler/icons'
+import { IconBrandGithub, IconPhotoOff } from '@tabler/icons'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { format, getYear, secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
@@ -23,7 +37,37 @@ const Index: React.FC = () => {
   const { data: session } = useSession()
 
   if (session?.accessToken === undefined) {
-    return <SignInButton />
+    return (
+      <>
+        <Container mt="xl">
+          <Center>
+            <Card shadow="sm" p="xl" radius="md" mb="xl" mt="xl" withBorder>
+              <Card.Section m="md" mt="xl" pt="md">
+                <Title align="center">{packageJson.name}</Title>
+              </Card.Section>
+
+              <Text size="sm" mb="lg">
+                {packageJson.name} は Annict の視聴記録を便利にする Web アプリケーションです。
+                <br />
+                利用するには Annict でログインする必要があります。
+              </Text>
+
+              <SignInButton />
+
+              <Text size="sm" color="dimmed" mt="lg">
+                {packageJson.name} がユーザーの利用状況を収集することはありません。
+                <br />
+                ソースコードは{' '}
+                <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
+                  <IconBrandGithub size={16} /> GitHub
+                </Anchor>{' '}
+                で公開しています。
+              </Text>
+            </Card>
+          </Center>
+        </Container>
+      </>
+    )
   }
 
   return <AnnictSession accessToken={session.accessToken} />
@@ -56,7 +100,7 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
     defaultValue: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
   })
 
-  const { data } = useQuery([accessToken, client, 'programs'], async () => await client.getViewerPrograms())
+  const { data, isLoading } = useQuery([accessToken, client, 'programs'], async () => await client.getViewerPrograms())
   const programs = useMemo<Map<number, ProgramModel[]>>(() => {
     return (
       data?.viewer?.programs?.nodes
@@ -250,45 +294,56 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
         </Card.Section>
       </Card>
 
-      <SimpleGrid cols={3}>
-        {Array.from(programs.values()).map(([p]) => (
-          <Card key={p.id} shadow="sm" p="lg" radius="md" withBorder>
-            <Card.Section>
-              <Image
-                src={p.imageUrl ?? undefined}
-                height={200}
-                alt={p.work.title}
-                withPlaceholder
-                placeholder={<IconPhotoOff />}
-              />
-            </Card.Section>
+      {isLoading ? (
+        <Center p="xl" m="xl">
+          <Group>
+            <Loader variant="dots" color="pink.6" />
+            <Text>データ取得中です...</Text>
+          </Group>
+        </Center>
+      ) : (
+        <>
+          <SimpleGrid cols={3}>
+            {Array.from(programs.values()).map(([p]) => (
+              <Card key={p.id} shadow="sm" p="lg" radius="md" withBorder>
+                <Card.Section>
+                  <Image
+                    src={p.imageUrl ?? undefined}
+                    height={200}
+                    alt={p.work.title}
+                    withPlaceholder
+                    placeholder={<IconPhotoOff />}
+                  />
+                </Card.Section>
 
-            <Stack>
-              <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm">
-                <Anchor href={p.workUrl} target="_blank">
-                  {p.work.title}
-                </Anchor>
-              </Title>
+                <Stack>
+                  <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm">
+                    <Anchor href={p.workUrl} target="_blank">
+                      {p.work.title}
+                    </Anchor>
+                  </Title>
 
-              <Text weight={500} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                {p.episode.label}
-              </Text>
+                  <Text weight={500} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                    {p.episode.label}
+                  </Text>
 
-              <Text style={{ whiteSpace: 'nowrap' }}>{p.channel.name}</Text>
+                  <Text style={{ whiteSpace: 'nowrap' }}>{p.channel.name}</Text>
 
-              <Text>
-                {format(p.startAt, 'yyyy/MM/dd')} ({p.startAtDay}) {format(p.startAt, 'HH:mm')} (
-                <RelativeTimeLabel time={p.startAt} />)
-                <DateBadge program={p} />
-              </Text>
+                  <Text>
+                    {format(p.startAt, 'yyyy/MM/dd')} ({p.startAtDay}) {format(p.startAt, 'HH:mm')} (
+                    <RelativeTimeLabel time={p.startAt} />)
+                    <DateBadge program={p} />
+                  </Text>
 
-              <Button.Group>
-                <RecordButton program={p} client={client} />
-              </Button.Group>
-            </Stack>
-          </Card>
-        ))}
-      </SimpleGrid>
+                  <Button.Group>
+                    <RecordButton program={p} client={client} />
+                  </Button.Group>
+                </Stack>
+              </Card>
+            ))}
+          </SimpleGrid>
+        </>
+      )}
 
       <Card mt="md" mb="md">
         <Text>
