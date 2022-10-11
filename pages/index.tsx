@@ -47,8 +47,8 @@ const Index: React.FC = () => {
                 <Title align="center">{packageJson.name}</Title>
               </Card.Section>
 
-              <Text size="sm" mb="lg">
-                {packageJson.name} は Annict の視聴記録を便利にする Web アプリケーションです。
+              <Text size="md" mb="lg">
+                {packageJson.name} は Annict での視聴記録を便利にする Web アプリケーションです。
                 <br />
                 利用するには Annict でログインする必要があります。
               </Text>
@@ -56,6 +56,8 @@ const Index: React.FC = () => {
               <SignInButton />
 
               <Text size="sm" color="dimmed" mt="lg">
+                {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
+                <br />
                 {packageJson.name} がユーザーの利用状況を収集することはありません。
                 <br />
                 ソースコードは{' '}
