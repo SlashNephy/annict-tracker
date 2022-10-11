@@ -7,6 +7,7 @@ import Head from 'next/head'
 import React from 'react'
 
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
+import packageJson from '../package.json'
 
 import type { Session } from 'next-auth'
 import type { AppProps } from 'next/app'
@@ -22,6 +23,7 @@ const MyApp: React.FC<AppProps<{ session: Session }>> = ({ Component, pageProps:
   return (
     <>
       <Head>
+        <title>{packageJson.name}</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
 
