@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "tsc": "tsc --noEmit",
     "build": "next build",
     "dev": "next dev",
     "format": "concurrently -n format: -m 1 'yarn:format:*'",
@@ -32,6 +33,7 @@
     "@slashnephy/typescript-extension": "0.2.3",
     "@tabler/icons": "1.101.0",
     "@tanstack/react-query": "4.10.1",
+    "caching-decorator": "1.0.2",
     "date-fns": "2.29.3",
     "fast-xml-parser": "4.0.10",
     "graphql-request": "4.3.0",

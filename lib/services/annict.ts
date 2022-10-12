@@ -1,10 +1,9 @@
-import { getMonth } from 'date-fns'
 import { GraphQLClient } from 'graphql-request'
 
 import { getSdk } from '../../graphql/generated/sdk'
 import { SeasonName } from '../../graphql/generated/types'
 
-import type { GetViewerProgramsQuery } from '../../graphql/generated/operations'
+import type { GetViewerLibraryEntriesQuery } from '../../graphql/generated/operations'
 import type { Sdk } from '../../graphql/generated/sdk'
 
 export const createAnnictClient = (accessToken: string): Sdk => {
@@ -17,25 +16,41 @@ export const createAnnictClient = (accessToken: string): Sdk => {
   return getSdk(client)
 }
 
-export type ViewerProgram = NonNullable<
-  NonNullable<NonNullable<NonNullable<GetViewerProgramsQuery['viewer']>['programs']>['nodes']>[0]
+export type AnnictLibraryEntry = NonNullable<
+  NonNullable<NonNullable<NonNullable<GetViewerLibraryEntriesQuery['viewer']>['libraryEntries']>['nodes']>[0]
 >
+export type AnnictWork = NonNullable<AnnictLibraryEntry['work']>
+export type AnnictProgram = NonNullable<AnnictLibraryEntry['nextProgram']>
+export type AnnictEpisode = NonNullable<AnnictLibraryEntry['nextEpisode']>
 
-export type WorkEpisode = NonNullable<NonNullable<NonNullable<ViewerProgram['work']['episodes']>['nodes']>[0]>
+export class AnnictSeason {
+  public constructor(public readonly year: number | null, public readonly name: SeasonName | null) {}
 
-export const getCurrentSeason = (): SeasonName => {
-  const month = getMonth(new Date()) + 1
-  if (1 <= month && month <= 3) {
-    return SeasonName.Winter
-  }
-  if (4 <= month && month <= 6) {
-    return SeasonName.Spring
-  }
-  if (7 <= month && month <= 9) {
-    return SeasonName.Summer
+  static get #current(): AnnictSeason {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = now.getMonth() + 1
+
+    if (1 <= month && month <= 3) {
+      return new AnnictSeason(year, SeasonName.Winter)
+    } else if (4 <= month && month <= 6) {
+      return new AnnictSeason(year, SeasonName.Spring)
+    } else if (7 <= month && month <= 9) {
+      return new AnnictSeason(year, SeasonName.Summer)
+    } else if (10 <= month && month <= 12) {
+      return new AnnictSeason(year, SeasonName.Autumn)
+    } else {
+      throw new Error(`Unexpected month: ${month}`)
+    }
   }
 
-  return SeasonName.Autumn
+  public get isCurrentSeason(): boolean {
+    return this.year === AnnictSeason.#current.year && this.name === AnnictSeason.#current.name
+  }
+
+  public equals(other?: AnnictSeason): boolean {
+    return this.year === other?.year && this.name === other.name
+  }
 }
 
 export type AnnictProfile = typeof exampleAnnictProfile
@@ -44,7 +59,7 @@ const exampleAnnictProfile = {
   username: 'shimbaco',
   name: 'Koji Shimba',
   description: 'アニメ好きが高じてこのサービスを作りました。聖地巡礼を年に数回しています。',
-  url: 'http://shimba.co',
+  url: 'https://shimba.co',
   avatar_url:
     'https://api-assets.annict.com/paperclip/profiles/1/tombo_avatars/master/d8af7adc8122c96ba7639218fd8b5ede332d42f2.jpg?1431357292',
   background_image_url:

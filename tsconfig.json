@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "typeRoots": ["types"],
     "allowJs": true,
@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+    "experimentalDecorators": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

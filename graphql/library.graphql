@@ -1,0 +1,40 @@
+query getViewerLibraryEntries($after: String) {
+  viewer {
+    libraryEntries(states: [WATCHING], after: $after) {
+      nodes {
+        id
+        work {
+          annictId
+          title
+          viewerStatusState
+          syobocalTid
+          seasonYear
+          seasonName
+          image {
+            recommendedImageUrl
+          }
+        }
+        nextProgram {
+          startedAt
+          state
+          rebroadcast
+          scPid
+          channel {
+            annictId
+            name
+          }
+        }
+        nextEpisode {
+          id
+          number
+          numberText
+          title
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}

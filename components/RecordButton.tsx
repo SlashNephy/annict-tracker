@@ -1,14 +1,18 @@
-import { Button, Menu } from '@mantine/core'
+import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
-import { IconCheck, IconChecks } from '@tabler/icons'
+import { IconCheck } from '@tabler/icons'
 import { useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 
 import type { Sdk } from '../graphql/generated/sdk'
-import type { ProgramModel } from '../models/ProgramModel'
+import type { LibraryEntryModel } from '../models/LibraryEntryModel'
 
-export const RecordButton: React.FC<{ program: ProgramModel; client: Sdk }> = ({ program, client }) => {
+export const RecordButton: React.FC<{ entry: LibraryEntryModel; client: Sdk }> = ({ entry, client }) => {
   const query = useQueryClient()
+
+  if (entry.nextEpisode === null) {
+    return null
+  }
 
   return (
     <Button
@@ -21,19 +25,20 @@ export const RecordButton: React.FC<{ program: ProgramModel; client: Sdk }> = ({
       onClick={() => {
         client
           .createRecord({
-            episodeId: program.episode.id,
+            // FIXME
+            episodeId: entry.nextEpisode?.id ?? '',
           })
           .then(() => {
             showNotification({
               title: '記録しました！',
-              message: `${program.work.title} ${program.episode.label}`,
+              message: `${entry.work.title} ${entry.nextEpisodeLabel}`,
             })
-            query.invalidateQueries(['programs']).catch(console.error)
+            query.invalidateQueries(['entries']).catch(console.error)
           })
           .catch((e) => {
             showNotification({
               title: '記録できませんでした',
-              message: `${program.work.title} ${program.episode.label}`,
+              message: `${entry.work.title} ${entry.nextEpisodeLabel}`,
             })
             console.error(e)
           })
@@ -41,26 +46,5 @@ export const RecordButton: React.FC<{ program: ProgramModel; client: Sdk }> = ({
     >
       記録
     </Button>
-  )
-}
-
-export const BatchRecordButton: React.FC<{ program: ProgramModel; client: Sdk }> = ({ program }) => {
-  return (
-    <Menu shadow="md" width={200}>
-      <Menu.Target>
-        <Button leftIcon={<IconChecks />} variant="light" color="green" mt="md" radius="md">
-          まとめて記録
-        </Button>
-      </Menu.Target>
-
-      <Menu.Dropdown>
-        <Menu.Label>未視聴エピソード</Menu.Label>
-        {program.remainingEpisodes.length > 0 ? (
-          program.remainingEpisodes.map((e) => <Menu.Item key={e.id}>{e.label}</Menu.Item>)
-        ) : (
-          <Menu.Item disabled>未視聴エピソードはありません</Menu.Item>
-        )}
-      </Menu.Dropdown>
-    </Menu>
   )
 }

@@ -17,7 +17,7 @@ import {
 import { useLocalStorage } from '@mantine/hooks'
 import { IconAlertTriangle, IconBrandGithub, IconPhotoOff } from '@tabler/icons'
 import { useQuery } from '@tanstack/react-query'
-import { format, getYear, secondsToMilliseconds } from 'date-fns'
+import { format, secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
 import React, { useMemo } from 'react'
 
@@ -25,14 +25,13 @@ import { DateBadge } from '../components/DateBadge'
 import { RecordButton } from '../components/RecordButton'
 import { RelativeTimeLabel } from '../components/RelativeTimeLabel'
 import { SignInButton } from '../components/SignInButton'
-import { SeasonName, StatusState } from '../graphql/generated/types'
-import { createAnnictClient, getCurrentSeason } from '../lib/services/annict'
+import { SeasonName } from '../graphql/generated/types'
+import { createAnnictClient } from '../lib/services/annict'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
-import { intoProgramModel } from '../models/ProgramModel'
+import { LibraryEntryModel } from '../models/LibraryEntryModel'
 import packageJson from '../package.json'
 
-import type { DayFilter, StatusFilter, TimeFilter } from '../models/filters'
-import type { ProgramModel } from '../models/ProgramModel'
+import type { DayTag, TimeTag } from '../models/filters'
 
 const Index: React.FC = () => {
   const { data: session } = useSession()
@@ -85,56 +84,34 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
     key: 'only-current-season',
     defaultValue: false,
   })
-  const [statusFilters, setStatusFilters] = useLocalStorage<StatusFilter[]>({
-    key: 'status-filters',
-    defaultValue: ['watching'],
-  })
   const [seasonFilters, setSeasonFilters] = useLocalStorage<SeasonName[]>({
     key: 'season-filters',
     defaultValue: [SeasonName.Spring, SeasonName.Summer, SeasonName.Autumn, SeasonName.Winter],
   })
-  const [timeFilters, setTimeFilters] = useLocalStorage<TimeFilter[]>({
+  const [timeFilters, setTimeFilters] = useLocalStorage<TimeTag[]>({
     key: 'time-filters',
     defaultValue: ['yesterday', 'today', 'tomorrow', 'finished'],
   })
-  const [dayFilters, setDayFilters] = useLocalStorage<DayFilter[]>({
+  const [dayFilters, setDayFilters] = useLocalStorage<DayTag[]>({
     key: 'day-filters',
     defaultValue: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
   })
 
   const { data, isLoading, isError, error } = useQuery(
-    ['programs', accessToken],
-    async () => await client.getViewerPrograms(),
+    ['entries', accessToken],
+    async () => await client.getViewerLibraryEntries(),
     {
       retry: true,
       retryDelay: secondsToMilliseconds(10),
       refetchInterval: secondsToMilliseconds(60),
     }
   )
-  const programs = useMemo<Map<number, ProgramModel[]>>(() => {
+  const entries = useMemo<LibraryEntryModel[]>(() => {
     return (
-      data?.viewer?.programs?.nodes
-        ?.filter((p): p is NonNullable<typeof p> => p !== null)
-        ?.filter((p) => {
-          switch (p.work.viewerStatusState) {
-            case StatusState.Watching:
-              return statusFilters.includes('watching')
-            case StatusState.Watched:
-              return statusFilters.includes('watched')
-            case StatusState.WannaWatch:
-              return statusFilters.includes('planing')
-            case StatusState.OnHold:
-              return statusFilters.includes('hold')
-            case StatusState.StopWatching:
-              return statusFilters.includes('dropped')
-            case StatusState.NoState:
-              return statusFilters.includes('no_status')
-            default:
-              throw new Error('Unexpected value')
-          }
-        })
-        ?.filter((p) => {
-          switch (p.work.seasonName) {
+      data?.viewer?.libraryEntries?.nodes
+        ?.filter((e): e is NonNullable<typeof e> => e !== null)
+        ?.filter((e) => {
+          switch (e.work.seasonName) {
             case SeasonName.Spring:
               return seasonFilters.includes(SeasonName.Spring)
             case SeasonName.Summer:
@@ -147,16 +124,16 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
               return true
           }
         })
-        ?.filter((p) => {
+        ?.map((e) => new LibraryEntryModel(e))
+        ?.filter((e) => {
           if (!isOnlyCurrentSeason) {
             return true
           }
 
-          return p.work.seasonYear === getYear(new Date()) && p.work.seasonName === getCurrentSeason()
+          return e.workSeason.isCurrentSeason
         })
-        ?.map(intoProgramModel)
-        ?.filter((p) => {
-          switch (p.filters.time) {
+        ?.filter((e) => {
+          switch (e.timeTag) {
             case 'yesterday':
               return timeFilters.includes('yesterday')
             case 'today':
@@ -167,12 +144,16 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
               return timeFilters.includes('finished')
             case 'future':
               return timeFilters.includes('future')
+            case 'undetermined':
+              return timeFilters.includes('undetermined')
+            case 'unset':
+              return timeFilters.includes('unset')
             default:
               throw new Error('Unexpected value')
           }
         })
-        ?.filter((p) => {
-          switch (p.filters.day) {
+        ?.filter((e) => {
+          switch (e.dayTag) {
             case 'sunday':
               return dayFilters.includes('sunday')
             case 'monday':
@@ -187,13 +168,15 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
               return dayFilters.includes('friday')
             case 'saturday':
               return dayFilters.includes('saturday')
+            case 'unset':
+              return timeFilters.includes('undetermined') || timeFilters.includes('unset')
             default:
               throw new Error('Unexpected value')
           }
         })
-        ?.groupBy((p) => p.work.annictId) ?? new Map()
+        ?.sort((a, b) => a.sort - b.sort) ?? []
     )
-  }, [data, statusFilters, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters])
+  }, [data, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters])
 
   return (
     <Container>
@@ -226,24 +209,6 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
             mt="md"
             ml="md"
             mb="md"
-            label="視聴ステータス"
-            value={statusFilters}
-            onChange={(value) => {
-              setStatusFilters(value as StatusFilter[])
-            }}
-          >
-            <Checkbox value="watching" label="見てる" />
-            <Checkbox value="watched" label="見た" />
-            <Checkbox value="planing" label="見たい" />
-            <Checkbox value="hold" label="一時中断" />
-            <Checkbox value="dropped" label="視聴中止" />
-            <Checkbox value="no_status" label="未設定" />
-          </Checkbox.Group>
-
-          <Checkbox.Group
-            mt="md"
-            ml="md"
-            mb="md"
             label="シーズン"
             value={seasonFilters}
             onChange={(value) => {
@@ -263,7 +228,7 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
             label="放送日"
             value={timeFilters}
             onChange={(value) => {
-              setTimeFilters(value as TimeFilter[])
+              setTimeFilters(value as TimeTag[])
             }}
           >
             <Checkbox value="finished" label="昨日以前" />
@@ -271,6 +236,8 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
             <Checkbox value="today" label="今日" />
             <Checkbox value="tomorrow" label="明日" />
             <Checkbox value="future" label="明日以降" />
+            <Checkbox value="undetermined" label="未定" />
+            <Checkbox value="unset" label="放送情報なし" />
           </Checkbox.Group>
 
           <Checkbox.Group
@@ -280,7 +247,7 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
             label="放送曜日"
             value={dayFilters}
             onChange={(value) => {
-              setDayFilters(value as DayFilter[])
+              setDayFilters(value as DayTag[])
             }}
           >
             <Checkbox value="sunday" label="日曜" />
@@ -308,13 +275,13 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
       ) : (
         <>
           <SimpleGrid cols={3}>
-            {Array.from(programs.values()).map(([p]) => (
-              <Card key={p.id} shadow="sm" p="lg" radius="md" withBorder>
+            {entries.map((e) => (
+              <Card key={e.id} shadow="sm" p="lg" radius="md" withBorder>
                 <Card.Section>
                   <Image
-                    src={p.imageUrl ?? undefined}
+                    src={e.workImageUrl}
                     height={200}
-                    alt={p.work.title}
+                    alt={e.work.title}
                     withPlaceholder
                     placeholder={<IconPhotoOff />}
                   />
@@ -322,25 +289,28 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
 
                 <Stack>
                   <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm">
-                    <Anchor href={p.workUrl} target="_blank">
-                      {p.work.title}
+                    <Anchor href={e.workUrl} target="_blank">
+                      {e.work.title}
                     </Anchor>
                   </Title>
 
                   <Text weight={500} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                    {p.episode.label}
+                    {e.nextEpisodeLabel}
                   </Text>
 
-                  <Text style={{ whiteSpace: 'nowrap' }}>{p.channel.name}</Text>
+                  <Text style={{ whiteSpace: 'nowrap' }}>{e.nextProgram?.channel?.name}</Text>
 
-                  <Text>
-                    {format(p.startAt, 'yyyy/MM/dd')} ({p.startAtDay}) {format(p.startAt, 'HH:mm')} (
-                    <RelativeTimeLabel time={p.startAt} />)
-                    <DateBadge program={p} />
-                  </Text>
+                  {e.nextProgramStartAt !== null && (
+                    <Text>
+                      {format(e.nextProgramStartAt, 'yyyy/MM/dd')} ({e.nextProgramStartAtDay}){' '}
+                      {format(e.nextProgramStartAt, 'HH:mm')} (
+                      <RelativeTimeLabel time={e.nextProgramStartAt} />)
+                      <DateBadge entry={e} />
+                    </Text>
+                  )}
 
                   <Button.Group>
-                    <RecordButton program={p} client={client} />
+                    <RecordButton entry={e} client={client} />
                   </Button.Group>
                 </Stack>
               </Card>
