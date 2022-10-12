@@ -2,59 +2,64 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import { format } from 'date-fns'
-import { XMLParser } from 'fast-xml-parser'
+
+import type { SyobocalRequest } from '../../pages/api/syobocal'
+
+export type SyobocalProgram = {
+  LastUpdate: string
+  PID: number
+  TID: number
+  StTime: string
+  StOffset: number
+  EdTime: string
+  Count: number
+  SubTitle: string
+  ProgComment: string
+  Flag: number
+  Deleted: number
+  Warn: number
+  ChID: number
+  Revision: number
+  STSubTitle?: string
+}
 
 type SyobocalProgramLookupResult = {
   ProgLookupResponse?: {
     ProgItems?: {
-      ProgItem: {
-        LastUpdate: string
-        PID: number
-        TID: number
-        StTime: string
-        StOffset: number
-        EdTime: string
-        Count: number
-        SubTitle: string
-        ProgComment: string
-        Flag: number
-        Deleted: number
-        Warn: number
-        ChID: number
-        Revision: number
-        STSubTitle?: string
-      }[]
+      ProgItem?: SyobocalProgram[]
     }
     Result: {
       Code: number
       Message: string
     }
   }
+}
+
+export type SyobocalTitle = {
+  TID: number
+  LastUpdate: string
+  Title: string
+  ShortTitle: string
+  TitleYomi: string
+  TitleEN: string
+  Comment: string
+  Cat: number
+  TitleFlag: number
+  FirstYear: number
+  FirstMonth: number
+  FirstEndYear: number
+  FirstEndMonth: number
+  FirstCh: string
+  Keywords: string
+  UserPoint: number
+  UserPointRank: number
+  SubTitles: string
 }
 
 type SyobocalTitleLookupResult = {
   TitleLookupResponse?: {
-    TitleItems: {
-      TitleItem: {
-        TID: number
-        LastUpdate: string
-        Title: string
-        ShortTitle: string
-        TitleYomi: string
-        TitleEN: string
-        Comment: string
-        Cat: number
-        TitleFlag: number
-        FirstYear: number
-        FirstMonth: number
-        FirstEndYear: number
-        FirstEndMonth: number
-        FirstCh: string
-        Keywords: string
-        UserPoint: number
-        UserPointRank: number
-        SubTitles: string
-      }[]
+    TitleItems?: {
+      TitleItem?: SyobocalTitle[]
     }
     Result: {
       Code: number
@@ -62,21 +67,6 @@ type SyobocalTitleLookupResult = {
     }
   }
 }
-
-// https://cal.syoboi.jp/mng?Action=ShowChList
-const channelIds = [
-  1, // NHK 総合
-  2, // NHK Eテレ
-  3, // フジテレビ
-  4, // 日本テレビ
-  5, // TBS
-  6, // テレビ朝日
-  7, // テレビ東京
-  19, // TOKYO MX
-  20, // AT-X
-  128, // BS11
-  129, // BS12
-]
 
 const makeDatetimeRange = (): string => {
   const startHour = 20
@@ -97,22 +87,32 @@ const makeDatetimeRange = (): string => {
   return `${format(start, 'yyyyMMdd_HHmmss')}-${format(end, 'yyyyMMdd_HHmmss')}`
 }
 
-export const lookupPrograms = async (): Promise<SyobocalProgramLookupResult> => {
-  const url = `https://cal.syoboi.jp/db.php?Command=ProgLookup&JOIN=SubTitles&Range=${makeDatetimeRange()}&ChID=${channelIds.join(
-    ','
-  )}`
-
-  const response = await fetch(url)
-  const text = await response.text()
-  const parser = new XMLParser()
-  return parser.parse(text)
+export const lookupPrograms = async (channelIds: string[]): Promise<SyobocalProgramLookupResult> => {
+  const response = await fetch('/api/syobocal', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      Command: 'ProgLookup',
+      JOIN: 'SubTitles',
+      Range: makeDatetimeRange(),
+      ChID: channelIds.join(','),
+    } as SyobocalRequest),
+  })
+  return await response.json()
 }
 
 export const lookupTitles = async (tids: number[]): Promise<SyobocalTitleLookupResult> => {
-  const url = `https://cal.syoboi.jp/db.php?Command=TitleLookup&TID=${tids.join(',')}`
-
-  const response = await fetch(url)
-  const text = await response.text()
-  const parser = new XMLParser()
-  return parser.parse(text)
+  const response = await fetch('/api/syobocal', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      Command: 'TitleLookup',
+      TID: tids.join(','),
+    } as SyobocalRequest),
+  })
+  return await response.json()
 }
