@@ -298,7 +298,7 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
                     {e.nextEpisodeLabel}
                   </Text>
 
-                  <Text style={{ whiteSpace: 'nowrap' }}>{e.nextProgram?.channel?.name}</Text>
+                  <Text style={{ whiteSpace: 'nowrap' }}>{e.nextProgram?.channel.name}</Text>
 
                   {e.nextProgramStartAt !== null && (
                     <Text>
