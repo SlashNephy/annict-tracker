@@ -1,11 +1,11 @@
-FROM --platform=$BUILDPLATFORM node:18.10.0-bullseye-slim AS cache
+FROM --platform=$BUILDPLATFORM node:18.11.0-bullseye-slim AS cache
 WORKDIR /app
 
 COPY ./.yarn/ ./.yarn/
 COPY ./package.json ./.yarnrc.yml ./yarn.lock ./
 RUN yarn --immutable
 
-FROM --platform=$BUILDPLATFORM node:18.10.0-bullseye-slim AS build
+FROM --platform=$BUILDPLATFORM node:18.11.0-bullseye-slim AS build
 ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
@@ -16,7 +16,7 @@ COPY --from=cache /app/node_modules/ ./node_modules/
 COPY ./ ./
 RUN yarn generate && yarn build
 
-FROM --platform=$TARGETPLATFORM node:18.10.0-bullseye-slim AS runtime
+FROM --platform=$TARGETPLATFORM node:18.11.0-bullseye-slim AS runtime
 ENV NODE_ENV="production"
 ENV PORT=3000
 ENV NEXT_TELEMETRY_DISABLED=1
