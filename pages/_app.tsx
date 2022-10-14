@@ -5,6 +5,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { SessionProvider } from 'next-auth/react'
 import Head from 'next/head'
 import React from 'react'
+import { RecoilRoot } from 'recoil'
 
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import packageJson from '../package.json'
@@ -38,7 +39,9 @@ const MyApp: React.FC<AppProps<{ session: Session }>> = ({ Component, pageProps:
           <NotificationsProvider position="bottom-right" limit={3}>
             <QueryClientProvider client={queryClient}>
               <SessionProvider session={session}>
-                <Component {...pageProps} />
+                <RecoilRoot>
+                  <Component {...pageProps} />
+                </RecoilRoot>
               </SessionProvider>
             </QueryClientProvider>
           </NotificationsProvider>
