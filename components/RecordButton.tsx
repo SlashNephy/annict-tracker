@@ -2,17 +2,22 @@ import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
 import { IconCheck } from '@tabler/icons'
 import { useQueryClient } from '@tanstack/react-query'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import type { Sdk } from '../graphql/generated/sdk'
 import type { LibraryEntryModel } from '../models/LibraryEntryModel'
 
 export const RecordButton: React.FC<{ entry: LibraryEntryModel; client: Sdk }> = ({ entry, client }) => {
   const query = useQueryClient()
+  const isDisabled = useMemo(() => {
+    // エピソード情報がない
+    if (entry.nextEpisode === null) {
+      return true
+    }
 
-  if (entry.nextEpisode === null) {
-    return null
-  }
+    // まだ放送されていない
+    return entry.nextProgramStartAt !== null && new Date() < entry.nextProgramStartAt
+  }, [entry])
 
   return (
     <Button
@@ -22,12 +27,15 @@ export const RecordButton: React.FC<{ entry: LibraryEntryModel; client: Sdk }> =
       fullWidth
       mt="md"
       radius="md"
+      disabled={isDisabled}
       onClick={() => {
+        const episodeId = entry.nextEpisode?.id
+        if (episodeId === undefined) {
+          return
+        }
+
         client
-          .createRecord({
-            // FIXME
-            episodeId: entry.nextEpisode?.id ?? '',
-          })
+          .createRecord({ episodeId })
           .then(() => {
             showNotification({
               title: '記録しました！',
