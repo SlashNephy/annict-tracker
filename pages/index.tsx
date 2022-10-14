@@ -1,4 +1,6 @@
 import {
+  Accordion,
+  ActionIcon,
   Alert,
   Anchor,
   Button,
@@ -7,26 +9,35 @@ import {
   Checkbox,
   Container,
   Group,
-  Image,
+  HoverCard,
   Loader,
   SimpleGrid,
   Stack,
   Text,
   Title,
 } from '@mantine/core'
-import { useLocalStorage } from '@mantine/hooks'
-import { IconAlertTriangle, IconBrandGithub, IconPhotoOff } from '@tabler/icons'
+import { IconAlertTriangle, IconBrandGithub, IconInfoCircle } from '@tabler/icons'
 import { useQuery } from '@tanstack/react-query'
-import { format, secondsToMilliseconds } from 'date-fns'
+import { secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
 import React, { useMemo } from 'react'
+import { useRecoilState } from 'recoil'
 
-import { DateBadge } from '../components/DateBadge'
+import { NextProgramInfo } from '../components/NextProgramInfo'
 import { RecordButton } from '../components/RecordButton'
-import { RelativeTimeLabel } from '../components/RelativeTimeLabel'
 import { SignInButton } from '../components/SignInButton'
+import { WorkImage } from '../components/WorkImage'
 import { SeasonName } from '../graphql/generated/types'
+import {
+  dayFiltersState,
+  enableSyobocalState,
+  isOnlyCurrentSeasonState,
+  seasonFiltersState,
+  syobocalChannelsState,
+  timeFiltersState,
+} from '../lib/atoms'
 import { createAnnictClient } from '../lib/services/annict'
+import { fetchSayaRemoteDatabase } from '../lib/services/saya'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
 import packageJson from '../package.json'
@@ -35,68 +46,58 @@ import type { DayTag, TimeTag } from '../models/filters'
 
 const Index: React.FC = () => {
   const { data: session } = useSession()
-
-  if (session?.accessToken === undefined) {
-    return (
-      <>
-        <Container mt="xl">
-          <Center>
-            <Card shadow="sm" p="xl" radius="md" mb="xl" mt="xl" withBorder>
-              <Card.Section m="md" mt="xl" pt="md">
-                <Title align="center">{packageJson.name}</Title>
-              </Card.Section>
-
-              <Text size="md" mb="lg">
-                {packageJson.name} は Annict での視聴記録を便利にする Web アプリケーションです。
-                <br />
-                利用するには Annict でログインする必要があります。
-              </Text>
-
-              <SignInButton />
-
-              <Text size="sm" color="dimmed" mt="lg">
-                {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
-                <br />
-                {packageJson.name} がユーザーの利用状況を収集することはありません。
-                <br />
-                ソースコードは{' '}
-                <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
-                  <IconBrandGithub size={16} /> GitHub
-                </Anchor>{' '}
-                で公開しています。
-              </Text>
-            </Card>
-          </Center>
-        </Container>
-      </>
-    )
-  }
-
-  return <AnnictSession accessToken={session.accessToken} />
+  return session?.accessToken !== undefined ? (
+    <IndexAsAnnictUser accessToken={session.accessToken} />
+  ) : (
+    <IndexAsGuestUser />
+  )
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
+export const IndexAsGuestUser: React.FC = () => {
+  return (
+    <Container mt="xl">
+      <Center>
+        <Card shadow="sm" p="xl" radius="md" mb="xl" mt="xl" withBorder>
+          <Card.Section m="md" mt="xl" pt="md">
+            <Title align="center">{packageJson.name}</Title>
+          </Card.Section>
+
+          <Text size="md" mb="lg">
+            {packageJson.name} は Annict での視聴記録を便利にする Web アプリケーションです。
+            <br />
+            利用するには Annict でログインする必要があります。
+          </Text>
+
+          <SignInButton />
+
+          <Text size="sm" color="dimmed" mt="lg">
+            {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
+            <br />
+            {packageJson.name} がユーザーの利用状況を収集することはありません。
+            <br />
+            ソースコードは{' '}
+            <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
+              <IconBrandGithub size={16} /> GitHub
+            </Anchor>{' '}
+            で公開しています。
+          </Text>
+        </Card>
+      </Center>
+    </Container>
+  )
+}
+
+export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessToken }) => {
   const client = useMemo(() => createAnnictClient(accessToken), [accessToken])
-
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
-  const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useLocalStorage({
-    key: 'only-current-season',
-    defaultValue: false,
-  })
-  const [seasonFilters, setSeasonFilters] = useLocalStorage<SeasonName[]>({
-    key: 'season-filters',
-    defaultValue: [SeasonName.Spring, SeasonName.Summer, SeasonName.Autumn, SeasonName.Winter],
-  })
-  const [timeFilters, setTimeFilters] = useLocalStorage<TimeTag[]>({
-    key: 'time-filters',
-    defaultValue: ['yesterday', 'today', 'tomorrow', 'finished'],
-  })
-  const [dayFilters, setDayFilters] = useLocalStorage<DayTag[]>({
-    key: 'day-filters',
-    defaultValue: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
-  })
+  const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
+  const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
+  const [seasonFilters, setSeasonFilters] = useRecoilState(seasonFiltersState)
+  const [timeFilters, setTimeFilters] = useRecoilState(timeFiltersState)
+  const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
+  const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
 
+  const { data: saya } = useQuery(['saya'], async () => await fetchSayaRemoteDatabase())
   const {
     data: entries,
     isLoading,
@@ -133,82 +134,136 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
     <Container>
       <Card shadow="sm" p="lg" radius="md" mb="xl" mt="xl" withBorder>
         <Card.Section>
-          <Group>
-            <Checkbox
-              mt="md"
-              ml="md"
-              mb="md"
-              label="ダークモード"
-              checked={colorScheme === 'dark'}
-              onChange={() => {
-                toggleColorScheme()
-              }}
-            />
-            <Checkbox
-              mt="md"
-              ml="md"
-              mb="md"
-              label="今期に絞る"
-              checked={isOnlyCurrentSeason}
-              onChange={(event) => {
-                setIsOnlyCurrentSeason(event.target.checked)
-              }}
-            />
-          </Group>
+          <Accordion>
+            <Accordion.Item value="settings">
+              <Accordion.Control>{packageJson.name}</Accordion.Control>
+              <Accordion.Panel>
+                <Group>
+                  <Checkbox
+                    ml="md"
+                    mb="md"
+                    label="ダークモード"
+                    checked={colorScheme === 'dark'}
+                    onChange={() => {
+                      toggleColorScheme()
+                    }}
+                  />
+                  <Checkbox
+                    ml="md"
+                    mb="md"
+                    label="今期に絞る"
+                    checked={isOnlyCurrentSeason}
+                    onChange={(event) => {
+                      setIsOnlyCurrentSeason(event.target.checked)
+                    }}
+                  />
 
-          <Checkbox.Group
-            mt="md"
-            ml="md"
-            mb="md"
-            label="シーズン"
-            value={seasonFilters}
-            onChange={(value) => {
-              setSeasonFilters(value as SeasonName[])
-            }}
-          >
-            <Checkbox value={SeasonName.Spring} label="春" />
-            <Checkbox value={SeasonName.Summer} label="夏" />
-            <Checkbox value={SeasonName.Autumn} label="秋" />
-            <Checkbox value={SeasonName.Winter} label="冬" />
-          </Checkbox.Group>
+                  <Checkbox
+                    ml="md"
+                    mb="md"
+                    label={
+                      <>
+                        しょぼいカレンダーも利用する
+                        <HoverCard width={280} shadow="md">
+                          <HoverCard.Target>
+                            <ActionIcon
+                              variant="transparent"
+                              ml="0.1em"
+                              style={{ display: 'inline-block', verticalAlign: 'middle' }}
+                            >
+                              <IconInfoCircle size={16} />
+                            </ActionIcon>
+                          </HoverCard.Target>
+                          <HoverCard.Dropdown>
+                            <Text size="sm">
+                              有効にすると Annict
+                              に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。
+                            </Text>
+                          </HoverCard.Dropdown>
+                        </HoverCard>
+                      </>
+                    }
+                    checked={enableSyobocal}
+                    onChange={(event) => {
+                      setEnableSyobocal(event.target.checked)
+                    }}
+                  />
+                </Group>
 
-          <Checkbox.Group
-            mt="md"
-            ml="md"
-            mb="md"
-            label="放送日"
-            value={timeFilters}
-            onChange={(value) => {
-              setTimeFilters(value as TimeTag[])
-            }}
-          >
-            <Checkbox value="finished" label="昨日以前" />
-            <Checkbox value="yesterday" label="昨日" />
-            <Checkbox value="today" label="今日" />
-            <Checkbox value="tomorrow" label="明日" />
-            <Checkbox value="future" label="明日以降" />
-            <Checkbox value="undetermined" label="未定" />
-            <Checkbox value="unset" label="放送情報なし" />
-          </Checkbox.Group>
+                <Checkbox.Group
+                  mt="md"
+                  ml="md"
+                  mb="md"
+                  label="シーズン"
+                  value={seasonFilters}
+                  onChange={(value) => {
+                    setSeasonFilters(value as SeasonName[])
+                  }}
+                >
+                  <Checkbox value={SeasonName.Spring} label="春" />
+                  <Checkbox value={SeasonName.Summer} label="夏" />
+                  <Checkbox value={SeasonName.Autumn} label="秋" />
+                  <Checkbox value={SeasonName.Winter} label="冬" />
+                </Checkbox.Group>
 
-          <Checkbox.Group
-            mt="md"
-            ml="md"
-            mb="md"
-            label="放送曜日"
-            value={dayFilters}
-            onChange={(value) => {
-              setDayFilters(value as DayTag[])
-            }}
-          >
-            <Checkbox value="sunday" label="日曜" />
-            <Checkbox value="monday" label="月曜" />
-            <Checkbox value="tuesday" label="火曜" />
-            <Checkbox value="wednesday" label="水曜" />
-            <Checkbox value="thursday" label="木曜" />
-            <Checkbox value="friday" label="金曜" />
-            <Checkbox value="saturday" label="土曜" />
-          </Checkbox.Group>
+                <Checkbox.Group
+                  mt="md"
+                  ml="md"
+                  mb="md"
+                  label="放送日"
+                  value={timeFilters}
+                  onChange={(value) => {
+                    setTimeFilters(value as TimeTag[])
+                  }}
+                >
+                  <Checkbox value="finished" label="昨日以前" />
+                  <Checkbox value="yesterday" label="昨日" />
+                  <Checkbox value="today" label="今日" />
+                  <Checkbox value="tomorrow" label="明日" />
+                  <Checkbox value="future" label="明日以降" />
+                  <Checkbox value="undetermined" label="未定" />
+                  <Checkbox value="unset" label="放送情報なし" />
+                </Checkbox.Group>
+
+                <Checkbox.Group
+                  mt="md"
+                  ml="md"
+                  mb="md"
+                  label="放送曜日"
+                  value={dayFilters}
+                  onChange={(value) => {
+                    setDayFilters(value as DayTag[])
+                  }}
+                >
+                  <Checkbox value="sunday" label="日曜" />
+                  <Checkbox value="monday" label="月曜" />
+                  <Checkbox value="tuesday" label="火曜" />
+                  <Checkbox value="wednesday" label="水曜" />
+                  <Checkbox value="thursday" label="木曜" />
+                  <Checkbox value="friday" label="金曜" />
+                  <Checkbox value="saturday" label="土曜" />
+                </Checkbox.Group>
+
+                {enableSyobocal && (
+                  <Checkbox.Group
+                    mt="md"
+                    ml="md"
+                    mb="md"
+                    label="チャンネル"
+                    value={syobocalChannels}
+                    onChange={setSyobocalChannels}
+                  >
+                    {saya?.definition.channels
+                      .filter((c) => c.syobocalId !== undefined)
+                      .distinctBy((c) => c.syobocalId)
+                      .map((c) => (
+                        <Checkbox key={c.name} value={c.syobocalId?.toString()} label={c.name} />
+                      ))}
+                  </Checkbox.Group>
+                )}
+              </Accordion.Panel>
+            </Accordion.Item>
+          </Accordion>
         </Card.Section>
       </Card>
 
@@ -224,50 +279,33 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
           {error?.toString()}
         </Alert>
       ) : (
-        <>
-          <SimpleGrid cols={3}>
-            {filteredEntries.map((e) => (
-              <Card key={e.id} shadow="sm" p="lg" radius="md" withBorder>
-                <Card.Section>
-                  <Image
-                    src={e.workImageUrl}
-                    height={200}
-                    alt={e.work.title}
-                    withPlaceholder
-                    placeholder={<IconPhotoOff />}
-                  />
-                </Card.Section>
+        <SimpleGrid cols={3}>
+          {filteredEntries.map((e) => (
+            <Card key={e.id} shadow="sm" p="lg" radius="md" withBorder>
+              <Card.Section>
+                <WorkImage entry={e} />
+              </Card.Section>
 
-                <Stack>
-                  <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm">
-                    <Anchor href={e.workUrl} target="_blank">
-                      {e.work.title}
-                    </Anchor>
-                  </Title>
+              <Stack>
+                <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm">
+                  <Anchor href={e.workUrl} target="_blank">
+                    {e.work.title}
+                  </Anchor>
+                </Title>
 
-                  <Text weight={500} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                    {e.nextEpisodeLabel}
-                  </Text>
+                <Text weight={500} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                  {e.nextEpisodeLabel}
+                </Text>
 
-                  <Text style={{ whiteSpace: 'nowrap' }}>{e.nextProgram?.channel.name}</Text>
+                <NextProgramInfo entry={e} />
 
-                  {e.nextProgramStartAt !== null && (
-                    <Text>
-                      {format(e.nextProgramStartAt, 'yyyy/MM/dd')} ({e.nextProgramStartAtDay}){' '}
-                      {format(e.nextProgramStartAt, 'HH:mm')} (
-                      <RelativeTimeLabel time={e.nextProgramStartAt} />)
-                      <DateBadge entry={e} />
-                    </Text>
-                  )}
-
-                  <Button.Group>
-                    <RecordButton entry={e} client={client} />
-                  </Button.Group>
-                </Stack>
-              </Card>
-            ))}
-          </SimpleGrid>
-        </>
+                <Button.Group>
+                  <RecordButton entry={e} client={client} />
+                </Button.Group>
+              </Stack>
+            </Card>
+          ))}
+        </SimpleGrid>
       )}
 
       <Card mt="md" mb="md">
