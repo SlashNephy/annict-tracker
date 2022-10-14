@@ -32,7 +32,7 @@
     "@mantine/notifications": "5.4.1",
     "@slashnephy/typescript-extension": "0.2.3",
     "@tabler/icons": "1.101.0",
-    "@tanstack/react-query": "4.10.1",
+    "@tanstack/react-query": "4.12.0",
     "date-fns": "2.29.3",
     "fast-xml-parser": "4.0.11",
     "graphql-request": "5.0.0",
