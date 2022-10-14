@@ -43,4 +43,5 @@ export const dayFiltersState = atom<DayTag[]>({
 export const syobocalChannelsState = atom<string[]>({
   key: 'syobocal-channels',
   default: [],
+  effects_UNSTABLE: [persistAtom],
 })
