@@ -1,5 +1,5 @@
+import { cached_property } from 'cached_property'
 import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
-import { MemoryCache } from 'ts-method-cache'
 
 import { SeasonName } from '../graphql/generated/types'
 import { AnnictSeason } from '../lib/services/annict'
@@ -11,14 +11,23 @@ import type { DayTag, TimeTag } from './filters'
 export class LibraryEntryModel {
   public constructor(public readonly entity: AnnictLibraryEntry) {}
 
-  @MemoryCache()
+  @cached_property
   public get workSyobocalTid(): number | null {
     return LocalArmDatabase.findByAnnictId(this.work.annictId)?.syobocal_tid ?? this.work.syobocalTid
   }
 
-  @MemoryCache()
+  @cached_property
   public get workMalId(): string | null {
     return LocalArmDatabase.findByAnnictId(this.work.annictId)?.mal_id?.toString() ?? this.work.malAnimeId
+  }
+
+  @cached_property
+  public get nextProgramStartAt(): Date | null {
+    if (this.nextProgram === null) {
+      return null
+    }
+
+    return new Date(this.nextProgram.startedAt)
   }
 
   public get id(): string {
@@ -39,10 +48,7 @@ export class LibraryEntryModel {
       return undefined
     }
 
-    // Mixed contents を回避するため、https:// に置換しておく
-    // TODO: アクセスできない画像があるので Image Proxy を経由する
-    // noinspection HttpUrlsUsage
-    return url.replace('http://', 'https://')
+    return url
   }
 
   public get workSeason(): AnnictSeason {
@@ -53,17 +59,9 @@ export class LibraryEntryModel {
     return this.entity.nextProgram
   }
 
-  public get nextProgramStartAt(): Date | null {
-    if (this.nextProgram === null) {
-      return null
-    }
-
-    return new Date(this.nextProgram.startedAt)
-  }
-
-  public get nextProgramStartAtDay(): string {
+  public get nextProgramStartAtDay(): string | null {
     if (this.nextProgramStartAt === null) {
-      throw new Error('nextProgramStartAt is null.')
+      return null
     }
 
     return ['日', '月', '火', '水', '木', '金', '土'][this.nextProgramStartAt.getDay()]

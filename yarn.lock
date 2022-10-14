@@ -2956,6 +2956,7 @@ __metadata:
     "@types/node": 17.0.25
     "@types/react": 18.0.21
     "@types/react-dom": 18.0.6
+    cached_property: 0.1.2
     concurrently: 7.4.0
     date-fns: 2.29.3
     eslint: 8.25.0
@@ -2968,7 +2969,6 @@ __metadata:
     prettier: 2.7.1
     react: 18.2.0
     react-dom: 18.2.0
-    ts-method-cache: 3.3.1
     typescript: 4.8.4
   languageName: unknown
   linkType: soft
@@ -3394,6 +3394,13 @@ __metadata:
     tar: ^6.1.11
     unique-filename: ^1.1.1
   checksum: c9813d4aa0452ecfdb7f796d931d0b8068fc921a3575fb858c26ab12ed41634a995135dbd56afd64ec4de141bd78c7021ce5aeabce83453c7342d3ed126815df
+  languageName: node
+  linkType: hard
+
+"cached_property@npm:0.1.2":
+  version: 0.1.2
+  resolution: "cached_property@npm:0.1.2"
+  checksum: 9516552f2a1ad6e6c712604fd418e9f909b9265c46589b87e53e19a31657825ddf31ac6cecee31484857fa9ae08c85130e9aa4940378f78da7dcc7d41f40c800
   languageName: node
   linkType: hard
 
@@ -8560,15 +8567,6 @@ __metadata:
   version: 2.2.4
   resolution: "ts-log@npm:2.2.4"
   checksum: 489393cf0d46c3c86a837a589af8b0ec464cb7aa7a75ce9cdf19bf831308f5dda4dc24329359efc920bfb252d3bc5e0c109dcbcc8cb5025348c630f2e3028e24
-  languageName: node
-  linkType: hard
-
-"ts-method-cache@npm:3.3.1":
-  version: 3.3.1
-  resolution: "ts-method-cache@npm:3.3.1"
-  peerDependencies:
-    typescript: ">=2.2.0"
-  checksum: b9d59e98193adc86f5bb1a706f3a2220cd009c708cb3021bedb320108a81d47671eeefcd37915a5834d5ecc1ddbbf2a91b024df96a5e7390876d6f9f2d637b4b
   languageName: node
   linkType: hard
 
