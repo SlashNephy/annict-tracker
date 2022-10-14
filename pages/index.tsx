@@ -97,86 +97,37 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
     defaultValue: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
   })
 
-  const { data, isLoading, isError, error } = useQuery(
+  const {
+    data: entries,
+    isLoading,
+    isError,
+    error,
+  } = useQuery(
     ['entries', accessToken],
-    async () => await client.getViewerLibraryEntries(),
+    async () => {
+      const response = await client.getViewerLibraryEntries()
+      return (
+        response.viewer?.libraryEntries?.nodes
+          ?.filter((n): n is NonNullable<typeof n> => n !== null)
+          ?.map((e) => new LibraryEntryModel(e))
+          ?.sort((a, b) => a.sort - b.sort) ?? []
+      )
+    },
     {
       retry: true,
       retryDelay: secondsToMilliseconds(10),
       refetchInterval: secondsToMilliseconds(60),
     }
   )
-  const entries = useMemo<LibraryEntryModel[]>(() => {
-    return (
-      data?.viewer?.libraryEntries?.nodes
-        ?.filter((e): e is NonNullable<typeof e> => e !== null)
-        ?.filter((e) => {
-          switch (e.work.seasonName) {
-            case SeasonName.Spring:
-              return seasonFilters.includes(SeasonName.Spring)
-            case SeasonName.Summer:
-              return seasonFilters.includes(SeasonName.Summer)
-            case SeasonName.Autumn:
-              return seasonFilters.includes(SeasonName.Autumn)
-            case SeasonName.Winter:
-              return seasonFilters.includes(SeasonName.Winter)
-            default:
-              return true
-          }
-        })
-        ?.map((e) => new LibraryEntryModel(e))
-        ?.filter((e) => {
-          if (!isOnlyCurrentSeason) {
-            return true
-          }
-
-          return e.workSeason.isCurrentSeason
-        })
-        ?.filter((e) => {
-          switch (e.timeTag) {
-            case 'yesterday':
-              return timeFilters.includes('yesterday')
-            case 'today':
-              return timeFilters.includes('today')
-            case 'tomorrow':
-              return timeFilters.includes('tomorrow')
-            case 'finished':
-              return timeFilters.includes('finished')
-            case 'future':
-              return timeFilters.includes('future')
-            case 'undetermined':
-              return timeFilters.includes('undetermined')
-            case 'unset':
-              return timeFilters.includes('unset')
-            default:
-              throw new Error('Unexpected value')
-          }
-        })
-        ?.filter((e) => {
-          switch (e.dayTag) {
-            case 'sunday':
-              return dayFilters.includes('sunday')
-            case 'monday':
-              return dayFilters.includes('monday')
-            case 'tuesday':
-              return dayFilters.includes('tuesday')
-            case 'wednesday':
-              return dayFilters.includes('wednesday')
-            case 'thursday':
-              return dayFilters.includes('thursday')
-            case 'friday':
-              return dayFilters.includes('friday')
-            case 'saturday':
-              return dayFilters.includes('saturday')
-            case 'unset':
-              return timeFilters.includes('undetermined') || timeFilters.includes('unset')
-            default:
-              throw new Error('Unexpected value')
-          }
-        })
-        ?.sort((a, b) => a.sort - b.sort) ?? []
-    )
-  }, [data, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters])
+  const filteredEntries = useMemo<LibraryEntryModel[]>(
+    () =>
+      entries
+        ?.filter((e) => e.filterBySeasonName(seasonFilters))
+        ?.filter((e) => e.filterByCurrentSeason(isOnlyCurrentSeason))
+        ?.filter((e) => e.filterByTime(timeFilters))
+        ?.filter((e) => e.filterByDay(dayFilters, timeFilters)) ?? [],
+    [entries, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters]
+  )
 
   return (
     <Container>
@@ -269,13 +220,13 @@ const AnnictSession: React.FC<{ accessToken: string }> = ({ accessToken }) => {
           </Group>
         </Center>
       ) : isError ? (
-        <Alert icon={<IconAlertTriangle size={16} />} title="Annict API が利用できません" color="red">
+        <Alert icon={<IconAlertTriangle size={16} />} title="現在 Annict API を利用できません" color="red">
           {error?.toString()}
         </Alert>
       ) : (
         <>
           <SimpleGrid cols={3}>
-            {entries.map((e) => (
+            {filteredEntries.map((e) => (
               <Card key={e.id} shadow="sm" p="lg" radius="md" withBorder>
                 <Card.Section>
                   <Image

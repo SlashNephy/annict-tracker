@@ -3,12 +3,7 @@ import { arm } from '@kawaiioverflow/arm'
 export type ArmEntry = typeof arm[0]
 
 export class ArmDatabase {
-  public static DEFAULT = new ArmDatabase()
-  public readonly entries: ArmEntry[]
-
-  public constructor() {
-    this.entries = arm
-  }
+  public constructor(public readonly entries: ArmEntry[]) {}
 
   public findByAnnictId(id: number): ArmEntry | null {
     return this.entries.find((x) => x.annict_id === id) ?? null
@@ -18,3 +13,5 @@ export class ArmDatabase {
     return this.entries.find((x) => x.syobocal_tid === tid) ?? null
   }
 }
+
+export const LocalArmDatabase = new ArmDatabase(arm)

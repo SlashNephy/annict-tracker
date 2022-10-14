@@ -31,23 +31,25 @@ export type SayaDefinition = {
 }
 
 export class SayaDatabase {
-  readonly #branch: string
-  readonly #promise: Promise<SayaDefinition>
+  public constructor(public readonly definition: SayaDefinition) {}
 
-  public constructor(branch = 'master') {
-    this.#branch = branch
-    this.#promise = this.#fetch()
+  public findChannelByAnnictId(id: number): SayaChannel | null {
+    return this.definition.channels.find((x) => x.annictId === id) ?? null
   }
 
-  async #fetch() {
-    const url = `https://raw.githubusercontent.com/SlashNephy/saya-definitions/${this.#branch}/definitions.yml`
-
-    const response = await fetch(url)
-    const text = await response.text()
-    return yaml.load(text) as SayaDefinition
+  public findChannelBySyobocalId(id: number): SayaChannel | null {
+    return this.definition.channels.find((x) => x.syobocalId === id) ?? null
   }
+}
 
-  public async get(): Promise<SayaDefinition> {
-    return await this.#promise
-  }
+export const fetchSayaRemoteDatabase = async (branch = 'master'): Promise<SayaDatabase> => {
+  return new SayaDatabase(await fetchSayaDefinition(branch))
+}
+
+const fetchSayaDefinition = async (branch: string): Promise<SayaDefinition> => {
+  const url = `https://raw.githubusercontent.com/SlashNephy/saya-definitions/${branch}/definitions.yml`
+
+  const response = await fetch(url)
+  const text = await response.text()
+  return yaml.load(text) as SayaDefinition
 }

@@ -1,8 +1,6 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { format } from 'date-fns'
-
 import type { SyobocalRequest } from '../../pages/api/syobocal'
 
 export type SyobocalProgram = {
@@ -68,26 +66,7 @@ type SyobocalTitleLookupResult = {
   }
 }
 
-const makeDatetimeRange = (): string => {
-  const startHour = 20
-  const endHour = 3
-
-  const start = new Date()
-  const end = new Date()
-
-  if (start.getHours() < endHour) {
-    start.setHours(start.getHours(), start.getMinutes(), 0, 0)
-    end.setHours(endHour, 0, 0, 0)
-  } else {
-    start.setHours(Math.max(startHour, start.getHours()), start.getHours() > startHour ? start.getMinutes() : 0, 0, 0)
-    end.setDate(end.getDate() + 1)
-    end.setHours(endHour, 0, 0, 0)
-  }
-
-  return `${format(start, 'yyyyMMdd_HHmmss')}-${format(end, 'yyyyMMdd_HHmmss')}`
-}
-
-export const lookupPrograms = async (channelIds: string[]): Promise<SyobocalProgramLookupResult> => {
+export const lookupPrograms = async (tids: number[]): Promise<SyobocalProgramLookupResult> => {
   const response = await fetch('/api/syobocal', {
     method: 'POST',
     headers: {
@@ -95,9 +74,7 @@ export const lookupPrograms = async (channelIds: string[]): Promise<SyobocalProg
     },
     body: JSON.stringify({
       Command: 'ProgLookup',
-      JOIN: 'SubTitles',
-      Range: makeDatetimeRange(),
-      ChID: channelIds.join(','),
+      TID: tids.join(','),
     } as SyobocalRequest),
   })
   return await response.json()

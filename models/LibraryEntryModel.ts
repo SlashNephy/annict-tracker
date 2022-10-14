@@ -1,13 +1,25 @@
 import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
+import { MemoryCache } from 'ts-method-cache'
 
+import { SeasonName } from '../graphql/generated/types'
 import { AnnictSeason } from '../lib/services/annict'
-import { ArmDatabase } from '../lib/services/arm'
+import { LocalArmDatabase } from '../lib/services/arm'
 
 import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'
 import type { DayTag, TimeTag } from './filters'
 
 export class LibraryEntryModel {
   public constructor(public readonly entity: AnnictLibraryEntry) {}
+
+  @MemoryCache()
+  public get workSyobocalTid(): number | null {
+    return LocalArmDatabase.findByAnnictId(this.work.annictId)?.syobocal_tid ?? this.work.syobocalTid
+  }
+
+  @MemoryCache()
+  public get workMalId(): string | null {
+    return LocalArmDatabase.findByAnnictId(this.work.annictId)?.mal_id?.toString() ?? this.work.malAnimeId
+  }
 
   public get id(): string {
     return this.entity.id
@@ -38,15 +50,6 @@ export class LibraryEntryModel {
   }
 
   public get nextProgram(): AnnictProgram | null {
-    if (this.entity.nextProgram !== null) {
-      return this.entity.nextProgram
-    }
-
-    const tid = ArmDatabase.DEFAULT.findByAnnictId(this.entity.work.annictId)?.syobocal_tid ?? this.work.syobocalTid
-    if (tid === null) {
-      return null
-    }
-
     return this.entity.nextProgram
   }
 
@@ -144,5 +147,72 @@ export class LibraryEntryModel {
     }
 
     return this.nextProgramStartAt.getTime()
+  }
+
+  public filterBySeasonName(filters: SeasonName[]): boolean {
+    switch (this.work.seasonName) {
+      case SeasonName.Spring:
+        return filters.includes(SeasonName.Spring)
+      case SeasonName.Summer:
+        return filters.includes(SeasonName.Summer)
+      case SeasonName.Autumn:
+        return filters.includes(SeasonName.Autumn)
+      case SeasonName.Winter:
+        return filters.includes(SeasonName.Winter)
+      default:
+        return true
+    }
+  }
+
+  public filterByCurrentSeason(isOnlyCurrentSeason: boolean): boolean {
+    if (!isOnlyCurrentSeason) {
+      return true
+    }
+
+    return this.workSeason.isCurrentSeason
+  }
+
+  public filterByTime(filters: TimeTag[]): boolean {
+    switch (this.timeTag) {
+      case 'yesterday':
+        return filters.includes('yesterday')
+      case 'today':
+        return filters.includes('today')
+      case 'tomorrow':
+        return filters.includes('tomorrow')
+      case 'finished':
+        return filters.includes('finished')
+      case 'future':
+        return filters.includes('future')
+      case 'undetermined':
+        return filters.includes('undetermined')
+      case 'unset':
+        return filters.includes('unset')
+      default:
+        throw new Error('Unexpected value')
+    }
+  }
+
+  public filterByDay(dayFilters: DayTag[], timeFilters: TimeTag[]): boolean {
+    switch (this.dayTag) {
+      case 'sunday':
+        return dayFilters.includes('sunday')
+      case 'monday':
+        return dayFilters.includes('monday')
+      case 'tuesday':
+        return dayFilters.includes('tuesday')
+      case 'wednesday':
+        return dayFilters.includes('wednesday')
+      case 'thursday':
+        return dayFilters.includes('thursday')
+      case 'friday':
+        return dayFilters.includes('friday')
+      case 'saturday':
+        return dayFilters.includes('saturday')
+      case 'unset':
+        return timeFilters.includes('undetermined') || timeFilters.includes('unset')
+      default:
+        throw new Error('Unexpected value')
+    }
   }
 }
