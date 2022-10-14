@@ -24,11 +24,11 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
 
   // しょぼかるの情報から放送時間を補完する
   const {
-    data: syobocal,
+    data: syobocals,
     isLoading,
     isError,
   } = useQuery(
-    [`syobocal-${entry.workSyobocalTid}`, enableSyobocal, syobocalChannels],
+    [`syobocal-${entry.workSyobocalTid}`, enableSyobocal],
     async () => {
       // Annict 側でチャンネル選択が行われている
       if (entry.nextProgram !== null && entry.nextEpisode !== null) {
@@ -40,42 +40,47 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
       }
 
       const response = await lookupPrograms([entry.workSyobocalTid])
-      const items = response.ProgLookupResponse?.ProgItems?.ProgItem?.reverse()?.filter(
-        (x) => x.Count === entry.nextEpisode?.number
+      return (
+        response.ProgLookupResponse?.ProgItems?.ProgItem?.reverse()?.filter(
+          (x) => x.Count === entry.nextEpisode?.number
+        ) ?? []
       )
-      if (items === undefined) {
-        return null
-      }
-
-      for (const program of items) {
-        const annictChannel = saya.findChannelBySyobocalId(program.ChID)
-        if (annictChannel?.annictId === undefined) {
-          continue
-        }
-
-        if (syobocalChannels?.includes(annictChannel.annictId.toString()) !== true) {
-          continue
-        }
-
-        return new LibraryEntryModel({
-          ...entry.entity,
-          nextProgram: {
-            startedAt: program.StTime,
-            rebroadcast: items.filter((x) => x.ChID === annictChannel.annictId).length > 1,
-            channel: {
-              annictId: annictChannel.annictId,
-              name: annictChannel.name,
-            },
-          },
-        })
-      }
-
-      return null
     },
     {
       enabled: enableSyobocal && saya !== undefined,
     }
   )
+  const syobocal = useMemo(() => {
+    if (!enableSyobocal || !Array.isArray(syobocals)) {
+      return null
+    }
+
+    for (const program of syobocals) {
+      const annictChannel = saya?.findChannelBySyobocalId(program.ChID)
+      if (annictChannel?.annictId === undefined) {
+        continue
+      }
+
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+      if (!syobocalChannels.includes(annictChannel.annictId.toString())) {
+        continue
+      }
+
+      return new LibraryEntryModel({
+        ...entry.entity,
+        nextProgram: {
+          startedAt: program.StTime,
+          rebroadcast: syobocals.filter((x) => x.ChID === annictChannel.annictId).length > 1,
+          channel: {
+            annictId: annictChannel.annictId,
+            name: annictChannel.name,
+          },
+        },
+      })
+    }
+
+    return null
+  }, [saya, syobocals, syobocalChannels, entry, enableSyobocal])
 
   const channelName = useMemo(
     () => syobocal?.nextProgram?.channel.name ?? entry.nextProgram?.channel.name,

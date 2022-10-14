@@ -263,7 +263,7 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
                         .filter((c) => c.syobocalId !== undefined)
                         .distinctBy((c) => c.syobocalId)
                         .map((c) => (
-                          <Chip key={c.name} value={c.syobocalId?.toString()}>
+                          <Chip key={c.name} value={c.syobocalId?.toString()} size="xs">
                             {c.name}
                           </Chip>
                         ))}
