@@ -7,6 +7,7 @@ import {
   Card,
   Center,
   Checkbox,
+  Chip,
   Container,
   Group,
   HoverCard,
@@ -190,76 +191,84 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
                   />
                 </Group>
 
-                <Checkbox.Group
+                <Text>シーズン</Text>
+                <Chip.Group
                   mt="md"
                   ml="md"
                   mb="md"
-                  label="シーズン"
                   value={seasonFilters}
+                  multiple
                   onChange={(value) => {
                     setSeasonFilters(value as SeasonName[])
                   }}
                 >
-                  <Checkbox value={SeasonName.Spring} label="春" />
-                  <Checkbox value={SeasonName.Summer} label="夏" />
-                  <Checkbox value={SeasonName.Autumn} label="秋" />
-                  <Checkbox value={SeasonName.Winter} label="冬" />
-                </Checkbox.Group>
+                  <Chip value={SeasonName.Spring}>春</Chip>
+                  <Chip value={SeasonName.Summer}>夏</Chip>
+                  <Chip value={SeasonName.Autumn}>秋</Chip>
+                  <Chip value={SeasonName.Winter}>冬</Chip>
+                </Chip.Group>
 
-                <Checkbox.Group
+                <Text>放送時間</Text>
+                <Chip.Group
                   mt="md"
                   ml="md"
                   mb="md"
-                  label="放送日"
                   value={timeFilters}
+                  multiple
                   onChange={(value) => {
                     setTimeFilters(value as TimeTag[])
                   }}
                 >
-                  <Checkbox value="finished" label="昨日以前" />
-                  <Checkbox value="yesterday" label="昨日" />
-                  <Checkbox value="today" label="今日" />
-                  <Checkbox value="tomorrow" label="明日" />
-                  <Checkbox value="future" label="明日以降" />
-                  <Checkbox value="undetermined" label="未定" />
-                  <Checkbox value="unset" label="放送情報なし" />
-                </Checkbox.Group>
+                  <Chip value="finished">昨日以前</Chip>
+                  <Chip value="yesterday">昨日</Chip>
+                  <Chip value="today">今日</Chip>
+                  <Chip value="tomorrow">明日</Chip>
+                  <Chip value="future">明日以降</Chip>
+                  <Chip value="undetermined">未定</Chip>
+                  <Chip value="unset">放送情報なし</Chip>
+                </Chip.Group>
 
-                <Checkbox.Group
+                <Text>放送曜日</Text>
+                <Chip.Group
                   mt="md"
                   ml="md"
                   mb="md"
-                  label="放送曜日"
                   value={dayFilters}
+                  multiple
                   onChange={(value) => {
                     setDayFilters(value as DayTag[])
                   }}
                 >
-                  <Checkbox value="sunday" label="日曜" />
-                  <Checkbox value="monday" label="月曜" />
-                  <Checkbox value="tuesday" label="火曜" />
-                  <Checkbox value="wednesday" label="水曜" />
-                  <Checkbox value="thursday" label="木曜" />
-                  <Checkbox value="friday" label="金曜" />
-                  <Checkbox value="saturday" label="土曜" />
-                </Checkbox.Group>
+                  <Chip value="sunday">日曜</Chip>
+                  <Chip value="monday">月曜</Chip>
+                  <Chip value="tuesday">火曜</Chip>
+                  <Chip value="wednesday">水曜</Chip>
+                  <Chip value="thursday">木曜</Chip>
+                  <Chip value="friday">金曜</Chip>
+                  <Chip value="saturday">土曜</Chip>
+                </Chip.Group>
 
                 {enableSyobocal && (
-                  <Checkbox.Group
-                    mt="md"
-                    ml="md"
-                    mb="md"
-                    label="チャンネル"
-                    value={syobocalChannels}
-                    onChange={setSyobocalChannels}
-                  >
-                    {saya?.definition.channels
-                      .filter((c) => c.syobocalId !== undefined)
-                      .distinctBy((c) => c.syobocalId)
-                      .map((c) => (
-                        <Checkbox key={c.name} value={c.syobocalId?.toString()} label={c.name} />
-                      ))}
-                  </Checkbox.Group>
+                  <>
+                    <Text>チャンネル</Text>
+                    <Chip.Group
+                      mt="md"
+                      ml="md"
+                      mb="md"
+                      value={syobocalChannels}
+                      multiple
+                      onChange={setSyobocalChannels}
+                    >
+                      {saya?.definition.channels
+                        .filter((c) => c.syobocalId !== undefined)
+                        .distinctBy((c) => c.syobocalId)
+                        .map((c) => (
+                          <Chip key={c.name} value={c.syobocalId?.toString()}>
+                            {c.name}
+                          </Chip>
+                        ))}
+                    </Chip.Group>
+                  </>
                 )}
               </Accordion.Panel>
             </Accordion.Item>
