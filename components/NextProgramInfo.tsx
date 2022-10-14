@@ -61,7 +61,6 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
         continue
       }
 
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (!syobocalChannels.includes(annictChannel.annictId.toString())) {
         continue
       }
