@@ -33,7 +33,6 @@
     "@slashnephy/typescript-extension": "0.2.3",
     "@tabler/icons": "1.101.0",
     "@tanstack/react-query": "4.10.1",
-    "caching-decorator": "1.0.2",
     "date-fns": "2.29.3",
     "fast-xml-parser": "4.0.11",
     "graphql-request": "4.3.0",
@@ -41,7 +40,8 @@
     "next": "12.3.1",
     "next-auth": "4.12.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "ts-method-cache": "3.3.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.13.7",
