@@ -42,7 +42,8 @@
     "next-auth": "4.12.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "recoil": "0.7.6"
+    "recoil": "0.7.6",
+    "recoil-persist": "4.2.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.13.7",
