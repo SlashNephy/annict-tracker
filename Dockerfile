@@ -14,7 +14,7 @@ RUN apt-get update \
 
 COPY --from=cache /app/node_modules/ ./node_modules/
 COPY ./ ./
-RUN yarn generate && yarn build
+RUN yarn build
 
 FROM --platform=$TARGETPLATFORM node:18.11.0-bullseye-slim AS runtime
 ENV NODE_ENV="production"

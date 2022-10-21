@@ -189,9 +189,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# GraphQL
-graphql/generated/*
-!graphql/generated/.gitkeep
-
 # Vercel
 .vercel

@@ -19,7 +19,6 @@ jobs:
     permissions:
       contents: 'read'
     with:
-      pre-script: 'generate'
       script: 'build'
 
   lint:
@@ -27,8 +26,6 @@ jobs:
     permissions:
       contents: 'read'
       pull-requests: 'write'
-    with:
-      pre-script: 'generate'
 
   format:
     if: github.event_name == 'push'
