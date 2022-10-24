@@ -108,13 +108,15 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
   return (
     <>
       <Text style={{ whiteSpace: 'nowrap' }}>{channelName}</Text>
-      <Text>
-        {startAt !== null && (
+      {startAt !== null && (
+        <Text>
           <>
             {`${format(startAt, 'yyyy/MM/dd')} (${startAtDay}) ${format(startAt, 'HH:mm')}`} (
             <RelativeTimeLabel time={startAt} />)
           </>
-        )}
+        </Text>
+      )}
+      <Text>
         <DateBadge entry={entry} />
       </Text>
     </>
