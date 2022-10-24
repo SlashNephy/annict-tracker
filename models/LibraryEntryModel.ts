@@ -3,7 +3,7 @@ import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
 
 import { SeasonName } from '../graphql/generated/types'
 import { AnnictSeason } from '../lib/services/annict'
-import { LocalArmDatabase } from '../lib/services/arm'
+import { ArmSupplementaryDatabase } from '../lib/services/arm'
 
 import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'
 import type { DayTag, TimeTag } from './filters'
@@ -13,12 +13,12 @@ export class LibraryEntryModel {
 
   @cached_property
   public get workSyobocalTid(): number | null {
-    return LocalArmDatabase.findByAnnictId(this.work.annictId)?.syobocal_tid ?? this.work.syobocalTid
+    return ArmSupplementaryDatabase.findByAnnictId(this.work.annictId)?.syobocal_tid ?? this.work.syobocalTid
   }
 
   @cached_property
   public get workMalId(): string | null {
-    return LocalArmDatabase.findByAnnictId(this.work.annictId)?.mal_id?.toString() ?? this.work.malAnimeId
+    return ArmSupplementaryDatabase.findByAnnictId(this.work.annictId)?.mal_id?.toString() ?? this.work.malAnimeId
   }
 
   @cached_property
