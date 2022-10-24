@@ -7,6 +7,7 @@ import { useRecoilState } from 'recoil'
 import { enableSyobocalState, syobocalChannelsState } from '../lib/atoms'
 import { fetchSayaRemoteDatabase } from '../lib/services/saya'
 import { lookupPrograms } from '../lib/services/syobocal'
+import { useArmSupplementary } from '../lib/useArmSupplementary'
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
 import { DateBadge } from './DateBadge'
 import { RelativeTimeLabel } from './RelativeTimeLabel'
@@ -14,6 +15,8 @@ import { RelativeTimeLabel } from './RelativeTimeLabel'
 export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) => {
   const [enableSyobocal] = useRecoilState(enableSyobocalState)
   const [syobocalChannels] = useRecoilState(syobocalChannelsState)
+
+  const arm = useArmSupplementary()
 
   // saya の定義ファイル
   const { data: saya } = useQuery(['saya'], async () => await fetchSayaRemoteDatabase(), {
@@ -28,18 +31,19 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
     isLoading,
     isError,
   } = useQuery(
-    [`syobocal-${entry.workSyobocalTid}`, enableSyobocal],
+    [`syobocal-${entry.work.annictId}`, enableSyobocal],
     async () => {
       // Annict 側でチャンネル選択が行われている
       if (entry.nextProgram !== null && entry.nextEpisode !== null) {
         return null
       }
 
-      if (entry.nextEpisode === null || entry.workSyobocalTid === null || saya === undefined) {
+      const workSyobocalTid = arm?.findByAnnictId(entry.work.annictId)?.syobocal_tid ?? entry.work.syobocalTid
+      if (entry.nextEpisode === null || workSyobocalTid === null || saya === undefined) {
         return null
       }
 
-      const response = await lookupPrograms([entry.workSyobocalTid])
+      const response = await lookupPrograms([workSyobocalTid])
       return (
         response.ProgLookupResponse?.ProgItems?.ProgItem?.reverse()?.filter(
           (x) => x.Count === entry.nextEpisode?.number
@@ -47,7 +51,7 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
       )
     },
     {
-      enabled: enableSyobocal && saya !== undefined,
+      enabled: enableSyobocal && saya !== undefined && arm !== undefined,
     }
   )
   const syobocal = useMemo(() => {

@@ -3,23 +3,12 @@ import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
 
 import { SeasonName } from '../graphql/generated/types'
 import { AnnictSeason } from '../lib/services/annict'
-import { ArmSupplementaryDatabase } from '../lib/services/arm'
 
 import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'
 import type { DayTag, TimeTag } from './filters'
 
 export class LibraryEntryModel {
   public constructor(public readonly entity: AnnictLibraryEntry) {}
-
-  @cached_property
-  public get workSyobocalTid(): number | null {
-    return ArmSupplementaryDatabase.findByAnnictId(this.work.annictId)?.syobocal_tid ?? this.work.syobocalTid
-  }
-
-  @cached_property
-  public get workMalId(): string | null {
-    return ArmSupplementaryDatabase.findByAnnictId(this.work.annictId)?.mal_id?.toString() ?? this.work.malAnimeId
-  }
 
   @cached_property
   public get nextProgramStartAt(): Date | null {

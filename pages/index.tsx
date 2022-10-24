@@ -19,9 +19,9 @@ import {
 } from '@mantine/core'
 import { IconAlertTriangle, IconBrandGithub, IconInfoCircle } from '@tabler/icons'
 import { useQuery } from '@tanstack/react-query'
-import { minutesToMilliseconds, secondsToMilliseconds } from 'date-fns'
+import { secondsToMilliseconds } from 'date-fns'
 import { useSession } from 'next-auth/react'
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { NextProgramInfo } from '../components/NextProgramInfo'
@@ -38,7 +38,6 @@ import {
   timeFiltersState,
 } from '../lib/atoms'
 import { createAnnictClient } from '../lib/services/annict'
-import { ArmSupplementaryDatabase } from '../lib/services/arm'
 import { fetchSayaRemoteDatabase } from '../lib/services/saya'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
@@ -98,16 +97,6 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
   const [timeFilters, setTimeFilters] = useRecoilState(timeFiltersState)
   const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
   const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
-
-  // ArmSupplementaryDatabase を更新する
-  useEffect(() => {
-    const interval = setInterval(() => {
-      ArmSupplementaryDatabase.update().catch(console.error)
-    }, minutesToMilliseconds(15))
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
 
   const { data: saya } = useQuery(['saya'], async () => await fetchSayaRemoteDatabase())
   const {
