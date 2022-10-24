@@ -1228,7 +1228,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript@npm:2.7.5, @graphql-codegen/typescript@npm:^2.7.5":
+"@graphql-codegen/typescript@npm:2.8.0":
+  version: 2.8.0
+  resolution: "@graphql-codegen/typescript@npm:2.8.0"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-codegen/schema-ast": ^2.5.1
+    "@graphql-codegen/visitor-plugin-common": 2.13.0
+    auto-bind: ~4.0.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 45550613384c930d046f1ca8bfd73c25e1219fc45315b1885017e08577a517547d5af86908162f61eee0670689df5c926b5e394b318d5c3d94ee5eef5ac1bc52
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript@npm:^2.7.5":
   version: 2.7.5
   resolution: "@graphql-codegen/typescript@npm:2.7.5"
   dependencies:
@@ -2950,7 +2965,7 @@ __metadata:
     "@emotion/server": 11.10.0
     "@graphql-codegen/cli": 2.13.7
     "@graphql-codegen/import-types-preset": 2.2.5
-    "@graphql-codegen/typescript": 2.7.5
+    "@graphql-codegen/typescript": 2.8.0
     "@graphql-codegen/typescript-graphql-request": 4.5.7
     "@graphql-codegen/typescript-operations": 2.5.5
     "@kawaiioverflow/arm": 0.102.0
