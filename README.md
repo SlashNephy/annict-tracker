@@ -4,9 +4,11 @@ annict-tracker は Annict の視聴記録を便利にする Web アプリケー�
 
 ## Gallery
 
-<img width="645" alt="image" src="https://user-images.githubusercontent.com/7302150/194802597-f9b0a1f4-9964-4e9c-8765-b0013491ca56.png">
+<img width="696" alt="image" src="https://user-images.githubusercontent.com/7302150/197771681-2d0f0e53-4f15-493e-8025-b8d3fc0b2328.png">
 
-<img width="1800" alt="image" src="https://user-images.githubusercontent.com/7302150/194802526-4cb9c483-e4b6-4f9f-a578-99aa0430b6ee.png">
+<img width="1024" alt="image" src="https://user-images.githubusercontent.com/7302150/197772434-c646a93a-6883-4eed-bda0-386a261aeff3.png">
+
+<img width="966" alt="image" src="https://user-images.githubusercontent.com/7302150/197772831-bd61938b-e627-46e5-b84b-34d1ce86b022.png">
 
 ## Get Started
 
@@ -20,8 +22,6 @@ annict-tracker は Annict の視聴記録を便利にする Web アプリケー�
   - Cookie のシークレットです。本番環境では必須です。https://next-auth.js.org/configuration/options#secret
 - `ANNICT_CLIENT_ID`, `ANNICT_CLIENT_SECRET`
   - Annict の OAuth 2 クライアント ID 及びシークレットです。https://annict.com/oauth/applications/new で発行できます。
-- `ANNICT_ACCESS_TOKEN`
-  - IntelliJ の GraphQL プラグインで Annict GraphQL API を使用する際は必要です。
 
 ### ローカル起動
 
