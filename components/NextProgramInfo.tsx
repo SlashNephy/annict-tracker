@@ -4,7 +4,12 @@ import { differenceInMinutes, format, hoursToMilliseconds, minutesToMilliseconds
 import React, { useEffect, useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { enableBrowserNotificationState, enableSyobocalState, syobocalChannelsState } from '../lib/atoms'
+import {
+  enableBrowserNotificationState,
+  enableSyobocalState,
+  programNotificationThresholdMinutesState,
+  syobocalChannelsState,
+} from '../lib/atoms'
 import { fetchSayaRemoteDatabase } from '../lib/services/saya'
 import { lookupPrograms } from '../lib/services/syobocal'
 import { useArmSupplementary } from '../lib/useArmSupplementary'
@@ -16,6 +21,7 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
   const [enableSyobocal] = useRecoilState(enableSyobocalState)
   const [syobocalChannels] = useRecoilState(syobocalChannelsState)
   const [enableBrowserNotification] = useRecoilState(enableBrowserNotificationState)
+  const [programNotificationThresholdMinutes] = useRecoilState(programNotificationThresholdMinutesState)
 
   const arm = useArmSupplementary()
 
@@ -96,22 +102,28 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
   useEffect(() => {
     if (enableBrowserNotification && startAt !== null && Notification.permission === 'granted') {
       const diff = differenceInMinutes(startAt, new Date())
-      if (0 <= diff && diff < 5) {
-        const item = new Notification(entry.work.title, {
-          body: `${entry.nextProgram?.channel.name}で${Math.ceil(diff)}分後に始まります\n\n${entry.nextEpisodeLabel}`,
-          image: entry.workImageUrl,
-          lang: 'ja',
-          requireInteraction: true,
-        })
-        const interval = setTimeout(() => {
-          item.close()
-        }, minutesToMilliseconds(diff))
+
+      // n分前に通知する
+      if (diff > 0) {
+        const timeout = setTimeout(() => {
+          const item = new Notification(entry.work.title, {
+            body: `${entry.nextProgram?.channel.name}で${Math.ceil(diff)}分後に始まります\n\n${entry.nextEpisodeLabel}`,
+            image: entry.workImageUrl,
+            lang: 'ja',
+            requireInteraction: true,
+          })
+
+          setTimeout(() => {
+            item.close()
+          }, minutesToMilliseconds(diff))
+        }, Math.max(minutesToMilliseconds(diff - programNotificationThresholdMinutes), 0))
+
         return () => {
-          clearInterval(interval)
+          clearTimeout(timeout)
         }
       }
     }
-  }, [enableBrowserNotification, startAt, entry])
+  }, [enableBrowserNotification, startAt, entry, programNotificationThresholdMinutes])
 
   if (isError) {
     return (

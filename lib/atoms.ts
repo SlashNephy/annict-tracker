@@ -51,3 +51,9 @@ export const enableBrowserNotificationState = atom<boolean>({
   default: false,
   effects_UNSTABLE: [persistAtom],
 })
+
+export const programNotificationThresholdMinutesState = atom<number>({
+  key: 'program-notification-threshold-minutes',
+  default: 5,
+  effects_UNSTABLE: [persistAtom],
+})
