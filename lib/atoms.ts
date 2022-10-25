@@ -45,3 +45,9 @@ export const syobocalChannelsState = atom<string[]>({
   default: [],
   effects_UNSTABLE: [persistAtom],
 })
+
+export const enableBrowserNotificationState = atom<boolean>({
+  key: 'enable-browser-notification',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})

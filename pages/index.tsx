@@ -39,6 +39,7 @@ import {
 } from '../lib/atoms'
 import { createAnnictClient } from '../lib/services/annict'
 import { fetchSayaRemoteDatabase } from '../lib/services/saya'
+import { useBrowserNotification } from '../lib/useBrowserNotification'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
 import packageJson from '../package.json'
@@ -93,6 +94,7 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
+  const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
   const [seasonFilters, setSeasonFilters] = useRecoilState(seasonFiltersState)
   const [timeFilters, setTimeFilters] = useRecoilState(timeFiltersState)
   const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
@@ -187,6 +189,34 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
                     checked={enableSyobocal}
                     onChange={(event) => {
                       setEnableSyobocal(event.target.checked)
+                    }}
+                  />
+
+                  <Checkbox
+                    ml="md"
+                    mb="md"
+                    label={
+                      <>
+                        ブラウザの通知を有効にする
+                        <HoverCard width={280} shadow="md">
+                          <HoverCard.Target>
+                            <ActionIcon
+                              variant="transparent"
+                              ml="0.1em"
+                              style={{ display: 'inline-block', verticalAlign: 'middle' }}
+                            >
+                              <IconInfoCircle size={16} />
+                            </ActionIcon>
+                          </HoverCard.Target>
+                          <HoverCard.Dropdown>
+                            <Text size="sm">有効にすると放送時間が近付いた時にブラウザの通知が表示されます。</Text>
+                          </HoverCard.Dropdown>
+                        </HoverCard>
+                      </>
+                    }
+                    checked={enableBrowserNotification}
+                    onChange={(event) => {
+                      setEnableBrowserNotification(event.target.checked)
                     }}
                   />
                 </Group>
