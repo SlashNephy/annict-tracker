@@ -4,4 +4,8 @@ const nextConfig = {
   swcMinify: true,
 }
 
+if (process.env.DOCKER === '1') {
+  nextConfig.output = 'standalone'
+}
+
 module.exports = nextConfig

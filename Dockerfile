@@ -6,25 +6,19 @@ COPY ./package.json ./.yarnrc.yml ./yarn.lock ./
 RUN yarn --immutable
 
 FROM --platform=$BUILDPLATFORM node:19.0.0-bullseye-slim AS build
-ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl
 
 COPY --from=cache /app/node_modules/ ./node_modules/
 COPY ./ ./
+ENV DOCKER=1
 RUN yarn build
 
 FROM --platform=$TARGETPLATFORM node:19.0.0-bullseye-slim AS runtime
+WORKDIR /app
 ENV NODE_ENV="production"
 ENV PORT=3000
-ENV NEXT_TELEMETRY_DISABLED=1
-WORKDIR /app
 USER node
 
-COPY --from=build /app/package.json /app/next.config.js ./
-COPY --from=build /app/public/ ./public/
 COPY --from=build --chown=node:node /app/.next/standalone ./
 COPY --from=build --chown=node:node /app/.next/static ./.next/static
 

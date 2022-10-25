@@ -24,4 +24,4 @@ jobs:
     uses: SlashNephy/.github/.github/workflows/docker-build.yml@master
     with:
       image-name: 'ghcr.io/slashnephy/annict-tracker'
-      image-platforms: 'linux/amd64'
+      image-platforms: 'linux/amd64,linux/arm64'
