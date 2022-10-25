@@ -1,6 +1,5 @@
 import {
   Accordion,
-  ActionIcon,
   Alert,
   Anchor,
   Button,
@@ -10,20 +9,18 @@ import {
   Chip,
   Container,
   Group,
-  HoverCard,
   Loader,
   SimpleGrid,
   Stack,
   Text,
   Title,
 } from '@mantine/core'
-import { IconAlertTriangle, IconBrandGithub, IconInfoCircle } from '@tabler/icons'
-import { useQuery } from '@tanstack/react-query'
-import { secondsToMilliseconds } from 'date-fns'
+import { IconAlertTriangle, IconBrandGithub } from '@tabler/icons'
 import { useSession } from 'next-auth/react'
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useRecoilState } from 'recoil'
 
+import { CheckboxWithHoverCard } from '../components/CheckboxWithHoverCard'
 import { NextProgramInfo } from '../components/NextProgramInfo'
 import { RecordButton } from '../components/RecordButton'
 import { SignInButton } from '../components/SignInButton'
@@ -37,19 +34,22 @@ import {
   syobocalChannelsState,
   timeFiltersState,
 } from '../lib/atoms'
-import { createAnnictClient } from '../lib/services/annict'
-import { fetchSayaRemoteDatabase } from '../lib/services/saya'
+import { AnnictClientProvider } from '../lib/useAnnictClient'
 import { useBrowserNotification } from '../lib/useBrowserNotification'
+import { useLibraryEntries } from '../lib/useLibraryEntries'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
-import { LibraryEntryModel } from '../models/LibraryEntryModel'
+import { useSaya } from '../lib/useSaya'
 import packageJson from '../package.json'
 
 import type { DayTag, TimeTag } from '../models/filters'
 
 const Index: React.FC = () => {
-  const { data: session } = useSession()
-  return session?.accessToken !== undefined ? (
-    <IndexAsAnnictUser accessToken={session.accessToken} />
+  const { data } = useSession()
+
+  return data?.accessToken !== undefined ? (
+    <AnnictClientProvider value={data.accessToken}>
+      <IndexAsAnnictUser />
+    </AnnictClientProvider>
   ) : (
     <IndexAsGuestUser />
   )
@@ -89,8 +89,7 @@ export const IndexAsGuestUser: React.FC = () => {
   )
 }
 
-export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessToken }) => {
-  const client = useMemo(() => createAnnictClient(accessToken), [accessToken])
+export const IndexAsAnnictUser: React.FC = () => {
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
@@ -100,38 +99,8 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
   const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
   const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
 
-  const { data: saya } = useQuery(['saya'], async () => await fetchSayaRemoteDatabase())
-  const {
-    data: entries,
-    isLoading,
-    isError,
-    error,
-  } = useQuery(
-    ['entries', accessToken],
-    async () => {
-      const response = await client.getViewerLibraryEntries()
-      return (
-        response.viewer?.libraryEntries?.nodes
-          ?.filter((n): n is NonNullable<typeof n> => n !== null)
-          ?.map((e) => new LibraryEntryModel(e))
-          ?.sort((a, b) => a.sort - b.sort) ?? []
-      )
-    },
-    {
-      retry: true,
-      retryDelay: secondsToMilliseconds(10),
-      refetchInterval: secondsToMilliseconds(60),
-    }
-  )
-  const filteredEntries = useMemo<LibraryEntryModel[]>(
-    () =>
-      entries
-        ?.filter((e) => e.filterBySeasonName(seasonFilters))
-        ?.filter((e) => e.filterByCurrentSeason(isOnlyCurrentSeason))
-        ?.filter((e) => e.filterByTime(timeFilters))
-        ?.filter((e) => e.filterByDay(dayFilters, timeFilters)) ?? [],
-    [entries, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters]
-  )
+  const saya = useSaya()
+  const { entries, isLoading, isError, error } = useLibraryEntries()
 
   return (
     <Container>
@@ -160,64 +129,25 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
                       setIsOnlyCurrentSeason(event.target.checked)
                     }}
                   />
-
-                  <Checkbox
+                  <CheckboxWithHoverCard
                     ml="md"
                     mb="md"
-                    label={
-                      <>
-                        しょぼいカレンダーも利用する
-                        <HoverCard width={280} shadow="md">
-                          <HoverCard.Target>
-                            <ActionIcon
-                              variant="transparent"
-                              ml="0.1em"
-                              style={{ display: 'inline-block', verticalAlign: 'middle' }}
-                            >
-                              <IconInfoCircle size={16} />
-                            </ActionIcon>
-                          </HoverCard.Target>
-                          <HoverCard.Dropdown>
-                            <Text size="sm">
-                              有効にすると Annict
-                              に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。
-                            </Text>
-                          </HoverCard.Dropdown>
-                        </HoverCard>
-                      </>
-                    }
                     checked={enableSyobocal}
                     onChange={(event) => {
                       setEnableSyobocal(event.target.checked)
                     }}
+                    label="しょぼいカレンダーも利用する"
+                    description="有効にすると Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
                   />
-
-                  <Checkbox
+                  <CheckboxWithHoverCard
                     ml="md"
                     mb="md"
-                    label={
-                      <>
-                        ブラウザの通知を有効にする
-                        <HoverCard width={280} shadow="md">
-                          <HoverCard.Target>
-                            <ActionIcon
-                              variant="transparent"
-                              ml="0.1em"
-                              style={{ display: 'inline-block', verticalAlign: 'middle' }}
-                            >
-                              <IconInfoCircle size={16} />
-                            </ActionIcon>
-                          </HoverCard.Target>
-                          <HoverCard.Dropdown>
-                            <Text size="sm">有効にすると放送時間が近付いた時にブラウザの通知が表示されます。</Text>
-                          </HoverCard.Dropdown>
-                        </HoverCard>
-                      </>
-                    }
                     checked={enableBrowserNotification}
                     onChange={(event) => {
                       setEnableBrowserNotification(event.target.checked)
                     }}
+                    label="ブラウザの通知を有効にする"
+                    description="有効にすると放送時間が近付いた時にブラウザの通知が表示されます。"
                   />
                 </Group>
 
@@ -319,7 +249,7 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
         </Alert>
       ) : (
         <SimpleGrid cols={3}>
-          {filteredEntries.map((e) => (
+          {entries.map((e) => (
             <Card key={e.id} shadow="sm" p="lg" radius="md" withBorder>
               <Card.Section>
                 <WorkImage entry={e} />
@@ -339,7 +269,7 @@ export const IndexAsAnnictUser: React.FC<{ accessToken: string }> = ({ accessTok
                 <NextProgramInfo entry={e} />
 
                 <Button.Group>
-                  <RecordButton entry={e} client={client} />
+                  <RecordButton entry={e} />
                 </Button.Group>
               </Stack>
             </Card>

@@ -4,10 +4,12 @@ import { IconCheck } from '@tabler/icons'
 import { useQueryClient } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 
-import type { Sdk } from '../graphql/generated/sdk'
+import { useAnnictClient } from '../lib/useAnnictClient'
+
 import type { LibraryEntryModel } from '../models/LibraryEntryModel'
 
-export const RecordButton: React.FC<{ entry: LibraryEntryModel; client: Sdk }> = ({ entry, client }) => {
+export const RecordButton: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) => {
+  const client = useAnnictClient()
   const query = useQueryClient()
   const isDisabled = useMemo(() => {
     // エピソード情報がない

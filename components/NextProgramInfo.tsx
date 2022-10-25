@@ -1,6 +1,6 @@
 import { Group, Loader, Text } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
-import { differenceInMinutes, format, hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
+import { differenceInMinutes, format, minutesToMilliseconds } from 'date-fns'
 import React, { useEffect, useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
@@ -10,9 +10,9 @@ import {
   programNotificationThresholdMinutesState,
   syobocalChannelsState,
 } from '../lib/atoms'
-import { fetchSayaRemoteDatabase } from '../lib/services/saya'
 import { lookupPrograms } from '../lib/services/syobocal'
 import { useArmSupplementary } from '../lib/useArmSupplementary'
+import { useSaya } from '../lib/useSaya'
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
 import { DateBadge } from './DateBadge'
 import { RelativeTimeLabel } from './RelativeTimeLabel'
@@ -24,13 +24,7 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
   const [programNotificationThresholdMinutes] = useRecoilState(programNotificationThresholdMinutesState)
 
   const arm = useArmSupplementary()
-
-  // saya の定義ファイル
-  const { data: saya } = useQuery(['saya'], async () => await fetchSayaRemoteDatabase(), {
-    retry: true,
-    retryDelay: minutesToMilliseconds(1),
-    refetchInterval: hoursToMilliseconds(1),
-  })
+  const saya = useSaya()
 
   // しょぼかるの情報から放送時間を補完する
   const {
