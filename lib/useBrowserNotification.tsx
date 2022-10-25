@@ -1,5 +1,5 @@
 import { showNotification } from '@mantine/notifications'
-import { IconAlertCircle, IconAlertTriangle } from '@tabler/icons'
+import { IconAlertTriangle } from '@tabler/icons'
 import { secondsToMilliseconds } from 'date-fns'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
@@ -15,11 +15,6 @@ export const useBrowserNotification = (): readonly [boolean, SetterOrUpdater<boo
     if (enableBrowserNotification) {
       switch (Notification.permission) {
         case 'granted':
-          showNotification({
-            title: 'ブラウザ通知は有効です',
-            message: '放送時間が近付いた番組が通知されます。',
-            icon: <IconAlertCircle />,
-          })
           break
         case 'denied':
           showNotification({
@@ -38,6 +33,7 @@ export const useBrowserNotification = (): readonly [boolean, SetterOrUpdater<boo
                     body: '放送時間が近付いた番組が通知されるようになります。',
                     lang: 'ja',
                     silent: true,
+                    requireInteraction: true,
                   })
                   setTimeout(() => {
                     item.close()

@@ -1,10 +1,10 @@
 import { Group, Loader, Text } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
-import { format, hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
-import React, { useMemo } from 'react'
+import { differenceInMinutes, format, hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
+import React, { useEffect, useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { enableSyobocalState, syobocalChannelsState } from '../lib/atoms'
+import { enableBrowserNotificationState, enableSyobocalState, syobocalChannelsState } from '../lib/atoms'
 import { fetchSayaRemoteDatabase } from '../lib/services/saya'
 import { lookupPrograms } from '../lib/services/syobocal'
 import { useArmSupplementary } from '../lib/useArmSupplementary'
@@ -15,6 +15,7 @@ import { RelativeTimeLabel } from './RelativeTimeLabel'
 export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) => {
   const [enableSyobocal] = useRecoilState(enableSyobocalState)
   const [syobocalChannels] = useRecoilState(syobocalChannelsState)
+  const [enableBrowserNotification] = useRecoilState(enableBrowserNotificationState)
 
   const arm = useArmSupplementary()
 
@@ -91,6 +92,26 @@ export const NextProgramInfo: React.FC<{ entry: LibraryEntryModel }> = ({ entry 
   )
   const startAt = useMemo(() => syobocal?.nextProgramStartAt ?? entry.nextProgramStartAt, [syobocal, entry])
   const startAtDay = useMemo(() => syobocal?.nextProgramStartAtDay ?? entry.nextProgramStartAtDay, [syobocal, entry])
+
+  useEffect(() => {
+    if (enableBrowserNotification && startAt !== null && Notification.permission === 'granted') {
+      const diff = differenceInMinutes(startAt, new Date())
+      if (0 <= diff && diff < 5) {
+        const item = new Notification(entry.work.title, {
+          body: `${entry.nextProgram?.channel.name}で${Math.ceil(diff)}分後に始まります\n\n${entry.nextEpisodeLabel}`,
+          image: entry.workImageUrl,
+          lang: 'ja',
+          requireInteraction: true,
+        })
+        const interval = setTimeout(() => {
+          item.close()
+        }, minutesToMilliseconds(diff))
+        return () => {
+          clearInterval(interval)
+        }
+      }
+    }
+  }, [enableBrowserNotification, startAt, entry])
 
   if (isError) {
     return (

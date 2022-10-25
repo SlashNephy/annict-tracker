@@ -17,7 +17,7 @@
     "generate:curl": "curl -o graphql/generated/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
     "generate:graphql": "graphql-codegen --config codegen.yml",
     "lint": "concurrently -n lint: 'yarn:lint:*'",
-    "lint:eslint": "next lint",
+    "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "start": "next start",
     "tsc": "tsc --noEmit"
