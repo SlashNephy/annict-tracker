@@ -1,9 +1,9 @@
 overwrite: true
-schema: graphql/generated/schema.graphql
-documents: graphql/*.graphql
+schema: graphql/annict/schema.graphql
+documents: graphql/annict/*.graphql
 
 generates:
-  graphql/generated/types.ts:
+  graphql/annict/types.ts:
     plugins:
       - typescript
     config:
@@ -12,7 +12,7 @@ generates:
       avoidOptionals: true
       skipTypename: true
 
-  graphql/generated/operations.ts:
+  graphql/annict/operations.ts:
     plugins:
       - typescript-operations
     config:
@@ -24,7 +24,7 @@ generates:
     presetConfig:
       typesPath: ./types
 
-  graphql/generated/sdk.ts:
+  graphql/annict/sdk.ts:
     plugins:
       - typescript-graphql-request
     preset: import-types
@@ -33,4 +33,4 @@ generates:
 
 hooks:
   afterAllFileWrite:
-    - prettier --write graphql/generated
+    - prettier --write graphql/annict

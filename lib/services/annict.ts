@@ -1,10 +1,10 @@
 import { GraphQLClient } from 'graphql-request'
 
-import { getSdk } from '../../graphql/generated/sdk'
-import { SeasonName } from '../../graphql/generated/types'
+import { getSdk } from '../../graphql/annict/sdk'
+import { SeasonName } from '../../graphql/annict/types'
 
-import type { GetViewerLibraryEntriesQuery } from '../../graphql/generated/operations'
-import type { Sdk } from '../../graphql/generated/sdk'
+import type { GetViewerLibraryEntriesQuery } from '../../graphql/annict/operations'
+import type { Sdk } from '../../graphql/annict/sdk'
 
 export const createAnnictClient = (accessToken: string): Sdk => {
   const client = new GraphQLClient('https://api.annict.com/graphql', {

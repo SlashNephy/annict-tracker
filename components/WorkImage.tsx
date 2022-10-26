@@ -4,11 +4,12 @@ import React from 'react'
 
 import { fetchJikanAnimePictures } from '../lib/services/jikan'
 import { useArmSupplementary } from '../lib/useArmSupplementary'
+import { useLibraryEntry } from '../lib/useLibraryEntry'
 
-import type { LibraryEntryModel } from '../models/LibraryEntryModel'
 import type { ImageProps } from '@mantine/core'
 
-export const WorkImage: React.FC<{ entry: LibraryEntryModel } & Omit<ImageProps, 'src'>> = ({ entry, ...props }) => {
+export const WorkImage: React.FC<Omit<ImageProps, 'src'>> = (props) => {
+  const { entry } = useLibraryEntry()
   const arm = useArmSupplementary()
 
   // query data は undefined にできないので null にしておく
@@ -40,5 +41,5 @@ export const WorkImage: React.FC<{ entry: LibraryEntryModel } & Omit<ImageProps,
     }
   )
 
-  return <Image {...props} src={imageUrl ?? undefined} />
+  return <Image {...props} src={imageUrl ?? undefined} alt={entry.work.title} />
 }

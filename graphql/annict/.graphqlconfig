@@ -1,6 +1,6 @@
 {
   "name": "Annict GraphQL API",
-  "schemaPath": "graphql/generated/schema.graphql",
+  "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
       "api.annict.com": {

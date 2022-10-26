@@ -4,7 +4,7 @@
 import { atom } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
-import { SeasonName } from '../graphql/generated/types'
+import { SeasonName } from '../graphql/annict/types'
 
 import type { DayTag, TimeTag } from '../models/filters'
 

@@ -21,7 +21,7 @@ import { useRecoilState } from 'recoil'
 import { AnnictSignInButton } from '../components/AnnictSignInButton'
 import { CheckboxWithHoverCard } from '../components/CheckboxWithHoverCard'
 import { WorkCard } from '../components/WorkCard'
-import { SeasonName } from '../graphql/generated/types'
+import { SeasonName } from '../graphql/annict/types'
 import {
   dayFiltersState,
   enableSyobocalState,
@@ -87,6 +87,7 @@ export const IndexAsGuestUser: React.FC = () => {
 }
 
 export const IndexAsAnnictUser: React.FC = () => {
+  const session = useAuthenticatedSession()
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)

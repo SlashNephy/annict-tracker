@@ -1,7 +1,7 @@
 import { cached_property } from 'cached_property'
 import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
 
-import { SeasonName } from '../graphql/generated/types'
+import { SeasonName } from '../graphql/annict/types'
 import { AnnictSeason } from '../lib/services/annict'
 
 import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'
