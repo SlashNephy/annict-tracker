@@ -1,8 +1,8 @@
-import gql from 'graphql-tag'
+import * as Types from './operations'
 
-import type * as Types from './operations'
-import type { GraphQLClient } from 'graphql-request'
-import type * as Dom from 'graphql-request/dist/types.dom'
+import { GraphQLClient } from 'graphql-request'
+import * as Dom from 'graphql-request/dist/types.dom'
+import gql from 'graphql-tag'
 
 export const GetViewerLibraryEntriesDocument = gql`
   query getViewerLibraryEntries($after: String) {
@@ -59,16 +59,16 @@ export type SdkFunctionWrapper = <T>(
   operationType?: string
 ) => Promise<T>
 
-const defaultWrapper: SdkFunctionWrapper = async (action, _operationName, _operationType) => action()
+const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action()
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    async getViewerLibraryEntries(
+    getViewerLibraryEntries(
       variables?: Types.GetViewerLibraryEntriesQueryVariables,
       requestHeaders?: Dom.RequestInit['headers']
     ): Promise<Types.GetViewerLibraryEntriesQuery> {
       return withWrapper(
-        async (wrappedRequestHeaders) =>
+        (wrappedRequestHeaders) =>
           client.request<Types.GetViewerLibraryEntriesQuery>(GetViewerLibraryEntriesDocument, variables, {
             ...requestHeaders,
             ...wrappedRequestHeaders,
@@ -77,12 +77,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
         'query'
       )
     },
-    async createRecord(
+    createRecord(
       variables: Types.CreateRecordMutationVariables,
       requestHeaders?: Dom.RequestInit['headers']
     ): Promise<Types.CreateRecordMutation> {
       return withWrapper(
-        async (wrappedRequestHeaders) =>
+        (wrappedRequestHeaders) =>
           client.request<Types.CreateRecordMutation>(CreateRecordDocument, variables, {
             ...requestHeaders,
             ...wrappedRequestHeaders,
