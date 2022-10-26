@@ -24,8 +24,9 @@ export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
           style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
           mt="sm"
           title={entry.work.title}
+          color="blue.4"
         >
-          <Anchor href={entry.workUrl} target="_blank">
+          <Anchor href={entry.workUrl} target="_blank" color="blue.4">
             {entry.work.title}
           </Anchor>
         </Title>
