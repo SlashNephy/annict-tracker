@@ -19,7 +19,12 @@ export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
       </Card.Section>
 
       <Stack>
-        <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm" title={entry.work.title}>
+        <Title
+          order={4}
+          style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+          mt="sm"
+          title={entry.work.title}
+        >
           <Anchor href={entry.workUrl} target="_blank">
             {entry.work.title}
           </Anchor>
@@ -27,7 +32,7 @@ export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
 
         <Text
           weight={500}
-          style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+          style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
           title={entry.nextEpisodeLabel ?? undefined}
         >
           {entry.nextEpisodeLabel}
