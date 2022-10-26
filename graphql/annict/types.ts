@@ -1,6 +1,6 @@
 export type Maybe<T> = T | null
 export type InputMaybe<T> = Maybe<T>
-export type Exact<T extends Record<string, unknown>> = { [K in keyof T]: T[K] }
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] }
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> }
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> }
 /** All built-in and custom scalars, mapped to their actual values */
@@ -27,9 +27,9 @@ export enum ActivityAction {
 /** The connection type for Activity. */
 export type ActivityConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<ActivityEdge>[]>
+  edges: Maybe<Array<Maybe<ActivityEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Activity>[]>
+  nodes: Maybe<Array<Maybe<Activity>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -74,9 +74,9 @@ export type Cast = Node & {
 /** The connection type for Cast. */
 export type CastConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<CastEdge>[]>
+  edges: Maybe<Array<Maybe<CastEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Cast>[]>
+  nodes: Maybe<Array<Maybe<Cast>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -119,9 +119,9 @@ export type ChannelProgramsArgs = {
 /** The connection type for Channel. */
 export type ChannelConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<ChannelEdge>[]>
+  edges: Maybe<Array<Maybe<ChannelEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Channel>[]>
+  nodes: Maybe<Array<Maybe<Channel>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -182,9 +182,9 @@ export type Character = Node & {
 /** The connection type for Character. */
 export type CharacterConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<CharacterEdge>[]>
+  edges: Maybe<Array<Maybe<CharacterEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Character>[]>
+  nodes: Maybe<Array<Maybe<Character>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -308,9 +308,9 @@ export type EpisodeRecordsArgs = {
 /** The connection type for Episode. */
 export type EpisodeConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<EpisodeEdge>[]>
+  edges: Maybe<Array<Maybe<EpisodeEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Episode>[]>
+  nodes: Maybe<Array<Maybe<Episode>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -346,9 +346,9 @@ export type LibraryEntry = Node & {
 /** The connection type for LibraryEntry. */
 export type LibraryEntryConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<LibraryEntryEdge>[]>
+  edges: Maybe<Array<Maybe<LibraryEntryEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<LibraryEntry>[]>
+  nodes: Maybe<Array<Maybe<LibraryEntry>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -464,9 +464,9 @@ export type Organization = Node & {
 /** The connection type for Organization. */
 export type OrganizationConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<OrganizationEdge>[]>
+  edges: Maybe<Array<Maybe<OrganizationEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Organization>[]>
+  nodes: Maybe<Array<Maybe<Organization>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -528,9 +528,9 @@ export type Person = Node & {
 /** The connection type for Person. */
 export type PersonConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<PersonEdge>[]>
+  edges: Maybe<Array<Maybe<PersonEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Person>[]>
+  nodes: Maybe<Array<Maybe<Person>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -574,9 +574,9 @@ export type Program = Node & {
 /** The connection type for Program. */
 export type ProgramConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<ProgramEdge>[]>
+  edges: Maybe<Array<Maybe<ProgramEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Program>[]>
+  nodes: Maybe<Array<Maybe<Program>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -607,7 +607,7 @@ export type Query = {
   /** Fetches an object given its ID. */
   node: Maybe<Node>
   /** Fetches a list of objects given a list of IDs. */
-  nodes: Maybe<Node>[]
+  nodes: Array<Maybe<Node>>
   searchCharacters: Maybe<CharacterConnection>
   searchEpisodes: Maybe<EpisodeConnection>
   searchOrganizations: Maybe<OrganizationConnection>
@@ -622,22 +622,22 @@ export type QueryNodeArgs = {
 }
 
 export type QueryNodesArgs = {
-  ids: Scalars['ID'][]
+  ids: Array<Scalars['ID']>
 }
 
 export type QuerySearchCharactersArgs = {
   after: InputMaybe<Scalars['String']>
-  annictIds: InputMaybe<Scalars['Int'][]>
+  annictIds: InputMaybe<Array<Scalars['Int']>>
   before: InputMaybe<Scalars['String']>
   first: InputMaybe<Scalars['Int']>
   last: InputMaybe<Scalars['Int']>
-  names: InputMaybe<Scalars['String'][]>
+  names: InputMaybe<Array<Scalars['String']>>
   orderBy: InputMaybe<CharacterOrder>
 }
 
 export type QuerySearchEpisodesArgs = {
   after: InputMaybe<Scalars['String']>
-  annictIds: InputMaybe<Scalars['Int'][]>
+  annictIds: InputMaybe<Array<Scalars['Int']>>
   before: InputMaybe<Scalars['String']>
   first: InputMaybe<Scalars['Int']>
   last: InputMaybe<Scalars['Int']>
@@ -646,33 +646,33 @@ export type QuerySearchEpisodesArgs = {
 
 export type QuerySearchOrganizationsArgs = {
   after: InputMaybe<Scalars['String']>
-  annictIds: InputMaybe<Scalars['Int'][]>
+  annictIds: InputMaybe<Array<Scalars['Int']>>
   before: InputMaybe<Scalars['String']>
   first: InputMaybe<Scalars['Int']>
   last: InputMaybe<Scalars['Int']>
-  names: InputMaybe<Scalars['String'][]>
+  names: InputMaybe<Array<Scalars['String']>>
   orderBy: InputMaybe<OrganizationOrder>
 }
 
 export type QuerySearchPeopleArgs = {
   after: InputMaybe<Scalars['String']>
-  annictIds: InputMaybe<Scalars['Int'][]>
+  annictIds: InputMaybe<Array<Scalars['Int']>>
   before: InputMaybe<Scalars['String']>
   first: InputMaybe<Scalars['Int']>
   last: InputMaybe<Scalars['Int']>
-  names: InputMaybe<Scalars['String'][]>
+  names: InputMaybe<Array<Scalars['String']>>
   orderBy: InputMaybe<PersonOrder>
 }
 
 export type QuerySearchWorksArgs = {
   after: InputMaybe<Scalars['String']>
-  annictIds: InputMaybe<Scalars['Int'][]>
+  annictIds: InputMaybe<Array<Scalars['Int']>>
   before: InputMaybe<Scalars['String']>
   first: InputMaybe<Scalars['Int']>
   last: InputMaybe<Scalars['Int']>
   orderBy: InputMaybe<WorkOrder>
-  seasons: InputMaybe<Scalars['String'][]>
-  titles: InputMaybe<Scalars['String'][]>
+  seasons: InputMaybe<Array<Scalars['String']>>
+  titles: InputMaybe<Array<Scalars['String']>>
 }
 
 export type QueryUserArgs = {
@@ -707,9 +707,9 @@ export type Record = Node & {
 /** The connection type for Record. */
 export type RecordConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<RecordEdge>[]>
+  edges: Maybe<Array<Maybe<RecordEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Record>[]>
+  nodes: Maybe<Array<Maybe<Record>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -754,9 +754,9 @@ export type Review = Node & {
 /** The connection type for Review. */
 export type ReviewConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<ReviewEdge>[]>
+  edges: Maybe<Array<Maybe<ReviewEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Review>[]>
+  nodes: Maybe<Array<Maybe<Review>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -807,9 +807,9 @@ export type SeriesWorksArgs = {
 /** The connection type for Series. */
 export type SeriesConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<SeriesEdge>[]>
+  edges: Maybe<Array<Maybe<SeriesEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Series>[]>
+  nodes: Maybe<Array<Maybe<Series>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -825,9 +825,9 @@ export type SeriesEdge = {
 /** The connection type for Work. */
 export type SeriesWorkConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<SeriesWorkEdge>[]>
+  edges: Maybe<Array<Maybe<SeriesWorkEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Work>[]>
+  nodes: Maybe<Array<Maybe<Work>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -871,9 +871,9 @@ export type Staff = Node & {
 /** The connection type for Staff. */
 export type StaffConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<StaffEdge>[]>
+  edges: Maybe<Array<Maybe<StaffEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Staff>[]>
+  nodes: Maybe<Array<Maybe<Staff>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -1043,8 +1043,8 @@ export type UserLibraryEntriesArgs = {
   orderBy: InputMaybe<LibraryEntryOrder>
   seasonFrom: InputMaybe<Scalars['String']>
   seasonUntil: InputMaybe<Scalars['String']>
-  seasons: InputMaybe<Scalars['String'][]>
-  states: InputMaybe<StatusState[]>
+  seasons: InputMaybe<Array<Scalars['String']>>
+  states: InputMaybe<Array<StatusState>>
 }
 
 export type UserProgramsArgs = {
@@ -1067,22 +1067,22 @@ export type UserRecordsArgs = {
 
 export type UserWorksArgs = {
   after: InputMaybe<Scalars['String']>
-  annictIds: InputMaybe<Scalars['Int'][]>
+  annictIds: InputMaybe<Array<Scalars['Int']>>
   before: InputMaybe<Scalars['String']>
   first: InputMaybe<Scalars['Int']>
   last: InputMaybe<Scalars['Int']>
   orderBy: InputMaybe<WorkOrder>
-  seasons: InputMaybe<Scalars['String'][]>
+  seasons: InputMaybe<Array<Scalars['String']>>
   state: InputMaybe<StatusState>
-  titles: InputMaybe<Scalars['String'][]>
+  titles: InputMaybe<Array<Scalars['String']>>
 }
 
 /** The connection type for User. */
 export type UserConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<UserEdge>[]>
+  edges: Maybe<Array<Maybe<UserEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<User>[]>
+  nodes: Maybe<Array<Maybe<User>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
@@ -1186,9 +1186,9 @@ export type WorkStaffsArgs = {
 /** The connection type for Work. */
 export type WorkConnection = {
   /** A list of edges. */
-  edges: Maybe<Maybe<WorkEdge>[]>
+  edges: Maybe<Array<Maybe<WorkEdge>>>
   /** A list of nodes. */
-  nodes: Maybe<Maybe<Work>[]>
+  nodes: Maybe<Array<Maybe<Work>>>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
 }
