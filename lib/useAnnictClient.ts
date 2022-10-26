@@ -2,7 +2,7 @@ import { createContext, useContext, useMemo } from 'react'
 
 import { createAnnictClient } from './services/annict'
 
-import type { Sdk } from '../graphql/generated/sdk'
+import type { Sdk } from '../graphql/annict/sdk'
 
 const annictClientContext = createContext<string | undefined>(undefined)
 
