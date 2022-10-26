@@ -15,7 +15,14 @@ export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
   return (
     <Card {...props}>
       <Card.Section>
-        <WorkImage height={200} withPlaceholder placeholder={<IconPhotoOff />} entry={entry} title={entry.work.title} />
+        <WorkImage
+          height={200}
+          withPlaceholder
+          placeholder={<IconPhotoOff />}
+          entry={entry}
+          title={entry.work.title}
+          alt={entry.work.title}
+        />
       </Card.Section>
 
       <Stack>
