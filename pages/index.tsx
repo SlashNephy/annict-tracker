@@ -2,6 +2,7 @@ import {
   Accordion,
   Alert,
   Anchor,
+  Avatar,
   Card,
   Center,
   Checkbox,
@@ -9,12 +10,14 @@ import {
   Container,
   Group,
   Loader,
+  Menu,
   SimpleGrid,
+  Switch,
   Text,
   Title,
 } from '@mantine/core'
-import { IconAlertTriangle, IconBrandGithub, IconLogin } from '@tabler/icons'
-import { useSession } from 'next-auth/react'
+import { IconAlertTriangle, IconBrandGithub, IconLogin, IconLogout } from '@tabler/icons'
+import { signOut, useSession } from 'next-auth/react'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 
@@ -31,6 +34,7 @@ import {
   timeFiltersState,
 } from '../lib/atoms'
 import { AnnictClientProvider } from '../lib/useAnnictClient'
+import { useAuthenticatedSession } from '../lib/useAuthenticatedSession'
 import { useBrowserNotification } from '../lib/useBrowserNotification'
 import { useLibraryEntries } from '../lib/useLibraryEntries'
 import { LibraryEntryProvider } from '../lib/useLibraryEntry'
@@ -104,20 +108,42 @@ export const IndexAsAnnictUser: React.FC = () => {
     <Container>
       <Card shadow="sm" p="lg" radius="md" mb="xl" mt="xl" withBorder>
         <Card.Section>
-          <Accordion>
+          <Accordion chevronPosition="left">
             <Accordion.Item value="settings">
-              <Accordion.Control>{packageJson.name}</Accordion.Control>
+              <Accordion.Control>
+                <Group position="apart">
+                  <Text size="lg">{packageJson.name}</Text>
+                  <Menu closeOnItemClick={false}>
+                    <Menu.Target>
+                      <Avatar src={session.user?.image ?? null} mr="md" />
+                    </Menu.Target>
+                    <Menu.Dropdown>
+                      <Menu.Label>{session.user?.name}</Menu.Label>
+                      <Menu.Divider />
+                      <Menu.Item
+                        component={Switch}
+                        label="ダークモード"
+                        checked={colorScheme === 'dark'}
+                        onChange={() => {
+                          toggleColorScheme()
+                        }}
+                      />
+                      <Menu.Divider />
+                      <Menu.Item
+                        icon={<IconLogout size={14} />}
+                        color="red"
+                        onClick={() => {
+                          signOut().catch(console.error)
+                        }}
+                      >
+                        ログアウト
+                      </Menu.Item>
+                    </Menu.Dropdown>
+                  </Menu>
+                </Group>
+              </Accordion.Control>
               <Accordion.Panel>
                 <Group>
-                  <Checkbox
-                    ml="md"
-                    mb="md"
-                    label="ダークモード"
-                    checked={colorScheme === 'dark'}
-                    onChange={() => {
-                      toggleColorScheme()
-                    }}
-                  />
                   <Checkbox
                     ml="md"
                     mb="md"
