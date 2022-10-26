@@ -73,8 +73,8 @@ export const WorkNextProgramInfo: React.FC<Omit<StackProps, 'children'>> = (prop
             <Text span>{format(entry.nextProgramStartAt, 'yyyy/MM/dd')}</Text>
             <Text span> ({entry.nextProgramStartAtDay})</Text>
             <Text span> {format(entry.nextProgramStartAt, 'HH:mm')} </Text>
-            <Text span>
-              (<RelativeTimeLabel span size="sm" time={entry.nextProgramStartAt} />)
+            <Text span size="sm">
+              (<RelativeTimeLabel span time={entry.nextProgramStartAt} />)
             </Text>
           </>
         )}
