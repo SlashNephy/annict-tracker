@@ -1,18 +1,38 @@
 import { Badge } from '@mantine/core'
 import React from 'react'
 
-import type { LibraryEntryModel } from '../models/LibraryEntryModel'
+import { useLibraryEntry } from '../lib/useLibraryEntry'
 
-export const DateBadge: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) => {
+import type { BadgeProps } from '@mantine/core'
+
+export const DateBadge: React.FC<Omit<BadgeProps, 'color'>> = (props) => {
+  const { entry } = useLibraryEntry()
+
   switch (entry.timeTag) {
     case 'yesterday':
-      return <Badge color="green">昨日</Badge>
+      return (
+        <Badge {...props} color="green">
+          昨日
+        </Badge>
+      )
     case 'today':
-      return <Badge color="red">今日</Badge>
+      return (
+        <Badge {...props} color="red">
+          今日
+        </Badge>
+      )
     case 'tomorrow':
-      return <Badge color="blue">明日</Badge>
+      return (
+        <Badge {...props} color="blue">
+          明日
+        </Badge>
+      )
     case 'finished':
-      return <Badge color="green">終了</Badge>
+      return (
+        <Badge {...props} color="green">
+          終了
+        </Badge>
+      )
     default:
       return null
   }

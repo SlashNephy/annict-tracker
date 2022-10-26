@@ -1,3 +1,4 @@
+import { Text } from '@mantine/core'
 import {
   differenceInDays,
   differenceInHours,
@@ -9,7 +10,9 @@ import {
 } from 'date-fns'
 import React, { useCallback, useEffect, useState } from 'react'
 
-export const RelativeTimeLabel: React.FC<{ time: Date }> = ({ time }) => {
+import type { TextProps } from '@mantine/core'
+
+export const RelativeTimeLabel: React.FC<{ time: Date } & TextProps> = ({ time, ...props }) => {
   const update = useCallback(() => {
     const now = new Date()
     const years = differenceInYears(time, now)
@@ -53,5 +56,5 @@ export const RelativeTimeLabel: React.FC<{ time: Date }> = ({ time }) => {
     }
   }, [update])
 
-  return <>{label}</>
+  return <Text {...props}>{label}</Text>
 }

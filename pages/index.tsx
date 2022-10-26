@@ -2,7 +2,6 @@ import {
   Accordion,
   Alert,
   Anchor,
-  Button,
   Card,
   Center,
   Checkbox,
@@ -11,20 +10,17 @@ import {
   Group,
   Loader,
   SimpleGrid,
-  Stack,
   Text,
   Title,
 } from '@mantine/core'
-import { IconAlertTriangle, IconBrandGithub } from '@tabler/icons'
+import { IconAlertTriangle, IconBrandGithub, IconLogin } from '@tabler/icons'
 import { useSession } from 'next-auth/react'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 
+import { AnnictSignInButton } from '../components/AnnictSignInButton'
 import { CheckboxWithHoverCard } from '../components/CheckboxWithHoverCard'
-import { NextProgramInfo } from '../components/NextProgramInfo'
-import { RecordButton } from '../components/RecordButton'
-import { SignInButton } from '../components/SignInButton'
-import { WorkImage } from '../components/WorkImage'
+import { WorkCard } from '../components/WorkCard'
 import { SeasonName } from '../graphql/generated/types'
 import {
   dayFiltersState,
@@ -37,6 +33,7 @@ import {
 import { AnnictClientProvider } from '../lib/useAnnictClient'
 import { useBrowserNotification } from '../lib/useBrowserNotification'
 import { useLibraryEntries } from '../lib/useLibraryEntries'
+import { LibraryEntryProvider } from '../lib/useLibraryEntry'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { useSaya } from '../lib/useSaya'
 import packageJson from '../package.json'
@@ -70,7 +67,7 @@ export const IndexAsGuestUser: React.FC = () => {
             利用するには Annict でログインする必要があります。
           </Text>
 
-          <SignInButton />
+          <AnnictSignInButton fullWidth color="pink.6" leftIcon={<IconLogin />} />
 
           <Text size="sm" color="dimmed" mt="lg">
             {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
@@ -249,30 +246,10 @@ export const IndexAsAnnictUser: React.FC = () => {
         </Alert>
       ) : (
         <SimpleGrid cols={3}>
-          {entries.map((e) => (
-            <Card key={e.id} shadow="sm" p="lg" radius="md" withBorder>
-              <Card.Section>
-                <WorkImage entry={e} />
-              </Card.Section>
-
-              <Stack>
-                <Title order={4} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} mt="sm">
-                  <Anchor href={e.workUrl} target="_blank">
-                    {e.work.title}
-                  </Anchor>
-                </Title>
-
-                <Text weight={500} style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                  {e.nextEpisodeLabel}
-                </Text>
-
-                <NextProgramInfo entry={e} />
-
-                <Button.Group>
-                  <RecordButton entry={e} />
-                </Button.Group>
-              </Stack>
-            </Card>
+          {entries.map((entry) => (
+            <LibraryEntryProvider key={entry.id} value={entry}>
+              <WorkCard key={entry.id} shadow="sm" p="lg" radius="md" withBorder />
+            </LibraryEntryProvider>
           ))}
         </SimpleGrid>
       )}

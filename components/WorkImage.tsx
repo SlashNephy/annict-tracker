@@ -1,5 +1,4 @@
 import { Image } from '@mantine/core'
-import { IconPhotoOff } from '@tabler/icons'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
@@ -7,8 +6,9 @@ import { fetchJikanAnimePictures } from '../lib/services/jikan'
 import { useArmSupplementary } from '../lib/useArmSupplementary'
 
 import type { LibraryEntryModel } from '../models/LibraryEntryModel'
+import type { ImageProps } from '@mantine/core'
 
-export const WorkImage: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) => {
+export const WorkImage: React.FC<{ entry: LibraryEntryModel } & Omit<ImageProps, 'src'>> = ({ entry, ...props }) => {
   const arm = useArmSupplementary()
 
   // query data は undefined にできないので null にしておく
@@ -40,13 +40,5 @@ export const WorkImage: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) => 
     }
   )
 
-  return (
-    <Image
-      src={imageUrl ?? undefined}
-      height={200}
-      alt={entry.work.title}
-      withPlaceholder
-      placeholder={<IconPhotoOff />}
-    />
-  )
+  return <Image {...props} src={imageUrl ?? undefined} />
 }

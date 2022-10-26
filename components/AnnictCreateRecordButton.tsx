@@ -1,16 +1,18 @@
 import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
-import { IconCheck } from '@tabler/icons'
 import { useQueryClient } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 
 import { useAnnictClient } from '../lib/useAnnictClient'
+import { useLibraryEntry } from '../lib/useLibraryEntry'
 
-import type { LibraryEntryModel } from '../models/LibraryEntryModel'
+import type { ButtonProps } from '@mantine/core'
 
-export const RecordButton: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) => {
+export const AnnictCreateRecordButton: React.FC<Omit<ButtonProps, 'disabled'>> = (props) => {
+  const { entry } = useLibraryEntry()
   const client = useAnnictClient()
   const query = useQueryClient()
+
   const isDisabled = useMemo(() => {
     // エピソード情報がない
     if (entry.nextEpisode === null) {
@@ -23,12 +25,7 @@ export const RecordButton: React.FC<{ entry: LibraryEntryModel }> = ({ entry }) 
 
   return (
     <Button
-      leftIcon={<IconCheck />}
-      variant="light"
-      color="blue"
-      fullWidth
-      mt="md"
-      radius="md"
+      {...props}
       disabled={isDisabled}
       onClick={() => {
         const episodeId = entry.nextEpisode?.id
