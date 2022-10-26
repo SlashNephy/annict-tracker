@@ -40,12 +40,14 @@ import { useLibraryEntries } from '../lib/useLibraryEntries'
 import { LibraryEntryProvider } from '../lib/useLibraryEntry'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { useSaya } from '../lib/useSaya'
+import { useUpdateChecker } from '../lib/useUpdateChecker'
 import packageJson from '../package.json'
 
 import type { DayTag, TimeTag } from '../models/filters'
 
 const Index: React.FC = () => {
   const { data } = useSession()
+  useUpdateChecker()
 
   return data?.accessToken !== undefined ? (
     <AnnictClientProvider value={data.accessToken}>
