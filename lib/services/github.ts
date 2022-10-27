@@ -76,7 +76,16 @@ export type GithubCommit = {
   }[]
 }
 
-export const fetchCommits = async (repository: string, branch: string, perPage: number): Promise<GithubCommit[]> => {
+export type GitHubError = {
+  documentation_url: string
+  message: string
+}
+
+export const fetchCommits = async (
+  repository: string,
+  branch: string,
+  perPage: number
+): Promise<GithubCommit[] | GitHubError> => {
   const response = await fetch(`https://api.github.com/repos/${repository}/commits?sha=${branch}&per_page=${perPage}`)
   return await response.json()
 }

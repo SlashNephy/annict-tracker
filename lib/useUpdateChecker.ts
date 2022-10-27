@@ -17,7 +17,16 @@ export const useUpdateChecker = (): void => {
     const branch = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ?? 'master'
 
     fetchCommits(repository, branch, 1)
-      .then(([commit]) => {
+      .then((response) => {
+        if ('message' in response) {
+          throw new Error(`GitHub API returned an error: ${response.message} (${response.documentation_url})`)
+        }
+
+        if (response.length === 0) {
+          return
+        }
+
+        const [commit] = response
         const buildCommitSha = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA
         if (buildCommitSha !== undefined && buildCommitSha !== commit.sha) {
           showNotification({
