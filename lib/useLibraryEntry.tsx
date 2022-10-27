@@ -28,8 +28,8 @@ export const useLibraryEntry = () => {
 
   const [enableSyobocal] = useRecoilState(enableSyobocalState)
   const [syobocalChannels] = useRecoilState(syobocalChannelsState)
-  const arm = useArmSupplementary()
-  const saya = useSaya()
+  const arm = useArmSupplementary(enableSyobocal)
+  const saya = useSaya(enableSyobocal)
 
   // しょぼかるの情報から放送時間を補完する
   const {

@@ -103,7 +103,7 @@ export const IndexAsAnnictUser: React.FC = () => {
   const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
   const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
 
-  const saya = useSaya()
+  const saya = useSaya(enableSyobocal)
   const { entries, isLoading, isError, error } = useLibraryEntries()
 
   return (

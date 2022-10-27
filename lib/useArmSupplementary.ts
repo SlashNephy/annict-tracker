@@ -3,7 +3,7 @@ import { minutesToMilliseconds } from 'date-fns'
 
 import { ArmDatabase } from './services/arm'
 
-export const useArmSupplementary = (): ArmDatabase | undefined => {
+export const useArmSupplementary = (isEnabled: boolean): ArmDatabase | undefined => {
   const { data } = useQuery(
     ['arm'],
     async () => {
@@ -14,6 +14,7 @@ export const useArmSupplementary = (): ArmDatabase | undefined => {
       return new ArmDatabase(entries)
     },
     {
+      enabled: isEnabled,
       refetchInterval: minutesToMilliseconds(15),
     }
   )
