@@ -1,9 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
-import { createContext, useContext, useMemo } from 'react'
+import React, { createContext, useContext, useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
-import { enableSyobocalState, syobocalChannelsState } from './atoms'
+import {
+  dayFiltersState,
+  enableSyobocalState,
+  isOnlyCurrentSeasonState,
+  seasonFiltersState,
+  syobocalChannelsState,
+  timeFiltersState,
+} from './atoms'
 import { lookupPrograms } from './services/syobocal'
 import { useArmSupplementary } from './useArmSupplementary'
 import { useSaya } from './useSaya'
@@ -91,4 +98,27 @@ export const useLibraryEntry = () => {
     isLoading: isLoading && enableSyobocal,
     isError,
   }
+}
+
+export const LibraryEntryFilter: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const { entry } = useLibraryEntry()
+  const [isOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
+  const [seasonFilters] = useRecoilState(seasonFiltersState)
+  const [timeFilters] = useRecoilState(timeFiltersState)
+  const [dayFilters] = useRecoilState(dayFiltersState)
+
+  const shouldRender = useMemo(() => {
+    return (
+      entry.filterBySeasonName(seasonFilters) &&
+      entry.filterByCurrentSeason(isOnlyCurrentSeason) &&
+      entry.filterByTime(timeFilters) &&
+      entry.filterByDay(dayFilters, timeFilters)
+    )
+  }, [entry, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters])
+
+  if (shouldRender) {
+    return <>{children}</>
+  }
+
+  return null
 }
