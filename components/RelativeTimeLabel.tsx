@@ -1,4 +1,5 @@
 import { Text } from '@mantine/core'
+import { useInterval } from '@mantine/hooks'
 import {
   differenceInDays,
   differenceInHours,
@@ -13,7 +14,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import type { TextProps } from '@mantine/core'
 
 export const RelativeTimeLabel: React.FC<{ time: Date } & TextProps> = ({ time, ...props }) => {
-  const update = useCallback(() => {
+  const createText = useCallback(() => {
     const now = new Date()
     const years = differenceInYears(time, now)
     if (Math.abs(years) > 0) {
@@ -44,17 +45,15 @@ export const RelativeTimeLabel: React.FC<{ time: Date } & TextProps> = ({ time, 
     return seconds > 0 ? `${seconds}秒後` : `${-seconds}秒前`
   }, [time])
 
-  const [label, setLabel] = useState(update)
+  const [label, setLabel] = useState(createText)
+  const timer = useInterval(() => {
+    setLabel(createText)
+  }, secondsToMilliseconds(1))
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setLabel(update)
-    }, secondsToMilliseconds(1))
-
-    return () => {
-      clearInterval(timer)
-    }
-  }, [update])
+    timer.start()
+    return timer.stop
+  }, [timer])
 
   return <Text {...props}>{label}</Text>
 }
