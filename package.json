@@ -38,7 +38,7 @@
     "fast-xml-parser": "4.0.11",
     "graphql-request": "5.0.0",
     "js-yaml": "4.1.0",
-    "next": "12.3.1",
+    "next": "13.0.0",
     "next-auth": "4.14.0",
     "node-fetch": "3.2.10",
     "react": "18.2.0",
@@ -71,14 +71,6 @@
   "eslintConfig": {
     "extends": [
       "@slashnephy/eslint-config"
-    ],
-    "rules": {
-      "@typescript-eslint/no-unsafe-assignment": "off",
-      "@typescript-eslint/no-unsafe-call": "off",
-      "@typescript-eslint/no-unsafe-member-access": "off",
-      "@typescript-eslint/no-unsafe-return": "off",
-      "@typescript-eslint/no-unsafe-argument": "off",
-      "@typescript-eslint/restrict-template-expressions": "off"
-    }
+    ]
   }
 }
