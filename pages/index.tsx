@@ -34,6 +34,7 @@ import {
   syobocalChannelsState,
   timeFiltersState,
 } from '../lib/atoms'
+import { filterSayaChannel } from '../lib/services/saya'
 import { AnnictClientProvider } from '../lib/useAnnictClient'
 import { useAuthenticatedSession } from '../lib/useAuthenticatedSession'
 import { useBrowserNotification } from '../lib/useBrowserNotification'
@@ -79,7 +80,8 @@ export const IndexAsGuestUser: React.FC = () => {
           <Text size="sm" color="dimmed" mt="lg">
             {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
             <br />
-            {packageJson.name} がユーザーの利用状況を収集することはありません。
+            {packageJson.name}{' '}
+            がユーザー情報を収集することはありませんが、アプリケーションの改善のためにパフォーマンス情報は収集する場合があります。
             <br />
             ソースコードは{' '}
             <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
@@ -247,10 +249,10 @@ export const IndexAsAnnictUser: React.FC = () => {
                       onChange={setSyobocalChannels}
                     >
                       {saya?.definition.channels
-                        .filter((c) => c.syobocalId !== undefined)
                         .distinctBy((c) => c.syobocalId)
+                        .filter(filterSayaChannel)
                         .map((c) => (
-                          <Chip key={c.name} value={c.syobocalId?.toString()} size="xs">
+                          <Chip key={c.syobocalId} value={c.syobocalId?.toString()} size="xs">
                             {c.name}
                           </Chip>
                         ))}
