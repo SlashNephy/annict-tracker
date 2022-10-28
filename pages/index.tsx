@@ -80,8 +80,9 @@ export const IndexAsGuestUser: React.FC = () => {
           <Text size="sm" color="dimmed" mt="lg">
             {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
             <br />
-            {packageJson.name}{' '}
-            がユーザー情報を収集することはありませんが、アプリケーションの改善のためにパフォーマンス情報は収集する場合があります。
+            {packageJson.name} はユーザー情報を収集することはありませんが
+            <br />
+            アプリケーションの改善のためにパフォーマンス情報は収集する場合があります。
             <br />
             ソースコードは{' '}
             <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
