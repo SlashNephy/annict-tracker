@@ -20,7 +20,7 @@ export const useLibraryEntries = (): LibraryEntriesState => {
     isError,
     error,
   } = useQuery(
-    ['entries'],
+    ['entries', client],
     async () => {
       const response = await client.getViewerLibraryEntries()
       return (
