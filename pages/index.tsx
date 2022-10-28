@@ -23,6 +23,7 @@ import { useRecoilState } from 'recoil'
 
 import { AnnictSignInButton } from '../components/AnnictSignInButton'
 import { CheckboxWithHoverCard } from '../components/CheckboxWithHoverCard'
+import { LibraryEntryFilter } from '../components/LibraryEntryFilter'
 import { WorkCard } from '../components/WorkCard'
 import { SeasonName } from '../graphql/annict/types'
 import {
@@ -277,7 +278,9 @@ export const IndexAsAnnictUser: React.FC = () => {
         <SimpleGrid cols={3}>
           {entries.map((entry) => (
             <LibraryEntryProvider key={entry.id} value={entry}>
-              <WorkCard key={entry.id} shadow="sm" p="lg" radius="md" withBorder />
+              <LibraryEntryFilter>
+                <WorkCard key={entry.id} shadow="sm" p="lg" radius="md" withBorder />
+              </LibraryEntryFilter>
             </LibraryEntryProvider>
           ))}
         </SimpleGrid>
