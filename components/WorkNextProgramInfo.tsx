@@ -2,9 +2,13 @@ import { Group, Loader, Stack, Text } from '@mantine/core'
 import { useInterval } from '@mantine/hooks'
 import { differenceInMinutes, format, secondsToMilliseconds } from 'date-fns'
 import React, { useCallback, useEffect } from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 
-import { enableBrowserNotificationState, programNotificationThresholdMinutesState } from '../lib/atoms'
+import {
+  enableBrowserNotificationState,
+  notificationHistoriesState,
+  programNotificationThresholdMinutesState,
+} from '../lib/atoms'
 import { useLibraryEntry } from '../lib/useLibraryEntry'
 import { DateBadge } from './DateBadge'
 import { RelativeTimeLabel } from './RelativeTimeLabel'
@@ -15,6 +19,7 @@ export const WorkNextProgramInfo: React.FC<Omit<StackProps, 'children'>> = (prop
   const { entry, isLoading, isError } = useLibraryEntry()
   const enableBrowserNotification = useRecoilValue(enableBrowserNotificationState)
   const programNotificationThresholdMinutes = useRecoilValue(programNotificationThresholdMinutesState)
+  const [notificationHistories, setNotificationHistories] = useRecoilState(notificationHistoriesState)
 
   const createNotification = useCallback(() => {
     // ブラウザ通知が有効ではない
@@ -24,6 +29,11 @@ export const WorkNextProgramInfo: React.FC<Omit<StackProps, 'children'>> = (prop
 
     // 放送情報がない
     if (entry.nextProgramStartAt === null) {
+      return
+    }
+
+    // 通知済み
+    if (notificationHistories.includes(entry.id)) {
       return
     }
 
@@ -37,9 +47,19 @@ export const WorkNextProgramInfo: React.FC<Omit<StackProps, 'children'>> = (prop
       image: entry.workImageUrl,
       lang: 'ja',
     })
-  }, [enableBrowserNotification, entry, programNotificationThresholdMinutes])
-  const timer = useInterval(createNotification, secondsToMilliseconds(30))
+    setNotificationHistories((previous) => {
+      previous.push(entry.id)
+      return previous
+    })
+  }, [
+    enableBrowserNotification,
+    entry,
+    programNotificationThresholdMinutes,
+    notificationHistories,
+    setNotificationHistories,
+  ])
 
+  const timer = useInterval(createNotification, secondsToMilliseconds(30))
   useEffect(() => {
     timer.start()
     return timer.stop

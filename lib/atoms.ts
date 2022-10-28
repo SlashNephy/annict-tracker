@@ -57,3 +57,8 @@ export const programNotificationThresholdMinutesState = atom<number>({
   default: 5,
   effects_UNSTABLE: [persistAtom],
 })
+
+export const notificationHistoriesState = atom({
+  key: 'notification-histories',
+  default: [] as string[],
+})
