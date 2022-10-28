@@ -76,3 +76,18 @@ const exampleAnnictProfile = {
   email: 'me@shimba.co',
   notifications_count: 0,
 }
+
+export const isStreamingService = (channelId?: number): boolean => {
+  // https://annict.com/db/channels
+  switch (channelId) {
+    case 243: // Amazon プライム・ビデオ
+    case 244: // Netflix
+    case 107: // バンダイチャンネル
+    case 165: // ニコニコチャンネル
+    case 241: // dアニメストア
+    case 306: // dアニメストア ニコニコ支店
+      return true
+    default:
+      return false
+  }
+}

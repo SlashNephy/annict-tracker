@@ -29,6 +29,7 @@ import { SeasonName } from '../graphql/annict/types'
 import {
   dayFiltersState,
   enableSyobocalState,
+  hideStreamingServicesState,
   isOnlyCurrentSeasonState,
   seasonFiltersState,
   syobocalChannelsState,
@@ -100,6 +101,7 @@ export const IndexAsAnnictUser: React.FC = () => {
   const session = useAuthenticatedSession()
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
+  const [hideStreamingServices, setHideStreamingServices] = useRecoilState(hideStreamingServicesState)
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
   const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
   const [seasonFilters, setSeasonFilters] = useRecoilState(seasonFiltersState)
@@ -157,6 +159,15 @@ export const IndexAsAnnictUser: React.FC = () => {
                     checked={isOnlyCurrentSeason}
                     onChange={(event) => {
                       setIsOnlyCurrentSeason(event.target.checked)
+                    }}
+                  />
+                  <Checkbox
+                    ml="md"
+                    mb="md"
+                    label="配信サービスを隠す"
+                    checked={hideStreamingServices}
+                    onChange={(event) => {
+                      setHideStreamingServices(event.target.checked)
                     }}
                   />
                   <CheckboxWithHoverCard

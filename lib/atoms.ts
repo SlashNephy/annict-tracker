@@ -16,6 +16,12 @@ export const isOnlyCurrentSeasonState = atom<boolean>({
   effects_UNSTABLE: [persistAtom],
 })
 
+export const hideStreamingServicesState = atom<boolean>({
+  key: 'hide-video-services',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
 export const enableSyobocalState = atom<boolean>({
   key: 'enable-syobocal',
   default: false,

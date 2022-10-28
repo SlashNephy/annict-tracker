@@ -2,7 +2,7 @@ import { cached_property } from 'cached_property'
 import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
 
 import { SeasonName } from '../graphql/annict/types'
-import { AnnictSeason } from '../lib/services/annict'
+import { AnnictSeason, isStreamingService } from '../lib/services/annict'
 
 import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'
 import type { DayTag, TimeTag } from './filters'
@@ -157,6 +157,15 @@ export class LibraryEntryModel {
     }
 
     return this.workSeason.isCurrentSeason
+  }
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  public filterByStreamingServices(hideStreamingServices: boolean): boolean {
+    if (!hideStreamingServices) {
+      return true
+    }
+
+    return !isStreamingService(this.nextProgram?.channel.annictId)
   }
 
   public filterByTime(filters: TimeTag[]): boolean {
