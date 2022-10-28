@@ -10,7 +10,7 @@ import type { ImageProps } from '@mantine/core'
 
 export const WorkImage: React.FC<Omit<ImageProps, 'src'>> = (props) => {
   const { entry } = useLibraryEntry()
-  const arm = useArmSupplementary()
+  const arm = useArmSupplementary(true)
 
   // query data は undefined にできないので null にしておく
   const { data: imageUrl } = useQuery(
