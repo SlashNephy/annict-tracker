@@ -1,15 +1,15 @@
 import React, { useMemo } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
 
 import { dayFiltersState, isOnlyCurrentSeasonState, seasonFiltersState, timeFiltersState } from '../lib/atoms'
 import { useLibraryEntry } from '../lib/useLibraryEntry'
 
 export const LibraryEntryFilter: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { entry } = useLibraryEntry()
-  const [isOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
-  const [seasonFilters] = useRecoilState(seasonFiltersState)
-  const [timeFilters] = useRecoilState(timeFiltersState)
-  const [dayFilters] = useRecoilState(dayFiltersState)
+  const isOnlyCurrentSeason = useRecoilValue(isOnlyCurrentSeasonState)
+  const seasonFilters = useRecoilValue(seasonFiltersState)
+  const timeFilters = useRecoilValue(timeFiltersState)
+  const dayFilters = useRecoilValue(dayFiltersState)
 
   const shouldRender = useMemo(() => {
     return (

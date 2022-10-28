@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { createContext, useContext, useMemo } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
 
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
 import { enableSyobocalState, syobocalChannelsState } from './atoms'
@@ -19,8 +19,8 @@ export const useLibraryEntry = () => {
     throw new Error('entry is null.')
   }
 
-  const [enableSyobocal] = useRecoilState(enableSyobocalState)
-  const [syobocalChannels] = useRecoilState(syobocalChannelsState)
+  const enableSyobocal = useRecoilValue(enableSyobocalState)
+  const syobocalChannels = useRecoilValue(syobocalChannelsState)
   const arm = useArmSupplementary(enableSyobocal)
   const saya = useSaya(enableSyobocal)
 
