@@ -1,7 +1,8 @@
 import { Group, Loader, Stack, Text } from '@mantine/core'
-import { differenceInMinutes, format, minutesToMilliseconds } from 'date-fns'
-import React, { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
+import { useInterval } from '@mantine/hooks'
+import { differenceInMinutes, format, secondsToMilliseconds } from 'date-fns'
+import React, { useCallback, useEffect } from 'react'
+import { useRecoilValue } from 'recoil'
 
 import { enableBrowserNotificationState, programNotificationThresholdMinutesState } from '../lib/atoms'
 import { useLibraryEntry } from '../lib/useLibraryEntry'
@@ -12,34 +13,37 @@ import type { StackProps } from '@mantine/core'
 
 export const WorkNextProgramInfo: React.FC<Omit<StackProps, 'children'>> = (props) => {
   const { entry, isLoading, isError } = useLibraryEntry()
-  const [enableBrowserNotification] = useRecoilState(enableBrowserNotificationState)
-  const [programNotificationThresholdMinutes] = useRecoilState(programNotificationThresholdMinutesState)
+  const enableBrowserNotification = useRecoilValue(enableBrowserNotificationState)
+  const programNotificationThresholdMinutes = useRecoilValue(programNotificationThresholdMinutesState)
+
+  const createNotification = useCallback(() => {
+    // ブラウザ通知が有効ではない
+    if (!enableBrowserNotification || Notification.permission !== 'granted') {
+      return
+    }
+
+    // 放送情報がない
+    if (entry.nextProgramStartAt === null) {
+      return
+    }
+
+    const diff = differenceInMinutes(entry.nextProgramStartAt, new Date())
+    if (diff < 0 || diff > programNotificationThresholdMinutes) {
+      return
+    }
+
+    new Notification(entry.work.title, {
+      body: `${entry.nextProgram?.channel.name}で${diff}分後に始まります\n\n${entry.nextEpisodeLabel}`,
+      image: entry.workImageUrl,
+      lang: 'ja',
+    })
+  }, [enableBrowserNotification, entry, programNotificationThresholdMinutes])
+  const timer = useInterval(createNotification, secondsToMilliseconds(30))
 
   useEffect(() => {
-    if (enableBrowserNotification && entry.nextProgramStartAt !== null && Notification.permission === 'granted') {
-      const diff = differenceInMinutes(entry.nextProgramStartAt, new Date())
-
-      // n分前に通知する
-      if (diff > 0) {
-        const timeout = setTimeout(() => {
-          const item = new Notification(entry.work.title, {
-            body: `${entry.nextProgram?.channel.name}で${Math.ceil(diff)}分後に始まります\n\n${entry.nextEpisodeLabel}`,
-            image: entry.workImageUrl,
-            lang: 'ja',
-            requireInteraction: true,
-          })
-
-          setTimeout(() => {
-            item.close()
-          }, minutesToMilliseconds(diff))
-        }, Math.max(minutesToMilliseconds(diff - programNotificationThresholdMinutes), 0))
-
-        return () => {
-          clearTimeout(timeout)
-        }
-      }
-    }
-  }, [enableBrowserNotification, entry, programNotificationThresholdMinutes])
+    timer.start()
+    return timer.stop
+  }, [timer])
 
   if (isError) {
     return (
