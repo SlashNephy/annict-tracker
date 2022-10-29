@@ -26,7 +26,7 @@ export const LibraryEntryFilter: React.FC<React.PropsWithChildren> = ({ children
       entry.filterByTime(timeFilters) &&
       entry.filterByDay(dayFilters, timeFilters)
     )
-  }, [entry, seasonFilters, isOnlyCurrentSeason, timeFilters, dayFilters])
+  }, [entry, seasonFilters, isOnlyCurrentSeason, hideStreamingServices, timeFilters, dayFilters])
 
   if (shouldRender) {
     return <>{children}</>

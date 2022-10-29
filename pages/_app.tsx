@@ -2,6 +2,7 @@ import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
 import { QueryClient } from '@tanstack/query-core'
 import { QueryClientProvider } from '@tanstack/react-query'
+// eslint-disable-next-line import/no-unresolved
 import { Analytics } from '@vercel/analytics/react'
 import { SessionProvider } from 'next-auth/react'
 import Head from 'next/head'
