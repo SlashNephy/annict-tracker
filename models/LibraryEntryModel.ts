@@ -159,7 +159,6 @@ export class LibraryEntryModel {
     return this.workSeason.isCurrentSeason
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   public filterByStreamingServices(hideStreamingServices: boolean): boolean {
     if (!hideStreamingServices) {
       return true
