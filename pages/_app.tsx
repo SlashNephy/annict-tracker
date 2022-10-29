@@ -2,6 +2,7 @@ import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
 import { QueryClient } from '@tanstack/query-core'
 import { QueryClientProvider } from '@tanstack/react-query'
+import { Analytics } from '@vercel/analytics/react'
 import { SessionProvider } from 'next-auth/react'
 import Head from 'next/head'
 import React from 'react'
@@ -41,6 +42,7 @@ const MyApp: React.FC<AppProps<{ session: Session }>> = ({ Component, pageProps:
               <SessionProvider session={session}>
                 <RecoilRoot>
                   <Component {...pageProps} />
+                  <Analytics />
                 </RecoilRoot>
               </SessionProvider>
             </QueryClientProvider>
