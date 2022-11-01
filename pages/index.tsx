@@ -50,7 +50,7 @@ export const IndexAsGuestUser: React.FC = () => {
             <br />
             ソースコードは{' '}
             <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
-              <IconBrandGithub size={16} /> GitHub
+              <IconBrandGithub size={16} style={{ display: 'inline-block', verticalAlign: 'middle' }} /> GitHub
             </Anchor>{' '}
             で公開しています。
           </Text>
