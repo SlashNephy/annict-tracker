@@ -5,7 +5,6 @@ import {
   Avatar,
   Card,
   Center,
-  Checkbox,
   Chip,
   Container,
   Group,
@@ -29,6 +28,7 @@ import { SeasonName } from '../graphql/annict/types'
 import {
   dayFiltersState,
   enableSyobocalState,
+  hideRebroadcastingState,
   hideStreamingServicesState,
   isOnlyCurrentSeasonState,
   seasonFiltersState,
@@ -101,6 +101,7 @@ export const IndexAsAnnictUser: React.FC = () => {
   const session = useAuthenticatedSession()
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
+  const [hideRebroadcasting, setHideRebroadcasting] = useRecoilState(hideRebroadcastingState)
   const [hideStreamingServices, setHideStreamingServices] = useRecoilState(hideStreamingServicesState)
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
   const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
@@ -152,23 +153,35 @@ export const IndexAsAnnictUser: React.FC = () => {
               </Accordion.Control>
               <Accordion.Panel>
                 <Group>
-                  <Checkbox
+                  <CheckboxWithHoverCard
                     ml="md"
                     mb="md"
-                    label="今期に絞る"
                     checked={isOnlyCurrentSeason}
                     onChange={(event) => {
                       setIsOnlyCurrentSeason(event.target.checked)
                     }}
+                    label="今期に絞る"
+                    description="現在のシーズンに放送中の作品だけを表示します。"
                   />
-                  <Checkbox
+                  <CheckboxWithHoverCard
                     ml="md"
                     mb="md"
-                    label="配信サービスを隠す"
+                    checked={hideRebroadcasting}
+                    onChange={(event) => {
+                      setHideRebroadcasting(event.target.checked)
+                    }}
+                    label="再放送を除く"
+                    description="再放送の放送予定を非表示にします。"
+                  />
+                  <CheckboxWithHoverCard
+                    ml="md"
+                    mb="md"
                     checked={hideStreamingServices}
                     onChange={(event) => {
                       setHideStreamingServices(event.target.checked)
                     }}
+                    label="配信サービスを除く"
+                    description="Annict でサポートされている動画サービスの放送予定を非表示にします。"
                   />
                   <CheckboxWithHoverCard
                     ml="md"
@@ -178,7 +191,7 @@ export const IndexAsAnnictUser: React.FC = () => {
                       setEnableSyobocal(event.target.checked)
                     }}
                     label="しょぼいカレンダーも利用する"
-                    description="有効にすると Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
+                    description="Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
                   />
                   <CheckboxWithHoverCard
                     ml="md"
@@ -188,7 +201,7 @@ export const IndexAsAnnictUser: React.FC = () => {
                       setEnableBrowserNotification(event.target.checked)
                     }}
                     label="ブラウザの通知を有効にする"
-                    description="有効にすると放送時間が近付いた時にブラウザの通知が表示されます。"
+                    description="放送時間が近付いた時にブラウザの通知が表示されます。"
                   />
                 </Group>
 

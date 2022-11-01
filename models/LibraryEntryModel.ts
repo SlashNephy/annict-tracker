@@ -159,6 +159,14 @@ export class LibraryEntryModel {
     return this.workSeason.isCurrentSeason
   }
 
+  public filterByRebroadcasting(hideRebroadcasting: boolean): boolean {
+    if (!hideRebroadcasting) {
+      return true
+    }
+
+    return this.nextProgram?.rebroadcast !== true
+  }
+
   public filterByStreamingServices(hideStreamingServices: boolean): boolean {
     if (!hideStreamingServices) {
       return true
