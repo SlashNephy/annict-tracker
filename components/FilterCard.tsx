@@ -1,7 +1,7 @@
-import { Accordion, Avatar, Card, Chip, Group, Menu, Switch, Text } from '@mantine/core'
-import { IconLogout } from '@tabler/icons'
+import { Accordion, ActionIcon, Avatar, Card, Chip, Group, HoverCard, Menu, Switch, Text } from '@mantine/core'
+import { IconChecks, IconLogout, IconTrash } from '@tabler/icons'
 import { signOut } from 'next-auth/react'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { SeasonName } from '../graphql/annict/types'
@@ -38,7 +38,11 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
   const [timeFilters, setTimeFilters] = useRecoilState(timeFiltersState)
   const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
   const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
+
   const saya = useSaya(enableSyobocal)
+  const availableChannels = useMemo(() => {
+    return saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? []
+  }, [saya])
 
   return (
     <Card {...props}>
@@ -190,16 +194,49 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
 
               {enableSyobocal && (
                 <>
-                  <Text>チャンネル</Text>
+                  <Group>
+                    <Text>チャンネル</Text>
+                    <HoverCard width={280} shadow="md">
+                      <HoverCard.Target>
+                        <ActionIcon
+                          variant="default"
+                          onClick={() => {
+                            setSyobocalChannels(
+                              availableChannels
+                                .map((x) => x.syobocalId?.toString())
+                                .filter((x): x is NonNullable<typeof x> => x !== undefined)
+                            )
+                          }}
+                        >
+                          <IconChecks size={14} />
+                        </ActionIcon>
+                      </HoverCard.Target>
+                      <HoverCard.Dropdown>
+                        <Text size="sm">すべてのチャンネルを選択します</Text>
+                      </HoverCard.Dropdown>
+                    </HoverCard>
+                    <HoverCard width={280} shadow="md">
+                      <HoverCard.Target>
+                        <ActionIcon
+                          variant="default"
+                          onClick={() => {
+                            setSyobocalChannels([])
+                          }}
+                        >
+                          <IconTrash size={14} />
+                        </ActionIcon>
+                      </HoverCard.Target>
+                      <HoverCard.Dropdown>
+                        <Text size="sm">チャンネルの選択をリセットします</Text>
+                      </HoverCard.Dropdown>
+                    </HoverCard>
+                  </Group>
                   <Chip.Group mt="md" ml="md" mb="md" value={syobocalChannels} multiple onChange={setSyobocalChannels}>
-                    {saya?.definition.channels
-                      .distinctBy((c) => c.syobocalId)
-                      .filter(filterSayaChannel)
-                      .map((c) => (
-                        <Chip key={c.syobocalId} value={c.syobocalId?.toString()} size="xs">
-                          {c.name}
-                        </Chip>
-                      ))}
+                    {availableChannels.map((c) => (
+                      <Chip key={c.syobocalId} value={c.syobocalId?.toString()} size="xs">
+                        {c.name}
+                      </Chip>
+                    ))}
                   </Chip.Group>
                 </>
               )}
