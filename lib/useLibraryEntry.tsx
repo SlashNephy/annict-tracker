@@ -70,11 +70,13 @@ export const useLibraryEntry = () => {
         continue
       }
 
+      const channelPrograms = syobocalPrograms.filter((x) => x.ChID === annictChannel.annictId)
+
       return new LibraryEntryModel({
         ...entry.entity,
         nextProgram: {
           startedAt: program.StTime,
-          rebroadcast: syobocalPrograms.filter((x) => x.ChID === annictChannel.annictId).length > 1,
+          rebroadcast: Object.values(channelPrograms.groupBy((x) => x.Count)).some((x) => x.length > 1),
           channel: {
             annictId: annictChannel.annictId,
             name: annictChannel.name,
