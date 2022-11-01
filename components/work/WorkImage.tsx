@@ -2,9 +2,9 @@ import { Image } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
-import { fetchJikanAnimePictures } from '../lib/services/jikan'
-import { useArmSupplementary } from '../lib/useArmSupplementary'
-import { useLibraryEntry } from '../lib/useLibraryEntry'
+import { fetchJikanAnimePictures } from '../../lib/services/jikan'
+import { useArmSupplementary } from '../../lib/useArmSupplementary'
+import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { ImageProps } from '@mantine/core'
 

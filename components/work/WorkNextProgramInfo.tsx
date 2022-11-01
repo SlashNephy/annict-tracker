@@ -8,8 +8,8 @@ import {
   enableBrowserNotificationState,
   notificationHistoriesState,
   programNotificationThresholdMinutesState,
-} from '../lib/atoms'
-import { useLibraryEntry } from '../lib/useLibraryEntry'
+} from '../../lib/atoms'
+import { useLibraryEntry } from '../../lib/useLibraryEntry'
 import { DateBadge } from './DateBadge'
 import { RelativeTimeLabel } from './RelativeTimeLabel'
 

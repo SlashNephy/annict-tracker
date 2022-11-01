@@ -3,8 +3,8 @@ import { showNotification } from '@mantine/notifications'
 import { useQueryClient } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 
-import { useAnnictClient } from '../lib/useAnnictClient'
-import { useLibraryEntry } from '../lib/useLibraryEntry'
+import { useAnnictClient } from '../../lib/useAnnictClient'
+import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { ButtonProps } from '@mantine/core'
 

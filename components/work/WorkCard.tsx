@@ -2,7 +2,7 @@ import { Anchor, Button, Card, Stack, Text, Title } from '@mantine/core'
 import { IconCheck, IconPhotoOff } from '@tabler/icons'
 import React from 'react'
 
-import { useLibraryEntry } from '../lib/useLibraryEntry'
+import { useLibraryEntry } from '../../lib/useLibraryEntry'
 import { AnnictCreateRecordButton } from './AnnictCreateRecordButton'
 import { WorkImage } from './WorkImage'
 import { WorkNextProgramInfo } from './WorkNextProgramInfo'

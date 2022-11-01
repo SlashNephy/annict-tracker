@@ -8,8 +8,8 @@ import {
   isOnlyCurrentSeasonState,
   seasonFiltersState,
   timeFiltersState,
-} from '../lib/atoms'
-import { useLibraryEntry } from '../lib/useLibraryEntry'
+} from '../../lib/atoms'
+import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 export const LibraryEntryFilter: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { entry } = useLibraryEntry()
@@ -21,7 +21,6 @@ export const LibraryEntryFilter: React.FC<React.PropsWithChildren> = ({ children
   const dayFilters = useRecoilValue(dayFiltersState)
 
   const shouldRender = useMemo(() => {
-    console.log(`${entry.work.title}: ${entry.nextProgram?.rebroadcast}`)
     return (
       entry.filterBySeasonName(seasonFilters) &&
       entry.filterByCurrentSeason(isOnlyCurrentSeason) &&

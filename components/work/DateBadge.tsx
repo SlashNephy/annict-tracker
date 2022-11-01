@@ -1,7 +1,7 @@
 import { Badge } from '@mantine/core'
 import React from 'react'
 
-import { useLibraryEntry } from '../lib/useLibraryEntry'
+import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { BadgeProps } from '@mantine/core'
 
