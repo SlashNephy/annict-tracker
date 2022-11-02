@@ -48,7 +48,7 @@
     "recoil-persist": "4.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.13.10",
+    "@graphql-codegen/cli": "2.13.11",
     "@graphql-codegen/import-types-preset": "2.2.6",
     "@graphql-codegen/typescript": "2.8.1",
     "@graphql-codegen/typescript-graphql-request": "4.5.8",
