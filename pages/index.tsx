@@ -37,6 +37,12 @@ export const IndexAsGuestUser: React.FC = () => {
             {packageJson.name} は Annict での視聴記録を便利にする Web アプリケーションです。
             <br />
             利用するには Annict でログインする必要があります。
+            <br />
+            使い方は{' '}
+            <Anchor href="https://scrapbox.io/slashnephy/annict-tracker" target="_blank">
+              Scrapbox
+            </Anchor>{' '}
+            をご覧ください。
           </Text>
 
           <AnnictSignInButton fullWidth color="pink.6" leftIcon={<IconLogin />} />
@@ -44,7 +50,7 @@ export const IndexAsGuestUser: React.FC = () => {
           <Text size="sm" color="dimmed" mt="lg">
             {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
             <br />
-            {packageJson.name} はユーザー情報を収集することはありませんが
+            {packageJson.name} はユーザー情報を収集することはありませんが、
             <br />
             アプリケーションの改善のためにパフォーマンス情報は収集する場合があります。
             <br />
