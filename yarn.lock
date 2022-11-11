@@ -2506,18 +2506,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.13.4":
-  version: 4.13.4
-  resolution: "@tanstack/query-core@npm:4.13.4"
-  checksum: 5cef6289ef815bd87f100408f413170fde0d2a1ebce84d51cf7551f023bf2ec91b90c98d14bfd4ac9436cc879792c61266ec97b63300d02f943964dc1743a84d
+"@tanstack/query-core@npm:4.14.3":
+  version: 4.14.3
+  resolution: "@tanstack/query-core@npm:4.14.3"
+  checksum: 6a22037e60017ebda9f20486ffb96eab085dccb38e53c54438d8a0896c5e9103cad52726e26e219d69e07cbdd048e3a149509812163e51c4c151d672858da504
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:4.13.4":
-  version: 4.13.4
-  resolution: "@tanstack/react-query@npm:4.13.4"
+"@tanstack/react-query@npm:4.14.3":
+  version: 4.14.3
+  resolution: "@tanstack/react-query@npm:4.14.3"
   dependencies:
-    "@tanstack/query-core": 4.13.4
+    "@tanstack/query-core": 4.14.3
     use-sync-external-store: ^1.2.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2528,7 +2528,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: d5a39459528cb9e1f194813901fbee6883c3d0d5c4c8bfe612a223d5dabb294bb82d66fde83caafafad221f7b3f03b03cabbb750323362fb7c9f86bf5986a93b
+  checksum: 3610443c3b7f2859e3132d9c206a97f8aa9905dca10f5d109cd861fd258a5002446a91c5b540f6eed145d75500e60ffcbc7ca0eba65f6a5275dbd14c155d05bf
   languageName: node
   linkType: hard
 
@@ -3030,7 +3030,7 @@ __metadata:
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons": 1.110.0
-    "@tanstack/react-query": 4.13.4
+    "@tanstack/react-query": 4.14.3
     "@types/js-yaml": 4.0.5
     "@types/node": 17.0.25
     "@types/react": 18.0.25
