@@ -2491,9 +2491,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons@npm:1.108.0":
-  version: 1.108.0
-  resolution: "@tabler/icons@npm:1.108.0"
+"@tabler/icons@npm:1.110.0":
+  version: 1.110.0
+  resolution: "@tabler/icons@npm:1.110.0"
   peerDependencies:
     react: ^16.x || 17.x || 18.x
     react-dom: ^16.x || 17.x || 18.x
@@ -2502,7 +2502,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 1756729cfc31a53bafb5a08e3d3073061970e188b2ba48901b16ade23fda4a8bac5508419af64d64a4fa6220cce8fcef7e980892bf7abc5898846b9166d385fb
+  checksum: a2a68c6367cdfd278b01fd0d595a292d53413e0c0d24543057e60f04bc39ca1b2769e18a9c0ef0e116ab6a504f616b78aa48c1ba0c4f02c845b0ab250fa315a0
   languageName: node
   linkType: hard
 
@@ -3029,7 +3029,7 @@ __metadata:
     "@slashnephy/eslint-config": 0.2.15
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
-    "@tabler/icons": 1.108.0
+    "@tabler/icons": 1.110.0
     "@tanstack/react-query": 4.13.4
     "@types/js-yaml": 4.0.5
     "@types/node": 17.0.25
