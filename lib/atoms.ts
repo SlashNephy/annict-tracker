@@ -74,3 +74,8 @@ export const notificationHistoriesState = atom({
   key: 'notification-histories',
   default: [] as string[],
 })
+
+export const isNavbarExpandState = atom({
+  key: 'is-navbar-expand',
+  default: false,
+})

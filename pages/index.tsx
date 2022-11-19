@@ -4,23 +4,26 @@ import { useSession } from 'next-auth/react'
 import React from 'react'
 
 import { AnnictSignInButton } from '../components/AnnictSignInButton'
+import { AppLayout } from '../components/AppLayout'
 import { FilterCard } from '../components/FilterCard'
 import { FooterCard } from '../components/FooterCard'
 import { LibraryGrid } from '../components/LibraryGrid'
 import { AnnictClientProvider } from '../lib/useAnnictClient'
-import { useUpdateChecker } from '../lib/useUpdateChecker'
 import packageJson from '../package.json'
 
 const Index: React.FC = () => {
   const { data } = useSession()
-  useUpdateChecker()
 
-  return data?.accessToken !== undefined ? (
-    <AnnictClientProvider value={data.accessToken}>
-      <IndexAsAnnictUser />
-    </AnnictClientProvider>
-  ) : (
-    <IndexAsGuestUser />
+  return (
+    <AppLayout>
+      {data?.accessToken !== undefined ? (
+        <AnnictClientProvider value={data.accessToken}>
+          <IndexAsAnnictUser />
+        </AnnictClientProvider>
+      ) : (
+        <IndexAsGuestUser />
+      )}
+    </AppLayout>
   )
 }
 
@@ -37,12 +40,6 @@ export const IndexAsGuestUser: React.FC = () => {
             {packageJson.name} は Annict での視聴記録を便利にする Web アプリケーションです。
             <br />
             利用するには Annict でログインする必要があります。
-            <br />
-            使い方は{' '}
-            <Anchor href="https://scrapbox.io/slashnephy/annict-tracker" target="_blank">
-              Scrapbox
-            </Anchor>{' '}
-            をご覧ください。
           </Text>
 
           <AnnictSignInButton fullWidth color="pink.6" leftIcon={<IconLogin />} />
