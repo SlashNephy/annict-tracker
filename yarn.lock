@@ -2011,79 +2011,79 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:5.8.2":
-  version: 5.8.2
-  resolution: "@mantine/core@npm:5.8.2"
+"@mantine/core@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@mantine/core@npm:5.8.3"
   dependencies:
     "@floating-ui/react-dom-interactions": ^0.10.1
-    "@mantine/styles": 5.8.2
-    "@mantine/utils": 5.8.2
+    "@mantine/styles": 5.8.3
+    "@mantine/utils": 5.8.3
     "@radix-ui/react-scroll-area": 1.0.0
     react-textarea-autosize: 8.3.4
   peerDependencies:
-    "@mantine/hooks": 5.8.2
+    "@mantine/hooks": 5.8.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 8d61e176b9fa42ea196be5a01f816ace485443264b81facb2b614d9d178cd581751063f2a95f8ccfe1b295cb92639b95e6d7dd6bb81a7949a54f9d377bbc0208
+  checksum: 9f984ac4340e03653e9c6039c8ecad9b4952fe4f9d3d919e5e2b238aaf312518f8f24b603a83d1fbd337f720b67917c1abf61f6c0ba33cb6d1a6a05e66e83366
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:5.8.2":
-  version: 5.8.2
-  resolution: "@mantine/hooks@npm:5.8.2"
+"@mantine/hooks@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@mantine/hooks@npm:5.8.3"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 7906dc8213f275f3e1573f0be4b5d4c15341cbb0bad9e01fb3a1cb9063e9cc4d5d49625ce37143f53698c7b3bb29e15768885e990a4da6bee91d8cc0478ef956
+  checksum: 557c10e31912587d1fc437616dcc557e05435c3dc54f1fcc131c9e86804666d5dec7b09ab228d355bde549596c8adcd34cbfe2e4266e243ef3b4074ff31e0f83
   languageName: node
   linkType: hard
 
-"@mantine/next@npm:5.8.2":
-  version: 5.8.2
-  resolution: "@mantine/next@npm:5.8.2"
+"@mantine/next@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@mantine/next@npm:5.8.3"
   dependencies:
-    "@mantine/ssr": 5.8.2
-    "@mantine/styles": 5.8.2
+    "@mantine/ssr": 5.8.3
+    "@mantine/styles": 5.8.3
   peerDependencies:
     next: "*"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 8fba34391a644af9405ef6276ecfe92887f1d94ab108f2dd38a660f4d2f388acd101bbe29e2363c0ea3434ac7f289fcfce477d7cfc196ffb96285bdca0d42617
+  checksum: c4310d9b92894400a750e0786a30c985ab8f5d30cca7de67259260eff9c9f1f0d1a7cbedc4a95ec75ffc8e9f1c2f8709360dcac4c591e239fb67e1ee9db2f80f
   languageName: node
   linkType: hard
 
-"@mantine/notifications@npm:5.8.2":
-  version: 5.8.2
-  resolution: "@mantine/notifications@npm:5.8.2"
+"@mantine/notifications@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@mantine/notifications@npm:5.8.3"
   dependencies:
-    "@mantine/utils": 5.8.2
+    "@mantine/utils": 5.8.3
     react-transition-group: 4.4.2
   peerDependencies:
-    "@mantine/core": 5.8.2
-    "@mantine/hooks": 5.8.2
+    "@mantine/core": 5.8.3
+    "@mantine/hooks": 5.8.3
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 6a92ce0a84455deb5c96c36e3c8cafab6a5f7be48d2c3792ec6e36b7d24bc422abbfcc5e7e6ae9d77c912f479e684dcd38cdb92da6a3979f1472c48d2ca1a60c
+  checksum: b4261936fbbec35557d676d61f056c055ad4ae98413d130503efb07372accb91a2df11a69ac309727e88c7a83912f843df9179a845860dcb16de9304974f52a5
   languageName: node
   linkType: hard
 
-"@mantine/ssr@npm:5.8.2":
-  version: 5.8.2
-  resolution: "@mantine/ssr@npm:5.8.2"
+"@mantine/ssr@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@mantine/ssr@npm:5.8.3"
   dependencies:
-    "@mantine/styles": 5.8.2
+    "@mantine/styles": 5.8.3
     html-react-parser: 1.4.12
   peerDependencies:
     "@emotion/react": ">=11.9.0"
     "@emotion/server": ">=11.4.0"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: dd449a1248303bdaf6c041fb55f8fcb272abfaa3e93bad88ab9889b4d721747a4c32f03acbed4cd2ae1cce54f38231f7a1f335c3d6e49d1db995f02d38e9028c
+  checksum: a611679b630f0e59a93134a9ea00cf774682d1a695c5882b814633912653edd5dedef88d4fcb67f7fa6e2d2d9b44ca0734853b845935a87623a6c0ae314067b5
   languageName: node
   linkType: hard
 
-"@mantine/styles@npm:5.8.2":
-  version: 5.8.2
-  resolution: "@mantine/styles@npm:5.8.2"
+"@mantine/styles@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@mantine/styles@npm:5.8.3"
   dependencies:
     clsx: 1.1.1
     csstype: 3.0.9
@@ -2091,16 +2091,16 @@ __metadata:
     "@emotion/react": ">=11.9.0"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 4907732eb85407accccac3fb588cf89019bda00084ccfab6c4facbb502660f9c33f0d2a1d98868736ce1978bec36e639a110dab6d2161ed91375eadd08b22eb7
+  checksum: b72e622e412c536f9bb2cf0877a0d81ac29b20024565225558f3136457aaf8b338c5673b487a8e07f46f25c9cef0ab17a0f3cc87539c5017ce7d10253cd5bf1d
   languageName: node
   linkType: hard
 
-"@mantine/utils@npm:5.8.2":
-  version: 5.8.2
-  resolution: "@mantine/utils@npm:5.8.2"
+"@mantine/utils@npm:5.8.3":
+  version: 5.8.3
+  resolution: "@mantine/utils@npm:5.8.3"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: bb6b1de7e8bee92751410e634e7e475ea38eef4d822ee955aa885a739c4379c8d8cbdc12aee570b6c1dcf83ae1202297f1f1c3d78b11de3e3ffe64076edd3a71
+  checksum: 55cc787fed6875d10348a28da15a4f06b152215118eee908d535bfa4019814831f08fffb66d605eee84ae9597fc7ff27ef717dfbeca4732fa8b0f08aeb2d0ac0
   languageName: node
   linkType: hard
 
@@ -3060,10 +3060,10 @@ __metadata:
     "@graphql-codegen/typescript": 2.8.3
     "@graphql-codegen/typescript-graphql-request": 4.5.8
     "@graphql-codegen/typescript-operations": 2.5.8
-    "@mantine/core": 5.8.2
-    "@mantine/hooks": 5.8.2
-    "@mantine/next": 5.8.2
-    "@mantine/notifications": 5.8.2
+    "@mantine/core": 5.8.3
+    "@mantine/hooks": 5.8.3
+    "@mantine/next": 5.8.3
+    "@mantine/notifications": 5.8.3
     "@slashnephy/eslint-config": 0.2.21
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
