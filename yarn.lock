@@ -2468,9 +2468,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:0.2.22":
-  version: 0.2.22
-  resolution: "@slashnephy/eslint-config@npm:0.2.22"
+"@slashnephy/eslint-config@npm:0.2.23":
+  version: 0.2.23
+  resolution: "@slashnephy/eslint-config@npm:0.2.23"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.43.0
     "@typescript-eslint/parser": 5.43.0
@@ -2481,7 +2481,7 @@ __metadata:
     eslint-plugin-editorconfig: 4.0.2
     eslint-plugin-eslint-comments: 3.2.0
     eslint-plugin-import: 2.26.0
-    eslint-plugin-jest: 27.1.5
+    eslint-plugin-jest: 27.1.6
     eslint-plugin-jest-formatting: 3.1.0
     eslint-plugin-json: 3.1.0
     eslint-plugin-no-void-return-type: 1.0.2
@@ -2498,7 +2498,7 @@ __metadata:
     eslint: ^8
     prettier: ^2
     typescript: ^4
-  checksum: 1e0bafa8d28b159c7483097a4175183c368c02a80196776e6f22402479f4ecc7bcc8805dd3c70f9502d2238e345525da3d8bc87bab1f6a6536631783d162c188
+  checksum: 78108c2a03f5f51a669b3818456af920f65f346fdd0546b983c3a3247ca6001f65d0a3ce0f367a497cb1b107cbd1ec54665f02a5f8089ee4d8a8240b6464ee1e
   languageName: node
   linkType: hard
 
@@ -3064,7 +3064,7 @@ __metadata:
     "@mantine/hooks": 5.8.3
     "@mantine/next": 5.8.3
     "@mantine/notifications": 5.8.3
-    "@slashnephy/eslint-config": 0.2.22
+    "@slashnephy/eslint-config": 0.2.23
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons": 1.112.0
@@ -4713,9 +4713,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:27.1.5":
-  version: 27.1.5
-  resolution: "eslint-plugin-jest@npm:27.1.5"
+"eslint-plugin-jest@npm:27.1.6":
+  version: 27.1.6
+  resolution: "eslint-plugin-jest@npm:27.1.6"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -4726,7 +4726,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 7c9de765793f7161afa0bdcdce67f4d072944152880fa638b25d228188dcee47a4b4aada26c57db72bc10193c96a1979e17afb8a7c3e400e961d8adfbf23ddbe
+  checksum: 5b1640b5d575f0d5e27da8ef8cb3110a29f94ebd50ae51edc5ea34c1054f5dcf305416865b2919ac424bc02c4569848bbe7fd2c86e7e1aff23e77f1ff9ef7dfd
   languageName: node
   linkType: hard
 
