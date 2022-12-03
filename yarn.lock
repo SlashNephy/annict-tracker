@@ -2551,9 +2551,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:4.16.1":
-  version: 4.16.1
-  resolution: "@tanstack/react-query@npm:4.16.1"
+"@tanstack/react-query@npm:4.17.1":
+  version: 4.17.1
+  resolution: "@tanstack/react-query@npm:4.17.1"
   dependencies:
     "@tanstack/query-core": 4.15.1
     use-sync-external-store: ^1.2.0
@@ -2566,7 +2566,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 2c2d4c5c8bab2cd978ddd42153d33f844bd24a17ebe42f269cc64ee2a031f60f980b441640172885d9fd156fe9abc74ffc800fb68c6b6f6ef4fe48ffadafff79
+  checksum: 11d7dcf35526a593ddd9c2210b4b1858bdee09cae94faf3a152462b55b1eb9fd53eaf58f2029fc36d60a697cec73c000cdc66a4d094661cfb1f954c1b2f1291a
   languageName: node
   linkType: hard
 
@@ -3068,7 +3068,7 @@ __metadata:
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons": 1.113.0
-    "@tanstack/react-query": 4.16.1
+    "@tanstack/react-query": 4.17.1
     "@types/js-yaml": 4.0.5
     "@types/node": 17.0.25
     "@types/react": 18.0.26
