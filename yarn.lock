@@ -2026,79 +2026,79 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:5.9.1":
-  version: 5.9.1
-  resolution: "@mantine/core@npm:5.9.1"
+"@mantine/core@npm:5.9.2":
+  version: 5.9.2
+  resolution: "@mantine/core@npm:5.9.2"
   dependencies:
     "@floating-ui/react-dom-interactions": ^0.10.1
-    "@mantine/styles": 5.9.1
-    "@mantine/utils": 5.9.1
-    "@radix-ui/react-scroll-area": 1.0.0
+    "@mantine/styles": 5.9.2
+    "@mantine/utils": 5.9.2
+    "@radix-ui/react-scroll-area": 1.0.2
     react-textarea-autosize: 8.3.4
   peerDependencies:
-    "@mantine/hooks": 5.9.1
+    "@mantine/hooks": 5.9.2
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 690d2c13fc26a4b21be42bf6af50693a4902efb65931de45a5a30e329992a881e9a09f3e5d9cb5fe6bf6c50ab27009b3c17fb6ee83ba137c5179ac439b6dedef
+  checksum: 228d8bb934f01f59eda92df9e08154454dbbcc9de56addc7c290801ab136755d28fc42fda9c8054d5c8f6aa79d440b706f1c7d5f6952bd0848d15d2cc84ce778
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:5.9.1":
-  version: 5.9.1
-  resolution: "@mantine/hooks@npm:5.9.1"
+"@mantine/hooks@npm:5.9.2":
+  version: 5.9.2
+  resolution: "@mantine/hooks@npm:5.9.2"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 51b1ef4dd896d673e10c53c1dd53692ae8cb1118c0cfc83bbd2ce8ebf75a69f1bfa997179708977c0d202e5a8dc1e0c5da9ce57b6ad9b5af5c550d563d9b7794
+  checksum: 3f9c994c36000d51e9ea6f81b485977cf25583795618f62c01715a08fc831d19fe452db9d1d1724571c14675a5e94b8c6f86c59d1c841150320411cdda9f26f4
   languageName: node
   linkType: hard
 
-"@mantine/next@npm:5.9.1":
-  version: 5.9.1
-  resolution: "@mantine/next@npm:5.9.1"
+"@mantine/next@npm:5.9.2":
+  version: 5.9.2
+  resolution: "@mantine/next@npm:5.9.2"
   dependencies:
-    "@mantine/ssr": 5.9.1
-    "@mantine/styles": 5.9.1
+    "@mantine/ssr": 5.9.2
+    "@mantine/styles": 5.9.2
   peerDependencies:
     next: "*"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 1170152d549ef5c723f932fa4ab9a493edda791c0cb213d1a75e4eb1ac1962b75f28c2bc4352f9c72aef95134c71270448bc7f7bc8a55a42aab753ee8510ad08
+  checksum: 6968c0d1db7b4934fef46d2e21055be80e98af7c41aad7d9de820261a45c42ae6faae0809b80d05ea836193ad7642fb0705c3a7900d5a4a53d8ec83b753f8c66
   languageName: node
   linkType: hard
 
-"@mantine/notifications@npm:5.9.1":
-  version: 5.9.1
-  resolution: "@mantine/notifications@npm:5.9.1"
+"@mantine/notifications@npm:5.9.2":
+  version: 5.9.2
+  resolution: "@mantine/notifications@npm:5.9.2"
   dependencies:
-    "@mantine/utils": 5.9.1
+    "@mantine/utils": 5.9.2
     react-transition-group: 4.4.2
   peerDependencies:
-    "@mantine/core": 5.9.1
-    "@mantine/hooks": 5.9.1
+    "@mantine/core": 5.9.2
+    "@mantine/hooks": 5.9.2
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 0471f45b3a913101e2e96b1fb8429c2d2debdbd3d56c55f4dc535ff205f41de68cc441e0f10d8ce64b15bdcf57c1041e03ec92272cf9d23d4f283a73691dc5d5
+  checksum: 7ad054e983328b971534135048d76371a7efb98733a0d27fd5d5f072d3e18fda58f38980f37212ac85e5e2b1dfffbb7497e2a023538365cb1412a820eb710e6e
   languageName: node
   linkType: hard
 
-"@mantine/ssr@npm:5.9.1":
-  version: 5.9.1
-  resolution: "@mantine/ssr@npm:5.9.1"
+"@mantine/ssr@npm:5.9.2":
+  version: 5.9.2
+  resolution: "@mantine/ssr@npm:5.9.2"
   dependencies:
-    "@mantine/styles": 5.9.1
+    "@mantine/styles": 5.9.2
     html-react-parser: 1.4.12
   peerDependencies:
     "@emotion/react": ">=11.9.0"
     "@emotion/server": ">=11.4.0"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: a6afdbe9e5ee94ab10e2c8913f7f3e6ec5b7e67b90d958c56a68b235d062ebebff8832daf716782c86cc4f22f0f3c241963ba4de05e9e870f786297400c30a44
+  checksum: 75557e11994cc44abda29e0379c24246d10fd28dad495c244f1e4b0e5c5ac60dc49957b4a551fd9e6c8c18b33a4bd780f81479891e3a74c1532d7c214517b209
   languageName: node
   linkType: hard
 
-"@mantine/styles@npm:5.9.1":
-  version: 5.9.1
-  resolution: "@mantine/styles@npm:5.9.1"
+"@mantine/styles@npm:5.9.2":
+  version: 5.9.2
+  resolution: "@mantine/styles@npm:5.9.2"
   dependencies:
     clsx: 1.1.1
     csstype: 3.0.9
@@ -2106,16 +2106,16 @@ __metadata:
     "@emotion/react": ">=11.9.0"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: a81a9e3afac0bc3e10e3a243b4d924d4c68b6dc4b928b3afb4b09cf860148f3b499b251aa36ca44c4ef57bd5c203d6dd34d04e2f700fd7160e02585371403ce3
+  checksum: dbc400f0c76e70d2f617b575f1529a7360902be203cc3b60166a9cad204e30cfe43bdd8fa63f0ee693df24e36ab21aadb05f40605b5185e138ec26d5633adb31
   languageName: node
   linkType: hard
 
-"@mantine/utils@npm:5.9.1":
-  version: 5.9.1
-  resolution: "@mantine/utils@npm:5.9.1"
+"@mantine/utils@npm:5.9.2":
+  version: 5.9.2
+  resolution: "@mantine/utils@npm:5.9.2"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 0db21024bf44aafcdbbf533aed2aceb34387f2bb326ee318bb6fea9a91288a2529b265e17a98c824332e2aae3ca0c413c435abb4f760fae067786d57367c16c3
+  checksum: 7131c0aaab6ac6af1049eef7147274a477f63c61ef49098f6433e9175b278b73c60e6b144918feada2c92b656c03bf85d840c75a8e3bfdaa11e245bff2d282b6
   languageName: node
   linkType: hard
 
@@ -2401,22 +2401,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-primitive@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-primitive@npm:1.0.0"
+"@radix-ui/react-primitive@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-primitive@npm:1.0.1"
   dependencies:
     "@babel/runtime": ^7.13.10
-    "@radix-ui/react-slot": 1.0.0
+    "@radix-ui/react-slot": 1.0.1
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: fb3fe8c8c5a57995716cce4d7e9039e474c09ba5d714994419ad4940bc954da670f1188813cc931f189b23d9bd5a67adf7087bf44fe1d4272b4a334a3514d38b
+  checksum: 1cc86b72f926be4a42122e7e456e965de0906f16b0dc244b8448bac05905f208598c984a0dd40026f654b4a71d0235335d48a18e377b07b0ec6c6917576a8080
   languageName: node
   linkType: hard
 
-"@radix-ui/react-scroll-area@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-scroll-area@npm:1.0.0"
+"@radix-ui/react-scroll-area@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@radix-ui/react-scroll-area@npm:1.0.2"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@radix-ui/number": 1.0.0
@@ -2425,25 +2425,25 @@ __metadata:
     "@radix-ui/react-context": 1.0.0
     "@radix-ui/react-direction": 1.0.0
     "@radix-ui/react-presence": 1.0.0
-    "@radix-ui/react-primitive": 1.0.0
+    "@radix-ui/react-primitive": 1.0.1
     "@radix-ui/react-use-callback-ref": 1.0.0
     "@radix-ui/react-use-layout-effect": 1.0.0
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
     react-dom: ^16.8 || ^17.0 || ^18.0
-  checksum: 0b7756f1df19ac13c570941461794668d0fb15fd576f37a698a6d0a39f48b728db751455f8de202e5ccb8750c3d9f31a02ada7b79d9f064347aa96e780d8f104
+  checksum: c59062c3321fb92b526f2b63be2636569c4a33fa81bd5c5109b13516932cebaf680a5cd318263d37e7e6e4ca62aa45521c34447478fd2acde3b2639ae53252d7
   languageName: node
   linkType: hard
 
-"@radix-ui/react-slot@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@radix-ui/react-slot@npm:1.0.0"
+"@radix-ui/react-slot@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-slot@npm:1.0.1"
   dependencies:
     "@babel/runtime": ^7.13.10
     "@radix-ui/react-compose-refs": 1.0.0
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
-  checksum: 60c0190ebdca21785b4f8b58a0c52717600c98953fc49da9580870519c60f52d5cf873dffa05446f4bb539066326ccec0827f4ca252b02ec4ff1a4ae203f59d7
+  checksum: a20693f8ce532bd6cbff12ba543dfcf90d451f22923bd60b57dc9e639f6e53348915e182002b33444feb6ab753434e78e2a54085bf7092aadda4418f0423763f
   languageName: node
   linkType: hard
 
@@ -3120,10 +3120,10 @@ __metadata:
     "@graphql-codegen/typescript": 2.8.5
     "@graphql-codegen/typescript-graphql-request": 4.5.8
     "@graphql-codegen/typescript-operations": 2.5.10
-    "@mantine/core": 5.9.1
-    "@mantine/hooks": 5.9.1
-    "@mantine/next": 5.9.1
-    "@mantine/notifications": 5.9.1
+    "@mantine/core": 5.9.2
+    "@mantine/hooks": 5.9.2
+    "@mantine/next": 5.9.2
+    "@mantine/notifications": 5.9.2
     "@slashnephy/eslint-config": 0.2.26
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
