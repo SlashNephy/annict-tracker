@@ -2483,9 +2483,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:0.2.26":
-  version: 0.2.26
-  resolution: "@slashnephy/eslint-config@npm:0.2.26"
+"@slashnephy/eslint-config@npm:0.2.27":
+  version: 0.2.27
+  resolution: "@slashnephy/eslint-config@npm:0.2.27"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.45.0
     "@typescript-eslint/parser": 5.45.0
@@ -2508,12 +2508,12 @@ __metadata:
     eslint-plugin-unused-imports: 2.0.0
     eslint-plugin-userscripts: 0.2.10
     eslint-plugin-xss: 0.1.12
-    eslint-plugin-yml: 1.2.0
+    eslint-plugin-yml: 1.3.0
   peerDependencies:
     eslint: ^8
     prettier: ^2
     typescript: ^4
-  checksum: 614729c4671fe39b1c620a8a393060b39ccca4d47c31ff3773b6a7debe0db5ea3de3fff7810d5ba7b7069c77e3b008e0d35547fc68a2cb7222e7b9ed13d96582
+  checksum: c28dc24445661f9c851dd8728fa25e9e41e3b91338ca63b666c6f44e68dc8c2347fedcc4a772ec1e56c5163f85019478d0075d0984dee3fb40429deb9d95ad83
   languageName: node
   linkType: hard
 
@@ -3124,7 +3124,7 @@ __metadata:
     "@mantine/hooks": 5.9.2
     "@mantine/next": 5.9.2
     "@mantine/notifications": 5.9.2
-    "@slashnephy/eslint-config": 0.2.26
+    "@slashnephy/eslint-config": 0.2.27
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons": 1.115.0
@@ -4980,9 +4980,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-yml@npm:1.2.0":
-  version: 1.2.0
-  resolution: "eslint-plugin-yml@npm:1.2.0"
+"eslint-plugin-yml@npm:1.3.0":
+  version: 1.3.0
+  resolution: "eslint-plugin-yml@npm:1.3.0"
   dependencies:
     debug: ^4.3.2
     lodash: ^4.17.21
@@ -4990,7 +4990,7 @@ __metadata:
     yaml-eslint-parser: ^1.1.0
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: e48a87d32e17b27d9847c6b24c4af4b76c2d50fcd48ad183702e7f2a59f837107c6a709b4717238390a5d5bb28efebb3f1edc3287aa821a75b4e67fbe0fff7e2
+  checksum: 7427a8a9735ba7923faac91641973d8acf7bfd9e3ab8d5d0b8cfc47d9ff924fd9b3a1af46c0ad9a8dca84d9d9b2e766dd95f57286ec715594ecf32930c78f3cf
   languageName: node
   linkType: hard
 
