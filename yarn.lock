@@ -2975,12 +2975,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/analytics@npm:0.1.5":
-  version: 0.1.5
-  resolution: "@vercel/analytics@npm:0.1.5"
+"@vercel/analytics@npm:0.1.6":
+  version: 0.1.6
+  resolution: "@vercel/analytics@npm:0.1.6"
   peerDependencies:
     react: ^16.8||^17||^18
-  checksum: ebade083273b093db3f0b98fc88013d787da7ad57635329b128eaee23a47ac541bbcf1d2257f56bb440afb6b872addfccae0bea0ab0962ffa2a7661e08b78760
+  checksum: 4428e27778cac2ddb1b55fb2e499e04cbe7ddb76dac4fbcbc1e992729da03166807f72c28664ab0addad7223217baef55b5b7b5210a25967c3652b6b2c07d0be
   languageName: node
   linkType: hard
 
@@ -3133,7 +3133,7 @@ __metadata:
     "@types/node": 17.0.25
     "@types/react": 18.0.26
     "@types/react-dom": 18.0.9
-    "@vercel/analytics": 0.1.5
+    "@vercel/analytics": 0.1.6
     cached_property: 0.1.2
     concurrently: 7.6.0
     date-fns: 2.29.3
