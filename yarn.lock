@@ -3143,7 +3143,7 @@ __metadata:
     graphql-request: 5.0.0
     js-yaml: 4.1.0
     next: 13.0.7
-    next-auth: 4.18.4
+    next-auth: 4.18.6
     node-fetch: 3.3.0
     prettier: 2.8.1
     react: 18.2.0
@@ -7130,9 +7130,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:4.18.4":
-  version: 4.18.4
-  resolution: "next-auth@npm:4.18.4"
+"next-auth@npm:4.18.6":
+  version: 4.18.6
+  resolution: "next-auth@npm:4.18.6"
   dependencies:
     "@babel/runtime": ^7.16.3
     "@panva/hkdf": ^1.0.1
@@ -7151,7 +7151,7 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: 77768074598cd1bce877a2e150a39c3958705d319c9330c80401d55b1e5e6688a144a46253968377bbbe710bbf7d5b08f69a31bd96fcad35729144ecf8dc2997
+  checksum: f77f83ecf7ec0f346e3297aaaa1b80d24e0e73d82a49071389fe80873b34202ec8508ff13e1a603940c03581ca785f01a9d7cdf7fabea0a4462317522a8dc14b
   languageName: node
   linkType: hard
 
