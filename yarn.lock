@@ -2322,12 +2322,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:13.1.0":
-  version: 13.1.0
-  resolution: "@next/eslint-plugin-next@npm:13.1.0"
+"@next/eslint-plugin-next@npm:13.1.1":
+  version: 13.1.1
+  resolution: "@next/eslint-plugin-next@npm:13.1.1"
   dependencies:
     glob: 7.1.7
-  checksum: abec11052be9c5dfd86d1180040fed11f548ba56cca1da9911ab03e52ea8709c0c070055b817356e45572bf21fd8ca4d731488d3c442cd447a80101e643f2947
+  checksum: 27e49ef988db3203d494930ad1fcdc270761a61a41e6925c0eadf1e2b1ebd6648722a3aaec7f0c0266eea8771797e06d52f041d33c93d21ba3b361ffe696c36c
   languageName: node
   linkType: hard
 
@@ -2670,13 +2670,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:0.2.32":
-  version: 0.2.32
-  resolution: "@slashnephy/eslint-config@npm:0.2.32"
+"@slashnephy/eslint-config@npm:0.2.33":
+  version: 0.2.33
+  resolution: "@slashnephy/eslint-config@npm:0.2.33"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.47.0
     "@typescript-eslint/parser": 5.47.0
-    eslint-config-next: 13.1.0
+    eslint-config-next: 13.1.1
     eslint-config-prettier: 8.5.0
     eslint-import-resolver-typescript: 3.5.2
     eslint-plugin-css-import-order: 1.1.0
@@ -2695,12 +2695,12 @@ __metadata:
     eslint-plugin-unused-imports: 2.0.0
     eslint-plugin-userscripts: 0.2.10
     eslint-plugin-xss: 0.1.12
-    eslint-plugin-yml: 1.3.0
+    eslint-plugin-yml: 1.4.0
   peerDependencies:
     eslint: ^8
     prettier: ^2
     typescript: ^4
-  checksum: 29d2b1733729c1eb36cd9ed611f2796b12566ab5d44c17af75db5653a1c2990a394b4c5dd5d13e1ebfbb3b2c627df641457301abbd32d1ec94cb3c709d705d29
+  checksum: 260bff555503484606803a18c604a7fc5d19aebe55a7dfbbc295d745229966b72b72f0d748229bb2b0a26fbcc32ea9f2754be81269b5bc044bb28d21cf0b8c1c
   languageName: node
   linkType: hard
 
@@ -3311,7 +3311,7 @@ __metadata:
     "@mantine/hooks": 5.9.5
     "@mantine/next": 5.9.5
     "@mantine/notifications": 5.9.5
-    "@slashnephy/eslint-config": 0.2.32
+    "@slashnephy/eslint-config": 0.2.33
     "@slashnephy/prettier-config": 0.1.1
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons": 1.118.0
@@ -4830,11 +4830,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:13.1.0":
-  version: 13.1.0
-  resolution: "eslint-config-next@npm:13.1.0"
+"eslint-config-next@npm:13.1.1":
+  version: 13.1.1
+  resolution: "eslint-config-next@npm:13.1.1"
   dependencies:
-    "@next/eslint-plugin-next": 13.1.0
+    "@next/eslint-plugin-next": 13.1.1
     "@rushstack/eslint-patch": ^1.1.3
     "@typescript-eslint/parser": ^5.42.0
     eslint-import-resolver-node: ^0.3.6
@@ -4849,7 +4849,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 8a29fd2b81a086a153c68d1cd1c5e58e5f82ddfc0a77f05f680210f289aa47c5988f038843c9fafd0738db5c2b0810110f410a6e48781f25deba9d8488cc2e50
+  checksum: 098465b42e277433e4f815465b49ab655fc35a62ac016a47f60d7e44248f1b87a70b2dfd2ef090ffbb4cb1a694d409ff0811d2eb64028ce61f535403c7a0f27a
   languageName: node
   linkType: hard
 
@@ -5167,9 +5167,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-yml@npm:1.3.0":
-  version: 1.3.0
-  resolution: "eslint-plugin-yml@npm:1.3.0"
+"eslint-plugin-yml@npm:1.4.0":
+  version: 1.4.0
+  resolution: "eslint-plugin-yml@npm:1.4.0"
   dependencies:
     debug: ^4.3.2
     lodash: ^4.17.21
@@ -5177,7 +5177,7 @@ __metadata:
     yaml-eslint-parser: ^1.1.0
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 7427a8a9735ba7923faac91641973d8acf7bfd9e3ab8d5d0b8cfc47d9ff924fd9b3a1af46c0ad9a8dca84d9d9b2e766dd95f57286ec715594ecf32930c78f3cf
+  checksum: 2e2d9098920b8cdbac49035d03a934abb8d45510b09e750698224365648d9ab0edfa25b9ff536d9076e9448b4319c93cea731c45dce0524ef8ed1fb79b483024
   languageName: node
   linkType: hard
 
