@@ -79,3 +79,9 @@ export const isNavbarExpandState = atom({
   key: 'is-navbar-expand',
   default: false,
 })
+
+export const enableEverythingIntegrationState = atom<boolean>({
+  key: 'enable-everything-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})

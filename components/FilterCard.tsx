@@ -7,6 +7,7 @@ import { useRecoilState } from 'recoil'
 import { SeasonName } from '../graphql/annict/types'
 import {
   dayFiltersState,
+  enableEverythingIntegrationState,
   enableSyobocalState,
   hideRebroadcastingState,
   hideStreamingServicesState,
@@ -34,6 +35,7 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
   const [hideStreamingServices, setHideStreamingServices] = useRecoilState(hideStreamingServicesState)
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
   const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
+  const [enableEverythingIntegration, setEnableEverythingIntegration] = useRecoilState(enableEverythingIntegrationState)
   const [seasonFilters, setSeasonFilters] = useRecoilState(seasonFiltersState)
   const [timeFilters, setTimeFilters] = useRecoilState(timeFiltersState)
   const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
@@ -132,6 +134,16 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
                   }}
                   label="ブラウザの通知を有効にする"
                   description="放送時間が近付いた時にブラウザの通知が表示されます。"
+                />
+                <CheckboxWithHoverCard
+                  ml="md"
+                  mb="md"
+                  checked={enableEverythingIntegration}
+                  onChange={(event) => {
+                    setEnableEverythingIntegration(event.target.checked)
+                  }}
+                  label="Everything 統合を有効にする"
+                  description="録画ファイルを Everything で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
                 />
               </Group>
 

@@ -1,9 +1,12 @@
 import { Anchor, Button, Card, Stack, Text, Title } from '@mantine/core'
-import { IconCheck, IconPhotoOff } from '@tabler/icons'
+import { IconCheck, IconPhotoOff, IconSearch } from '@tabler/icons'
 import React from 'react'
+import { useRecoilValue } from 'recoil'
 
+import { enableEverythingIntegrationState } from '../../lib/atoms'
 import { useLibraryEntry } from '../../lib/useLibraryEntry'
 import { AnnictCreateRecordButton } from './AnnictCreateRecordButton'
+import { EverythingSearchButton } from './EverythingSearchButton'
 import { WorkImage } from './WorkImage'
 import { WorkNextProgramInfo } from './WorkNextProgramInfo'
 
@@ -11,6 +14,7 @@ import type { CardProps } from '@mantine/core'
 
 export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
   const { entry } = useLibraryEntry()
+  const enableEverythingIntegration = useRecoilValue(enableEverythingIntegrationState)
 
   return (
     <Card {...props}>
@@ -50,6 +54,16 @@ export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
             mt="md"
             radius="md"
           />
+          {enableEverythingIntegration && (
+            <EverythingSearchButton
+              leftIcon={<IconSearch />}
+              variant="light"
+              color="blue"
+              fullWidth
+              mt="md"
+              radius="md"
+            />
+          )}
         </Button.Group>
       </Stack>
     </Card>
