@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group, Header, MediaQuery, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
+import { AppShell, Burger, Group, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
 import { IconDeviceTv, IconHelp } from '@tabler/icons'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -38,6 +38,16 @@ export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
   const theme = useMantineTheme()
 
+  const router = useRouter()
+  const title = useMemo(() => {
+    const link = links.find((link) => link.href === router.asPath)
+    if (link !== undefined) {
+      return `${link.label} | ${packageJson.name}`
+    } else {
+      return packageJson.name
+    }
+  }, [router.asPath])
+
   useUpdateChecker()
 
   return (
@@ -70,6 +80,9 @@ export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
         </Navbar>
       }
     >
+      <Head>
+        <title>{title}</title>
+      </Head>
       {children}
     </AppShell>
   )
