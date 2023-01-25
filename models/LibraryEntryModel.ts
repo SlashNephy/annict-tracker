@@ -4,8 +4,8 @@ import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
 import { SeasonName } from '../graphql/annict/types'
 import { AnnictSeason, isStreamingService } from '../lib/services/annict'
 
-import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'
 import type { DayTag, TimeTag } from './filters'
+import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'
 
 export class LibraryEntryModel {
   public constructor(public readonly entity: AnnictLibraryEntry) {}

@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { secondsToMilliseconds } from 'date-fns'
 
-import { LibraryEntryModel } from '../models/LibraryEntryModel'
 import { useAnnictClient } from './useAnnictClient'
+import { LibraryEntryModel } from '../models/LibraryEntryModel'
 
 export type LibraryEntriesState = {
   entries: LibraryEntryModel[]

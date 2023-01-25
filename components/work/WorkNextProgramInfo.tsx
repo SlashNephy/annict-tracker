@@ -4,14 +4,14 @@ import { differenceInMinutes, format, secondsToMilliseconds } from 'date-fns'
 import React, { useCallback, useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
+import { DateBadge } from './DateBadge'
+import { RelativeTimeLabel } from './RelativeTimeLabel'
 import {
   enableBrowserNotificationState,
   notificationHistoriesState,
   programNotificationThresholdMinutesState,
 } from '../../lib/atoms'
 import { useLibraryEntry } from '../../lib/useLibraryEntry'
-import { DateBadge } from './DateBadge'
-import { RelativeTimeLabel } from './RelativeTimeLabel'
 
 import type { StackProps } from '@mantine/core'
 

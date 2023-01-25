@@ -4,6 +4,7 @@ import { signOut } from 'next-auth/react'
 import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
+import { CheckboxWithHoverCard } from './CheckboxWithHoverCard'
 import { SeasonName } from '../graphql/annict/types'
 import {
   dayFiltersState,
@@ -22,7 +23,6 @@ import { useBrowserNotification } from '../lib/useBrowserNotification'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { useSaya } from '../lib/useSaya'
 import packageJson from '../package.json'
-import { CheckboxWithHoverCard } from './CheckboxWithHoverCard'
 
 import type { DayTag, TimeTag } from '../models/filters'
 import type { CardProps } from '@mantine/core'
