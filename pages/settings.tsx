@@ -1,16 +1,4 @@
-import {
-  ActionIcon,
-  Card,
-  Center,
-  Checkbox,
-  Chip,
-  Container,
-  Divider,
-  Group,
-  HoverCard,
-  Stack,
-  Text,
-} from '@mantine/core'
+import { ActionIcon, Card, Center, Checkbox, Chip, Container, Group, HoverCard, Stack, Text } from '@mantine/core'
 import { IconChecks, IconTrash } from '@tabler/icons'
 import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
@@ -49,14 +37,65 @@ const Settings: React.FC = () => {
                 label="ダークモードを有効にする"
               />
 
-              <CheckboxWithLabel
-                checked={enableSyobocal}
-                onChange={(event) => {
-                  setEnableSyobocal(event.target.checked)
-                }}
-                label="しょぼいカレンダーを参照する"
-                description="Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
-              />
+              <Stack>
+                <CheckboxWithLabel
+                  checked={enableSyobocal}
+                  onChange={(event) => {
+                    setEnableSyobocal(event.target.checked)
+                  }}
+                  label="しょぼいカレンダーを参照する"
+                  description="Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
+                />
+
+                {enableSyobocal && (
+                  <Stack pl="lg">
+                    <Group>
+                      <Text size="sm">しょぼいカレンダーで放送予定を代用するチャンネル</Text>
+                      <HoverCard width={280} shadow="md">
+                        <HoverCard.Target>
+                          <ActionIcon
+                            variant="default"
+                            onClick={() => {
+                              setSyobocalChannels(
+                                availableChannels
+                                  .map((x) => x.syobocalId?.toString())
+                                  .filter((x): x is NonNullable<typeof x> => x !== undefined)
+                              )
+                            }}
+                          >
+                            <IconChecks size={14} />
+                          </ActionIcon>
+                        </HoverCard.Target>
+                        <HoverCard.Dropdown>
+                          <Text size="sm">すべてのチャンネルを選択します</Text>
+                        </HoverCard.Dropdown>
+                      </HoverCard>
+                      <HoverCard width={280} shadow="md">
+                        <HoverCard.Target>
+                          <ActionIcon
+                            variant="default"
+                            onClick={() => {
+                              setSyobocalChannels([])
+                            }}
+                          >
+                            <IconTrash size={14} />
+                          </ActionIcon>
+                        </HoverCard.Target>
+                        <HoverCard.Dropdown>
+                          <Text size="sm">チャンネルの選択をリセットします</Text>
+                        </HoverCard.Dropdown>
+                      </HoverCard>
+                    </Group>
+                    <Chip.Group ml="md" mb="md" value={syobocalChannels} multiple onChange={setSyobocalChannels}>
+                      {availableChannels.map((c) => (
+                        <Chip key={c.syobocalId} value={c.syobocalId?.toString()} size="xs">
+                          {c.name}
+                        </Chip>
+                      ))}
+                    </Chip.Group>
+                  </Stack>
+                )}
+              </Stack>
 
               <CheckboxWithLabel
                 checked={enableBrowserNotification}
@@ -75,55 +114,6 @@ const Settings: React.FC = () => {
                 label="Everything 統合を有効にする"
                 description="録画ファイルを Everything で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
               />
-            </Stack>
-
-            <Divider m="md" />
-
-            <Stack>
-              <Group>
-                <Text>しょぼいカレンダーで参照するチャンネル</Text>
-                <HoverCard width={280} shadow="md">
-                  <HoverCard.Target>
-                    <ActionIcon
-                      variant="default"
-                      onClick={() => {
-                        setSyobocalChannels(
-                          availableChannels
-                            .map((x) => x.syobocalId?.toString())
-                            .filter((x): x is NonNullable<typeof x> => x !== undefined)
-                        )
-                      }}
-                    >
-                      <IconChecks size={14} />
-                    </ActionIcon>
-                  </HoverCard.Target>
-                  <HoverCard.Dropdown>
-                    <Text size="sm">すべてのチャンネルを選択します</Text>
-                  </HoverCard.Dropdown>
-                </HoverCard>
-                <HoverCard width={280} shadow="md">
-                  <HoverCard.Target>
-                    <ActionIcon
-                      variant="default"
-                      onClick={() => {
-                        setSyobocalChannels([])
-                      }}
-                    >
-                      <IconTrash size={14} />
-                    </ActionIcon>
-                  </HoverCard.Target>
-                  <HoverCard.Dropdown>
-                    <Text size="sm">チャンネルの選択をリセットします</Text>
-                  </HoverCard.Dropdown>
-                </HoverCard>
-              </Group>
-              <Chip.Group mt="md" ml="md" mb="md" value={syobocalChannels} multiple onChange={setSyobocalChannels}>
-                {availableChannels.map((c) => (
-                  <Chip key={c.syobocalId} value={c.syobocalId?.toString()} size="xs">
-                    {c.name}
-                  </Chip>
-                ))}
-              </Chip.Group>
             </Stack>
           </Card>
         </Center>
