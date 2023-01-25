@@ -1,27 +1,20 @@
-import { Accordion, ActionIcon, Avatar, Card, Chip, Group, HoverCard, Menu, Switch, Text } from '@mantine/core'
-import { IconChecks, IconLogout, IconTrash } from '@tabler/icons'
+import { Accordion, Avatar, Card, Chip, Group, Menu, Text } from '@mantine/core'
+import { IconLogout } from '@tabler/icons'
 import { signOut } from 'next-auth/react'
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useRecoilState } from 'recoil'
 
 import { CheckboxWithHoverCard } from './CheckboxWithHoverCard'
 import { SeasonName } from '../graphql/annict/types'
 import {
   dayFiltersState,
-  enableEverythingIntegrationState,
-  enableSyobocalState,
   hideRebroadcastingState,
   hideStreamingServicesState,
   isOnlyCurrentSeasonState,
   seasonFiltersState,
-  syobocalChannelsState,
   timeFiltersState,
 } from '../lib/atoms'
-import { filterSayaChannel } from '../lib/services/saya'
 import { useAuthenticatedSession } from '../lib/useAuthenticatedSession'
-import { useBrowserNotification } from '../lib/useBrowserNotification'
-import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
-import { useSaya } from '../lib/useSaya'
 import packageJson from '../package.json'
 
 import type { DayTag, TimeTag } from '../models/filters'
@@ -29,22 +22,12 @@ import type { CardProps } from '@mantine/core'
 
 export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
   const session = useAuthenticatedSession()
-  const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
   const [hideRebroadcasting, setHideRebroadcasting] = useRecoilState(hideRebroadcastingState)
   const [hideStreamingServices, setHideStreamingServices] = useRecoilState(hideStreamingServicesState)
-  const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
-  const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
-  const [enableEverythingIntegration, setEnableEverythingIntegration] = useRecoilState(enableEverythingIntegrationState)
   const [seasonFilters, setSeasonFilters] = useRecoilState(seasonFiltersState)
   const [timeFilters, setTimeFilters] = useRecoilState(timeFiltersState)
   const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
-  const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
-
-  const saya = useSaya(enableSyobocal)
-  const availableChannels = useMemo(() => {
-    return saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? []
-  }, [saya])
 
   return (
     <Card {...props}>
@@ -60,15 +43,6 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
                   </Menu.Target>
                   <Menu.Dropdown>
                     <Menu.Label>{session.user?.name}</Menu.Label>
-                    <Menu.Divider />
-                    <Menu.Item
-                      component={Switch}
-                      label="ダークモード"
-                      checked={colorScheme === 'dark'}
-                      onChange={() => {
-                        toggleColorScheme()
-                      }}
-                    />
                     <Menu.Divider />
                     <Menu.Item
                       icon={<IconLogout size={14} />}
@@ -114,36 +88,6 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
                   }}
                   label="配信サービスを除く"
                   description="Annict でサポートされている動画サービスの放送予定を非表示にします。"
-                />
-                <CheckboxWithHoverCard
-                  ml="md"
-                  mb="md"
-                  checked={enableSyobocal}
-                  onChange={(event) => {
-                    setEnableSyobocal(event.target.checked)
-                  }}
-                  label="しょぼいカレンダーも利用する"
-                  description="Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
-                />
-                <CheckboxWithHoverCard
-                  ml="md"
-                  mb="md"
-                  checked={enableBrowserNotification}
-                  onChange={(event) => {
-                    setEnableBrowserNotification(event.target.checked)
-                  }}
-                  label="ブラウザの通知を有効にする"
-                  description="放送時間が近付いた時にブラウザの通知が表示されます。"
-                />
-                <CheckboxWithHoverCard
-                  ml="md"
-                  mb="md"
-                  checked={enableEverythingIntegration}
-                  onChange={(event) => {
-                    setEnableEverythingIntegration(event.target.checked)
-                  }}
-                  label="Everything 統合を有効にする"
-                  description="録画ファイルを Everything で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
                 />
               </Group>
 
@@ -203,55 +147,6 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
                 <Chip value="friday">金曜</Chip>
                 <Chip value="saturday">土曜</Chip>
               </Chip.Group>
-
-              {enableSyobocal && (
-                <>
-                  <Group>
-                    <Text>チャンネル</Text>
-                    <HoverCard width={280} shadow="md">
-                      <HoverCard.Target>
-                        <ActionIcon
-                          variant="default"
-                          onClick={() => {
-                            setSyobocalChannels(
-                              availableChannels
-                                .map((x) => x.syobocalId?.toString())
-                                .filter((x): x is NonNullable<typeof x> => x !== undefined)
-                            )
-                          }}
-                        >
-                          <IconChecks size={14} />
-                        </ActionIcon>
-                      </HoverCard.Target>
-                      <HoverCard.Dropdown>
-                        <Text size="sm">すべてのチャンネルを選択します</Text>
-                      </HoverCard.Dropdown>
-                    </HoverCard>
-                    <HoverCard width={280} shadow="md">
-                      <HoverCard.Target>
-                        <ActionIcon
-                          variant="default"
-                          onClick={() => {
-                            setSyobocalChannels([])
-                          }}
-                        >
-                          <IconTrash size={14} />
-                        </ActionIcon>
-                      </HoverCard.Target>
-                      <HoverCard.Dropdown>
-                        <Text size="sm">チャンネルの選択をリセットします</Text>
-                      </HoverCard.Dropdown>
-                    </HoverCard>
-                  </Group>
-                  <Chip.Group mt="md" ml="md" mb="md" value={syobocalChannels} multiple onChange={setSyobocalChannels}>
-                    {availableChannels.map((c) => (
-                      <Chip key={c.syobocalId} value={c.syobocalId?.toString()} size="xs">
-                        {c.name}
-                      </Chip>
-                    ))}
-                  </Chip.Group>
-                </>
-              )}
             </Accordion.Panel>
           </Accordion.Item>
         </Accordion>

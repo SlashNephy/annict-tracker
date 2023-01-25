@@ -1,5 +1,5 @@
 import { AppShell, Burger, Group, Header, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
-import { IconDeviceTv, IconHelp } from '@tabler/icons'
+import { IconDeviceTv, IconHelp, IconSettings } from '@tabler/icons'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { useMemo } from 'react'
@@ -32,6 +32,11 @@ const links: AppLink[] = [
     icon: <IconHelp size={16} />,
     label: '使い方',
     href: '/help',
+  },
+  {
+    icon: <IconSettings size={16} />,
+    label: '設定',
+    href: '/settings',
   },
 ]
 
