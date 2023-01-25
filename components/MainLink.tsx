@@ -5,13 +5,9 @@ import { useRecoilValue } from 'recoil'
 
 import { isNavbarExpandState } from '../lib/atoms'
 
-import type { MantineColor } from '@mantine/core'
-import type { LinkProps } from 'next/link'
-import type { ReactNode } from 'react'
+import type { AppLink } from './AppLayout'
 
-export type MainLinkProps = { icon: ReactNode; label: string; color?: MantineColor } & LinkProps
-
-export const MainLink: React.FC<MainLinkProps> = ({ icon, color, label, ...props }) => {
+export const MainLink: React.FC<AppLink> = ({ icon, color, label, ...props }) => {
   const isExpand = useRecoilValue(isNavbarExpandState)
 
   return (

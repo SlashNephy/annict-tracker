@@ -1,16 +1,27 @@
-import { AppShell, Burger, Group, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
+import { AppShell, Burger, Group, Header, MediaQuery, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
 import { IconDeviceTv, IconHelp } from '@tabler/icons'
-import React from 'react'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
+import { MainLink } from './MainLink'
 import { isNavbarExpandState } from '../lib/atoms'
 import { useUpdateChecker } from '../lib/useUpdateChecker'
 import packageJson from '../package.json'
-import { MainLink } from './MainLink'
 
-import type { MainLinkProps } from './MainLink'
+import type { AnchorProps, MantineColor } from '@mantine/core'
+import type { LinkProps } from 'next/link'
+import type { ReactNode } from 'react'
 
-const links: MainLinkProps[] = [
+export type AppLink = {
+  icon: ReactNode
+  label: string
+  color?: MantineColor
+} & AnchorProps &
+  LinkProps
+
+const links: AppLink[] = [
   {
     icon: <IconDeviceTv size={16} />,
     label: '視聴記録',
