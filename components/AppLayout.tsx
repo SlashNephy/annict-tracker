@@ -1,4 +1,5 @@
-import { AppShell, Burger, Group, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
+import { AppShell, Burger, Group, Header, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 import { IconDeviceTv, IconHelp } from '@tabler/icons'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -37,6 +38,7 @@ const links: AppLink[] = [
 export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
   const theme = useMantineTheme()
+  const isSmall = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 
   const router = useRouter()
   const title = useMemo(() => {
@@ -57,27 +59,58 @@ export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
           background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
         },
       }}
+      header={
+        <>
+          {isSmall && (
+            <Header height={isExpand ? '100%' : 50}>
+              <Group p="xs">
+                <Burger
+                  opened={isExpand}
+                  onClick={() => {
+                    setIsExpand((wasExpand) => !wasExpand)
+                  }}
+                  size="sm"
+                  color={theme.colors.gray[6]}
+                />
+                <Text>{packageJson.name}</Text>
+              </Group>
+
+              {isExpand && (
+                <Group>
+                  {links.map((link) => (
+                    <MainLink key={link.label} {...link} />
+                  ))}
+                </Group>
+              )}
+            </Header>
+          )}
+        </>
+      }
       navbar={
-        <Navbar pt="md" width={isExpand ? { sm: 200, lg: 200 } : { sm: 50, lg: 50 }}>
-          <Navbar.Section>
-            <Group p="xs">
-              <Burger
-                opened={isExpand}
-                onClick={() => {
-                  setIsExpand((wasExpand) => !wasExpand)
-                }}
-                size="sm"
-                color={theme.colors.gray[6]}
-              />
-              {isExpand && <Text>{packageJson.name}</Text>}
-            </Group>
-          </Navbar.Section>
-          <Navbar.Section grow component={ScrollArea} mt="sm" style={{ overflow: 'visible' }}>
-            {links.map((link) => (
-              <MainLink key={link.label} {...link} />
-            ))}
-          </Navbar.Section>
-        </Navbar>
+        <>
+          {!isSmall && (
+            <Navbar pt="md" width={{ base: isExpand ? 200 : 50 }}>
+              <Navbar.Section>
+                <Group p="xs">
+                  <Burger
+                    opened={isExpand}
+                    onClick={() => {
+                      setIsExpand((wasExpand) => !wasExpand)
+                    }}
+                    size="sm"
+                    color={theme.colors.gray[6]}
+                  />
+                  {isExpand && <Text>{packageJson.name}</Text>}
+                </Group>
+              </Navbar.Section>
+              <Navbar.Section grow component={ScrollArea} mt="sm" style={{ overflow: 'visible' }}>
+                {links.map((link) => (
+                  <MainLink key={link.label} {...link} />
+                ))}
+              </Navbar.Section>
+            </Navbar>
+          )}
+        </>
       }
     >
       <Head>

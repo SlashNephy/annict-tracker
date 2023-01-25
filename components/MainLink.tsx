@@ -1,14 +1,14 @@
 import { Anchor, Group, Text, ThemeIcon, Tooltip, UnstyledButton } from '@mantine/core'
 import Link from 'next/link'
 import React from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 
 import { isNavbarExpandState } from '../lib/atoms'
 
 import type { AppLink } from './AppLayout'
 
 export const MainLink: React.FC<AppLink> = ({ icon, color, label, ...props }) => {
-  const isExpand = useRecoilValue(isNavbarExpandState)
+  const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
 
   return (
     <UnstyledButton
@@ -24,7 +24,13 @@ export const MainLink: React.FC<AppLink> = ({ icon, color, label, ...props }) =>
         },
       })}
     >
-      <Anchor component={Link} {...props}>
+      <Anchor
+        component={Link}
+        {...props}
+        onClick={() => {
+          setIsExpand(false)
+        }}
+      >
         <Group>
           <Tooltip label={label} position="right">
             <ThemeIcon color={color} variant="light">
