@@ -9,7 +9,6 @@ import { FilterCard } from '../components/FilterCard'
 import { FooterCard } from '../components/FooterCard'
 import { LibraryGrid } from '../components/LibraryGrid'
 import { AnnictClientProvider } from '../lib/useAnnictClient'
-import { useSmallViewport } from '../lib/useSmallViewport'
 import packageJson from '../package.json'
 
 const Index: React.FC = () => {
@@ -65,12 +64,10 @@ export const IndexAsGuestUser: React.FC = () => {
 }
 
 export const IndexAsAnnictUser: React.FC = () => {
-  const isSmall = useSmallViewport()
-
   return (
-    <Container>
+    <Container size="xl">
       <FilterCard shadow="sm" p="lg" radius="md" mb="xl" mt="xl" withBorder />
-      <LibraryGrid cols={isSmall ? 1 : 3} />
+      <LibraryGrid grid={{ gutter: 'xl' }} col={{ xs: 12, sm: 6, md: 4, lg: 3 }} />
       <FooterCard mt="md" mb="md" />
     </Container>
   )

@@ -1,4 +1,4 @@
-import { Alert, Center, Group, Loader, SimpleGrid, Text } from '@mantine/core'
+import { Alert, Center, Grid, Group, Loader, Text } from '@mantine/core'
 import { IconAlertTriangle } from '@tabler/icons'
 import React from 'react'
 
@@ -7,9 +7,11 @@ import { WorkCard } from './work/WorkCard'
 import { useLibraryEntries } from '../lib/useLibraryEntries'
 import { LibraryEntryProvider } from '../lib/useLibraryEntry'
 
-import type { SimpleGridProps } from '@mantine/core'
+import type { GridProps, ColProps } from '@mantine/core'
 
-export const LibraryGrid: React.FC<Omit<SimpleGridProps, 'children'>> = (props) => {
+export const LibraryGrid: React.FC<{ grid?: Omit<GridProps, 'children'>; col?: Omit<ColProps, 'children'> }> = (
+  props
+) => {
   const { entries, isLoading, isError, error } = useLibraryEntries()
 
   if (isLoading) {
@@ -32,14 +34,16 @@ export const LibraryGrid: React.FC<Omit<SimpleGridProps, 'children'>> = (props) 
   }
 
   return (
-    <SimpleGrid {...props}>
+    <Grid {...props.grid}>
       {entries.map((entry) => (
         <LibraryEntryProvider key={entry.id} value={entry}>
           <LibraryEntryFilter>
-            <WorkCard key={entry.id} shadow="sm" p="lg" radius="md" withBorder />
+            <Grid.Col {...props.col}>
+              <WorkCard key={entry.id} shadow="sm" p="lg" radius="md" withBorder />
+            </Grid.Col>
           </LibraryEntryFilter>
         </LibraryEntryProvider>
       ))}
-    </SimpleGrid>
+    </Grid>
   )
 }

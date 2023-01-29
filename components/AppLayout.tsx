@@ -1,4 +1,5 @@
 import { AppShell, Burger, Group, Header, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 import { IconDeviceTv, IconHelp, IconSettings } from '@tabler/icons'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -7,7 +8,6 @@ import { useRecoilState } from 'recoil'
 
 import { MainLink } from './MainLink'
 import { isNavbarExpandState } from '../lib/atoms'
-import { useSmallViewport } from '../lib/useSmallViewport'
 import { useUpdateChecker } from '../lib/useUpdateChecker'
 import packageJson from '../package.json'
 
@@ -43,7 +43,7 @@ const links: AppLink[] = [
 export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
   const theme = useMantineTheme()
-  const isSmall = useSmallViewport()
+  const isSmall = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 
   const router = useRouter()
   const title = useMemo(() => {
