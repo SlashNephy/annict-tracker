@@ -4031,7 +4031,7 @@ __metadata:
     hint: 7.1.3
     js-yaml: 4.1.0
     next: 13.1.5
-    next-auth: 4.18.8
+    next-auth: 4.18.10
     node-fetch: 3.3.0
     prettier: 2.8.3
     react: 18.2.0
@@ -9189,9 +9189,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:4.18.8":
-  version: 4.18.8
-  resolution: "next-auth@npm:4.18.8"
+"next-auth@npm:4.18.10":
+  version: 4.18.10
+  resolution: "next-auth@npm:4.18.10"
   dependencies:
     "@babel/runtime": ^7.16.3
     "@panva/hkdf": ^1.0.1
@@ -9210,7 +9210,7 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: 8095346c168c34d3578f71f43bfb607280af8024b2de39c9edff7ddd7f759455501923b738a45e0c85e471a6283130c5060e68bfb534e784d66edff12a88374e
+  checksum: b0da12e621c76c4e936c40aa36b0f14e59ba5e85cb747c7a1fd904043d62e74fc6a4f33f32d1b798558b4a8e3de8cfef428b8b9697799138cace3f1e27578bd0
   languageName: node
   linkType: hard
 
