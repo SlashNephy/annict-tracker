@@ -912,9 +912,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:3.2.0":
-  version: 3.2.0
-  resolution: "@graphql-codegen/cli@npm:3.2.0"
+"@graphql-codegen/cli@npm:3.2.1":
+  version: 3.2.1
+  resolution: "@graphql-codegen/cli@npm:3.2.1"
   dependencies:
     "@babel/generator": ^7.18.13
     "@babel/template": ^7.18.10
@@ -944,6 +944,7 @@ __metadata:
     json-to-pretty-yaml: ^1.2.2
     listr2: ^4.0.5
     log-symbols: ^4.0.0
+    micromatch: ^4.0.5
     shell-quote: ^1.7.3
     string-env-interpolation: ^1.0.1
     ts-log: ^2.2.3
@@ -958,7 +959,7 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 78a54a4c8fc7955727d54984bc4bbdcefb045d8447a3082aa37c2088c7e4145538543a5f46d91da19dd79b09b6c978f0617628815fa2b58b6b29fac46bbcd63d
+  checksum: b62e2a3cee866cb006163946272f25ba9cc59bb2d45b7b3df5d1b220096e79183929456a440e5c4980d6a5664d6b14d7870d7f1760eb250b9211f4743d2afad3
   languageName: node
   linkType: hard
 
@@ -4062,7 +4063,7 @@ __metadata:
   dependencies:
     "@emotion/react": 11.10.5
     "@emotion/server": 11.10.0
-    "@graphql-codegen/cli": 3.2.0
+    "@graphql-codegen/cli": 3.2.1
     "@graphql-codegen/import-types-preset": 2.2.6
     "@graphql-codegen/typescript": 3.0.1
     "@graphql-codegen/typescript-graphql-request": 4.5.8
