@@ -3358,12 +3358,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/prettier-config@npm:0.1.14":
-  version: 0.1.14
-  resolution: "@slashnephy/prettier-config@npm:0.1.14"
+"@slashnephy/prettier-config@npm:0.1.15":
+  version: 0.1.15
+  resolution: "@slashnephy/prettier-config@npm:0.1.15"
   peerDependencies:
     prettier: ^2
-  checksum: 57a671591353299b9df54898ff250519d4ecd1ff25525f6ea77a68dc0deb747555eeaab176e7d969200c061ab2dad05be6176b50daca665e3beab98007269e80
+  checksum: 3db83633c1033a527b7b2f56551a2bb83e4ea33a939628ec5f0a02215569eb053a23020b309ea2257217f2be44f6f3c9bf7be181dc2cdcd78038c0fb3da01351
   languageName: node
   linkType: hard
 
@@ -4091,7 +4091,7 @@ __metadata:
     "@mantine/next": 5.10.4
     "@mantine/notifications": 5.10.4
     "@slashnephy/eslint-config": 0.2.43
-    "@slashnephy/prettier-config": 0.1.14
+    "@slashnephy/prettier-config": 0.1.15
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons": 1.119.0
     "@tanstack/react-query": 4.24.6
