@@ -5,7 +5,7 @@ import packageJson from '../package.json'
 
 import type { CardProps } from '@mantine/core'
 
-export const FooterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
+export function FooterCard(props: Omit<CardProps, 'children'>): React.ReactElement {
   return (
     <Card {...props}>
       <Text>

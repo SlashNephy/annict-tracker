@@ -20,7 +20,7 @@ import packageJson from '../package.json'
 import type { DayTag, TimeTag } from '../models/filters'
 import type { CardProps } from '@mantine/core'
 
-export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
+export function FilterCard(props: Omit<CardProps, 'children'>): React.ReactElement {
   const session = useAuthenticatedSession()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
   const [hideRebroadcasting, setHideRebroadcasting] = useRecoilState(hideRebroadcastingState)
@@ -39,14 +39,14 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
                 <Text size="lg">{packageJson.name}</Text>
                 <Menu closeOnItemClick={false}>
                   <Menu.Target>
-                    <Avatar src={session.user?.image ?? null} mr="md" />
+                    <Avatar mr="md" src={session.user?.image ?? null} />
                   </Menu.Target>
                   <Menu.Dropdown>
                     <Menu.Label>{session.user?.name}</Menu.Label>
                     <Menu.Divider />
                     <Menu.Item
-                      icon={<IconLogout size={14} />}
                       color="red"
+                      icon={<IconLogout size={14} />}
                       onClick={() => {
                         signOut().catch(console.error)
                       }}
@@ -60,44 +60,44 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
             <Accordion.Panel>
               <Group>
                 <CheckboxWithHoverCard
-                  ml="md"
-                  mb="md"
                   checked={isOnlyCurrentSeason}
+                  description="現在のシーズンに放送中の作品だけを表示します。"
+                  label="今期に絞る"
+                  mb="md"
+                  ml="md"
                   onChange={(event) => {
                     setIsOnlyCurrentSeason(event.target.checked)
                   }}
-                  label="今期に絞る"
-                  description="現在のシーズンに放送中の作品だけを表示します。"
                 />
                 <CheckboxWithHoverCard
-                  ml="md"
-                  mb="md"
                   checked={hideRebroadcasting}
+                  description="再放送の放送予定を非表示にします。"
+                  label="再放送を除く"
+                  mb="md"
+                  ml="md"
                   onChange={(event) => {
                     setHideRebroadcasting(event.target.checked)
                   }}
-                  label="再放送を除く"
-                  description="再放送の放送予定を非表示にします。"
                 />
                 <CheckboxWithHoverCard
-                  ml="md"
-                  mb="md"
                   checked={hideStreamingServices}
+                  description="Annict でサポートされている動画サービスの放送予定を非表示にします。"
+                  label="配信サービスを除く"
+                  mb="md"
+                  ml="md"
                   onChange={(event) => {
                     setHideStreamingServices(event.target.checked)
                   }}
-                  label="配信サービスを除く"
-                  description="Annict でサポートされている動画サービスの放送予定を非表示にします。"
                 />
               </Group>
 
               <Text>シーズン</Text>
               <Chip.Group
-                mt="md"
-                ml="md"
-                mb="md"
-                value={seasonFilters}
                 multiple
+                mb="md"
+                ml="md"
+                mt="md"
+                value={seasonFilters}
                 onChange={(value) => {
                   setSeasonFilters(value as SeasonName[])
                 }}
@@ -110,11 +110,11 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
 
               <Text>放送時間</Text>
               <Chip.Group
-                mt="md"
-                ml="md"
-                mb="md"
-                value={timeFilters}
                 multiple
+                mb="md"
+                ml="md"
+                mt="md"
+                value={timeFilters}
                 onChange={(value) => {
                   setTimeFilters(value as TimeTag[])
                 }}
@@ -130,11 +130,11 @@ export const FilterCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
 
               <Text>放送曜日</Text>
               <Chip.Group
-                mt="md"
-                ml="md"
-                mb="md"
-                value={dayFilters}
                 multiple
+                mb="md"
+                ml="md"
+                mt="md"
+                value={dayFilters}
                 onChange={(value) => {
                   setDayFilters(value as DayTag[])
                 }}

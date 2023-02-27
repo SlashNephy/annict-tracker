@@ -6,7 +6,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry'
 import type { BadgeProps } from '@mantine/core'
 import type { ReactNode } from 'react'
 
-export const DateBadge: React.FC<Omit<BadgeProps, 'color'>> = (props) => {
+export function DateBadge(props: Omit<BadgeProps, 'color'>): React.ReactElement {
   const { entry } = useLibraryEntry()
 
   const badges = [] as ReactNode[]
@@ -51,5 +51,5 @@ export const DateBadge: React.FC<Omit<BadgeProps, 'color'>> = (props) => {
     )
   }
 
-  return <>{badges}</>
+  return <>badges</>
 }

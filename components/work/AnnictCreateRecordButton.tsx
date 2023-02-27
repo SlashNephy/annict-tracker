@@ -8,7 +8,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { ButtonProps } from '@mantine/core'
 
-export const AnnictCreateRecordButton: React.FC<Omit<ButtonProps, 'disabled'>> = (props) => {
+export function AnnictCreateRecordButton(props: Omit<ButtonProps, 'disabled'>): React.ReactElement {
   const { entry } = useLibraryEntry()
   const client = useAnnictClient()
   const query = useQueryClient()

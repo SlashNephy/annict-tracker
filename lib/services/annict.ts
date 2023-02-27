@@ -31,17 +31,19 @@ export class AnnictSeason {
     const year = now.getFullYear()
     const month = now.getMonth() + 1
 
-    if (1 <= month && month <= 3) {
+    if (month >= 1 && month <= 3) {
       return new AnnictSeason(year, SeasonName.Winter)
-    } else if (4 <= month && month <= 6) {
-      return new AnnictSeason(year, SeasonName.Spring)
-    } else if (7 <= month && month <= 9) {
-      return new AnnictSeason(year, SeasonName.Summer)
-    } else if (10 <= month && month <= 12) {
-      return new AnnictSeason(year, SeasonName.Autumn)
-    } else {
-      throw new Error(`Unexpected month: ${month}`)
     }
+    if (month >= 4 && month <= 6) {
+      return new AnnictSeason(year, SeasonName.Spring)
+    }
+    if (month >= 7 && month <= 9) {
+      return new AnnictSeason(year, SeasonName.Summer)
+    }
+    if (month >= 10 && month <= 12) {
+      return new AnnictSeason(year, SeasonName.Autumn)
+    }
+    throw new Error(`Unexpected month: ${month}`)
   }
 
   public get isCurrentSeason(): boolean {
@@ -53,7 +55,6 @@ export class AnnictSeason {
   }
 }
 
-export type AnnictProfile = typeof exampleAnnictProfile
 const exampleAnnictProfile = {
   id: 2,
   username: 'shimbaco',
@@ -76,6 +77,7 @@ const exampleAnnictProfile = {
   email: 'me@shimba.co',
   notifications_count: 0,
 }
+export type AnnictProfile = typeof exampleAnnictProfile
 
 export const isStreamingService = (channelId?: number): boolean => {
   // https://annict.com/db/channels

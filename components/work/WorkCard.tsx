@@ -12,33 +12,33 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { CardProps } from '@mantine/core'
 
-export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
+export function WorkCard(props: Omit<CardProps, 'children'>): React.ReactElement {
   const { entry } = useLibraryEntry()
   const enableEverythingIntegration = useRecoilValue(enableEverythingIntegrationState)
 
   return (
     <Card {...props}>
       <Card.Section>
-        <WorkImage height={200} withPlaceholder placeholder={<IconPhotoOff />} title={entry.work.title} />
+        <WorkImage withPlaceholder height={200} placeholder={<IconPhotoOff />} title={entry.work.title} />
       </Card.Section>
 
       <Stack>
         <Title
+          color="blue.4"
+          mt="sm"
           order={4}
           style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
-          mt="sm"
           title={entry.work.title}
-          color="blue.4"
         >
-          <Anchor href={entry.workUrl} target="_blank" color="blue.4">
+          <Anchor color="blue.4" href={entry.workUrl} target="_blank">
             {entry.work.title}
           </Anchor>
         </Title>
 
         <Text
-          weight={500}
           style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
           title={entry.nextEpisodeLabel ?? undefined}
+          weight={500}
         >
           {entry.nextEpisodeLabel}
         </Text>
@@ -47,21 +47,21 @@ export const WorkCard: React.FC<Omit<CardProps, 'children'>> = (props) => {
 
         <Button.Group>
           <AnnictCreateRecordButton
-            leftIcon={<IconCheck />}
-            variant="light"
-            color="blue"
             fullWidth
+            color="blue"
+            leftIcon={<IconCheck />}
             mt="md"
             radius="md"
+            variant="light"
           />
           {enableEverythingIntegration && (
             <EverythingSearchButton
-              leftIcon={<IconSearch />}
-              variant="light"
-              color="blue"
               fullWidth
+              color="blue"
+              leftIcon={<IconSearch />}
               mt="md"
               radius="md"
+              variant="light"
             />
           )}
         </Button.Group>

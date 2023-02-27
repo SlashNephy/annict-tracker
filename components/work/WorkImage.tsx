@@ -9,7 +9,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { ImageProps } from '@mantine/core'
 
-export const WorkImage: React.FC<Omit<ImageProps, 'src'>> = (props) => {
+export function WorkImage(props: Omit<ImageProps, 'src'>): React.ReactElement {
   const { entry } = useLibraryEntry()
   const arm = useArmSupplementary(true)
 
@@ -55,5 +55,5 @@ export const WorkImage: React.FC<Omit<ImageProps, 'src'>> = (props) => {
     }
   )
 
-  return <Image {...props} src={imageUrl ?? undefined} alt={entry.work.title} />
+  return <Image {...props} alt={entry.work.title} src={imageUrl ?? undefined} />
 }

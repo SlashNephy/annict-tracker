@@ -7,18 +7,22 @@ import { WorkCard } from './work/WorkCard'
 import { useLibraryEntries } from '../lib/useLibraryEntries'
 import { LibraryEntryProvider } from '../lib/useLibraryEntry'
 
-import type { GridProps, ColProps } from '@mantine/core'
+import type { ColProps, GridProps } from '@mantine/core'
 
-export const LibraryGrid: React.FC<{ grid?: Omit<GridProps, 'children'>; col?: Omit<ColProps, 'children'> }> = (
-  props
-) => {
+export function LibraryGrid({
+  grid,
+  col,
+}: {
+  grid?: Omit<GridProps, 'children'>
+  col?: Omit<ColProps, 'children'>
+}): React.ReactElement {
   const { entries, isLoading, isError, error } = useLibraryEntries()
 
   if (isLoading) {
     return (
-      <Center p="xl" m="xl">
+      <Center m="xl" p="xl">
         <Group>
-          <Loader variant="dots" color="pink.6" />
+          <Loader color="pink.6" variant="dots" />
           <Text>データ取得中です...</Text>
         </Group>
       </Center>
@@ -27,19 +31,19 @@ export const LibraryGrid: React.FC<{ grid?: Omit<GridProps, 'children'>; col?: O
 
   if (isError) {
     return (
-      <Alert icon={<IconAlertTriangle size={16} />} title="現在 Annict API を利用できません" color="red">
+      <Alert color="red" icon={<IconAlertTriangle size={16} />} title="現在 Annict API を利用できません">
         {error?.toString()}
       </Alert>
     )
   }
 
   return (
-    <Grid {...props.grid}>
+    <Grid {...grid}>
       {entries.map((entry) => (
         <LibraryEntryProvider key={entry.id} value={entry}>
           <LibraryEntryFilter>
-            <Grid.Col {...props.col}>
-              <WorkCard key={entry.id} shadow="sm" p="lg" radius="md" withBorder />
+            <Grid.Col {...col}>
+              <WorkCard key={entry.id} withBorder p="lg" radius="md" shadow="sm" />
             </Grid.Col>
           </LibraryEntryFilter>
         </LibraryEntryProvider>

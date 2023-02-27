@@ -11,7 +11,7 @@ import {
 } from '../../lib/atoms'
 import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
-export const LibraryEntryFilter: React.FC<React.PropsWithChildren> = ({ children }) => {
+export function LibraryEntryFilter({ children }: React.PropsWithChildren): React.ReactElement {
   const { entry } = useLibraryEntry()
   const isOnlyCurrentSeason = useRecoilValue(isOnlyCurrentSeasonState)
   const hideRebroadcasting = useRecoilValue(hideRebroadcastingState)
@@ -20,20 +20,20 @@ export const LibraryEntryFilter: React.FC<React.PropsWithChildren> = ({ children
   const timeFilters = useRecoilValue(timeFiltersState)
   const dayFilters = useRecoilValue(dayFiltersState)
 
-  const shouldRender = useMemo(() => {
-    return (
+  const shouldRender = useMemo(
+    () =>
       entry.filterBySeasonName(seasonFilters) &&
       entry.filterByCurrentSeason(isOnlyCurrentSeason) &&
       entry.filterByRebroadcasting(hideRebroadcasting) &&
       entry.filterByStreamingServices(hideStreamingServices) &&
       entry.filterByTime(timeFilters) &&
-      entry.filterByDay(dayFilters, timeFilters)
-    )
-  }, [entry, seasonFilters, isOnlyCurrentSeason, hideRebroadcasting, hideStreamingServices, timeFilters, dayFilters])
+      entry.filterByDay(dayFilters, timeFilters),
+    [entry, seasonFilters, isOnlyCurrentSeason, hideRebroadcasting, hideStreamingServices, timeFilters, dayFilters]
+  )
 
   if (shouldRender) {
     return <>{children}</>
   }
 
-  return null
+  return <></>
 }

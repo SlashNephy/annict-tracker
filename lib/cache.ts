@@ -33,31 +33,7 @@ export class CacheManager {
     this.#storage = option?.storage ?? (() => localStorage)
   }
 
-  public get<T>(key: string, option?: GetOption<T>): T | undefined {
-    const value = this._load<T>(key)
-    if (value === null) {
-      return option?.default
-    }
-
-    if (value.expiresAt !== undefined && value.expiresAt < Date.now()) {
-      return option?.default
-    }
-
-    return value.value
-  }
-
-  public set<T>(key: string, value: T, option?: SetOption): void {
-    this._save(key, {
-      value,
-      expiresAt: this._calculateExpiresAt(option?.ttl),
-    })
-  }
-
-  public delete(key: string): void {
-    this.#storage().removeItem(key)
-  }
-
-  private _calculateExpiresAt(duration?: Duration): number | undefined {
+  private static _calculateExpiresAt(duration?: Duration): number | undefined {
     let span = 0
 
     if (duration?.milliseconds !== undefined) {
@@ -80,10 +56,34 @@ export class CacheManager {
     }
 
     if (span === 0) {
-      return
+      return undefined
     }
 
     return Date.now() + span
+  }
+
+  public get<T>(key: string, option?: GetOption<T>): T | undefined {
+    const value = this._load<T>(key)
+    if (value === null) {
+      return option?.default
+    }
+
+    if (value.expiresAt !== undefined && value.expiresAt < Date.now()) {
+      return option?.default
+    }
+
+    return value.value
+  }
+
+  public set<T>(key: string, value: T, option?: SetOption): void {
+    this._save(key, {
+      value,
+      expiresAt: CacheManager._calculateExpiresAt(option?.ttl),
+    })
+  }
+
+  public delete(key: string): void {
+    this.#storage().removeItem(key)
   }
 
   private _load<T>(key: string): CachedValue<T> | null {

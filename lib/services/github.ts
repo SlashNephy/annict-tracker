@@ -87,5 +87,5 @@ export const fetchCommits = async (
   perPage: number
 ): Promise<GithubCommit[] | GitHubError> => {
   const response = await fetch(`https://api.github.com/repos/${repository}/commits?sha=${branch}&per_page=${perPage}`)
-  return await response.json()
+  return response.json()
 }

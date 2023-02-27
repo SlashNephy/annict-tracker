@@ -40,42 +40,36 @@ const links: AppLink[] = [
   },
 ]
 
-export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
+export function AppLayout({ children }: React.PropsWithChildren): React.ReactElement {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
   const theme = useMantineTheme()
   const isSmall = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)
 
   const router = useRouter()
   const title = useMemo(() => {
-    const link = links.find((link) => link.href === router.asPath)
+    const link = links.find((l) => l.href === router.asPath)
     if (link !== undefined) {
       return `${link.label} | ${packageJson.name}`
-    } else {
-      return packageJson.name
     }
+    return packageJson.name
   }, [router.asPath])
 
   useUpdateChecker()
 
   return (
     <AppShell
-      styles={{
-        main: {
-          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
-        },
-      }}
       header={
         <>
           {isSmall && (
             <Header height={isExpand ? '100%' : 50}>
               <Group p="xs">
                 <Burger
+                  color={theme.colors.gray[6]}
                   opened={isExpand}
+                  size="sm"
                   onClick={() => {
                     setIsExpand((wasExpand) => !wasExpand)
                   }}
-                  size="sm"
-                  color={theme.colors.gray[6]}
                 />
                 <Text>{packageJson.name}</Text>
               </Group>
@@ -98,12 +92,12 @@ export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
               <Navbar.Section>
                 <Group p="xs">
                   <Burger
+                    color={theme.colors.gray[6]}
                     opened={isExpand}
+                    size="sm"
                     onClick={() => {
                       setIsExpand((wasExpand) => !wasExpand)
                     }}
-                    size="sm"
-                    color={theme.colors.gray[6]}
                   />
                   {isExpand && <Text>{packageJson.name}</Text>}
                 </Group>
@@ -117,6 +111,11 @@ export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
           )}
         </>
       }
+      styles={{
+        main: {
+          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+        },
+      }}
     >
       <Head>
         <title>{title}</title>

@@ -42,10 +42,6 @@ export class SayaDatabase {
   }
 }
 
-export const fetchSayaRemoteDatabase = async (branch = 'master'): Promise<SayaDatabase> => {
-  return new SayaDatabase(await fetchSayaDefinition(branch))
-}
-
 const fetchSayaDefinition = async (branch: string): Promise<SayaDefinition> => {
   const url = `https://raw.githubusercontent.com/SlashNephy/saya-definitions/${branch}/definitions.yml`
 
@@ -53,6 +49,9 @@ const fetchSayaDefinition = async (branch: string): Promise<SayaDefinition> => {
   const text = await response.text()
   return yaml.load(text) as SayaDefinition
 }
+
+export const fetchSayaRemoteDatabase = async (branch = 'master'): Promise<SayaDatabase> =>
+  new SayaDatabase(await fetchSayaDefinition(branch))
 
 export const filterSayaChannel = (channel: SayaChannel): boolean => {
   if (channel.syobocalId === undefined) {

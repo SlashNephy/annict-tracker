@@ -3,11 +3,14 @@ import React from 'react'
 
 import type { CheckboxProps } from '@mantine/core'
 
-export const CheckboxWithLabel: React.FC<{ description: string } & CheckboxProps> = ({ description, ...props }) => {
+export function CheckboxWithLabel({
+  description,
+  ...props
+}: { description: string } & CheckboxProps): React.ReactElement {
   return (
     <Stack>
       <Checkbox {...props} />
-      <Text size="sm" ml="lg">
+      <Text ml="lg" size="sm">
         {description}
       </Text>
     </Stack>

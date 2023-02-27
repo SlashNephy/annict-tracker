@@ -3,12 +3,12 @@ import React from 'react'
 
 import { AppLayout } from '../components/AppLayout'
 
-const Help: React.FC = () => {
+function Help(): React.ReactElement {
   return (
     <AppLayout>
       <Container mt="xl">
         <Center>
-          <Card shadow="sm" p="xl" radius="md" mb="xl" mt="xl" withBorder>
+          <Card withBorder mb="xl" mt="xl" p="xl" radius="md" shadow="sm">
             <Text italic>TODO...</Text>
           </Card>
         </Center>

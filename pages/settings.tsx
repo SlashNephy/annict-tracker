@@ -11,7 +11,7 @@ import { useBrowserNotification } from '../lib/useBrowserNotification'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
 import { useSaya } from '../lib/useSaya'
 
-const Settings: React.FC = () => {
+function Settings(): React.ReactElement {
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
   const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
@@ -19,39 +19,40 @@ const Settings: React.FC = () => {
 
   const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
   const saya = useSaya(enableSyobocal)
-  const availableChannels = useMemo(() => {
-    return saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? []
-  }, [saya])
+  const availableChannels = useMemo(
+    () => saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? [],
+    [saya]
+  )
 
   return (
     <AppLayout>
       <Container mt="xl">
         <Center>
-          <Card shadow="sm" p="xl" radius="md" mb="xl" mt="xl" withBorder>
+          <Card withBorder mb="xl" mt="xl" p="xl" radius="md" shadow="sm">
             <Stack>
               <Checkbox
                 checked={colorScheme === 'dark'}
+                label="ダークモードを有効にする"
                 onChange={() => {
                   toggleColorScheme()
                 }}
-                label="ダークモードを有効にする"
               />
 
               <Stack>
                 <CheckboxWithLabel
                   checked={enableSyobocal}
+                  description="Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
+                  label="しょぼいカレンダーを参照する"
                   onChange={(event) => {
                     setEnableSyobocal(event.target.checked)
                   }}
-                  label="しょぼいカレンダーを参照する"
-                  description="Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
                 />
 
                 {enableSyobocal && (
                   <Stack pl="lg">
                     <Group>
                       <Text size="sm">しょぼいカレンダーで放送予定を代用するチャンネル</Text>
-                      <HoverCard width={280} shadow="md">
+                      <HoverCard shadow="md" width={280}>
                         <HoverCard.Target>
                           <ActionIcon
                             variant="default"
@@ -70,7 +71,7 @@ const Settings: React.FC = () => {
                           <Text size="sm">すべてのチャンネルを選択します</Text>
                         </HoverCard.Dropdown>
                       </HoverCard>
-                      <HoverCard width={280} shadow="md">
+                      <HoverCard shadow="md" width={280}>
                         <HoverCard.Target>
                           <ActionIcon
                             variant="default"
@@ -86,9 +87,9 @@ const Settings: React.FC = () => {
                         </HoverCard.Dropdown>
                       </HoverCard>
                     </Group>
-                    <Chip.Group ml="md" mb="md" value={syobocalChannels} multiple onChange={setSyobocalChannels}>
+                    <Chip.Group multiple mb="md" ml="md" value={syobocalChannels} onChange={setSyobocalChannels}>
                       {availableChannels.map((c) => (
-                        <Chip key={c.syobocalId} value={c.syobocalId?.toString()} size="xs">
+                        <Chip key={c.syobocalId} size="xs" value={c.syobocalId?.toString()}>
                           {c.name}
                         </Chip>
                       ))}
@@ -99,20 +100,20 @@ const Settings: React.FC = () => {
 
               <CheckboxWithLabel
                 checked={enableBrowserNotification}
+                description="放送時間が近付いた時に放送予定の通知が表示されます。"
+                label="ブラウザの通知を有効にする"
                 onChange={(event) => {
                   setEnableBrowserNotification(event.target.checked)
                 }}
-                label="ブラウザの通知を有効にする"
-                description="放送時間が近付いた時に放送予定の通知が表示されます。"
               />
 
               <CheckboxWithLabel
                 checked={enableEverythingIntegration}
+                description="録画ファイルを Everything で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
+                label="Everything 統合を有効にする"
                 onChange={(event) => {
                   setEnableEverythingIntegration(event.target.checked)
                 }}
-                label="Everything 統合を有効にする"
-                description="録画ファイルを Everything で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
               />
             </Stack>
           </Card>

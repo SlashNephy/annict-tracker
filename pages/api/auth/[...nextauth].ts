@@ -32,14 +32,16 @@ export default NextAuth({
   providers: [annict],
   callbacks: {
     jwt({ token, account }) {
+      const t = token
       if (account !== null && account !== undefined) {
-        token.accessToken = account.access_token
+        t.accessToken = account.access_token
       }
-      return token
+      return t
     },
     session({ session, token }) {
-      session.accessToken = token.accessToken
-      return session
+      const s = session
+      s.accessToken = token.accessToken
+      return s
     },
   },
 })

@@ -15,7 +15,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { StackProps } from '@mantine/core'
 
-export const WorkNextProgramInfo: React.FC<Omit<StackProps, 'children'>> = (props) => {
+export function WorkNextProgramInfo(props: Omit<StackProps, 'children'>): React.ReactElement {
   const { entry, isLoading, isError } = useLibraryEntry()
   const enableBrowserNotification = useRecoilValue(enableBrowserNotificationState)
   const programNotificationThresholdMinutes = useRecoilValue(programNotificationThresholdMinutesState)
@@ -42,7 +42,7 @@ export const WorkNextProgramInfo: React.FC<Omit<StackProps, 'children'>> = (prop
       return
     }
 
-    new Notification(entry.work.title, {
+    const _ = new Notification(entry.work.title, {
       body: `${entry.nextProgram?.channel.name}で${diff}分後に始まります\n\n${entry.nextEpisodeLabel}`,
       image: entry.workImageUrl,
       lang: 'ja',

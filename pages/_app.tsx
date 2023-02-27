@@ -1,7 +1,6 @@
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
-import { QueryClient } from '@tanstack/query-core'
-import { QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Analytics } from '@vercel/analytics/react'
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
@@ -19,14 +18,19 @@ import '@slashnephy/typescript-extension'
 
 const queryClient = new QueryClient()
 
-const MyApp: React.FC<AppProps<{ session: Session }>> = ({ Component, pageProps: { session, ...pageProps } }) => {
+function MyApp(props: AppProps<{ session: Session }>): React.ReactElement {
+  const {
+    Component,
+    pageProps: { session, ...pageProps },
+  } = props
+
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
 
   return (
     <>
       <Head>
         <title>{packageJson.name}</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta content="minimum-scale=1, initial-scale=1, width=device-width" name="viewport" />
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
@@ -37,7 +41,7 @@ const MyApp: React.FC<AppProps<{ session: Session }>> = ({ Component, pageProps:
             colorScheme,
           }}
         >
-          <NotificationsProvider position="bottom-right" limit={3}>
+          <NotificationsProvider limit={3} position="bottom-right">
             <QueryClientProvider client={queryClient}>
               <SessionProvider session={session}>
                 <RecoilRoot>

@@ -5,7 +5,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
 import type { ButtonProps } from '@mantine/core'
 
-export const EverythingSearchButton: React.FC<Omit<ButtonProps, 'disabled'>> = (props) => {
+export function EverythingSearchButton(props: Omit<ButtonProps, 'disabled'>): React.ReactElement {
   const { entry } = useLibraryEntry()
 
   const isDisabled = useMemo(() => {

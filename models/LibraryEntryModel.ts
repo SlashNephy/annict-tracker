@@ -84,10 +84,9 @@ export class LibraryEntryModel {
     const now = new Date()
     const beginningOfToday = now.getHours() <= 4 ? startOfYesterday() : startOfToday()
 
-    const inRange = (left: Date, right: Date): boolean => {
+    const inRange = (left: Date, right: Date): boolean =>
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return left < this.nextProgramStartAt! && this.nextProgramStartAt! < right
-    }
+      left < this.nextProgramStartAt! && this.nextProgramStartAt! < right
 
     if (
       inRange(add(beginningOfToday, { days: -1, hours: 5 }), add(endOfDay(beginningOfToday), { days: -1, hours: 5 }))

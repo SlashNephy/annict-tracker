@@ -11,32 +11,16 @@ import { LibraryGrid } from '../components/LibraryGrid'
 import { AnnictClientProvider } from '../lib/useAnnictClient'
 import packageJson from '../package.json'
 
-const Index: React.FC = () => {
-  const { data } = useSession()
-
-  return (
-    <AppLayout>
-      {data?.accessToken !== undefined ? (
-        <AnnictClientProvider value={data.accessToken}>
-          <IndexAsAnnictUser />
-        </AnnictClientProvider>
-      ) : (
-        <IndexAsGuestUser />
-      )}
-    </AppLayout>
-  )
-}
-
-export const IndexAsGuestUser: React.FC = () => {
+export function IndexAsGuestUser(): React.ReactElement {
   return (
     <Container mt="xl">
       <Center>
-        <Card shadow="sm" p="xl" radius="md" mb="xl" mt="xl" withBorder>
+        <Card withBorder mb="xl" mt="xl" p="xl" radius="md" shadow="sm">
           <Card.Section m="md" mt="xl" pt="md">
             <Title align="center">{packageJson.name}</Title>
           </Card.Section>
 
-          <Text size="md" mb="lg">
+          <Text mb="lg" size="md">
             {packageJson.name} は Annict での視聴記録を便利にする Web アプリケーションです。
             <br />
             利用するには Annict でログインする必要があります。
@@ -44,7 +28,7 @@ export const IndexAsGuestUser: React.FC = () => {
 
           <AnnictSignInButton fullWidth color="pink.6" leftIcon={<IconLogin />} />
 
-          <Text size="sm" color="dimmed" mt="lg">
+          <Text color="dimmed" mt="lg" size="sm">
             {packageJson.name} は現在開発中です。予期しない問題により正しく機能しないことがあります。
             <br />
             {packageJson.name} はユーザー情報を収集することはありませんが、
@@ -63,13 +47,29 @@ export const IndexAsGuestUser: React.FC = () => {
   )
 }
 
-export const IndexAsAnnictUser: React.FC = () => {
+export function IndexAsAnnictUser(): React.ReactElement {
   return (
     <Container size="xl">
-      <FilterCard shadow="sm" p="lg" radius="md" mb="xl" mt="xl" withBorder />
-      <LibraryGrid grid={{ gutter: 'xl' }} col={{ xs: 12, sm: 6, md: 4, lg: 3 }} />
-      <FooterCard mt="md" mb="md" />
+      <FilterCard withBorder mb="xl" mt="xl" p="lg" radius="md" shadow="sm" />
+      <LibraryGrid col={{ xs: 12, sm: 6, md: 4, lg: 3 }} grid={{ gutter: 'xl' }} />
+      <FooterCard mb="md" mt="md" />
     </Container>
+  )
+}
+
+function Index(): React.ReactElement {
+  const { data } = useSession()
+
+  return (
+    <AppLayout>
+      {data?.accessToken !== undefined ? (
+        <AnnictClientProvider value={data.accessToken}>
+          <IndexAsAnnictUser />
+        </AnnictClientProvider>
+      ) : (
+        <IndexAsGuestUser />
+      )}
+    </AppLayout>
   )
 }
 

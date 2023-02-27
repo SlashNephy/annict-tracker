@@ -15,5 +15,5 @@ export type JikanAnimePictures = {
 
 export const fetchJikanAnimePictures = async (malId: string): Promise<JikanAnimePictures> => {
   const response = await fetch(`https://api.jikan.moe/v4/anime/${malId}/pictures`)
-  return await response.json()
+  return response.json()
 }

@@ -77,7 +77,7 @@ export const lookupPrograms = async (tids: number[]): Promise<SyobocalProgramLoo
       TID: tids.join(','),
     } as SyobocalRequest),
   })
-  return await response.json()
+  return response.json()
 }
 
 export const lookupTitles = async (tids: number[]): Promise<SyobocalTitleLookupResult> => {
@@ -91,5 +91,5 @@ export const lookupTitles = async (tids: number[]): Promise<SyobocalTitleLookupR
       TID: tids.join(','),
     } as SyobocalRequest),
   })
-  return await response.json()
+  return response.json()
 }
