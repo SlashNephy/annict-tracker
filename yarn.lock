@@ -3333,9 +3333,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:0.3.2":
-  version: 0.3.2
-  resolution: "@slashnephy/eslint-config@npm:0.3.2"
+"@slashnephy/eslint-config@npm:0.3.4":
+  version: 0.3.4
+  resolution: "@slashnephy/eslint-config@npm:0.3.4"
   dependencies:
     "@emotion/eslint-plugin": 11.10.0
     "@typescript-eslint/eslint-plugin": 5.53.0
@@ -3369,7 +3369,7 @@ __metadata:
   peerDependencies:
     eslint: ^8
     prettier: ^2
-  checksum: fce2aac427c3344a5ed620e998afc296873e6be1435d2b873c1c47beaf752c174c9299c5685fb3e557f7a5599818f000ebf85981d64ddaae7255e57ea9e352ac
+  checksum: 532d0abeb77b83d263be197515d1ea218ae7b533ab827da012750ed41fecd112dcb65c0ed972ea369b2f0561a0854f787d38d1f960f9770ea87ef2d3805bdde6
   languageName: node
   linkType: hard
 
@@ -4117,7 +4117,7 @@ __metadata:
     "@mantine/hooks": 5.10.4
     "@mantine/next": 5.10.4
     "@mantine/notifications": 5.10.4
-    "@slashnephy/eslint-config": 0.3.2
+    "@slashnephy/eslint-config": 0.3.4
     "@slashnephy/prettier-config": 0.1.16
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons": 1.119.0
