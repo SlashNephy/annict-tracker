@@ -51,5 +51,5 @@ export function DateBadge(props: Omit<BadgeProps, 'color'>): React.ReactElement 
     )
   }
 
-  return <>badges</>
+  return <>{badges}</>
 }
