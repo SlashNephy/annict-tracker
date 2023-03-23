@@ -52,7 +52,7 @@
     "@graphql-codegen/cli": "3.2.2",
     "@graphql-codegen/import-types-preset": "2.2.6",
     "@graphql-codegen/typescript": "3.0.2",
-    "@graphql-codegen/typescript-graphql-request": "4.5.8",
+    "@graphql-codegen/typescript-graphql-request": "4.5.9",
     "@graphql-codegen/typescript-operations": "3.0.2",
     "@slashnephy/eslint-config": "0.4.2",
     "@slashnephy/prettier-config": "0.1.16",
