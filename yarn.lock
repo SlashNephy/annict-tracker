@@ -1640,9 +1640,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/configuration-development@npm:^8.3.15":
-  version: 8.3.15
-  resolution: "@hint/configuration-development@npm:8.3.15"
+"@hint/configuration-development@npm:^8.3.16":
+  version: 8.3.16
+  resolution: "@hint/configuration-development@npm:8.3.16"
   dependencies:
     "@hint/configuration-accessibility": ^2.0.25
     "@hint/configuration-progressive-web-apps": ^7.0.26
@@ -1652,10 +1652,10 @@ __metadata:
     "@hint/formatter-summary": ^3.0.37
     "@hint/hint-babel-config": ^2.4.25
     "@hint/hint-button-type": ^3.0.20
-    "@hint/hint-compat-api": ^4.5.4
+    "@hint/hint-compat-api": ^4.5.5
     "@hint/hint-create-element-svg": ^1.3.24
-    "@hint/hint-css-prefix-order": ^1.5.4
-    "@hint/hint-detect-css-reflows": ^1.0.3
+    "@hint/hint-css-prefix-order": ^1.5.5
+    "@hint/hint-detect-css-reflows": ^1.0.4
     "@hint/hint-disown-opener": ^4.0.20
     "@hint/hint-highest-available-document-mode": ^5.0.20
     "@hint/hint-leading-dot-classlist": ^1.0.17
@@ -1664,23 +1664,23 @@ __metadata:
     "@hint/hint-no-bom": ^4.2.24
     "@hint/hint-no-inline-styles": ^1.0.16
     "@hint/hint-no-protocol-relative-urls": ^3.1.4
-    "@hint/hint-scoped-svg-styles": ^1.3.24
+    "@hint/hint-scoped-svg-styles": ^1.3.25
     "@hint/hint-sri": ^4.0.20
     "@hint/hint-typescript-config": ^2.5.12
     "@hint/hint-webpack-config": ^2.4.26
     "@hint/parser-babel-config": ^2.1.40
-    "@hint/parser-css": ^3.0.37
+    "@hint/parser-css": ^3.0.38
     "@hint/parser-html": ^3.1.3
     "@hint/parser-javascript": ^3.1.23
     "@hint/parser-jsx": ^1.1.4
-    "@hint/parser-less": ^1.0.29
-    "@hint/parser-sass": ^1.0.29
+    "@hint/parser-less": ^1.0.30
+    "@hint/parser-sass": ^1.0.30
     "@hint/parser-typescript": ^1.0.24
     "@hint/parser-typescript-config": ^2.4.27
     "@hint/parser-webpack-config": ^2.1.39
   peerDependencies:
     hint: ^7.0.0
-  checksum: 64cc8e87459e76f732776b6a7aa63eef3ab43624899150a483e6a458ca4f5bcea2a8be3036bf768c2a2c0873adbdc08790e2325750f84dccfca21076d7091785
+  checksum: 1044d39d4689475347ad95dfb4b7f7a0448e32a3d49e78e0f1a867b3230f7833a286238bccbbbd2e046921a8d97dbc8d086f078feb9d5bd013c54386720b9e1d
   languageName: node
   linkType: hard
 
@@ -1704,9 +1704,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/configuration-web-recommended@npm:^8.2.20":
-  version: 8.2.20
-  resolution: "@hint/configuration-web-recommended@npm:8.2.20"
+"@hint/configuration-web-recommended@npm:^8.2.21":
+  version: 8.2.21
+  resolution: "@hint/configuration-web-recommended@npm:8.2.21"
   dependencies:
     "@hint/configuration-accessibility": ^2.0.25
     "@hint/connector-jsdom": ^4.1.25
@@ -1717,11 +1717,11 @@ __metadata:
     "@hint/formatter-stylish": ^3.1.34
     "@hint/formatter-summary": ^3.0.37
     "@hint/hint-button-type": ^3.0.20
-    "@hint/hint-compat-api": ^4.5.4
+    "@hint/hint-compat-api": ^4.5.5
     "@hint/hint-content-type": ^4.2.24
     "@hint/hint-create-element-svg": ^1.3.24
-    "@hint/hint-css-prefix-order": ^1.5.4
-    "@hint/hint-detect-css-reflows": ^1.0.3
+    "@hint/hint-css-prefix-order": ^1.5.5
+    "@hint/hint-detect-css-reflows": ^1.0.4
     "@hint/hint-disown-opener": ^4.0.20
     "@hint/hint-highest-available-document-mode": ^5.0.20
     "@hint/hint-html-checker": ^3.3.24
@@ -1739,19 +1739,19 @@ __metadata:
     "@hint/hint-no-inline-styles": ^1.0.16
     "@hint/hint-no-protocol-relative-urls": ^3.1.4
     "@hint/hint-no-vulnerable-javascript-libraries": ^2.12.19
-    "@hint/hint-scoped-svg-styles": ^1.3.24
+    "@hint/hint-scoped-svg-styles": ^1.3.25
     "@hint/hint-sri": ^4.0.20
     "@hint/hint-ssllabs": ^2.4.24
     "@hint/hint-strict-transport-security": ^3.0.20
     "@hint/hint-stylesheet-limits": ^3.3.24
     "@hint/hint-validate-set-cookie-header": ^3.0.20
     "@hint/hint-x-content-type-options": ^4.0.20
-    "@hint/parser-css": ^3.0.37
+    "@hint/parser-css": ^3.0.38
     "@hint/parser-html": ^3.1.3
     "@hint/parser-javascript": ^3.1.23
   peerDependencies:
     hint: ^7.0.0
-  checksum: 338bdff6c63bcf985d9da976aec2d4b5191f2e411a455fff327c75204606e96dc21683a7a0b644d47fa92aa19c8f3df7c5369da1709569fe1ae874049813772d
+  checksum: d160c54603b0490f5cfb9156f10f2d80c977bc6990a98ec5ac970a7680f62497d5a3875b7e3fbf5fffb3d007a5bd7c524ae3523a6ce9bdde500860ec7c58a09b
   languageName: node
   linkType: hard
 
@@ -1946,9 +1946,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/hint-compat-api@npm:^4.5.4":
-  version: 4.5.4
-  resolution: "@hint/hint-compat-api@npm:4.5.4"
+"@hint/hint-compat-api@npm:^4.5.5":
+  version: 4.5.5
+  resolution: "@hint/hint-compat-api@npm:4.5.5"
   dependencies:
     "@hint/utils-compat-data": ^1.1.11
     "@hint/utils-css": ^1.0.14
@@ -1959,7 +1959,7 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: a0998b736994158866e94b75d9f8d6903795e45c68254ba2cb4d3eede12005d1a0169fda4bf6a478b697e72a0b84fa72c3234c8a5ce043ca412fa50c251b6e53
+  checksum: 8c6d1f584d89acedbdfe7cef6971d1f4c0b1e6bc65ad1e9c21bdbda0d01c1b1892e14abcb6d0aa8400578909c6b33010bcd056aef8d8b3e294eb6ba797d0c8e8
   languageName: node
   linkType: hard
 
@@ -1995,9 +1995,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/hint-css-prefix-order@npm:^1.5.4":
-  version: 1.5.4
-  resolution: "@hint/hint-css-prefix-order@npm:1.5.4"
+"@hint/hint-css-prefix-order@npm:^1.5.5":
+  version: 1.5.5
+  resolution: "@hint/hint-css-prefix-order@npm:1.5.5"
   dependencies:
     "@hint/utils-css": ^1.0.14
     "@hint/utils-debug": ^1.0.10
@@ -2008,13 +2008,13 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: 145c1402578bb61815675ae064e955b3f33a0bbad59930e37f41ae2a127880949e63d593b4fbc5b361d8915c910cb52e4cfac0661bf6ebd268ce23972da1014b
+  checksum: 1e02478a3549085bc34575155dcb4b463094f75608fedc8a45e461c38511e7e819cc0e8f04bb4f463c444d563dd1c231e21487b327f202785ec7f672618e32a1
   languageName: node
   linkType: hard
 
-"@hint/hint-detect-css-reflows@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@hint/hint-detect-css-reflows@npm:1.0.3"
+"@hint/hint-detect-css-reflows@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@hint/hint-detect-css-reflows@npm:1.0.4"
   dependencies:
     "@hint/utils-css": ^1.0.14
     "@hint/utils-debug": ^1.0.10
@@ -2025,7 +2025,7 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: d99f6cba96bd437db7229ac4776219aa71ba373b2247b03795c671644628a0063a37b076fd1052d359a625ea911e81715df0c07a0ed2e209acc33bd115425596
+  checksum: 9f8285a41f4a6bb25599701d56305888742b2741d8cdc547b7700596b65ab83a1a1ef44d4fd33eadefe04a2b07392f478baf306d0583aba2d07d98cff6e4b4c3
   languageName: node
   linkType: hard
 
@@ -2341,9 +2341,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/hint-scoped-svg-styles@npm:^1.3.24":
-  version: 1.3.24
-  resolution: "@hint/hint-scoped-svg-styles@npm:1.3.24"
+"@hint/hint-scoped-svg-styles@npm:^1.3.25":
+  version: 1.3.25
+  resolution: "@hint/hint-scoped-svg-styles@npm:1.3.25"
   dependencies:
     "@hint/utils-css": ^1.0.14
     "@hint/utils-debug": ^1.0.10
@@ -2353,7 +2353,7 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: b34f47537e7019b4b7a37a42dca91ef2eddb252ca4d75bff02461ee984264b5a6132789dac44beeeb8087005284568e5812447244383c19af6ba98f9cdf8f179
+  checksum: c243c1feb0dd66542534a97cf5ed901c5305c2b42ef3fa20ec9b47ebb4e980121e9cefca7c01ca6e183597ce3973b534f2b9d97b162550da886cb12f60bd0361
   languageName: node
   linkType: hard
 
@@ -2491,17 +2491,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/parser-css@npm:^3.0.37":
-  version: 3.0.37
-  resolution: "@hint/parser-css@npm:3.0.37"
+"@hint/parser-css@npm:^3.0.38":
+  version: 3.0.38
+  resolution: "@hint/parser-css@npm:3.0.38"
   dependencies:
-    "@hint/utils": ^7.0.22
+    "@hint/utils-debug": ^1.0.10
     "@hint/utils-string": ^1.0.13
     postcss: ^8.4.13
     postcss-safe-parser: ^6.0.0
   peerDependencies:
     hint: ^7.0.0
-  checksum: dd90dc3dcedcede800f8a581705e98da3c9f7bb2ca948ac681925f146a04d7798503a5f017bae10157ccbef33175707bb46c47d74f9ead11fa0af2055e5928a4
+  checksum: 48999a3df610667cce18c0d0dbac429e50d8a9de07958d129dc70a482f1780c0c2e17216f0e1cf727e1b8f2017c4e6e3dbd6aa3baa4eb30420c3bb14a5a848ff
   languageName: node
   linkType: hard
 
@@ -2548,9 +2548,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/parser-less@npm:^1.0.29":
-  version: 1.0.29
-  resolution: "@hint/parser-less@npm:1.0.29"
+"@hint/parser-less@npm:^1.0.30":
+  version: 1.0.30
+  resolution: "@hint/parser-less@npm:1.0.30"
   dependencies:
     "@hint/utils-debug": ^1.0.10
     "@hint/utils-string": ^1.0.13
@@ -2558,7 +2558,7 @@ __metadata:
     postcss-less: ^5.0.0
   peerDependencies:
     hint: ^7.0.0
-  checksum: 7ac79dadcff94d80aa50011063d6b7a1b411da012445d67cb7370ee5d7557f827f34011a351a49898ac6eba289d54ddb5e56d91eec5800e593df4a344b49be9f
+  checksum: 6d0f037bdbf9c972bbc6c76ac2cf551b2a555a27cc1cccefdf92a9009a1300f4903fa5d80b3e543513d1c5239989786daf724ebdbf56577f44051bba7beda8e4
   languageName: node
   linkType: hard
 
@@ -2576,9 +2576,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/parser-sass@npm:^1.0.29":
-  version: 1.0.29
-  resolution: "@hint/parser-sass@npm:1.0.29"
+"@hint/parser-sass@npm:^1.0.30":
+  version: 1.0.30
+  resolution: "@hint/parser-sass@npm:1.0.30"
   dependencies:
     "@hint/utils-debug": ^1.0.10
     "@hint/utils-string": ^1.0.13
@@ -2587,7 +2587,7 @@ __metadata:
     postcss-scss: ^4.0.4
   peerDependencies:
     hint: ^7.0.0
-  checksum: b9d1e0b2bf60073ddcf3fa370ac31eb911e3ed9a80433dfd3f36d71eb02099173c0193b7eb28da5ccd121997fdd2284634f853e030c32097b358f2bf786cac54
+  checksum: cf53c43e9129c94984caa05e5dee29be793f3f15392f96deb046c4653de92adeb0e7fe155d537078313f9627e7c60dea129cace372f727c2ce790476e822e763
   languageName: node
   linkType: hard
 
@@ -4303,7 +4303,7 @@ __metadata:
     fast-xml-parser: 4.1.3
     graphql: 16.6.0
     graphql-request: 5.1.0
-    hint: 7.1.7
+    hint: 7.1.8
     js-yaml: 4.1.0
     next: 13.2.3
     next-auth: 4.20.1
@@ -7899,12 +7899,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hint@npm:7.1.7":
-  version: 7.1.7
-  resolution: "hint@npm:7.1.7"
+"hint@npm:7.1.8":
+  version: 7.1.8
+  resolution: "hint@npm:7.1.8"
   dependencies:
-    "@hint/configuration-development": ^8.3.15
-    "@hint/configuration-web-recommended": ^8.2.20
+    "@hint/configuration-development": ^8.3.16
+    "@hint/configuration-web-recommended": ^8.2.21
     "@hint/utils": ^7.0.22
     "@hint/utils-debug": ^1.0.10
     "@hint/utils-fs": ^1.0.15
@@ -7930,7 +7930,7 @@ __metadata:
       optional: true
   bin:
     hint: dist/src/bin/hint.js
-  checksum: f6685d618a502789de560a5a1083c720f3e287f43501524ad6f7c69e042dd2d06e53007e110fae7a27ca33ff182aebb84904f4571957a22fb42c4c41edab73bc
+  checksum: cc0a691c39416c285636269bc03644716b784c20b060310e11e463973130d2394387bb92a2af33e37307d2f5b9ffeffe95bd3f3ffe67de9d91bb972c9f98ea4c
   languageName: node
   linkType: hard
 
