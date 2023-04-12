@@ -3989,7 +3989,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.58.0":
+"@typescript-eslint/utils@npm:5.58.0, @typescript-eslint/utils@npm:^5.57.0":
   version: 5.58.0
   resolution: "@typescript-eslint/utils@npm:5.58.0"
   dependencies:
@@ -4311,11 +4311,17 @@ __metadata:
     "@types/node": 17.0.25
     "@types/react": 18.0.34
     "@types/react-dom": 18.0.11
+    "@typescript-eslint/eslint-plugin": 5.57.1
+    "@typescript-eslint/parser": 5.57.1
     "@vercel/analytics": 0.1.11
     cached_property: 0.1.2
     concurrently: 8.0.1
     date-fns: 2.29.3
     eslint: 8.38.0
+    eslint-plugin-deprecation: 1.4.1
+    eslint-plugin-import: 2.27.5
+    eslint-plugin-jest: 27.2.1
+    eslint-plugin-unused-imports: 2.0.0
     fast-xml-parser: 4.1.3
     graphql: 16.6.0
     graphql-request: 5.1.0
@@ -6410,6 +6416,20 @@ __metadata:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
     typescript: ^3.7.5 || ^4.0.0 || ^5.0.0
   checksum: 2e52dd3d94befa7b7d1ab1bcba80e5d91c4ec28331711598985ccadb325ae124f94b3f6ffb9fa851062df271f3f84ec34e2295e5c47ea1c61c773d2f69d1c661
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-deprecation@npm:1.4.1":
+  version: 1.4.1
+  resolution: "eslint-plugin-deprecation@npm:1.4.1"
+  dependencies:
+    "@typescript-eslint/utils": ^5.57.0
+    tslib: ^2.3.1
+    tsutils: ^3.21.0
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+    typescript: ^3.7.5 || ^4.0.0 || ^5.0.0
+  checksum: 75c7535d820d1749664705724cc979d706da126a2277f2937467f70156a2c220b10c66670f18226801c9555e4cd02312d353936f14d5752c2d2c648455fe5769
   languageName: node
   linkType: hard
 
