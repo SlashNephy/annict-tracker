@@ -49,11 +49,11 @@
     "recoil-persist": "4.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "3.3.0",
+    "@graphql-codegen/cli": "3.3.1",
     "@graphql-codegen/import-types-preset": "2.2.6",
-    "@graphql-codegen/typescript": "3.0.3",
+    "@graphql-codegen/typescript": "3.0.4",
     "@graphql-codegen/typescript-graphql-request": "4.5.9",
-    "@graphql-codegen/typescript-operations": "3.0.3",
+    "@graphql-codegen/typescript-operations": "3.0.4",
     "@slashnephy/eslint-config": "0.4.16",
     "@slashnephy/prettier-config": "0.1.16",
     "@types/js-yaml": "4.0.5",
