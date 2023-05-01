@@ -13,28 +13,28 @@ export function DateBadge(props: Omit<BadgeProps, 'color'>): React.ReactElement 
   switch (entry.timeTag) {
     case 'yesterday':
       badges.push(
-        <Badge {...props} color="green">
+        <Badge key="yesterday" {...props} color="green">
           昨日
         </Badge>
       )
       break
     case 'today':
       badges.push(
-        <Badge {...props} color="red">
+        <Badge key="today" {...props} color="red">
           今日
         </Badge>
       )
       break
     case 'tomorrow':
       badges.push(
-        <Badge {...props} color="blue">
+        <Badge key="tomorrow" {...props} color="blue">
           明日
         </Badge>
       )
       break
     case 'finished':
       badges.push(
-        <Badge {...props} color="green">
+        <Badge key="finished" {...props} color="green">
           終了
         </Badge>
       )
@@ -45,7 +45,7 @@ export function DateBadge(props: Omit<BadgeProps, 'color'>): React.ReactElement 
 
   if (entry.nextProgram?.rebroadcast === true) {
     badges.push(
-      <Badge {...props} color="yellow" variant="outline">
+      <Badge key="rebroadcast" {...props} color="yellow" variant="outline">
         再放送
       </Badge>
     )
