@@ -1,5 +1,5 @@
 import { Anchor, Button, Card, Stack, Text, Title } from '@mantine/core'
-import { IconCheck, IconPhotoOff, IconSearch } from '@tabler/icons'
+import { IconCheck, IconPhotoOff, IconSearch } from '@tabler/icons-react'
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 

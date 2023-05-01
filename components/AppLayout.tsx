@@ -1,6 +1,6 @@
 import { AppShell, Burger, Group, Header, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
-import { IconDeviceTv, IconHelp, IconSettings } from '@tabler/icons'
+import { IconDeviceTv, IconHelp, IconSettings } from '@tabler/icons-react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { useMemo } from 'react'

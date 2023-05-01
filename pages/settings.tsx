@@ -1,5 +1,5 @@
 import { ActionIcon, Card, Center, Checkbox, Chip, Container, Group, HoverCard, Stack, Text } from '@mantine/core'
-import { IconChecks, IconTrash } from '@tabler/icons'
+import { IconChecks, IconTrash } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 

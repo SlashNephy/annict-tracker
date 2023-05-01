@@ -1,5 +1,5 @@
 import { Accordion, Avatar, Card, Chip, Group, Menu, Text } from '@mantine/core'
-import { IconLogout } from '@tabler/icons'
+import { IconLogout } from '@tabler/icons-react'
 import { signOut } from 'next-auth/react'
 import React from 'react'
 import { useRecoilState } from 'recoil'

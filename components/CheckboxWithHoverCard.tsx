@@ -1,5 +1,5 @@
 import { ActionIcon, Checkbox, HoverCard, Text } from '@mantine/core'
-import { IconInfoCircle } from '@tabler/icons'
+import { IconInfoCircle } from '@tabler/icons-react'
 import React from 'react'
 
 import type { CheckboxProps } from '@mantine/core'

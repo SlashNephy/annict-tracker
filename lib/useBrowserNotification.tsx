@@ -1,5 +1,5 @@
 import { showNotification } from '@mantine/notifications'
-import { IconAlertTriangle } from '@tabler/icons'
+import { IconAlertTriangle } from '@tabler/icons-react'
 import { secondsToMilliseconds } from 'date-fns'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'

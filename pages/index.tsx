@@ -1,5 +1,5 @@
 import { Anchor, Card, Center, Container, Text, Title } from '@mantine/core'
-import { IconBrandGithub, IconLogin } from '@tabler/icons'
+import { IconBrandGithub, IconLogin } from '@tabler/icons-react'
 import { useSession } from 'next-auth/react'
 import React from 'react'
 

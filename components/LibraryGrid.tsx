@@ -1,5 +1,5 @@
 import { Alert, Center, Grid, Group, Loader, Text } from '@mantine/core'
-import { IconAlertTriangle } from '@tabler/icons'
+import { IconAlertTriangle } from '@tabler/icons-react'
 import React from 'react'
 
 import { LibraryEntryFilter } from './work/LibraryEntryFilter'
