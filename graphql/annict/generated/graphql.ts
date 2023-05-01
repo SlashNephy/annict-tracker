@@ -1,3 +1,5 @@
+/* eslint-disable */
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core'
 export type Maybe<T> = T | null
 export type InputMaybe<T> = Maybe<T>
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] }
@@ -1229,3 +1231,217 @@ export enum WorkOrderField {
   Season = 'SEASON',
   WatchersCount = 'WATCHERS_COUNT',
 }
+
+export type GetViewerLibraryEntriesQueryVariables = Exact<{
+  after: InputMaybe<Scalars['String']>
+}>
+
+export type GetViewerLibraryEntriesQuery = {
+  viewer: {
+    libraryEntries: {
+      nodes: Array<{
+        id: string
+        work: {
+          annictId: number
+          malAnimeId: string | null
+          title: string
+          viewerStatusState: StatusState | null
+          syobocalTid: number | null
+          seasonYear: number | null
+          seasonName: SeasonName | null
+          image: { recommendedImageUrl: string | null } | null
+        }
+        nextProgram: { startedAt: string; rebroadcast: boolean; channel: { annictId: number; name: string } } | null
+        nextEpisode: { id: string; number: number | null; numberText: string | null; title: string | null } | null
+      } | null> | null
+      pageInfo: { hasNextPage: boolean; endCursor: string | null }
+    } | null
+  } | null
+}
+
+export type CreateRecordMutationVariables = Exact<{
+  episodeId: Scalars['ID']
+}>
+
+export type CreateRecordMutation = { createRecord: { clientMutationId: string | null } | null }
+
+export const GetViewerLibraryEntriesDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getViewerLibraryEntries' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
+          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'viewer' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'libraryEntries' },
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: { kind: 'Name', value: 'states' },
+                      value: { kind: 'ListValue', values: [{ kind: 'EnumValue', value: 'WATCHING' }] },
+                    },
+                    {
+                      kind: 'Argument',
+                      name: { kind: 'Name', value: 'after' },
+                      value: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
+                    },
+                  ],
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'nodes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'work' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  { kind: 'Field', name: { kind: 'Name', value: 'annictId' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'malAnimeId' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'viewerStatusState' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'syobocalTid' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'seasonYear' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'seasonName' } },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'image' },
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        { kind: 'Field', name: { kind: 'Name', value: 'recommendedImageUrl' } },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'nextProgram' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  { kind: 'Field', name: { kind: 'Name', value: 'startedAt' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'rebroadcast' } },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'channel' },
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        { kind: 'Field', name: { kind: 'Name', value: 'annictId' } },
+                                        { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'nextEpisode' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'number' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'numberText' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'pageInfo' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            { kind: 'Field', name: { kind: 'Name', value: 'hasNextPage' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'endCursor' } },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<GetViewerLibraryEntriesQuery, GetViewerLibraryEntriesQueryVariables>
+export const CreateRecordDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'createRecord' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'episodeId' } },
+          type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } } },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'createRecord' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'input' },
+                value: {
+                  kind: 'ObjectValue',
+                  fields: [
+                    {
+                      kind: 'ObjectField',
+                      name: { kind: 'Name', value: 'episodeId' },
+                      value: { kind: 'Variable', name: { kind: 'Name', value: 'episodeId' } },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [{ kind: 'Field', name: { kind: 'Name', value: 'clientMutationId' } }],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<CreateRecordMutation, CreateRecordMutationVariables>

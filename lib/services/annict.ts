@@ -1,20 +1,16 @@
+// eslint-disable-next-line import/no-unresolved
 import { GraphQLClient } from 'graphql-request'
 
-import { getSdk } from '../../graphql/annict/sdk'
-import { SeasonName } from '../../graphql/annict/types'
+import { SeasonName } from '../../graphql/annict/generated/graphql'
 
-import type { GetViewerLibraryEntriesQuery } from '../../graphql/annict/operations'
-import type { Sdk } from '../../graphql/annict/sdk'
+import type { GetViewerLibraryEntriesQuery } from '../../graphql/annict/generated/graphql'
 
-export const createAnnictClient = (accessToken: string): Sdk => {
-  const client = new GraphQLClient('https://api.annict.com/graphql', {
+export const createAnnictClient = (accessToken: string): GraphQLClient =>
+  new GraphQLClient('https://api.annict.com/graphql', {
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
   })
-
-  return getSdk(client)
-}
 
 export type AnnictLibraryEntry = NonNullable<
   NonNullable<NonNullable<NonNullable<GetViewerLibraryEntriesQuery['viewer']>['libraryEntries']>['nodes']>[0]

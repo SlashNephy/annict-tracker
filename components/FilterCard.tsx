@@ -5,7 +5,7 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 
 import { CheckboxWithHoverCard } from './CheckboxWithHoverCard'
-import { SeasonName } from '../graphql/annict/types'
+import { SeasonName } from '../graphql/annict/generated/graphql'
 import {
   dayFiltersState,
   hideRebroadcastingState,

@@ -3,6 +3,7 @@ import { showNotification } from '@mantine/notifications'
 import { useQueryClient } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 
+import { CreateRecordDocument } from '../../graphql/annict/generated/graphql'
 import { useAnnictClient } from '../../lib/useAnnictClient'
 import { useLibraryEntry } from '../../lib/useLibraryEntry'
 
@@ -34,7 +35,7 @@ export function AnnictCreateRecordButton(props: Omit<ButtonProps, 'disabled'>): 
         }
 
         client
-          .createRecord({ episodeId })
+          .request(CreateRecordDocument, { episodeId })
           .then(() => {
             showNotification({
               title: '記録しました！',

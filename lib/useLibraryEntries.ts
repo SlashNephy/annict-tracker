@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { secondsToMilliseconds } from 'date-fns'
 
 import { useAnnictClient } from './useAnnictClient'
+import { GetViewerLibraryEntriesDocument } from '../graphql/annict/generated/graphql'
 import { LibraryEntryModel } from '../models/LibraryEntryModel'
 
 export type LibraryEntriesState = {
@@ -22,7 +23,7 @@ export const useLibraryEntries = (): LibraryEntriesState => {
   } = useQuery(
     ['entries', client],
     async () => {
-      const response = await client.getViewerLibraryEntries()
+      const response = await client.request(GetViewerLibraryEntriesDocument, { after: null })
       return (
         response.viewer?.libraryEntries?.nodes
           ?.filter((n): n is NonNullable<typeof n> => n !== null)

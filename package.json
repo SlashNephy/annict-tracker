@@ -15,7 +15,7 @@
     "format:prettier": "yarn lint:prettier --write",
     "generate": "concurrently -n generate: 'yarn:generate:*'",
     "generate:graphql": "concurrently -n graphql: -m 1 'yarn:graphql:*'",
-    "graphql:annict:codegen": "graphql-codegen --config graphql/annict/codegen.yml",
+    "graphql:annict:codegen": "graphql-codegen --config graphql/annict/codegen.ts",
     "graphql:annict:schema": "curl -o graphql/annict/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
     "lint": "concurrently -n lint: 'yarn:lint:*'",
     "lint:eslint": "eslint .",
@@ -38,7 +38,7 @@
     "cached_property": "0.1.2",
     "date-fns": "2.29.3",
     "fast-xml-parser": "4.2.2",
-    "graphql-request": "5.1.0",
+    "graphql-request": "6.0.0",
     "js-yaml": "4.1.0",
     "next": "13.3.1",
     "next-auth": "4.22.1",
@@ -50,10 +50,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",
-    "@graphql-codegen/import-types-preset": "2.2.6",
-    "@graphql-codegen/typescript": "3.0.4",
-    "@graphql-codegen/typescript-graphql-request": "4.5.9",
-    "@graphql-codegen/typescript-operations": "3.0.4",
+    "@graphql-codegen/client-preset": "3.0.1",
     "@slashnephy/eslint-config": "0.4.20",
     "@slashnephy/prettier-config": "0.1.16",
     "@types/js-yaml": "4.0.5",
@@ -80,6 +77,17 @@
   "eslintConfig": {
     "extends": [
       "@slashnephy/eslint-config"
+    ],
+    "overrides": [
+      {
+        "files": "graphql/annict/codegen.ts",
+        "parserOptions": {
+          "project": "./tsconfig.node.json"
+        },
+        "rules": {
+          "import/no-default-export": "off"
+        }
+      }
     ]
   }
 }
