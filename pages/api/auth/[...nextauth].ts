@@ -33,7 +33,7 @@ export default NextAuth({
   callbacks: {
     jwt({ token, account }) {
       const t = token
-      if (account !== null && account !== undefined) {
+      if (account) {
         t.accessToken = account.access_token
       }
       return t

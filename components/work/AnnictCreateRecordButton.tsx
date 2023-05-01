@@ -43,7 +43,7 @@ export function AnnictCreateRecordButton(props: Omit<ButtonProps, 'disabled'>): 
             })
             query.invalidateQueries(['entries']).catch(console.error)
           })
-          .catch((e) => {
+          .catch((e: unknown) => {
             showNotification({
               title: '記録できませんでした',
               message: `${entry.work.title} ${entry.nextEpisodeLabel}`,
