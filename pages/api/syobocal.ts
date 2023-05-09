@@ -30,7 +30,6 @@ const handler: NextApiHandler<SyobocalResponse> = async (req, res) => {
   }
 
   const url = `https://cal.syoboi.jp/db.php?${params}`
-  const { default: fetch } = await import('node-fetch')
   const response = await fetch(url, {
     headers: {
       'User-Agent': 'annict-tracker/1.0 (+https://github.com/SlashNephy/annict-tracker)',
