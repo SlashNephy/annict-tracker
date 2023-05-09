@@ -28,8 +28,9 @@ const annict: OAuthConfig<AnnictProfile> = {
   },
 }
 
+// TODO: Support Edge Runtime
 // https://nextjs.org/docs/pages/building-your-application/routing/api-routes#edge-api-routes
-export const config = { runtime: 'edge' }
+// export const config = { runtime: 'edge' }
 
 export default NextAuth({
   providers: [annict],

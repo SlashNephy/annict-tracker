@@ -41,7 +41,8 @@ const handler: NextApiHandler<SyobocalResponse> = async (req, res) => {
   res.status(200).json(result)
 }
 
+// TODO: Support Edge Runtime
 // https://nextjs.org/docs/pages/building-your-application/routing/api-routes#edge-api-routes
-export const config = { runtime: 'edge' }
+// export const config = { runtime: 'edge' }
 
 export default handler
