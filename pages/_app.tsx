@@ -18,7 +18,7 @@ import '@slashnephy/typescript-extension'
 
 const queryClient = new QueryClient()
 
-function MyApp(props: AppProps<{ session: Session }>): React.ReactElement {
+export default function MyApp(props: AppProps<{ session: Session }>): React.JSX.Element {
   const {
     Component,
     pageProps: { session, ...pageProps },
@@ -56,5 +56,3 @@ function MyApp(props: AppProps<{ session: Session }>): React.ReactElement {
     </>
   )
 }
-
-export default MyApp

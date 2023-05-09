@@ -3,7 +3,7 @@ import React from 'react'
 
 import { AppLayout } from '../components/AppLayout'
 
-function Help(): React.ReactElement {
+export default function Help(): React.JSX.Element {
   return (
     <AppLayout>
       <Container mt="xl">
@@ -16,5 +16,3 @@ function Help(): React.ReactElement {
     </AppLayout>
   )
 }
-
-export default Help

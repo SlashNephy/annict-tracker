@@ -4,7 +4,7 @@ import React from 'react'
 
 const getInitialProps = createGetInitialProps()
 
-class MyDocument extends Document {
+export default class MyDocument extends Document {
   public static getInitialProps = getInitialProps
 
   public render(): React.ReactElement {
@@ -21,5 +21,3 @@ class MyDocument extends Document {
     )
   }
 }
-
-export default MyDocument

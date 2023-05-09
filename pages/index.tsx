@@ -57,7 +57,7 @@ export function IndexAsAnnictUser(): React.ReactElement {
   )
 }
 
-function Index(): React.ReactElement {
+export default function Index(): React.ReactElement {
   const { data } = useSession()
 
   return (
@@ -72,5 +72,3 @@ function Index(): React.ReactElement {
     </AppLayout>
   )
 }
-
-export default Index
