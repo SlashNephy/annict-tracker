@@ -28,6 +28,9 @@ const annict: OAuthConfig<AnnictProfile> = {
   },
 }
 
+// https://nextjs.org/docs/pages/building-your-application/routing/api-routes#edge-api-routes
+export const config = { runtime: 'edge' }
+
 export default NextAuth({
   providers: [annict],
   callbacks: {
