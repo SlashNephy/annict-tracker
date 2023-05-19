@@ -33,7 +33,7 @@
     "@mantine/notifications": "5.10.5",
     "@slashnephy/typescript-extension": "0.2.3",
     "@tabler/icons-react": "2.18.0",
-    "@tanstack/react-query": "4.29.5",
+    "@tanstack/react-query": "4.29.7",
     "@vercel/analytics": "1.0.1",
     "cached_property": "0.1.2",
     "date-fns": "2.30.0",
