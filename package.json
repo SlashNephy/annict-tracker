@@ -48,7 +48,7 @@
     "recoil-persist": "4.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "4.0.0",
+    "@graphql-codegen/cli": "4.0.1",
     "@graphql-codegen/client-preset": "4.0.0",
     "@slashnephy/eslint-config": "0.4.34",
     "@slashnephy/prettier-config": "0.1.23",
