@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "4.0.1",
-    "@graphql-codegen/client-preset": "4.0.0",
+    "@graphql-codegen/client-preset": "4.0.1",
     "@slashnephy/eslint-config": "0.4.35",
     "@slashnephy/prettier-config": "0.1.23",
     "@types/js-yaml": "4.0.5",
