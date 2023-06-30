@@ -65,7 +65,7 @@
     "eslint-plugin-jest": "27.2.2",
     "eslint-plugin-unused-imports": "2.0.0",
     "graphql": "16.7.1",
-    "hint": "7.1.9",
+    "hint": "7.1.10",
     "prettier": "2.8.8",
     "typescript": "5.0.4"
   },

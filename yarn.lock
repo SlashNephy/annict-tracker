@@ -1515,49 +1515,49 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/configuration-accessibility@npm:^2.0.26":
-  version: 2.0.26
-  resolution: "@hint/configuration-accessibility@npm:2.0.26"
+"@hint/configuration-accessibility@npm:^2.0.27":
+  version: 2.0.27
+  resolution: "@hint/configuration-accessibility@npm:2.0.27"
   dependencies:
-    "@hint/connector-puppeteer": ^2.5.23
+    "@hint/connector-puppeteer": ^2.5.24
     "@hint/formatter-html": ^4.3.16
     "@hint/formatter-summary": ^3.0.38
-    "@hint/hint-axe": ^4.4.19
+    "@hint/hint-axe": ^4.4.20
   peerDependencies:
     hint: ^7.0.0
-  checksum: bdffe30e3e357daf8414f7608b529f2abd93659eb6074e111e70f2eb4412aaa6e6509799a6879f193f882bc06715e33a8dea02291e545bddf3999aae58485476
+  checksum: 5fe2211f42993d8ac11e0afbc37c6c57743d0ace63ec8550d90f3f2837e79e250f6f51165aaee6eb270353f740195fff9295ef684037383bbc9d57a19aad66a9
   languageName: node
   linkType: hard
 
-"@hint/configuration-development@npm:^8.3.17":
-  version: 8.3.17
-  resolution: "@hint/configuration-development@npm:8.3.17"
+"@hint/configuration-development@npm:^8.3.18":
+  version: 8.3.18
+  resolution: "@hint/configuration-development@npm:8.3.18"
   dependencies:
-    "@hint/configuration-accessibility": ^2.0.26
-    "@hint/configuration-progressive-web-apps": ^7.0.27
-    "@hint/connector-local": ^3.2.26
+    "@hint/configuration-accessibility": ^2.0.27
+    "@hint/configuration-progressive-web-apps": ^7.0.28
+    "@hint/connector-local": ^3.2.27
     "@hint/formatter-html": ^4.3.16
     "@hint/formatter-json": ^3.1.35
     "@hint/formatter-summary": ^3.0.38
-    "@hint/hint-babel-config": ^2.4.26
-    "@hint/hint-button-type": ^3.0.21
-    "@hint/hint-compat-api": ^4.5.6
-    "@hint/hint-create-element-svg": ^1.3.25
-    "@hint/hint-css-prefix-order": ^1.5.6
-    "@hint/hint-detect-css-reflows": ^1.0.5
-    "@hint/hint-disown-opener": ^4.0.21
-    "@hint/hint-highest-available-document-mode": ^5.0.21
-    "@hint/hint-leading-dot-classlist": ^1.0.18
-    "@hint/hint-meta-charset-utf-8": ^4.0.21
-    "@hint/hint-meta-viewport": ^5.0.21
-    "@hint/hint-no-bom": ^4.2.25
-    "@hint/hint-no-inline-styles": ^1.0.17
-    "@hint/hint-no-protocol-relative-urls": ^3.1.5
-    "@hint/hint-scoped-svg-styles": ^1.3.26
-    "@hint/hint-sri": ^4.0.21
-    "@hint/hint-typescript-config": ^2.5.13
-    "@hint/hint-webpack-config": ^2.4.27
-    "@hint/parser-babel-config": ^2.1.41
+    "@hint/hint-babel-config": ^2.4.27
+    "@hint/hint-button-type": ^3.0.22
+    "@hint/hint-compat-api": ^4.5.7
+    "@hint/hint-create-element-svg": ^1.3.26
+    "@hint/hint-css-prefix-order": ^1.5.7
+    "@hint/hint-detect-css-reflows": ^1.0.6
+    "@hint/hint-disown-opener": ^4.0.22
+    "@hint/hint-highest-available-document-mode": ^5.0.22
+    "@hint/hint-leading-dot-classlist": ^1.0.19
+    "@hint/hint-meta-charset-utf-8": ^4.0.22
+    "@hint/hint-meta-viewport": ^5.0.22
+    "@hint/hint-no-bom": ^4.2.26
+    "@hint/hint-no-inline-styles": ^1.0.18
+    "@hint/hint-no-protocol-relative-urls": ^3.1.6
+    "@hint/hint-scoped-svg-styles": ^1.3.27
+    "@hint/hint-sri": ^4.0.22
+    "@hint/hint-typescript-config": ^2.5.14
+    "@hint/hint-webpack-config": ^2.4.28
+    "@hint/parser-babel-config": ^2.1.42
     "@hint/parser-css": ^3.0.39
     "@hint/parser-html": ^3.1.4
     "@hint/parser-javascript": ^3.1.24
@@ -1565,95 +1565,95 @@ __metadata:
     "@hint/parser-less": ^1.0.31
     "@hint/parser-sass": ^1.0.31
     "@hint/parser-typescript": ^1.0.25
-    "@hint/parser-typescript-config": ^2.4.28
-    "@hint/parser-webpack-config": ^2.1.40
+    "@hint/parser-typescript-config": ^2.4.29
+    "@hint/parser-webpack-config": ^2.1.41
   peerDependencies:
     hint: ^7.0.0
-  checksum: 3b7e4e6dad68602a5cf70b983fe61e538d2943784b2c26f5d2f8a427e928cb00da877a8658854f38fb96b6e06756adbd1015ff428606aa723850213d976cc414
+  checksum: af898d4193ee773ea81df9cacf7fb8d50856a2faa79cafe8932c0b0e85055fa2f8413a0c629baaa962daff13c759a8879155964c30e302e2ea9e99b9a1dda05a
   languageName: node
   linkType: hard
 
-"@hint/configuration-progressive-web-apps@npm:^7.0.27":
-  version: 7.0.27
-  resolution: "@hint/configuration-progressive-web-apps@npm:7.0.27"
+"@hint/configuration-progressive-web-apps@npm:^7.0.28":
+  version: 7.0.28
+  resolution: "@hint/configuration-progressive-web-apps@npm:7.0.28"
   dependencies:
-    "@hint/connector-jsdom": ^4.1.26
-    "@hint/connector-puppeteer": ^2.5.23
+    "@hint/connector-jsdom": ^4.1.27
+    "@hint/connector-puppeteer": ^2.5.24
     "@hint/formatter-html": ^4.3.16
     "@hint/formatter-summary": ^3.0.38
-    "@hint/hint-apple-touch-icons": ^4.0.21
-    "@hint/hint-manifest-app-name": ^2.4.27
-    "@hint/hint-manifest-exists": ^2.4.27
-    "@hint/hint-manifest-file-extension": ^3.0.22
-    "@hint/hint-manifest-is-valid": ^3.4.18
-    "@hint/parser-manifest": ^2.3.18
+    "@hint/hint-apple-touch-icons": ^4.0.22
+    "@hint/hint-manifest-app-name": ^2.4.28
+    "@hint/hint-manifest-exists": ^2.4.28
+    "@hint/hint-manifest-file-extension": ^3.0.23
+    "@hint/hint-manifest-is-valid": ^3.4.19
+    "@hint/parser-manifest": ^2.3.19
   peerDependencies:
     hint: ^7.0.0
-  checksum: 9c09e498b93d0c20a766cdfb1a8240977104ff5f6a3b6b381758a8feff548aece91e00245c237b6f5b2322cb3817b69fa30180c3320b435420ba8d5fc672a7ae
+  checksum: bea0780a685646ef1e7e0371d251a03b3fa12da5571ae5fafb2538a3ea2f2601350ada1d3b856ebeb67e7328bc01dbd15a0d0825332eb7a1420e4705a7c0236d
   languageName: node
   linkType: hard
 
-"@hint/configuration-web-recommended@npm:^8.2.22":
-  version: 8.2.22
-  resolution: "@hint/configuration-web-recommended@npm:8.2.22"
+"@hint/configuration-web-recommended@npm:^8.2.23":
+  version: 8.2.23
+  resolution: "@hint/configuration-web-recommended@npm:8.2.23"
   dependencies:
-    "@hint/configuration-accessibility": ^2.0.26
-    "@hint/connector-jsdom": ^4.1.26
-    "@hint/connector-local": ^3.2.26
-    "@hint/connector-puppeteer": ^2.5.23
+    "@hint/configuration-accessibility": ^2.0.27
+    "@hint/connector-jsdom": ^4.1.27
+    "@hint/connector-local": ^3.2.27
+    "@hint/connector-puppeteer": ^2.5.24
     "@hint/formatter-html": ^4.3.16
     "@hint/formatter-json": ^3.1.35
     "@hint/formatter-stylish": ^3.1.35
     "@hint/formatter-summary": ^3.0.38
-    "@hint/hint-button-type": ^3.0.21
-    "@hint/hint-compat-api": ^4.5.6
-    "@hint/hint-content-type": ^4.2.25
-    "@hint/hint-create-element-svg": ^1.3.25
-    "@hint/hint-css-prefix-order": ^1.5.6
-    "@hint/hint-detect-css-reflows": ^1.0.5
-    "@hint/hint-disown-opener": ^4.0.21
-    "@hint/hint-highest-available-document-mode": ^5.0.21
-    "@hint/hint-html-checker": ^3.3.25
-    "@hint/hint-http-cache": ^4.0.21
-    "@hint/hint-http-compression": ^5.2.25
-    "@hint/hint-image-optimization-cloudinary": ^3.2.25
-    "@hint/hint-leading-dot-classlist": ^1.0.18
-    "@hint/hint-meta-charset-utf-8": ^4.0.21
-    "@hint/hint-meta-viewport": ^5.0.21
-    "@hint/hint-no-bom": ^4.2.25
-    "@hint/hint-no-disallowed-headers": ^3.1.20
-    "@hint/hint-no-friendly-error-pages": ^3.3.25
-    "@hint/hint-no-html-only-headers": ^3.0.21
-    "@hint/hint-no-http-redirects": ^3.0.21
-    "@hint/hint-no-inline-styles": ^1.0.17
-    "@hint/hint-no-protocol-relative-urls": ^3.1.5
-    "@hint/hint-no-vulnerable-javascript-libraries": ^2.12.20
-    "@hint/hint-scoped-svg-styles": ^1.3.26
-    "@hint/hint-sri": ^4.0.21
-    "@hint/hint-ssllabs": ^2.4.25
-    "@hint/hint-strict-transport-security": ^3.0.21
-    "@hint/hint-stylesheet-limits": ^3.3.25
-    "@hint/hint-validate-set-cookie-header": ^3.0.21
-    "@hint/hint-x-content-type-options": ^4.0.21
+    "@hint/hint-button-type": ^3.0.22
+    "@hint/hint-compat-api": ^4.5.7
+    "@hint/hint-content-type": ^4.2.26
+    "@hint/hint-create-element-svg": ^1.3.26
+    "@hint/hint-css-prefix-order": ^1.5.7
+    "@hint/hint-detect-css-reflows": ^1.0.6
+    "@hint/hint-disown-opener": ^4.0.22
+    "@hint/hint-highest-available-document-mode": ^5.0.22
+    "@hint/hint-html-checker": ^3.3.26
+    "@hint/hint-http-cache": ^4.0.22
+    "@hint/hint-http-compression": ^5.2.26
+    "@hint/hint-image-optimization-cloudinary": ^3.2.26
+    "@hint/hint-leading-dot-classlist": ^1.0.19
+    "@hint/hint-meta-charset-utf-8": ^4.0.22
+    "@hint/hint-meta-viewport": ^5.0.22
+    "@hint/hint-no-bom": ^4.2.26
+    "@hint/hint-no-disallowed-headers": ^3.1.21
+    "@hint/hint-no-friendly-error-pages": ^3.3.26
+    "@hint/hint-no-html-only-headers": ^3.0.22
+    "@hint/hint-no-http-redirects": ^3.0.22
+    "@hint/hint-no-inline-styles": ^1.0.18
+    "@hint/hint-no-protocol-relative-urls": ^3.1.6
+    "@hint/hint-no-vulnerable-javascript-libraries": ^2.12.21
+    "@hint/hint-scoped-svg-styles": ^1.3.27
+    "@hint/hint-sri": ^4.0.22
+    "@hint/hint-ssllabs": ^2.4.26
+    "@hint/hint-strict-transport-security": ^3.0.22
+    "@hint/hint-stylesheet-limits": ^3.3.26
+    "@hint/hint-validate-set-cookie-header": ^3.0.22
+    "@hint/hint-x-content-type-options": ^4.0.22
     "@hint/parser-css": ^3.0.39
     "@hint/parser-html": ^3.1.4
     "@hint/parser-javascript": ^3.1.24
   peerDependencies:
     hint: ^7.0.0
-  checksum: 6c7bbcf8b091036579f2ede1efb4392574ec4861e031d7fbc897d9b8c0bd83127f2a0de0f057f5e0402eb26395cf9457e4625c4f4b45572a377c3dd887db46ab
+  checksum: f428ce0b35224c825a865047a01445953ae171e5b971c0a3fd99022d16feff41576f9333ef3ea8f26830447af9d98e5f888b57d1e6286686371fd7351f51446b
   languageName: node
   linkType: hard
 
-"@hint/connector-jsdom@npm:^4.1.26":
-  version: 4.1.26
-  resolution: "@hint/connector-jsdom@npm:4.1.26"
+"@hint/connector-jsdom@npm:^4.1.27":
+  version: 4.1.27
+  resolution: "@hint/connector-jsdom@npm:4.1.27"
   dependencies:
     "@hint/utils": ^7.0.23
-    "@hint/utils-connector-tools": ^4.0.40
+    "@hint/utils-connector-tools": ^4.0.41
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-dom": ^2.2.4
     "@hint/utils-fs": ^1.0.16
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
     canvas: ^2.11.2
     jsdom: ^21.1.0
@@ -1663,45 +1663,45 @@ __metadata:
   dependenciesMeta:
     canvas:
       optional: true
-  checksum: fb1cd60b33845cd0f4f6a39dfe7875abfa3e79e5d3b4f2203dc7a7a19ff4aa6ff4a81352111963cd6b04d6fe1155dc5d213fc01fb114fd18dc53ddbf97623f1f
+  checksum: 0c0a71d8a50799c239e633049dea7c4b8cc41e1eadb6b02db7bbe517785fb876598207b88f9dbc728ba6744d338997f193b5ed1300ab1951ed7d32c8f38ba3e4
   languageName: node
   linkType: hard
 
-"@hint/connector-local@npm:^3.2.26":
-  version: 3.2.26
-  resolution: "@hint/connector-local@npm:3.2.26"
+"@hint/connector-local@npm:^3.2.27":
+  version: 3.2.27
+  resolution: "@hint/connector-local@npm:3.2.27"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-dom": ^2.2.4
     "@hint/utils-fs": ^1.0.16
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     chokidar: ^3.5.3
     globby: ^11.0.4
     jsdom: ^21.1.0
   peerDependencies:
     hint: ^7.0.0
-  checksum: f6b927221cdddc2b8a7a7bb40fa9d979232ae9deac4feabc4f53425c40e95d7cbb6f9dadacbd1eae227b59331dcc995d4b438e68c046cf19fd0d731dfc249a5c
+  checksum: 6ae7c95d4b581da2abd1510ab15a98a25c52f1ed9c1af8182b460c8774d54acc5f12af4ff2618dcc1c9b4d32a77f365f46f0b3f432ee702b6d5356452f514696
   languageName: node
   linkType: hard
 
-"@hint/connector-puppeteer@npm:^2.5.23":
-  version: 2.5.23
-  resolution: "@hint/connector-puppeteer@npm:2.5.23"
+"@hint/connector-puppeteer@npm:^2.5.24":
+  version: 2.5.24
+  resolution: "@hint/connector-puppeteer@npm:2.5.24"
   dependencies:
     "@hint/utils": ^7.0.23
-    "@hint/utils-connector-tools": ^4.0.40
+    "@hint/utils-connector-tools": ^4.0.41
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-dom": ^2.2.4
     "@hint/utils-fs": ^1.0.16
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
     is-ci: ^3.0.1
     lockfile: ^1.0.4
     puppeteer-core: ^13.0.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 905eb87861723ec1ac77fcd2577500fa062c9af63d4195be14c8f995791f02521f9288c3b038e4f97f29c5f8a0f650d630e8d2059f3a62b086b22f5455632df3
+  checksum: 5501d4f739eafb0c3af4a75c9b99de1a2c28b7c0635ec5ecfbf5bd62a1ca1ce9238b3c616a1f93966342d9925dcc08a3824ce22df169a3e64c65033b242294c4
   languageName: node
   linkType: hard
 
@@ -1778,39 +1778,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/hint-apple-touch-icons@npm:^4.0.21":
-  version: 4.0.21
-  resolution: "@hint/hint-apple-touch-icons@npm:4.0.21"
+"@hint/hint-apple-touch-icons@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@hint/hint-apple-touch-icons@npm:4.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
     image-size: ^1.0.2
   peerDependencies:
     hint: ^7.0.0
-  checksum: 1f550299ffd5d4703f6381e13c5e3e96a4d0027e01f682a96c62630f01c066d185044fc12a2be6cdcf35b50ee61dc87356d13a866771f78cdfdb69c2b0854e72
+  checksum: bb153412716d36b9c91aa2a068a7e187b5a7e948c53001972f27d22defa9f12f22a74005c27947bf5e43ebb5922ff6283ecd6b4f5ddaebd69e84532c878e6a82
   languageName: node
   linkType: hard
 
-"@hint/hint-axe@npm:^4.4.19":
-  version: 4.4.19
-  resolution: "@hint/hint-axe@npm:4.4.19"
+"@hint/hint-axe@npm:^4.4.20":
+  version: 4.4.20
+  resolution: "@hint/hint-axe@npm:4.4.20"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
     axe-core: ^4.4.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: ce695cd77409082521845073fa508b0891dc16a7ab72fd680e5ed3978e5f72497a9a4407f04e42037d0b6e2a9089a78c6cc120ba54cce06a2da027405b71e6aa
+  checksum: 1da7509a72455a3b7ed4efea0bbc3ed88958cd1ab14757b2010dc45392db20eeaaad897401380ec1f14100e1471acd1435aaf51dfd8491a104293e107cc90b0b
   languageName: node
   linkType: hard
 
-"@hint/hint-babel-config@npm:^2.4.26":
-  version: 2.4.26
-  resolution: "@hint/hint-babel-config@npm:2.4.26"
+"@hint/hint-babel-config@npm:^2.4.27":
+  version: 2.4.27
+  resolution: "@hint/hint-babel-config@npm:2.4.27"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
@@ -1818,26 +1818,26 @@ __metadata:
   peerDependencies:
     "@hint/parser-babel-config": ^2.0.0
     hint: ^7.0.0
-  checksum: a363355db0b659421d159a28798e52da0f6e07542fa5a9bda7853f09b867d9933dadfb68c1699df58e5cc369f4eaf57a63c442b8de0bf368d7c409da6fe193d8
+  checksum: d70d76610c09d97ceab18d549cffe4dd6cb7d96c7f70d3d5a18155251a678ed533e3d806731f1342c7dcc9b481fffa2b3d1d8fbd078a6f02582683617c303b16
   languageName: node
   linkType: hard
 
-"@hint/hint-button-type@npm:^3.0.21":
-  version: 3.0.21
-  resolution: "@hint/hint-button-type@npm:3.0.21"
+"@hint/hint-button-type@npm:^3.0.22":
+  version: 3.0.22
+  resolution: "@hint/hint-button-type@npm:3.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: d53444bff8eac4d052eac5380a861198f3f6503829fe8a59de0a65e84e0f3bbd64fa6d3cf160d2f019c5600436317cd1fc9dc153992a6f3b1e358ea7e329218b
+  checksum: 8b7c42c4343382a5a3ecbbb99389516d53f362400fc6fd2433f21eade9eb1a1c9f54bd3b36a0c4f78ca1b65882855276cac12b89374a76a539caf464d4e31f1e
   languageName: node
   linkType: hard
 
-"@hint/hint-compat-api@npm:^4.5.6":
-  version: 4.5.6
-  resolution: "@hint/hint-compat-api@npm:4.5.6"
+"@hint/hint-compat-api@npm:^4.5.7":
+  version: 4.5.7
+  resolution: "@hint/hint-compat-api@npm:4.5.7"
   dependencies:
     "@hint/utils-compat-data": ^1.1.12
     "@hint/utils-css": ^1.0.15
@@ -1848,30 +1848,30 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: 5067debe94aa82f2070e03323525bce3f7b429e2d3f1f881d53dfc217ccfa848d50af4aa33cbb4b1b3a16594b230d6e099be069fb762ba3d715c3d72ef9db70c
+  checksum: 9809b25f5cd3290c2a944be1882b9e1c250b5eb646060eab91df77b64393cb4671332275dc12d6d9a62470f8d4dd4aef0271f7fa53333d873bae0dd767b01954
   languageName: node
   linkType: hard
 
-"@hint/hint-content-type@npm:^4.2.25":
-  version: 4.2.25
-  resolution: "@hint/hint-content-type@npm:4.2.25"
+"@hint/hint-content-type@npm:^4.2.26":
+  version: 4.2.26
+  resolution: "@hint/hint-content-type@npm:4.2.26"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
     content-type: ^1.0.5
   peerDependencies:
     hint: ^7.0.0
-  checksum: 6094df06e92b4aacae0d73a227593a699a6cab0ca87aadba5cf88f958245c6c62e0b958b6402f9e6c789398612d07bcb92ecb02e82769cfe375a92fc1ca76572
+  checksum: cd426e5e356f6de51b311d6ae26254fbcbbe4f4cb8cd3e5d761ae02d3049e35e5baa54f1ccdb90cfe40079cca2763ce404f4eb9c7658eef6d5970c703103c577
   languageName: node
   linkType: hard
 
-"@hint/hint-create-element-svg@npm:^1.3.25":
-  version: 1.3.25
-  resolution: "@hint/hint-create-element-svg@npm:1.3.25"
+"@hint/hint-create-element-svg@npm:^1.3.26":
+  version: 1.3.26
+  resolution: "@hint/hint-create-element-svg@npm:1.3.26"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-fs": ^1.0.16
@@ -1880,13 +1880,13 @@ __metadata:
   peerDependencies:
     "@hint/parser-javascript": ^3.0.0
     hint: ^7.0.0
-  checksum: 3f5b9e31f1360904d8f33506e60cff0c30311b3f0637543db79ea40d91b7d3ae53d1953640d86f164ea609c784b3b446fe616a0db479e85d66f9272ce06695a6
+  checksum: afb40cccb5e4185a612c68d3dc7fb3f0e47e3d7d6d288a53d003cbf5c420a926d869a64bdfc13239b907e4c42453882f970fb100f9764127c14f07f6d41028c6
   languageName: node
   linkType: hard
 
-"@hint/hint-css-prefix-order@npm:^1.5.6":
-  version: 1.5.6
-  resolution: "@hint/hint-css-prefix-order@npm:1.5.6"
+"@hint/hint-css-prefix-order@npm:^1.5.7":
+  version: 1.5.7
+  resolution: "@hint/hint-css-prefix-order@npm:1.5.7"
   dependencies:
     "@hint/utils-css": ^1.0.15
     "@hint/utils-debug": ^1.0.11
@@ -1897,13 +1897,13 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: eb382576973a4a9627902f8da795a7960f1c2e41183d3a43599ade4ed1195d359de990279b0955c4287769251ef9805e2f30999b5d96c5fb1201799518a56650
+  checksum: 15005a6e550f0360f9ccb3952e182c189a8cb92af716e2ab3fd3a83ab859ce591796d34d00cef5792c6212d6eff7b75b98b2f2980fa786e1163e511ad4c8b9b6
   languageName: node
   linkType: hard
 
-"@hint/hint-detect-css-reflows@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "@hint/hint-detect-css-reflows@npm:1.0.5"
+"@hint/hint-detect-css-reflows@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "@hint/hint-detect-css-reflows@npm:1.0.6"
   dependencies:
     "@hint/utils-css": ^1.0.15
     "@hint/utils-debug": ^1.0.11
@@ -1914,88 +1914,88 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: e76daad673297de13ad227c35670585385c94354207fd315dd65f003f3051f2f8cb1ac3e53a041e114b3519d19f0c41f691dc2c58c7e8482156268efd854f4ae
+  checksum: aa2c47091e5199ea8f57953e75852da11a01b3fdb78796fd7351f422094dd73481a712f1798184a54c5440ce6c4ac372363c9035a7947a77b57c34085b01064f
   languageName: node
   linkType: hard
 
-"@hint/hint-disown-opener@npm:^4.0.21":
-  version: 4.0.21
-  resolution: "@hint/hint-disown-opener@npm:4.0.21"
+"@hint/hint-disown-opener@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@hint/hint-disown-opener@npm:4.0.22"
   dependencies:
     "@hint/utils-compat-data": ^1.1.12
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 18be50795a05796fbf6bb1ade04ef32c4c399bb349d67d2c17ac96ecbb595eb9089eee28afa3de4da3905933603073e56ce6a740aa3c46db670a8e95bec4c5a0
+  checksum: da88d797481655c4fd8c52d31baed21c557f2a21899a016ebed469fd647ba885e3b4c126de91a1e8cc4679a07528e12953431c10a28f7bfbedadf2452ac5e021
   languageName: node
   linkType: hard
 
-"@hint/hint-highest-available-document-mode@npm:^5.0.21":
-  version: 5.0.21
-  resolution: "@hint/hint-highest-available-document-mode@npm:5.0.21"
+"@hint/hint-highest-available-document-mode@npm:^5.0.22":
+  version: 5.0.22
+  resolution: "@hint/hint-highest-available-document-mode@npm:5.0.22"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: cb92b85751a219cf4bf962811bee7a4d25999efee24ac9d144e2aa85c0d47278f7e8c5e3e15b4bc8235e562c7426c12a4e4dd9153b93383f9dc44caaf3734839
+  checksum: f74f469320a7343ffb478d8847789cfaa6a6ac83ca741853e07ef16c439eece04127a3e7521abf8b47e82894aa700f8f96638b39491d4823fab87adb4e022e8e
   languageName: node
   linkType: hard
 
-"@hint/hint-html-checker@npm:^3.3.25":
-  version: 3.3.25
-  resolution: "@hint/hint-html-checker@npm:3.3.25"
+"@hint/hint-html-checker@npm:^3.3.26":
+  version: 3.3.26
+  resolution: "@hint/hint-html-checker@npm:3.3.26"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
     lodash: ^4.17.21
   peerDependencies:
     hint: ^7.0.0
-  checksum: 3b3db605412919b72f77fe9eb95fe87e5199e26da67f4ad8ca6a103c936ed35903578200a6511e2fa1bf6b9f383b2eb16e42e97deabeb168a77814673cbd9d27
+  checksum: 027f81c47a25b6772a3c6c577049eca8ea642837aef6fa377014d16d902b5ea5d57df06e80b5c184828d5dab59814972690c49a6b1ec14170eda725ded844a5a
   languageName: node
   linkType: hard
 
-"@hint/hint-http-cache@npm:^4.0.21":
-  version: 4.0.21
-  resolution: "@hint/hint-http-cache@npm:4.0.21"
+"@hint/hint-http-cache@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@hint/hint-http-cache@npm:4.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: a9ed2eb3197e56d847e552285515ca51845deae5793a29766a0eb7a34ff9e4d9fc46cc19789d3ae81de5ba09b1c166da20bd066535d25e1b15dd7411f45ac41b
+  checksum: e31292f9810fd53476ee5db9276174f3f36d4ef160ea429f8724d77a61650d6212dd9dad484f28c5cdac086fbb67b3c609650fca369ee13785bf7720f1c6cbb0
   languageName: node
   linkType: hard
 
-"@hint/hint-http-compression@npm:^5.2.25":
-  version: 5.2.25
-  resolution: "@hint/hint-http-compression@npm:5.2.25"
+"@hint/hint-http-compression@npm:^5.2.26":
+  version: 5.2.26
+  resolution: "@hint/hint-http-compression@npm:5.2.26"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: b74a1013f99effe5f4a8d10274cf98e61635a25d375e40dd3bb262f3299826df0a6bc39b68b3c6fc5bb15cd7a3c136c0fa82b366e95ffd65e96fae73ba7d4ba6
+  checksum: a94aef6a66e2a0a909afb0e1f4e95bcd044cb6b50b9655e8dc1583970e9eed75dd4fffa9a6a6be8a94480eb879eb0a8d0e8bf6e7a09c8f88f5a934e3fe06986b
   languageName: node
   linkType: hard
 
-"@hint/hint-image-optimization-cloudinary@npm:^3.2.25":
-  version: 3.2.25
-  resolution: "@hint/hint-image-optimization-cloudinary@npm:3.2.25"
+"@hint/hint-image-optimization-cloudinary@npm:^3.2.26":
+  version: 3.2.26
+  resolution: "@hint/hint-image-optimization-cloudinary@npm:3.2.26"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-i18n": ^1.0.15
@@ -2006,13 +2006,13 @@ __metadata:
     image-size: ^1.0.2
   peerDependencies:
     hint: ^7.0.0
-  checksum: e46cd44e89c706bd38a30548f9e4fca8092134fc811429e2d48e8dfa9f9482e9224631bf51e80eb358f93e92ec3fdd47b0bb332d2fd796c16ff044c72edf819e
+  checksum: 50b2c2b7b92363f2f50f50752673383212b7000c6cd18cb2a0c1698a841564c7417e34f659b3f1a6b0147c4f6702abf2f1e3602811ddfbe219bd8f97ae081185
   languageName: node
   linkType: hard
 
-"@hint/hint-leading-dot-classlist@npm:^1.0.18":
-  version: 1.0.18
-  resolution: "@hint/hint-leading-dot-classlist@npm:1.0.18"
+"@hint/hint-leading-dot-classlist@npm:^1.0.19":
+  version: 1.0.19
+  resolution: "@hint/hint-leading-dot-classlist@npm:1.0.19"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-fs": ^1.0.16
@@ -2021,13 +2021,13 @@ __metadata:
   peerDependencies:
     "@hint/parser-javascript": ^3.0.0
     hint: ^7.0.0
-  checksum: 91e8aaef4267827fbf9b3f43662a9d23c3dd94f9c6f85d47d67e111c30505d77b21a1ef57a6b68666f06b8a99bab3306cf1c60d5750715d69eca497d73f991e5
+  checksum: 967584d76b03f60c7ac4d0749b1ecb2dd0c7b7c4f451707f2129409ab77abe3ed5138e5d3f2e87fd843d7fee84d3c6430468f9e93d0adaaafcd441857ba48a2c
   languageName: node
   linkType: hard
 
-"@hint/hint-manifest-app-name@npm:^2.4.27":
-  version: 2.4.27
-  resolution: "@hint/hint-manifest-app-name@npm:2.4.27"
+"@hint/hint-manifest-app-name@npm:^2.4.28":
+  version: 2.4.28
+  resolution: "@hint/hint-manifest-app-name@npm:2.4.28"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-types": ^1.2.1
@@ -2035,13 +2035,13 @@ __metadata:
   peerDependencies:
     "@hint/parser-manifest": ^2.0.0
     hint: ^7.0.0
-  checksum: 232928a5ffa31adccd841644312cbc054beb7661f6804c6ae2d0d5faf9a2e156bb9514d8a95727aa654b252ab9854eebbd8b8713e863927fa4fcb54227f3abe3
+  checksum: 4697920bc780a564ec40333d2f43e062942eb61af8a62672a9fb9dfc6fe4ee1287dfd6504bd25968396ffc23010400c45f9d3795c8a0ec20c0c409d18878ac60
   languageName: node
   linkType: hard
 
-"@hint/hint-manifest-exists@npm:^2.4.27":
-  version: 2.4.27
-  resolution: "@hint/hint-manifest-exists@npm:2.4.27"
+"@hint/hint-manifest-exists@npm:^2.4.28":
+  version: 2.4.28
+  resolution: "@hint/hint-manifest-exists@npm:2.4.28"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-string": ^1.0.14
@@ -2049,13 +2049,13 @@ __metadata:
   peerDependencies:
     "@hint/parser-manifest": ^2.0.0
     hint: ^7.0.0
-  checksum: 7af78d8ff7ef050eb008c3480b7e9b72461f1e3c3379018b15bc3adcd922a85d581fa745efed3a44008d0495ea3396662d5672530146c6a23f515acb76c331cc
+  checksum: 8fdbc283e7c0792bb3b601fb8dd8d311c24e2199a128639b4c6e65eab06e09eaaec4e9af0bd030a8f8dd9dc3d7efe4e7db298d45cbeab85777f7309cfb2acdf4
   languageName: node
   linkType: hard
 
-"@hint/hint-manifest-file-extension@npm:^3.0.22":
-  version: 3.0.22
-  resolution: "@hint/hint-manifest-file-extension@npm:3.0.22"
+"@hint/hint-manifest-file-extension@npm:^3.0.23":
+  version: 3.0.23
+  resolution: "@hint/hint-manifest-file-extension@npm:3.0.23"
   dependencies:
     "@hint/utils-fs": ^1.0.16
     "@hint/utils-i18n": ^1.0.15
@@ -2064,13 +2064,13 @@ __metadata:
   peerDependencies:
     "@hint/parser-manifest": ^2.0.0
     hint: ^7.0.0
-  checksum: 3712ddc473634e39cf307ae2f4dfb99a38a0102f33a0f3c1c64fa37f7615438104e29ea96df4981104d18cf614a45834574bedc6f129a37e5f60a02d2082498e
+  checksum: c21f4b3c76574a5f798a055285c353f7876ae36bab68909f5ca70c45bc8bfbf7fdd959c7f6bb0bb10768db992661e1c206f3fd26894052a55f8f4c7524886e8f
   languageName: node
   linkType: hard
 
-"@hint/hint-manifest-is-valid@npm:^3.4.18":
-  version: 3.4.18
-  resolution: "@hint/hint-manifest-is-valid@npm:3.4.18"
+"@hint/hint-manifest-is-valid@npm:^3.4.19":
+  version: 3.4.19
+  resolution: "@hint/hint-manifest-is-valid@npm:3.4.19"
   dependencies:
     "@hint/utils-compat-data": ^1.1.12
     "@hint/utils-i18n": ^1.0.15
@@ -2081,26 +2081,26 @@ __metadata:
   peerDependencies:
     "@hint/parser-manifest": ^2.0.0
     hint: ^7.0.0
-  checksum: faa7d66da028045e3efd541a58a65ad604313d9a3b10ad1909d3f33ed85316d64c978cad7cb86ff417f60949a9cf623853d699e6c64bb3a08b2e490ae68b6f9e
+  checksum: 38851c206135b1ea2aa957146ffbd119696c0db950eee20de8d934ec454d98b1eba1a965316d049e0474619f7fc9c5933734ea624add41f46e3f92e68ce43039
   languageName: node
   linkType: hard
 
-"@hint/hint-meta-charset-utf-8@npm:^4.0.21":
-  version: 4.0.21
-  resolution: "@hint/hint-meta-charset-utf-8@npm:4.0.21"
+"@hint/hint-meta-charset-utf-8@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@hint/hint-meta-charset-utf-8@npm:4.0.22"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: e4146ee1847d1ef11e747164207354f42e515b8891c67c1f19b15cd52907794d69e6208d14f7c2c8baaabf3a97ec074645b7472036e2541e9e1d0cc934b9e413
+  checksum: e1a4fba7fb997abf7febfe9c16613eea395dde2fa3956e7cf52ad98cdc487fed200b0b802fbf346e6bb7f0893bd1c661bfc809283c18b73e05d4919e4091c56a
   languageName: node
   linkType: hard
 
-"@hint/hint-meta-viewport@npm:^5.0.21":
-  version: 5.0.21
-  resolution: "@hint/hint-meta-viewport@npm:5.0.21"
+"@hint/hint-meta-viewport@npm:^5.0.22":
+  version: 5.0.22
+  resolution: "@hint/hint-meta-viewport@npm:5.0.22"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-string": ^1.0.14
@@ -2108,131 +2108,131 @@ __metadata:
     metaviewport-parser: ^0.3.0
   peerDependencies:
     hint: ^7.0.0
-  checksum: 222f995c8d0dd4dee1d7a2f42f0f36a8dc7ff3504dbc23dd43801d91c79c1e5408c9a8c4d0e9a5cb787d6a2f4032228e6ee92a840522ede57a9e3b0118f5b4ee
+  checksum: 79c90bf74e7efe9afbfd7cc7881b550a7ecbfa504f7a9d45a5f66855176e4d7895c10eb0f38f5addfd44de0ff402695728ce8e436e55fd1e63f0b01d3b59f8bd
   languageName: node
   linkType: hard
 
-"@hint/hint-no-bom@npm:^4.2.25":
-  version: 4.2.25
-  resolution: "@hint/hint-no-bom@npm:4.2.25"
+"@hint/hint-no-bom@npm:^4.2.26":
+  version: 4.2.26
+  resolution: "@hint/hint-no-bom@npm:4.2.26"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 316438f3df5994f96970799347f8e2724d7db6e69ba89c12cc97c54d325a3809910270250332f9e2fd0e2c3df84bdaa930bac48e5fd075f6005e82f51f2c87c3
+  checksum: 91fe50d5b44be09f2b515551f2798c6e2751bc0a59cde561b065c586b02065b9db5094eb206992ba1eeb385341ac4b29c289cddb7daab3bba4f9893a0a1dccf2
   languageName: node
   linkType: hard
 
-"@hint/hint-no-disallowed-headers@npm:^3.1.20":
-  version: 3.1.20
-  resolution: "@hint/hint-no-disallowed-headers@npm:3.1.20"
+"@hint/hint-no-disallowed-headers@npm:^3.1.21":
+  version: 3.1.21
+  resolution: "@hint/hint-no-disallowed-headers@npm:3.1.21"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: a4ffa4243ed8a8bff831ee73c50794af037421cdc00ca34eab0779b9af000e8575f3650605c8ac4161e6781e77b072961b06e499a1a3cf7f9ff01ae28ee5bba1
+  checksum: 0adbdeb12ec7289cdbe505e5b869b0963f015757b2a06a5e6c4e88d71abf47b443ee70a4d3be6d31231ccc61550c98f5dee97aa9c72a959c3272b26055604410
   languageName: node
   linkType: hard
 
-"@hint/hint-no-friendly-error-pages@npm:^3.3.25":
-  version: 3.3.25
-  resolution: "@hint/hint-no-friendly-error-pages@npm:3.3.25"
+"@hint/hint-no-friendly-error-pages@npm:^3.3.26":
+  version: 3.3.26
+  resolution: "@hint/hint-no-friendly-error-pages@npm:3.3.26"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 36b77b808a0dfbdeb6e1bc5d62e27548d9c23accc28139d20d4c75fa5d3bc3ca7311a732bb8119c7449b0671701e93fac9615d3aa868a1897212be78c9a8ba0c
+  checksum: 52afea095b64d8baadfb6bb2bf984955c70fc9d2eebe8798e9e542872f4ef6c71ca2aa8603bb2b87986cd859445693ad15ec61c46ba4681073b14c397bc85d29
   languageName: node
   linkType: hard
 
-"@hint/hint-no-html-only-headers@npm:^3.0.21":
-  version: 3.0.21
-  resolution: "@hint/hint-no-html-only-headers@npm:3.0.21"
+"@hint/hint-no-html-only-headers@npm:^3.0.22":
+  version: 3.0.22
+  resolution: "@hint/hint-no-html-only-headers@npm:3.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 0b8d71ab30719e41b628666802a5c7f95befaa691e79e5f7c6aecd3e4a242852df271f3757f048a1ecba122a72914d51cce8cdf63472efe9c5b47ad3a8d4489a
+  checksum: 4e14700c331dfdd9ac0f256390d49f4d6273ebbe13fd72b6b107ba5def5fbf6a6b3b4e7d3b9b57e9025fab5d178fac92dc9494815c33770b08145788839eaef3
   languageName: node
   linkType: hard
 
-"@hint/hint-no-http-redirects@npm:^3.0.21":
-  version: 3.0.21
-  resolution: "@hint/hint-no-http-redirects@npm:3.0.21"
+"@hint/hint-no-http-redirects@npm:^3.0.22":
+  version: 3.0.22
+  resolution: "@hint/hint-no-http-redirects@npm:3.0.22"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 3c054685e4a68881395b21ba4a782349c45174def87c57a848d5bc97d169c9e7908bd76a6514d8af8e2517115690747d8e57d3e80ee242b1fbeac76c8180c23e
+  checksum: a771be7fee4179e4795f698ee8dc7e781412efb06c886d362712eefdbee0516483ab87250741716d29712117965df2693044f9742bed531c69bef36b6c388abb
   languageName: node
   linkType: hard
 
-"@hint/hint-no-inline-styles@npm:^1.0.17":
-  version: 1.0.17
-  resolution: "@hint/hint-no-inline-styles@npm:1.0.17"
+"@hint/hint-no-inline-styles@npm:^1.0.18":
+  version: 1.0.18
+  resolution: "@hint/hint-no-inline-styles@npm:1.0.18"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 9304d645bd5cd054cbee8a4f7ba6ff1ef5d46993bb827d753aa5fed999da7717d816471a953d23878ff51047d47a205ccae73a4078792d7cbb2be14409143644
+  checksum: 2ef6721fc2ca45a88410344fb424442842d27e622e65105bffdc616995d04f1cdaf1a93806702114fd2e463249776852347a91b2618145a1306a8bfdf82aa208
   languageName: node
   linkType: hard
 
-"@hint/hint-no-protocol-relative-urls@npm:^3.1.5":
-  version: 3.1.5
-  resolution: "@hint/hint-no-protocol-relative-urls@npm:3.1.5"
+"@hint/hint-no-protocol-relative-urls@npm:^3.1.6":
+  version: 3.1.6
+  resolution: "@hint/hint-no-protocol-relative-urls@npm:3.1.6"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 2fc6a840da4357e01015fe2f8a8416a2ef90056dafa906e50bec51f1409e46d5b79e58c3a16d9c86f312d853f7c7bc9261c784120f590fd2a3c4a8e17f0c053c
+  checksum: 34a0bad0630b4a8be16b03e04bb15f03a75ad73cc9a68bccc471e59a2dfa85fe03029b22f1c9e5f4781162f75dfdca51548981ff4ef4a69835fc027ab40e4234
   languageName: node
   linkType: hard
 
-"@hint/hint-no-vulnerable-javascript-libraries@npm:^2.12.20":
-  version: 2.12.20
-  resolution: "@hint/hint-no-vulnerable-javascript-libraries@npm:2.12.20"
+"@hint/hint-no-vulnerable-javascript-libraries@npm:^2.12.21":
+  version: 2.12.21
+  resolution: "@hint/hint-no-vulnerable-javascript-libraries@npm:2.12.21"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-fs": ^1.0.16
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
     js-library-detector: ^6.6.0
     lodash: ^4.17.21
     semver: ^7.3.5
   peerDependencies:
     hint: ^7.0.0
-  checksum: 22d2e1f8a93c8ff9edf72070e76dfe2ec01cb38af244874d7e558f61c7af7a8bc100ab28a0f418de38ac73e5cfbf76268fb68dca4e9931968fa2dd17062429b3
+  checksum: a0fff5f9a5be028ee6bdd5e955ffc261841961362fafa48482ad0553a17743b5a2904020a4f5b0d52dc89583dc878a9d0a594653b39a8d92b95ff295f5fe8034
   languageName: node
   linkType: hard
 
-"@hint/hint-scoped-svg-styles@npm:^1.3.26":
-  version: 1.3.26
-  resolution: "@hint/hint-scoped-svg-styles@npm:1.3.26"
+"@hint/hint-scoped-svg-styles@npm:^1.3.27":
+  version: 1.3.27
+  resolution: "@hint/hint-scoped-svg-styles@npm:1.3.27"
   dependencies:
     "@hint/utils-css": ^1.0.15
     "@hint/utils-debug": ^1.0.11
@@ -2242,72 +2242,72 @@ __metadata:
   peerDependencies:
     "@hint/parser-css": ^3.0.0
     hint: ^7.0.0
-  checksum: 53a5d2ac5e3b487e9557fda3c4424046eec123593f790a3ac08a40c1bdd28f697bd2c8b601ac9d84dedddb31a68433bb458e24c21bb188fdeda6716fa21d6a7f
+  checksum: 4d126e2d5920ff56d4f1712c4039c0e10c89f625605c4cd3f120c8d6cdf39c8c1ed03dd7f74ea0ca91394284ef2c35c605f3063fa4fb5b53a38e8600f3d67a2c
   languageName: node
   linkType: hard
 
-"@hint/hint-sri@npm:^4.0.21":
-  version: 4.0.21
-  resolution: "@hint/hint-sri@npm:4.0.21"
+"@hint/hint-sri@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@hint/hint-sri@npm:4.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-fs": ^1.0.16
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: ba66881b6ef4ce07037280835060c55ee1499d80b7918fe4892f365ac08442ca9693fbf235743cbf9742b0ebde7a001dd1fbf5f48116b972ff531f0bf140695b
+  checksum: 826005373aa82ca4f8192dbe26a3a382a2465d807ab43e8514807ff260568b6a6742c5a6fe9a1d9b958ea370f6e29298b87d41275c50f066e1017f2952a179c7
   languageName: node
   linkType: hard
 
-"@hint/hint-ssllabs@npm:^2.4.25":
-  version: 2.4.25
-  resolution: "@hint/hint-ssllabs@npm:2.4.25"
+"@hint/hint-ssllabs@npm:^2.4.26":
+  version: 2.4.26
+  resolution: "@hint/hint-ssllabs@npm:2.4.26"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
     got: ^11.8.5
   peerDependencies:
     hint: ^7.0.0
-  checksum: a5d84430266e9d9aac17a91982c6993a0121d63200b130d05bd7da6994f49277870b9732fee76e8dca8edba252064cea2eb9159d2c87240c03b3ef99037e2b1b
+  checksum: 50f6f47ddfc314dc1f5dfea82b09c6106b3d36f7abf9a065a7cb9bf49fe751cec2faddaf2c7d9c86a173fb867b705198684d48cd0eee6f33f5c6a3e307b38600
   languageName: node
   linkType: hard
 
-"@hint/hint-strict-transport-security@npm:^3.0.21":
-  version: 3.0.21
-  resolution: "@hint/hint-strict-transport-security@npm:3.0.21"
+"@hint/hint-strict-transport-security@npm:^3.0.22":
+  version: 3.0.22
+  resolution: "@hint/hint-strict-transport-security@npm:3.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 3e6476c027f9b30b72976dc4c3f3e807eb685669c400e276d2b362bdde126f6a92152c50aa11cc9848b99ddb11180207ac878f20e807c5f26f151f0950ca8d2e
+  checksum: 9d343bb19f12f86a914624fc0694d525e145dbb342f760fc2679d1f00bacaa6c09dc96e2eb7f95f0f1d01a3f3a57fc731c012ce43783c9699e38c79ea1bd8d44
   languageName: node
   linkType: hard
 
-"@hint/hint-stylesheet-limits@npm:^3.3.25":
-  version: 3.3.25
-  resolution: "@hint/hint-stylesheet-limits@npm:3.3.25"
+"@hint/hint-stylesheet-limits@npm:^3.3.26":
+  version: 3.3.26
+  resolution: "@hint/hint-stylesheet-limits@npm:3.3.26"
   dependencies:
     "@hint/utils-i18n": ^1.0.15
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: ef3193074e10207aab30cc4f01b1128b8582daf8028095f80bbd80de51f4dd8b01acdfaaa1acbd38bd895848b2bc071582b783a962683a0675d7420cacb14673
+  checksum: 75fa08f0df5d4567e10583dcc53252eb01c124941f07bbdec71b6b66bd92dfc6c291911bdb9016178346f0540e6daa464104a8c3a9e036fea431d53f2d47e770
   languageName: node
   linkType: hard
 
-"@hint/hint-typescript-config@npm:^2.5.13":
-  version: 2.5.13
-  resolution: "@hint/hint-typescript-config@npm:2.5.13"
+"@hint/hint-typescript-config@npm:^2.5.14":
+  version: 2.5.14
+  resolution: "@hint/hint-typescript-config@npm:2.5.14"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
@@ -2316,28 +2316,28 @@ __metadata:
   peerDependencies:
     "@hint/parser-typescript-config": ^2.0.0
     hint: ^7.0.0
-  checksum: fd5322de4a9883b290a4ccdee7aa566c5baa6c80cce551363aa1a381496e6b1037105a40cfba2a12608f729ff2dd0cce20760d10ea12dc8c90fbb9b8eb3192c7
+  checksum: 58279ea0f35988505974cab40681f9a0266888feb89f970cc80f497d67c325c4e1b47aeef4c619de8ff1cd07fdc1c54f46f0021debbb16be327d7bf6f9139a26
   languageName: node
   linkType: hard
 
-"@hint/hint-validate-set-cookie-header@npm:^3.0.21":
-  version: 3.0.21
-  resolution: "@hint/hint-validate-set-cookie-header@npm:3.0.21"
+"@hint/hint-validate-set-cookie-header@npm:^3.0.22":
+  version: 3.0.22
+  resolution: "@hint/hint-validate-set-cookie-header@npm:3.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 9c3abfa0254111f5352de70f709414efa8fc090e584231a00be94211c3bd7c2ea7b0bb075869cf86402e523fab3f7d890d9ceadcb9c78650d86bedaa4301f061
+  checksum: f5f4762a008c1f5da71e9f6b17bb3e215b4a47f581df131c2895fc9bf6798d41ccf16a0b50e75130fb7f8734963d333955189b662223636cb81134d59f3813fc
   languageName: node
   linkType: hard
 
-"@hint/hint-webpack-config@npm:^2.4.27":
-  version: 2.4.27
-  resolution: "@hint/hint-webpack-config@npm:2.4.27"
+"@hint/hint-webpack-config@npm:^2.4.28":
+  version: 2.4.28
+  resolution: "@hint/hint-webpack-config@npm:2.4.28"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
@@ -2347,36 +2347,36 @@ __metadata:
     "@hint/parser-typescript-config": ^2.0.0
     "@hint/parser-webpack-config": ^2.0.0
     hint: ^7.0.0
-  checksum: e68ffa04473e1988bfeefee14d90d8e1d0bdfce9da659e6166ac96c0cf617e010652716d76b84d8c10a2925be6442c69b19138157e50ab399bdd96b241a8cc65
+  checksum: dd19524004ea08172224129a80f7ee4492143ae97a4e9bfa29e3a9bd63d4ba96d17c5e7c1ba479f2d3d8dff332cb2db0fef8d7b9d31bdfda878539884778da65
   languageName: node
   linkType: hard
 
-"@hint/hint-x-content-type-options@npm:^4.0.21":
-  version: 4.0.21
-  resolution: "@hint/hint-x-content-type-options@npm:4.0.21"
+"@hint/hint-x-content-type-options@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@hint/hint-x-content-type-options@npm:4.0.22"
   dependencies:
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-i18n": ^1.0.15
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 5d947834b103eaf28f0988e89526608aabdf3c66c85e30d23929cabf6f4b7e9e8bde897474fa21d47d34a143f2deab3c867af10bc2477e94bcf39f4c70fe73f5
+  checksum: 2dcdfc168fa693bf20855b2463b2f4b225611fff593dbbe2c384b6ee5bf4512f22b23ef4230e45e891c171973404880b8e42faadd9bfcc32e89e0558cb69708c
   languageName: node
   linkType: hard
 
-"@hint/parser-babel-config@npm:^2.1.41":
-  version: 2.1.41
-  resolution: "@hint/parser-babel-config@npm:2.1.41"
+"@hint/parser-babel-config@npm:^2.1.42":
+  version: 2.1.42
+  resolution: "@hint/parser-babel-config@npm:2.1.42"
   dependencies:
     "@hint/utils-fs": ^1.0.16
-    "@hint/utils-json": ^1.0.26
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-json": ^1.0.27
+    "@hint/utils-network": ^1.0.26
     lodash: ^4.17.21
   peerDependencies:
     hint: ^7.0.0
-  checksum: 6f3461a083de99186ed45556ed9e530a0a19cdecd252ffc37eb772e1c7aca3d723f9e1d0ed0f0ed6580a5d989bfdd28ef816c0f48ef8ade2f8d57dd17cffdb72
+  checksum: 23b3dc7a21a76d0f77e6fc70c8004e2d27d72c2e6a160744900dce869b304d6be0c5c0c63ba4b04d4c735bb026b3d2428ac6e82752de04b27cdc3b05254a24f4
   languageName: node
   linkType: hard
 
@@ -2451,17 +2451,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/parser-manifest@npm:^2.3.18":
-  version: 2.3.18
-  resolution: "@hint/parser-manifest@npm:2.3.18"
+"@hint/parser-manifest@npm:^2.3.19":
+  version: 2.3.19
+  resolution: "@hint/parser-manifest@npm:2.3.19"
   dependencies:
-    "@hint/utils-json": ^1.0.26
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-json": ^1.0.27
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
   peerDependencies:
     hint: ^7.0.0
-  checksum: 588b59c49444ed34435350c0a39b5b755b49f9dbcf1f93cc643857e65cd86a7cc6db3e444811e4e59662fddc15482738b527ddbe016e78f6d1a9188acf07f610
+  checksum: bdfd511cde67e430113bbf388c46e0c8962441e2cf3e073a6f2336a0c8ec147c8acdae5ab20f64acefa2303fd1bd0d3a4567f075a4110f767a50cb4dde1cc5f0
   languageName: node
   linkType: hard
 
@@ -2480,17 +2480,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/parser-typescript-config@npm:^2.4.28":
-  version: 2.4.28
-  resolution: "@hint/parser-typescript-config@npm:2.4.28"
+"@hint/parser-typescript-config@npm:^2.4.29":
+  version: 2.4.29
+  resolution: "@hint/parser-typescript-config@npm:2.4.29"
   dependencies:
     "@hint/utils-fs": ^1.0.16
-    "@hint/utils-json": ^1.0.26
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-json": ^1.0.27
+    "@hint/utils-network": ^1.0.26
     lodash: ^4.17.21
   peerDependencies:
     hint: ^7.0.0
-  checksum: 69dffa038e5957344fbc1938643ac0a6ec4cbcfcad17c4d77b4a484d9b28817f3be7a87af899080fce2d83c3013ed7772eb99b32e3b20ff7b978b1f1c06eaf6e
+  checksum: a646ee33ad3d138bd05684e858980df1cf8e08b07f7147c88cc43c9a627c2a88ffdd09c490aa11bcde5671ab4cc3b8855b5e66f57831870256b80f4c22ed6bcb
   languageName: node
   linkType: hard
 
@@ -2508,15 +2508,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/parser-webpack-config@npm:^2.1.40":
-  version: 2.1.40
-  resolution: "@hint/parser-webpack-config@npm:2.1.40"
+"@hint/parser-webpack-config@npm:^2.1.41":
+  version: 2.1.41
+  resolution: "@hint/parser-webpack-config@npm:2.1.41"
   dependencies:
     "@hint/utils": ^7.0.23
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
   peerDependencies:
     hint: ^7.0.0
-  checksum: aa0aef42025d39ac3dbbc16bf74526965959605ffa7c772834d5681133a15366e625474dd764957f37ab3ae31896945aa1714a4161c685e1a4244b1f212d130d
+  checksum: a8455bf25d62d91e6976c37ef327509b1d3eb1791f5148c1ec50760f315878afc42a0838addee890ad2a4fa5e9ab9bee435a94a07c15b6057ac9d4b0ffe85061
   languageName: node
   linkType: hard
 
@@ -2534,22 +2534,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/utils-connector-tools@npm:^4.0.40":
-  version: 4.0.40
-  resolution: "@hint/utils-connector-tools@npm:4.0.40"
+"@hint/utils-connector-tools@npm:^4.0.41":
+  version: 4.0.41
+  resolution: "@hint/utils-connector-tools@npm:4.0.41"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
     data-urls: ^3.0.2
     https: ^1.0.0
     iconv-lite: ^0.6.3
-    node-fetch: ^3.3.1
+    node-fetch: ^2.x
   peerDependencies:
     hint: ^7.0.0
-  checksum: 1510c27ec683576f7adef0d75c67473ef707e97608359c97af59ee1a51438db1e35b5d82d1cb440a63d9ce6f315122424d38d31b6e41432a7896e97c32fbde95
+  checksum: 85365e63e1ee238502ad128dbef03983ee7a9d2b7222e67610d728c0965b6bbf0fc3ed3c0958a73d1c302a1686ff935d137cd7c2d70558cc7adc261b51a210eb
   languageName: node
   linkType: hard
 
@@ -2602,24 +2602,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hint/utils-json@npm:^1.0.26":
-  version: 1.0.26
-  resolution: "@hint/utils-json@npm:1.0.26"
+"@hint/utils-json@npm:^1.0.27":
+  version: 1.0.27
+  resolution: "@hint/utils-json@npm:1.0.27"
   dependencies:
     "@hint/utils-fs": ^1.0.16
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-types": ^1.2.1
     ajv: ^8.12.0
     ajv-formats: ^2.1.1
     jsonc-parser: ^3.0.0
     lodash: ^4.17.21
-  checksum: 4551d81ec4f4d6a9771cbd9dcb4d96ec679b293fb7c9979512b9572c79e20594d2c5800a935282f6dc04cd0d35385e2bb53e12876118fde97b3e93c991f6a215
+  checksum: 095f059022d01de15c0414ec93db9217dbdc5941ce88394633192e4b02198d11afd3063a7740c6b36621c3e5fa9508a556bb41d9370158ef665789f286912d30
   languageName: node
   linkType: hard
 
-"@hint/utils-network@npm:^1.0.25":
-  version: 1.0.25
-  resolution: "@hint/utils-network@npm:1.0.25"
+"@hint/utils-network@npm:^1.0.26":
+  version: 1.0.26
+  resolution: "@hint/utils-network@npm:1.0.26"
   dependencies:
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
@@ -2629,8 +2629,8 @@ __metadata:
     content-type: ^1.0.5
     https: ^1.0.0
     lodash: ^4.17.21
-    node-fetch: ^3.3.1
-  checksum: 4be571d971b50f7c335dc7c268b95e6ca38ca4572a0879d0b6cda46aa36d4e252964475f674fc70f272506053e2735e0c1025aa3d373b36ac73d4fd4b1ef4b78
+    node-fetch: ^2.x
+  checksum: b6f97fa360987496ec66794475b54d09f086448e0f180c20cc2d682900d742dba65763e1e0d4764cedcbdf717f7b2c3c3b2711da15daf11f23b26042f622a5b5
   languageName: node
   linkType: hard
 
@@ -4189,7 +4189,7 @@ __metadata:
     fast-xml-parser: 4.2.5
     graphql: 16.7.1
     graphql-request: 6.0.0
-    hint: 7.1.9
+    hint: 7.1.10
     js-yaml: 4.1.0
     next: 13.4.7
     next-auth: 4.22.1
@@ -5440,13 +5440,6 @@ __metadata:
   version: 3.0.1
   resolution: "data-uri-to-buffer@npm:3.0.1"
   checksum: c59c3009686a78c071806b72f4810856ec28222f0f4e252aa495ec027ed9732298ceea99c50328cf59b151dd34cbc3ad6150bbb43e41fc56fa19f48c99e9fc30
-  languageName: node
-  linkType: hard
-
-"data-uri-to-buffer@npm:^4.0.0":
-  version: 4.0.1
-  resolution: "data-uri-to-buffer@npm:4.0.1"
-  checksum: 0d0790b67ffec5302f204c2ccca4494f70b4e2d940fea3d36b09f0bb2b8539c2e86690429eb1f1dc4bcc9e4df0644193073e63d9ee48ac9fce79ec1506e4aa4c
   languageName: node
   linkType: hard
 
@@ -7056,16 +7049,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fetch-blob@npm:^3.1.2, fetch-blob@npm:^3.1.4":
-  version: 3.2.0
-  resolution: "fetch-blob@npm:3.2.0"
-  dependencies:
-    node-domexception: ^1.0.0
-    web-streams-polyfill: ^3.0.3
-  checksum: f19bc28a2a0b9626e69fd7cf3a05798706db7f6c7548da657cbf5026a570945f5eeaedff52007ea35c8bcd3d237c58a20bf1543bc568ab2422411d762dd3d5bf
-  languageName: node
-  linkType: hard
-
 "figures@npm:^3.0.0":
   version: 3.2.0
   resolution: "figures@npm:3.2.0"
@@ -7191,15 +7174,6 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: 01135bf8675f9d5c61ff18e2e2932f719ca4de964e3be90ef4c36aacfc7b9cb2fceb5eca0b7e0190e3383fe51c5b37f4cb80b62ca06a99aaabfcfd6ac7c9328c
-  languageName: node
-  linkType: hard
-
-"formdata-polyfill@npm:^4.0.10":
-  version: 4.0.10
-  resolution: "formdata-polyfill@npm:4.0.10"
-  dependencies:
-    fetch-blob: ^3.1.2
-  checksum: 82a34df292afadd82b43d4a740ce387bc08541e0a534358425193017bf9fb3567875dc5f69564984b1da979979b70703aa73dee715a17b6c229752ae736dd9db
   languageName: node
   linkType: hard
 
@@ -7805,17 +7779,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hint@npm:7.1.9":
-  version: 7.1.9
-  resolution: "hint@npm:7.1.9"
+"hint@npm:7.1.10":
+  version: 7.1.10
+  resolution: "hint@npm:7.1.10"
   dependencies:
-    "@hint/configuration-development": ^8.3.17
-    "@hint/configuration-web-recommended": ^8.2.22
+    "@hint/configuration-development": ^8.3.18
+    "@hint/configuration-web-recommended": ^8.2.23
     "@hint/utils": ^7.0.23
     "@hint/utils-debug": ^1.0.11
     "@hint/utils-fs": ^1.0.16
-    "@hint/utils-json": ^1.0.26
-    "@hint/utils-network": ^1.0.25
+    "@hint/utils-json": ^1.0.27
+    "@hint/utils-network": ^1.0.26
     "@hint/utils-string": ^1.0.14
     "@hint/utils-types": ^1.2.1
     browserslist: ^4.21.5
@@ -7836,7 +7810,7 @@ __metadata:
       optional: true
   bin:
     hint: dist/src/bin/hint.js
-  checksum: 794652006f3494696aea8883bcf12419dc6e1d7b9585e401a3941a771ec93c443c228a46e77e10196f746c0a8146590dd475d176c99f7e38f068801c84d8064c
+  checksum: ce68f75f8ebf8d08106d2c90f308814a15e3ddea3d7a0deb042f107be5a57c11b37d31cc1ff25c3fd187a7c36eca2233ed66437a3533825b9c52a7dd1323097b
   languageName: node
   linkType: hard
 
@@ -9764,13 +9738,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-domexception@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "node-domexception@npm:1.0.0"
-  checksum: ee1d37dd2a4eb26a8a92cd6b64dfc29caec72bff5e1ed9aba80c294f57a31ba4895a60fd48347cf17dd6e766da0ae87d75657dfd1f384ebfa60462c2283f5c7f
-  languageName: node
-  linkType: hard
-
 "node-fetch@npm:2.6.7":
   version: 2.6.7
   resolution: "node-fetch@npm:2.6.7"
@@ -9799,14 +9766,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "node-fetch@npm:3.3.1"
+"node-fetch@npm:^2.x":
+  version: 2.6.12
+  resolution: "node-fetch@npm:2.6.12"
   dependencies:
-    data-uri-to-buffer: ^4.0.0
-    fetch-blob: ^3.1.4
-    formdata-polyfill: ^4.0.10
-  checksum: 62145fd3ba4770a76110bc31fdc0054ab2f5442b5ce96e9c4b39fc9e94a3d305560eec76e1165d9259eab866e02a8eecf9301062bb5dfc9f08a4d08b69d223dd
+    whatwg-url: ^5.0.0
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: 3bc1655203d47ee8e313c0d96664b9673a3d4dd8002740318e9d27d14ef306693a4b2ef8d6525775056fd912a19e23f3ac0d7111ad8925877b7567b29a625592
   languageName: node
   linkType: hard
 
@@ -12695,7 +12665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-streams-polyfill@npm:^3.0.3, web-streams-polyfill@npm:^3.2.1":
+"web-streams-polyfill@npm:^3.2.1":
   version: 3.2.1
   resolution: "web-streams-polyfill@npm:3.2.1"
   checksum: b119c78574b6d65935e35098c2afdcd752b84268e18746606af149e3c424e15621b6f1ff0b42b2676dc012fc4f0d313f964b41a4b5031e525faa03997457da02
