@@ -43,7 +43,7 @@ export default function MyApp(props: AppProps<{ session: Session }>): React.JSX.
         >
           <NotificationsProvider limit={3} position="bottom-right">
             <QueryClientProvider client={queryClient}>
-              <SessionProvider session={session}>
+              <SessionProvider refetchOnWindowFocus={false} refetchWhenOffline={false} session={session}>
                 <RecoilRoot>
                   {/* @ts-expect-error temporary fix for broken type */}
                   <Component {...pageProps} />
