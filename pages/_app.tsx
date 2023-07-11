@@ -45,7 +45,6 @@ export default function MyApp(props: AppProps<{ session: Session }>): React.JSX.
             <QueryClientProvider client={queryClient}>
               <SessionProvider refetchOnWindowFocus={false} refetchWhenOffline={false} session={session}>
                 <RecoilRoot>
-                  {/* @ts-expect-error temporary fix for broken type */}
                   <Component {...pageProps} />
                   <Analytics />
                 </RecoilRoot>

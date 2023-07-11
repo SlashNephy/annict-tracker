@@ -20,7 +20,10 @@ export type AnnictProgram = NonNullable<AnnictLibraryEntry['nextProgram']>
 export type AnnictEpisode = NonNullable<AnnictLibraryEntry['nextEpisode']>
 
 export class AnnictSeason {
-  public constructor(public readonly year: number | null, public readonly name: SeasonName | null) {}
+  public constructor(
+    public readonly year: number | null,
+    public readonly name: SeasonName | null
+  ) {}
 
   static get #current(): AnnictSeason {
     const now = new Date()
