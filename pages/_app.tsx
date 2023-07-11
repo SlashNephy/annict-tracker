@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Analytics } from '@vercel/analytics/react'
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { RecoilRoot } from 'recoil'
 
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
@@ -25,6 +25,15 @@ export default function MyApp(props: AppProps<{ session: Session }>): React.JSX.
   } = props
 
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
+
+  useEffect(() => {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      !window.location.href.startsWith('https://annict-tracker.vercel.app')
+    ) {
+      window.location.replace('https://annict-tracker.vercel.app')
+    }
+  }, [])
 
   return (
     <>
