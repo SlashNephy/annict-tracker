@@ -67,7 +67,7 @@
     "graphql": "16.7.1",
     "hint": "7.1.10",
     "prettier": "3.0.0",
-    "typescript": "5.0.4"
+    "typescript": "5.1.6"
   },
   "packageManager": "yarn@3.6.1",
   "engines": {
