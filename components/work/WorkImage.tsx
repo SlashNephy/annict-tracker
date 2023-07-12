@@ -2,10 +2,10 @@ import { Image } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
-import { LocalStorageCacheManager } from '../../lib/cache'
-import { fetchJikanAnimePictures } from '../../lib/services/jikan'
-import { useArmSupplementary } from '../../lib/useArmSupplementary'
-import { useLibraryEntry } from '../../lib/useLibraryEntry'
+import { LocalStorageCacheManager } from '../../lib/cache.ts'
+import { fetchJikanAnimePictures } from '../../lib/services/jikan.ts'
+import { useArmSupplementary } from '../../lib/useArmSupplementary.ts'
+import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { ImageProps } from '@mantine/core'
 

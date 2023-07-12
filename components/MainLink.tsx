@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 
-import { isNavbarExpandState } from '../lib/atoms'
+import { isNavbarExpandState } from '../lib/atoms.ts'
 
 import type { AppLink } from './AppLayout'
 

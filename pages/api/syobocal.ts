@@ -1,6 +1,6 @@
 import { XMLParser } from 'fast-xml-parser'
 
-import { MemoryCache } from '../../lib/MemoryCache'
+import { MemoryCache } from '../../lib/MemoryCache.ts'
 
 import type { NextApiHandler } from 'next'
 

@@ -4,7 +4,7 @@ import { secondsToMilliseconds } from 'date-fns'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { enableBrowserNotificationState } from './atoms'
+import { enableBrowserNotificationState } from './atoms.ts'
 
 import type { SetterOrUpdater } from 'recoil'
 

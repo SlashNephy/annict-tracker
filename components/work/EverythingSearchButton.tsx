@@ -1,7 +1,7 @@
 import { Button } from '@mantine/core'
 import React, { useMemo } from 'react'
 
-import { useLibraryEntry } from '../../lib/useLibraryEntry'
+import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { ButtonProps } from '@mantine/core'
 

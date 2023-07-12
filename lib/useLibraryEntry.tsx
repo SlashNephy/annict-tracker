@@ -2,11 +2,11 @@ import { useQuery } from '@tanstack/react-query'
 import { createContext, useContext, useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
 
-import { enableSyobocalState, syobocalChannelsState } from './atoms'
-import { lookupPrograms } from './services/syobocal'
-import { useArmSupplementary } from './useArmSupplementary'
-import { useSaya } from './useSaya'
-import { LibraryEntryModel } from '../models/LibraryEntryModel'
+import { enableSyobocalState, syobocalChannelsState } from './atoms.ts'
+import { lookupPrograms } from './services/syobocal.ts'
+import { useArmSupplementary } from './useArmSupplementary.ts'
+import { useSaya } from './useSaya.ts'
+import { LibraryEntryModel } from '../models/LibraryEntryModel.ts'
 
 const libraryEntryContext = createContext<LibraryEntryModel | null>(null)
 

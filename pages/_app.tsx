@@ -7,7 +7,7 @@ import { SessionProvider } from 'next-auth/react'
 import React, { useEffect } from 'react'
 import { RecoilRoot } from 'recoil'
 
-import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
+import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
 import packageJson from '../package.json'
 
 import type { AppProps } from 'next/app'

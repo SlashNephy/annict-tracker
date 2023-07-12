@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
 
-import { fetchSayaRemoteDatabase } from './services/saya'
+import { fetchSayaRemoteDatabase } from './services/saya.ts'
 
 import type { SayaDatabase } from './services/saya'
 

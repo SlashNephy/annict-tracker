@@ -3,13 +3,13 @@ import { IconChecks, IconTrash } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { AppLayout } from '../components/AppLayout'
-import { CheckboxWithLabel } from '../components/CheckboxWithLabel'
-import { enableEverythingIntegrationState, enableSyobocalState, syobocalChannelsState } from '../lib/atoms'
-import { filterSayaChannel } from '../lib/services/saya'
-import { useBrowserNotification } from '../lib/useBrowserNotification'
-import { useMemorableColorScheme } from '../lib/useMemorableColorScheme'
-import { useSaya } from '../lib/useSaya'
+import { AppLayout } from '../components/AppLayout.tsx'
+import { CheckboxWithLabel } from '../components/CheckboxWithLabel.tsx'
+import { enableEverythingIntegrationState, enableSyobocalState, syobocalChannelsState } from '../lib/atoms.ts'
+import { filterSayaChannel } from '../lib/services/saya.ts'
+import { useBrowserNotification } from '../lib/useBrowserNotification.tsx'
+import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
+import { useSaya } from '../lib/useSaya.ts'
 
 export default function Settings(): React.ReactElement {
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()

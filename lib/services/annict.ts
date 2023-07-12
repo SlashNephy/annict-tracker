@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-unresolved
 import { GraphQLClient } from 'graphql-request'
 
-import { SeasonName } from '../../graphql/annict/generated/graphql'
+import { SeasonName } from '../../graphql/annict/generated/graphql.ts'
 
-import type { GetViewerLibraryEntriesQuery } from '../../graphql/annict/generated/graphql'
+import type { GetViewerLibraryEntriesQuery } from '../../graphql/annict/generated/graphql.ts'
 
 export const createAnnictClient = (accessToken: string): GraphQLClient =>
   new GraphQLClient('https://api.annict.com/graphql', {

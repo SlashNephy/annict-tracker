@@ -3,12 +3,12 @@ import { IconBrandGithub, IconLogin } from '@tabler/icons-react'
 import { useSession } from 'next-auth/react'
 import React from 'react'
 
-import { AnnictSignInButton } from '../components/AnnictSignInButton'
-import { AppLayout } from '../components/AppLayout'
-import { FilterCard } from '../components/FilterCard'
-import { FooterCard } from '../components/FooterCard'
-import { LibraryGrid } from '../components/LibraryGrid'
-import { AnnictClientProvider } from '../lib/useAnnictClient'
+import { AnnictSignInButton } from '../components/AnnictSignInButton.tsx'
+import { AppLayout } from '../components/AppLayout.tsx'
+import { FilterCard } from '../components/FilterCard.tsx'
+import { FooterCard } from '../components/FooterCard.tsx'
+import { LibraryGrid } from '../components/LibraryGrid.tsx'
+import { AnnictClientProvider } from '../lib/useAnnictClient.ts'
 import packageJson from '../package.json'
 
 export function IndexAsGuestUser(): React.ReactElement {

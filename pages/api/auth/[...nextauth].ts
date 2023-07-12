@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth'
 
-import type { AnnictProfile } from '../../../lib/services/annict'
+import type { AnnictProfile } from '../../../lib/services/annict.ts'
 import type { OAuthConfig } from 'next-auth/providers'
 
 const annict: OAuthConfig<AnnictProfile> = {

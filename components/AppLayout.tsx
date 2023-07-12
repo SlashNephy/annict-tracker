@@ -6,9 +6,9 @@ import { useRouter } from 'next/router'
 import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { MainLink } from './MainLink'
-import { isNavbarExpandState } from '../lib/atoms'
-import { useUpdateChecker } from '../lib/useUpdateChecker'
+import { MainLink } from './MainLink.tsx'
+import { isNavbarExpandState } from '../lib/atoms.ts'
+import { useUpdateChecker } from '../lib/useUpdateChecker.ts'
 import packageJson from '../package.json'
 
 import type { AnchorProps, MantineColor } from '@mantine/core'

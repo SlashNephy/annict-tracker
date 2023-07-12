@@ -1,7 +1,7 @@
 import { Card, Center, Container, Text } from '@mantine/core'
 import React from 'react'
 
-import { AppLayout } from '../components/AppLayout'
+import { AppLayout } from '../components/AppLayout.tsx'
 
 export default function Help(): React.JSX.Element {
   return (

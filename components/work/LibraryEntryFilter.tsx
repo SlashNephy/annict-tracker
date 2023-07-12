@@ -8,8 +8,8 @@ import {
   isOnlyCurrentSeasonState,
   seasonFiltersState,
   timeFiltersState,
-} from '../../lib/atoms'
-import { useLibraryEntry } from '../../lib/useLibraryEntry'
+} from '../../lib/atoms.ts'
+import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 export function LibraryEntryFilter({ children }: React.PropsWithChildren): React.ReactElement {
   const { entry } = useLibraryEntry()

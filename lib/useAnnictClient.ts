@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo } from 'react'
 
-import { createAnnictClient } from './services/annict'
+import { createAnnictClient } from './services/annict.ts'
 
 import type { GraphQLClient } from 'graphql-request'
 

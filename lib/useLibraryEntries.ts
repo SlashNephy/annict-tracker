@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { secondsToMilliseconds } from 'date-fns'
 
-import { useAnnictClient } from './useAnnictClient'
-import { GetViewerLibraryEntriesDocument } from '../graphql/annict/generated/graphql'
-import { LibraryEntryModel } from '../models/LibraryEntryModel'
+import { useAnnictClient } from './useAnnictClient.ts'
+import { GetViewerLibraryEntriesDocument } from '../graphql/annict/generated/graphql.ts'
+import { LibraryEntryModel } from '../models/LibraryEntryModel.ts'
 
 export type LibraryEntriesState = {
   entries: LibraryEntryModel[]

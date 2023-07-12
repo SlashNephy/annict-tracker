@@ -3,12 +3,12 @@ import { IconCheck, IconPhotoOff, IconSearch } from '@tabler/icons-react'
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 
-import { AnnictCreateRecordButton } from './AnnictCreateRecordButton'
-import { EverythingSearchButton } from './EverythingSearchButton'
-import { WorkImage } from './WorkImage'
-import { WorkNextProgramInfo } from './WorkNextProgramInfo'
-import { enableEverythingIntegrationState } from '../../lib/atoms'
-import { useLibraryEntry } from '../../lib/useLibraryEntry'
+import { AnnictCreateRecordButton } from './AnnictCreateRecordButton.tsx'
+import { EverythingSearchButton } from './EverythingSearchButton.tsx'
+import { WorkImage } from './WorkImage.tsx'
+import { WorkNextProgramInfo } from './WorkNextProgramInfo.tsx'
+import { enableEverythingIntegrationState } from '../../lib/atoms.ts'
+import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { CardProps } from '@mantine/core'
 

@@ -3,9 +3,9 @@ import { showNotification } from '@mantine/notifications'
 import { useQueryClient } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 
-import { CreateRecordDocument } from '../../graphql/annict/generated/graphql'
-import { useAnnictClient } from '../../lib/useAnnictClient'
-import { useLibraryEntry } from '../../lib/useLibraryEntry'
+import { CreateRecordDocument } from '../../graphql/annict/generated/graphql.ts'
+import { useAnnictClient } from '../../lib/useAnnictClient.ts'
+import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { ButtonProps } from '@mantine/core'
 

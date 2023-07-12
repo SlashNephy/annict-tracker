@@ -1,8 +1,8 @@
 import { cached_property } from 'cached_property'
 import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
 
-import { SeasonName } from '../graphql/annict/generated/graphql'
-import { AnnictSeason, isStreamingService } from '../lib/services/annict'
+import { SeasonName } from '../graphql/annict/generated/graphql.ts'
+import { AnnictSeason, isStreamingService } from '../lib/services/annict.ts'
 
 import type { DayTag, TimeTag } from './filters'
 import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict'

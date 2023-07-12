@@ -3,7 +3,7 @@ import { showNotification } from '@mantine/notifications'
 import { minutesToMilliseconds } from 'date-fns'
 import { useCallback, useEffect, useState } from 'react'
 
-import { fetchCommits } from './services/github'
+import { fetchCommits } from './services/github.ts'
 
 export const useUpdateChecker = (): void => {
   const [lastCommitDate, setLastCommitDate] = useState<Date | null>(null)

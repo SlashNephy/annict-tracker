@@ -1,7 +1,7 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import type { SyobocalRequest } from '../../pages/api/syobocal'
+import type { SyobocalRequest } from '../../pages/api/syobocal.ts'
 
 export type SyobocalProgram = {
   LastUpdate: string

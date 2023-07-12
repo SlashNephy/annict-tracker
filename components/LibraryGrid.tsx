@@ -2,10 +2,10 @@ import { Alert, Center, Grid, Group, Loader, Text } from '@mantine/core'
 import { IconAlertTriangle } from '@tabler/icons-react'
 import React from 'react'
 
-import { LibraryEntryFilter } from './work/LibraryEntryFilter'
-import { WorkCard } from './work/WorkCard'
-import { useLibraryEntries } from '../lib/useLibraryEntries'
-import { LibraryEntryProvider } from '../lib/useLibraryEntry'
+import { LibraryEntryFilter } from './work/LibraryEntryFilter.tsx'
+import { WorkCard } from './work/WorkCard.tsx'
+import { useLibraryEntries } from '../lib/useLibraryEntries.ts'
+import { LibraryEntryProvider } from '../lib/useLibraryEntry.tsx'
 
 import type { ColProps, GridProps } from '@mantine/core'
 

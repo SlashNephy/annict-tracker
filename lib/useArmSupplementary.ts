@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { minutesToMilliseconds } from 'date-fns'
 
-import { ArmDatabase } from './services/arm'
+import { ArmDatabase } from './services/arm.ts'
 
 export const useArmSupplementary = (isEnabled: boolean): ArmDatabase | undefined => {
   const { data } = useQuery(

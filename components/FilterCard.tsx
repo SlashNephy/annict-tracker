@@ -4,8 +4,8 @@ import { signOut } from 'next-auth/react'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 
-import { CheckboxWithHoverCard } from './CheckboxWithHoverCard'
-import { SeasonName } from '../graphql/annict/generated/graphql'
+import { CheckboxWithHoverCard } from './CheckboxWithHoverCard.tsx'
+import { SeasonName } from '../graphql/annict/generated/graphql.ts'
 import {
   dayFiltersState,
   hideRebroadcastingState,
@@ -13,8 +13,8 @@ import {
   isOnlyCurrentSeasonState,
   seasonFiltersState,
   timeFiltersState,
-} from '../lib/atoms'
-import { useAuthenticatedSession } from '../lib/useAuthenticatedSession'
+} from '../lib/atoms.ts'
+import { useAuthenticatedSession } from '../lib/useAuthenticatedSession.ts'
 import packageJson from '../package.json'
 
 import type { DayTag, TimeTag } from '../models/filters'
