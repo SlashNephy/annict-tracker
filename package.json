@@ -37,7 +37,7 @@
     "@vercel/analytics": "1.0.1",
     "cached_property": "0.1.2",
     "date-fns": "2.30.0",
-    "fast-xml-parser": "4.2.5",
+    "fast-xml-parser": "4.2.6",
     "graphql-request": "6.0.0",
     "js-yaml": "4.1.0",
     "next": "13.4.10",
