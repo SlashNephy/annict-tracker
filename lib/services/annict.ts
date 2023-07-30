@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { GraphQLClient } from 'graphql-request'
 
 import { SeasonName } from '../../graphql/annict/generated/graphql.ts'
