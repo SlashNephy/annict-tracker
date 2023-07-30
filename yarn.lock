@@ -988,15 +988,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/client-preset@npm:4.0.1":
-  version: 4.0.1
-  resolution: "@graphql-codegen/client-preset@npm:4.0.1"
+"@graphql-codegen/client-preset@npm:4.1.0":
+  version: 4.1.0
+  resolution: "@graphql-codegen/client-preset@npm:4.1.0"
   dependencies:
     "@babel/helper-plugin-utils": ^7.20.2
     "@babel/template": ^7.20.7
     "@graphql-codegen/add": ^5.0.0
     "@graphql-codegen/gql-tag-operations": 4.0.1
-    "@graphql-codegen/plugin-helpers": ^5.0.0
+    "@graphql-codegen/plugin-helpers": ^5.0.1
     "@graphql-codegen/typed-document-node": ^5.0.1
     "@graphql-codegen/typescript": ^4.0.1
     "@graphql-codegen/typescript-operations": ^4.0.1
@@ -1007,7 +1007,7 @@ __metadata:
     tslib: ~2.5.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: ddcaaf55575e2f36b4ae7e7caf6c170d72fbd5bd42ccb00c22ed01723ef466e1dab8f37915036047f306098468344ebc004524764be9aca95a8fd68d48e321a9
+  checksum: e4b87a443b1437fc61e2d033af24079a41f6879cfa38af4364d6351decb61a7951d787d4f430324ded7c01ae096a6dbd2d20d00205291c37382c1ea8a820ee19
   languageName: node
   linkType: hard
 
@@ -1053,6 +1053,22 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 9e113bcb840584eff2bbd04379f28eadef72994a06d57b31a00ec691226169dbe2c4df96b9f77cc259d95aa52647bee1c0c0c2ec47538d32fa23ad16eb203f9c
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/plugin-helpers@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@graphql-codegen/plugin-helpers@npm:5.0.1"
+  dependencies:
+    "@graphql-tools/utils": ^10.0.0
+    change-case-all: 1.0.15
+    common-tags: 1.8.2
+    import-from: 4.0.0
+    lodash: ~4.17.0
+    tslib: ~2.5.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 97faa8f87f41292bb5263097b1613733faf07fd0ff375ac89438aa0f2cd91e163d088b63dcafcdb6d66beaba8f7d13005bb980793e71979e9ad61fdfd206a730
   languageName: node
   linkType: hard
 
@@ -4145,7 +4161,7 @@ __metadata:
     "@emotion/react": 11.11.1
     "@emotion/server": 11.11.0
     "@graphql-codegen/cli": 4.0.1
-    "@graphql-codegen/client-preset": 4.0.1
+    "@graphql-codegen/client-preset": 4.1.0
     "@mantine/core": 5.10.5
     "@mantine/hooks": 5.10.5
     "@mantine/next": 5.10.5
