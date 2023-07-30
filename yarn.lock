@@ -4188,7 +4188,7 @@ __metadata:
     eslint-plugin-unused-imports: 3.0.0
     fast-xml-parser: 4.2.6
     graphql: 16.7.1
-    graphql-request: 6.0.0
+    graphql-request: 6.1.0
     hint: 7.1.10
     js-yaml: 4.1.0
     next: 13.4.12
@@ -7451,19 +7451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-request@npm:6.0.0":
-  version: 6.0.0
-  resolution: "graphql-request@npm:6.0.0"
-  dependencies:
-    "@graphql-typed-document-node/core": ^3.2.0
-    cross-fetch: ^3.1.5
-  peerDependencies:
-    graphql: 14 - 16
-  checksum: e3acc6267c3d25d6dea7144823b3552c3533489269272e651e2a16c45575ccb357bb1dd3c78c1b6c379d4080377bc5694f589bd681d822c9647f6b1736239428
-  languageName: node
-  linkType: hard
-
-"graphql-request@npm:^6.0.0":
+"graphql-request@npm:6.1.0, graphql-request@npm:^6.0.0":
   version: 6.1.0
   resolution: "graphql-request@npm:6.1.0"
   dependencies:
