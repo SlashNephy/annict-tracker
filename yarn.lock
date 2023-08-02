@@ -3994,7 +3994,7 @@ __metadata:
     "@types/react": 18.2.17
     "@types/react-dom": 18.2.7
     "@vercel/analytics": 1.0.1
-    cached_property: 0.1.2
+    cached_property: 0.1.3
     concurrently: 8.2.0
     date-fns: 2.30.0
     eslint: 8.46.0
@@ -4595,10 +4595,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cached_property@npm:0.1.2":
-  version: 0.1.2
-  resolution: "cached_property@npm:0.1.2"
-  checksum: 9516552f2a1ad6e6c712604fd418e9f909b9265c46589b87e53e19a31657825ddf31ac6cecee31484857fa9ae08c85130e9aa4940378f78da7dcc7d41f40c800
+"cached_property@npm:0.1.3":
+  version: 0.1.3
+  resolution: "cached_property@npm:0.1.3"
+  checksum: f3a1eca077fd4bc40202ad0f6a3bc69e420f02e5ca33168ddcd9774abe8f26014d5891adbf6eb5bdba7e48da85a4b3a1d49d72bd6caaa7ed08b23c5fca47e17e
   languageName: node
   linkType: hard
 
