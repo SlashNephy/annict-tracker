@@ -58,7 +58,7 @@
     "@types/react-dom": "18.2.7",
     "concurrently": "8.2.0",
     "eslint": "8.47.0",
-    "graphql": "16.7.1",
+    "graphql": "16.8.0",
     "hint": "7.1.10",
     "prettier": "3.0.1",
     "typescript": "5.1.6"
