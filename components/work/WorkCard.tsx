@@ -15,7 +15,7 @@ import type { CardProps } from '@mantine/core'
 export function WorkCard(props: Omit<CardProps, 'children'>): React.ReactElement {
   const { entry } = useLibraryEntry()
   const configs = useRecoilValue(integrationConfigsState)
-  const isFileSearchable = useMemo(() => configs.some((x) => x.isEnabled), [configs])
+  const effectiveConfigs = useMemo(() => configs.filter((x) => x.isEnabled), [configs])
 
   return (
     <Card {...props}>
@@ -55,11 +55,11 @@ export function WorkCard(props: Omit<CardProps, 'children'>): React.ReactElement
             radius="md"
             variant="light"
           />
-          {isFileSearchable && (
+          {effectiveConfigs.length > 0 && (
             <FileSearchButton
               fullWidth
               color="blue"
-              configs={configs}
+              configs={effectiveConfigs}
               leftIcon={<IconSearch />}
               mt="md"
               radius="md"
