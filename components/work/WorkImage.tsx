@@ -1,6 +1,7 @@
 import { Image } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
+import { hasMinLength } from 'ts-array-length'
 
 import { LocalStorageCacheManager } from '../../lib/cache.ts'
 import { fetchJikanAnimePictures } from '../../lib/services/jikan.ts'
@@ -36,8 +37,8 @@ export function WorkImage(props: Omit<ImageProps, 'src'>): React.ReactElement {
         return cache
       }
 
-      try {
-        const response = await fetchJikanAnimePictures(workMalId)
+      const response = await fetchJikanAnimePictures(workMalId)
+      if (hasMinLength(response.data, 1)) {
         const url = response.data[0].webp?.large_image_url ?? response.data[0].jpg?.large_image_url ?? null
         LocalStorageCacheManager.set(`work-image-${workMalId}`, url, {
           ttl: {
@@ -46,7 +47,7 @@ export function WorkImage(props: Omit<ImageProps, 'src'>): React.ReactElement {
         })
 
         return url
-      } catch {
+      } else {
         return workImageUrl ?? null
       }
     },

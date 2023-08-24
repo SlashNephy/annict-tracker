@@ -4006,6 +4006,7 @@ __metadata:
     react-dom: 18.2.0
     recoil: 0.7.7
     recoil-persist: 4.2.0
+    ts-array-length: 0.1.2
     typescript: 5.1.6
   languageName: unknown
   linkType: soft
@@ -11675,6 +11676,13 @@ __metadata:
   peerDependencies:
     typescript: ">=4.2.0"
   checksum: 6375e12ba90b6cbe73f564405248da14c52aa44b62b386e1cbbb1da2640265dd33e99d3e019688dffa874e365cf596b161ccd49351e90638be825c2639697640
+  languageName: node
+  linkType: hard
+
+"ts-array-length@npm:0.1.2":
+  version: 0.1.2
+  resolution: "ts-array-length@npm:0.1.2"
+  checksum: 00a5ca7471f64ad6b4f6e05f444fc1095e580ffe3859d76ff7ec23d7d630a5e7a16349931b77f7f60d3c0e8193ef22d9f6f9308a32ced2cdede36388455d0454
   languageName: node
   linkType: hard
 

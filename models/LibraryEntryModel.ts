@@ -53,7 +53,9 @@ export class LibraryEntryModel {
       return null
     }
 
-    return ['日', '月', '火', '水', '木', '金', '土'][this.nextProgramStartAt.getDay()]
+    const literals = ['日', '月', '火', '水', '木', '金', '土'] as const
+    const day = this.nextProgramStartAt.getDay() as 0 | 1 | 2 | 3 | 4 | 5 | 6
+    return literals[day]
   }
 
   public get nextEpisode(): AnnictEpisode | null {
@@ -114,8 +116,9 @@ export class LibraryEntryModel {
       return 'unset'
     }
 
-    const tags = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'] as DayTag[]
-    return tags[this.nextProgramStartAt.getDay()]
+    const tags = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'] as const
+    const day = this.nextProgramStartAt.getDay() as 0 | 1 | 2 | 3 | 4 | 5 | 6
+    return tags[day]
   }
 
   public get sort(): number {

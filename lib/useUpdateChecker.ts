@@ -2,6 +2,7 @@ import { useInterval } from '@mantine/hooks'
 import { showNotification } from '@mantine/notifications'
 import { minutesToMilliseconds } from 'date-fns'
 import { useCallback, useEffect, useState } from 'react'
+import { isNonEmpty } from 'ts-array-length'
 
 import { fetchCommits } from './services/github.ts'
 
@@ -24,7 +25,7 @@ export const useUpdateChecker = (): void => {
           throw new Error(`GitHub API returned an error: ${response.message} (${response.documentation_url})`)
         }
 
-        if (response.length === 0) {
+        if (!isNonEmpty(response)) {
           return
         }
 
