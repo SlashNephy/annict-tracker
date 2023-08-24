@@ -1,11 +1,29 @@
-import { ActionIcon, Card, Center, Checkbox, Chip, Container, Group, HoverCard, Stack, Text } from '@mantine/core'
-import { IconChecks, IconTrash } from '@tabler/icons-react'
+import {
+  ActionIcon,
+  Card,
+  Center,
+  Checkbox,
+  Chip,
+  Container,
+  Group,
+  HoverCard,
+  Stack,
+  Text,
+  TextInput,
+} from '@mantine/core'
+import { IconChecks, IconTrash, IconWorldWww } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { AppLayout } from '../components/AppLayout.tsx'
 import { CheckboxWithLabel } from '../components/CheckboxWithLabel.tsx'
-import { enableEverythingIntegrationState, enableSyobocalState, syobocalChannelsState } from '../lib/atoms.ts'
+import {
+  enableEpgStationIntegrationState,
+  enableEverythingIntegrationState,
+  enableSyobocalState,
+  epgStationUrlState,
+  syobocalChannelsState,
+} from '../lib/atoms.ts'
 import { filterSayaChannel } from '../lib/services/saya.ts'
 import { useBrowserNotification } from '../lib/useBrowserNotification.tsx'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
@@ -16,6 +34,8 @@ export default function Settings(): React.ReactElement {
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
   const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
   const [enableEverythingIntegration, setEnableEverythingIntegration] = useRecoilState(enableEverythingIntegrationState)
+  const [enableEpgStationIntegration, setEnableEpgStationIntegration] = useRecoilState(enableEpgStationIntegrationState)
+  const [epgStationUrl, setEpgStationUrl] = useRecoilState(epgStationUrlState)
 
   const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
   const saya = useSaya(enableSyobocal)
@@ -109,12 +129,33 @@ export default function Settings(): React.ReactElement {
 
               <CheckboxWithLabel
                 checked={enableEverythingIntegration}
-                description="録画ファイルを Everything で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
+                description="録画ファイルを Everything (Windows) で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
                 label="Everything 統合を有効にする"
                 onChange={(event) => {
                   setEnableEverythingIntegration(event.target.checked)
                 }}
               />
+
+              <CheckboxWithLabel
+                checked={enableEpgStationIntegration}
+                description="録画ファイルを EPGStation で検索可能にします。EPGStation の URL を設定する必要があります。"
+                label="EPGStation 統合を有効にする"
+                onChange={(event) => {
+                  setEnableEpgStationIntegration(event.target.checked)
+                }}
+              />
+              {enableEpgStationIntegration && (
+                <TextInput
+                  description="トップページの URL を入力します。"
+                  icon={<IconWorldWww />}
+                  label="EPGStation の URL"
+                  placeholder="http://localhost:8888"
+                  value={epgStationUrl}
+                  onChange={(event) => {
+                    setEpgStationUrl(event.target.value)
+                  }}
+                />
+              )}
             </Stack>
           </Card>
         </Center>

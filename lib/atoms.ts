@@ -1,7 +1,7 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import { atom } from 'recoil'
+import { atom, selector } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
 import { SeasonName } from '../graphql/annict/generated/graphql.ts'
@@ -70,18 +70,62 @@ export const programNotificationThresholdMinutesState = atom<number>({
   effects_UNSTABLE: [persistAtom],
 })
 
-export const notificationHistoriesState = atom({
+export const notificationHistoriesState = atom<string[]>({
   key: 'notification-histories',
-  default: [] as string[],
+  default: [],
 })
 
-export const isNavbarExpandState = atom({
+export const isNavbarExpandState = atom<boolean>({
   key: 'is-navbar-expand',
   default: false,
+  effects_UNSTABLE: [persistAtom],
 })
 
 export const enableEverythingIntegrationState = atom<boolean>({
   key: 'enable-everything-integration',
   default: false,
   effects_UNSTABLE: [persistAtom],
+})
+
+export const enableEpgStationIntegrationState = atom<boolean>({
+  key: 'enable-epgstation-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const epgStationUrlState = atom<string>({
+  key: 'epgstation-url',
+  default: 'http://localhost:8888',
+  effects_UNSTABLE: [persistAtom],
+})
+
+export type SearchIntegrationKey = 'everything' | 'epgstation'
+type SearchIntegrationConfigBase = {
+  key: SearchIntegrationKey
+  isEnabled: boolean
+}
+type EverythingSearchIntegrationConfig = SearchIntegrationConfigBase & {
+  key: 'everything'
+}
+type EpgStationSearchIntegrationConfig = SearchIntegrationConfigBase & {
+  key: 'epgstation'
+  url: string
+}
+export type SearchIntegrationConfig = EverythingSearchIntegrationConfig | EpgStationSearchIntegrationConfig
+
+export const integrationConfigsState = selector<SearchIntegrationConfig[]>({
+  key: 'integration-configs',
+  get({ get }) {
+    return [
+      {
+        key: 'everything' as const,
+        isEnabled: get(enableEverythingIntegrationState),
+      },
+      {
+        key: 'epgstation' as const,
+        isEnabled: get(enableEpgStationIntegrationState),
+        url: get(epgStationUrlState),
+      },
+    ]
+  },
 })
