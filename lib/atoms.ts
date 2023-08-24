@@ -113,8 +113,8 @@ type EpgStationSearchIntegrationConfig = SearchIntegrationConfigBase & {
 }
 export type SearchIntegrationConfig = EverythingSearchIntegrationConfig | EpgStationSearchIntegrationConfig
 
-export const integrationConfigsState = selector<SearchIntegrationConfig[]>({
-  key: 'integration-configs',
+export const effectiveIntegrationConfigsState = selector<SearchIntegrationConfig[]>({
+  key: 'effective-integration-configs',
   get({ get }) {
     return [
       {
@@ -126,6 +126,6 @@ export const integrationConfigsState = selector<SearchIntegrationConfig[]>({
         isEnabled: get(enableEpgStationIntegrationState),
         url: get(epgStationUrlState),
       },
-    ]
+    ].filter((x) => x.isEnabled)
   },
 })

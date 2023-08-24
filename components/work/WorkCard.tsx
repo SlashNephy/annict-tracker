@@ -1,21 +1,20 @@
 import { Anchor, Button, Card, Stack, Text, Title } from '@mantine/core'
 import { IconCheck, IconPhotoOff, IconSearch } from '@tabler/icons-react'
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { AnnictCreateRecordButton } from './AnnictCreateRecordButton.tsx'
 import { FileSearchButton } from './FileSearchButton.tsx'
 import { WorkImage } from './WorkImage.tsx'
 import { WorkNextProgramInfo } from './WorkNextProgramInfo.tsx'
-import { integrationConfigsState } from '../../lib/atoms.ts'
+import { effectiveIntegrationConfigsState } from '../../lib/atoms.ts'
 import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { CardProps } from '@mantine/core'
 
 export function WorkCard(props: Omit<CardProps, 'children'>): React.ReactElement {
   const { entry } = useLibraryEntry()
-  const configs = useRecoilValue(integrationConfigsState)
-  const effectiveConfigs = useMemo(() => configs.filter((x) => x.isEnabled), [configs])
+  const configs = useRecoilValue(effectiveIntegrationConfigsState)
 
   return (
     <Card {...props}>
@@ -55,11 +54,11 @@ export function WorkCard(props: Omit<CardProps, 'children'>): React.ReactElement
             radius="md"
             variant="light"
           />
-          {effectiveConfigs.length > 0 && (
+          {configs.length > 0 && (
             <FileSearchButton
               fullWidth
               color="blue"
-              configs={effectiveConfigs}
+              configs={configs}
               leftIcon={<IconSearch />}
               mt="md"
               radius="md"
