@@ -5,22 +5,32 @@ import {
   Checkbox,
   Chip,
   Container,
+  Divider,
   Group,
   HoverCard,
   Stack,
+  Switch,
   Text,
   TextInput,
 } from '@mantine/core'
-import { IconChecks, IconTrash, IconWorldWww } from '@tabler/icons-react'
+import { IconChecks, IconSparkles, IconTrash, IconWorldWww } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { AppLayout } from '../components/AppLayout.tsx'
 import { CheckboxWithLabel } from '../components/CheckboxWithLabel.tsx'
 import {
+  enableAbemaIntegrationState,
+  enableBandaiChannelIntegrationState,
+  enableDanimeIntegrationState,
+  enableDanimeNiconicoIntegrationState,
   enableEpgStationIntegrationState,
   enableEverythingIntegrationState,
+  enableNetflixIntegrationState,
+  enableNiconicoChannelIntegrationState,
+  enablePrimeVideoIntegrationState,
   enableSyobocalState,
+  enableYouTubeIntegrationState,
   epgStationUrlState,
   syobocalChannelsState,
 } from '../lib/atoms.ts'
@@ -36,6 +46,20 @@ export default function Settings(): React.ReactElement {
   const [enableEverythingIntegration, setEnableEverythingIntegration] = useRecoilState(enableEverythingIntegrationState)
   const [enableEpgStationIntegration, setEnableEpgStationIntegration] = useRecoilState(enableEpgStationIntegrationState)
   const [epgStationUrl, setEpgStationUrl] = useRecoilState(epgStationUrlState)
+  const [enableDanimeIntegration, setEnableDanimeIntegration] = useRecoilState(enableDanimeIntegrationState)
+  const [enableDanimeNiconicoIntegration, setEnableDanimeNiconicoIntegration] = useRecoilState(
+    enableDanimeNiconicoIntegrationState
+  )
+  const [enableAbemaIntegration, setEnableAbemaIntegration] = useRecoilState(enableAbemaIntegrationState)
+  const [enableNetflixIntegration, setEnableNetflixIntegration] = useRecoilState(enableNetflixIntegrationState)
+  const [enablePrimeVideoIntegration, setEnablePrimeVideoIntegration] = useRecoilState(enablePrimeVideoIntegrationState)
+  const [enableNiconicoChannelIntegration, setEnableNiconicoChannelIntegration] = useRecoilState(
+    enableNiconicoChannelIntegrationState
+  )
+  const [enableBandaiChannelIntegration, setEnableBandaiChannelIntegration] = useRecoilState(
+    enableBandaiChannelIntegrationState
+  )
+  const [enableYouTubeIntegration, setEnableYouTubeIntegration] = useRecoilState(enableYouTubeIntegrationState)
 
   const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
   const saya = useSaya(enableSyobocal)
@@ -127,35 +151,118 @@ export default function Settings(): React.ReactElement {
                 }}
               />
 
-              <CheckboxWithLabel
-                checked={enableEverythingIntegration}
-                description="録画ファイルを Everything (Windows) で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
-                label="Everything 統合を有効にする"
-                onChange={(event) => {
-                  setEnableEverythingIntegration(event.target.checked)
-                }}
-              />
+              <Divider />
 
-              <CheckboxWithLabel
-                checked={enableEpgStationIntegration}
-                description="録画ファイルを EPGStation で検索可能にします。EPGStation の URL を設定する必要があります。"
-                label="EPGStation 統合を有効にする"
-                onChange={(event) => {
-                  setEnableEpgStationIntegration(event.target.checked)
-                }}
-              />
-              {enableEpgStationIntegration && (
-                <TextInput
-                  description="トップページの URL を入力します。"
-                  icon={<IconWorldWww />}
-                  label="EPGStation の URL"
-                  placeholder="http://localhost:8888"
-                  value={epgStationUrl}
-                  onChange={(event) => {
-                    setEpgStationUrl(event.target.value)
-                  }}
-                />
-              )}
+              <Group>
+                <Stack>
+                  <Group>
+                    <IconSparkles />
+                    <Text>外部サービスとの統合</Text>
+                  </Group>
+                  <Text size="sm">録画ファイルを以下のプロバイダー内で検索可能にします。</Text>
+
+                  <Switch
+                    checked={enableEverythingIntegration}
+                    description="録画ファイルを Everything (Windows) で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
+                    label="Everything"
+                    onChange={(event) => {
+                      setEnableEverythingIntegration(event.target.checked)
+                    }}
+                  />
+
+                  <Switch
+                    checked={enableEpgStationIntegration}
+                    description="録画ファイルを EPGStation で検索可能にします。ご自身で稼働させている EPGStation の URL を設定する必要があります。"
+                    label="EPGStation"
+                    onChange={(event) => {
+                      setEnableEpgStationIntegration(event.target.checked)
+                    }}
+                  />
+                  {enableEpgStationIntegration && (
+                    <TextInput
+                      description="EPGStation トップページの URL を入力します。"
+                      icon={<IconWorldWww />}
+                      label="EPGStation 統合で使用される URL"
+                      pl="xl"
+                      placeholder="http://localhost:8888"
+                      value={epgStationUrl}
+                      onChange={(event) => {
+                        setEpgStationUrl(event.target.value)
+                      }}
+                    />
+                  )}
+                </Stack>
+
+                <Stack>
+                  <Text size="sm">作品を以下のストリーミングサービス内で検索可能にします。</Text>
+
+                  <Group>
+                    <Switch
+                      checked={enableDanimeIntegration}
+                      label="dアニメストア"
+                      onChange={(event) => {
+                        setEnableDanimeIntegration(event.target.checked)
+                      }}
+                    />
+
+                    <Switch
+                      checked={enableDanimeNiconicoIntegration}
+                      label="dアニメストア ニコニコ支店"
+                      onChange={(event) => {
+                        setEnableDanimeNiconicoIntegration(event.target.checked)
+                      }}
+                    />
+
+                    <Switch
+                      checked={enableAbemaIntegration}
+                      label="ABEMA"
+                      onChange={(event) => {
+                        setEnableAbemaIntegration(event.target.checked)
+                      }}
+                    />
+
+                    <Switch
+                      checked={enableNetflixIntegration}
+                      label="Netflix"
+                      onChange={(event) => {
+                        setEnableNetflixIntegration(event.target.checked)
+                      }}
+                    />
+
+                    <Switch
+                      checked={enablePrimeVideoIntegration}
+                      label="Prime Video"
+                      onChange={(event) => {
+                        setEnablePrimeVideoIntegration(event.target.checked)
+                      }}
+                    />
+
+                    <Switch
+                      checked={enableNiconicoChannelIntegration}
+                      label="ニコニコチャンネル"
+                      onChange={(event) => {
+                        setEnableNiconicoChannelIntegration(event.target.checked)
+                      }}
+                    />
+
+                    <Switch
+                      checked={enableBandaiChannelIntegration}
+                      label="バンダイチャンネル"
+                      onChange={(event) => {
+                        setEnableBandaiChannelIntegration(event.target.checked)
+                      }}
+                    />
+
+                    <Switch
+                      checked={enableYouTubeIntegration}
+                      label="YouTube"
+                      onChange={(event) => {
+                        setEnableYouTubeIntegration(event.target.checked)
+                      }}
+                    />
+                  </Group>
+                </Stack>
+              </Group>
             </Stack>
           </Card>
         </Center>

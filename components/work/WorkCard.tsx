@@ -54,7 +54,7 @@ export function WorkCard(props: Omit<CardProps, 'children'>): React.ReactElement
             radius="md"
             variant="light"
           />
-          {configs.length > 0 && (
+          {Object.keys(configs).length > 0 && (
             <FileSearchButton
               fullWidth
               color="blue"

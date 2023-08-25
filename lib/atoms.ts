@@ -7,6 +7,7 @@ import { recoilPersist } from 'recoil-persist'
 import { SeasonName } from '../graphql/annict/generated/graphql.ts'
 
 import type { DayTag, TimeTag } from '../models/filters'
+import type { RecoilState } from 'recoil'
 
 const { persistAtom } = recoilPersist()
 
@@ -99,33 +100,122 @@ export const epgStationUrlState = atom<string>({
   effects_UNSTABLE: [persistAtom],
 })
 
-export type SearchIntegrationKey = 'everything' | 'epgstation'
-type SearchIntegrationConfigBase = {
-  key: SearchIntegrationKey
+export const enableDanimeIntegrationState = atom<boolean>({
+  key: 'enable-danime-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const enableDanimeNiconicoIntegrationState = atom<boolean>({
+  key: 'enable-danime-niconico-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const enableAbemaIntegrationState = atom<boolean>({
+  key: 'enable-abema-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const enableNetflixIntegrationState = atom<boolean>({
+  key: 'enable-netflix-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const enablePrimeVideoIntegrationState = atom<boolean>({
+  key: 'enable-prime-video-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const enableNiconicoChannelIntegrationState = atom<boolean>({
+  key: 'enable-niconico_channel-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const enableBandaiChannelIntegrationState = atom<boolean>({
+  key: 'enable-bandai-channel-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export const enableYouTubeIntegrationState = atom<boolean>({
+  key: 'enable-youtube-integration',
+  default: false,
+  effects_UNSTABLE: [persistAtom],
+})
+
+export type SearchIntegrationKey =
+  | 'everything'
+  | 'epgstation'
+  | 'd_anime'
+  | 'd_anime_niconico'
+  | 'abema'
+  | 'netflix'
+  | 'prime_video'
+  | 'niconico_channel'
+  | 'bandai_channel'
+  | 'youtube'
+type SearchIntegrationKeyWithAdditionalConfig = 'epgstation'
+type SearchIntegrationKeyWithoutAdditionalConfig = Exclude<
+  SearchIntegrationKey,
+  SearchIntegrationKeyWithAdditionalConfig
+>
+type GeneralSearchIntegrationConfig<K extends SearchIntegrationKey> = {
+  key: K
   isEnabled: boolean
 }
-type EverythingSearchIntegrationConfig = SearchIntegrationConfigBase & {
-  key: 'everything'
-}
-type EpgStationSearchIntegrationConfig = SearchIntegrationConfigBase & {
-  key: 'epgstation'
+type EpgStationSearchIntegrationConfig = GeneralSearchIntegrationConfig<'epgstation'> & {
   url: string
 }
-export type SearchIntegrationConfig = EverythingSearchIntegrationConfig | EpgStationSearchIntegrationConfig
+export type SearchIntegrationConfig<K extends SearchIntegrationKey> =
+  K extends SearchIntegrationKeyWithoutAdditionalConfig
+    ? GeneralSearchIntegrationConfig<K>
+    : K extends 'epgstation'
+    ? EpgStationSearchIntegrationConfig
+    : never
+export type EffectiveSearchIntegrationConfigs = { [K in SearchIntegrationKey]?: SearchIntegrationConfig<K> }
 
-export const effectiveIntegrationConfigsState = selector<SearchIntegrationConfig[]>({
+export const effectiveIntegrationConfigsState = selector<EffectiveSearchIntegrationConfigs>({
   key: 'effective-integration-configs',
   get({ get }) {
-    return [
-      {
-        key: 'everything' as const,
-        isEnabled: get(enableEverythingIntegrationState),
-      },
-      {
-        key: 'epgstation' as const,
-        isEnabled: get(enableEpgStationIntegrationState),
+    const configs: EffectiveSearchIntegrationConfigs = {}
+
+    const states: Record<SearchIntegrationKeyWithoutAdditionalConfig, RecoilState<boolean>> = {
+      everything: enableEverythingIntegrationState,
+      d_anime: enableDanimeIntegrationState,
+      d_anime_niconico: enableDanimeNiconicoIntegrationState,
+      abema: enableAbemaIntegrationState,
+      netflix: enableNetflixIntegrationState,
+      prime_video: enablePrimeVideoIntegrationState,
+      niconico_channel: enableNiconicoChannelIntegrationState,
+      bandai_channel: enableBandaiChannelIntegrationState,
+      youtube: enableYouTubeIntegrationState,
+    }
+
+    for (const [key, state] of Object.entries(states)) {
+      if (!get(state)) {
+        continue
+      }
+
+      // @ts-expect-error Object.entries() always return [string, T][]
+      configs[key] = {
+        key,
+        isEnabled: true,
+      }
+    }
+
+    if (get(enableEpgStationIntegrationState)) {
+      configs.epgstation = {
+        key: 'epgstation',
+        isEnabled: true,
         url: get(epgStationUrlState),
-      },
-    ].filter((x) => x.isEnabled)
+      }
+    }
+
+    return configs
   },
 })
