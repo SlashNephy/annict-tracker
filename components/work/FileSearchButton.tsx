@@ -28,19 +28,22 @@ import type { TablerIconsProps } from '@tabler/icons-react'
 type SearchIntegrationActionContext<K extends SearchIntegrationKey> = {
   entry: LibraryEntryModel
   config: SearchIntegrationConfig<K>
-  vods: AnnictVodData[]
+  vods?: AnnictVodData[]
 }
 
 type SearchIntegrationAction<K extends SearchIntegrationKey> = {
   title: string
+  type: 'search' | 'vod'
+  vod?: AnnictVodData
   icon: React.FC<TablerIconsProps>
-  isAvailable?(context: SearchIntegrationActionContext<K>): boolean
+  isAvailable(context: SearchIntegrationActionContext<K>): boolean
   search(context: SearchIntegrationActionContext<K>): void
 }
 
 const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   everything: {
     title: 'Everything',
+    type: 'search',
     icon: IconBrandWindows,
     isAvailable(): boolean {
       return window.navigator.userAgent.toLowerCase().includes('windows')
@@ -52,6 +55,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   epgstation: {
     title: 'EPGStation',
+    type: 'search',
     icon: IconDeviceTvOld,
     isAvailable({ config }): boolean {
       try {
@@ -69,15 +73,19 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   d_anime: {
     title: 'dアニメストア',
+    type: 'vod',
     icon: IconMovie,
-    search: ({ entry, vods }) => {
-      // 参照可能な場合は直接開く
-      const vod = vods.find(
+    isAvailable({ entry, vods }): boolean {
+      this.vod = vods?.find(
         (x) =>
           x.work_id === entry.work.annictId && x.channel_id === annictChannelIds.d_anime && x.vod_code !== undefined
       )
-      if (vod !== undefined) {
-        const url = `https://animestore.docomo.ne.jp/animestore/ci_pc?workId=${vod.vod_code}`
+      return this.vod !== undefined
+    },
+    search({ entry }) {
+      // 参照可能な場合は直接開く
+      if (this.vod !== undefined) {
+        const url = `https://animestore.docomo.ne.jp/animestore/ci_pc?workId=${this.vod.vod_code}`
         window.open(url)
         return
       }
@@ -91,17 +99,21 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   d_anime_niconico: {
     title: 'dアニメストア ニコニコ支店',
+    type: 'vod',
     icon: IconMovie,
-    search: ({ entry, vods }) => {
-      // 参照可能な場合は直接開く
-      const vod = vods.find(
+    isAvailable({ entry, vods }): boolean {
+      this.vod = vods?.find(
         (x) =>
           x.work_id === entry.work.annictId &&
           x.channel_id === annictChannelIds.d_anime_niconico &&
           x.vod_code !== undefined
       )
-      if (vod !== undefined) {
-        const url = `https://www.nicovideo.jp/series/${vod.vod_code}`
+      return this.vod !== undefined
+    },
+    search({ entry }) {
+      // 参照可能な場合は直接開く
+      if (this.vod !== undefined) {
+        const url = `https://www.nicovideo.jp/series/${this.vod.vod_code}`
         window.open(url)
         return
       }
@@ -115,14 +127,18 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   abema: {
     title: 'ABEMA',
+    type: 'vod',
     icon: IconMovie,
-    search: ({ entry, vods }) => {
-      // 参照可能な場合は直接開く
-      const vod = vods.find(
+    isAvailable({ entry, vods }): boolean {
+      this.vod = vods?.find(
         (x) => x.work_id === entry.work.annictId && x.channel_id === annictChannelIds.abema && x.vod_code !== undefined
       )
-      if (vod !== undefined) {
-        const url = `https://abema.tv/video/title/${vod.vod_code}`
+      return this.vod !== undefined
+    },
+    search({ entry }) {
+      // 参照可能な場合は直接開く
+      if (this.vod !== undefined) {
+        const url = `https://abema.tv/video/title/${this.vod.vod_code}`
         window.open(url)
         return
       }
@@ -134,15 +150,19 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   netflix: {
     title: 'Netflix',
+    type: 'vod',
     icon: IconBrandNetflix,
-    search: ({ entry, vods }) => {
-      // 参照可能な場合は直接開く
-      const vod = vods.find(
+    isAvailable({ entry, vods }): boolean {
+      this.vod = vods?.find(
         (x) =>
           x.work_id === entry.work.annictId && x.channel_id === annictChannelIds.netflix && x.vod_code !== undefined
       )
-      if (vod !== undefined) {
-        const url = `https://www.netflix.com/title/${vod.vod_code}`
+      return this.vod !== undefined
+    },
+    search({ entry }) {
+      // 参照可能な場合は直接開く
+      if (this.vod !== undefined) {
+        const url = `https://www.netflix.com/title/${this.vod.vod_code}`
         window.open(url)
         return
       }
@@ -154,15 +174,19 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   prime_video: {
     title: 'Prime Video',
+    type: 'vod',
     icon: IconBrandAmazon,
-    search: ({ entry, vods }) => {
-      // 参照可能な場合は直接開く
-      const vod = vods.find(
+    isAvailable({ entry, vods }): boolean {
+      this.vod = vods?.find(
         (x) =>
           x.work_id === entry.work.annictId && x.channel_id === annictChannelIds.prime_video && x.vod_code !== undefined
       )
-      if (vod !== undefined) {
-        const url = `https://www.amazon.co.jp/dp/${vod.vod_code}`
+      return this.vod !== undefined
+    },
+    search({ entry }) {
+      // 参照可能な場合は直接開く
+      if (this.vod !== undefined) {
+        const url = `https://www.amazon.co.jp/dp/${this.vod.vod_code}`
         window.open(url)
         return
       }
@@ -174,17 +198,21 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   niconico_channel: {
     title: 'ニコニコチャンネル',
+    type: 'vod',
     icon: IconMovie,
-    search: ({ entry, vods }) => {
-      // 参照可能な場合は直接開く
-      const vod = vods.find(
+    isAvailable({ entry, vods }): boolean {
+      this.vod = vods?.find(
         (x) =>
           x.work_id === entry.work.annictId &&
           x.channel_id === annictChannelIds.niconico_channel &&
           x.vod_code !== undefined
       )
-      if (vod !== undefined) {
-        const url = `https://ch.nicovideo.jp/${vod.vod_code}`
+      return this.vod !== undefined
+    },
+    search({ entry }) {
+      // 参照可能な場合は直接開く
+      if (this.vod !== undefined) {
+        const url = `https://ch.nicovideo.jp/${this.vod.vod_code}`
         window.open(url)
         return
       }
@@ -196,17 +224,21 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   bandai_channel: {
     title: 'バンダイチャンネル',
+    type: 'vod',
     icon: IconMovie,
-    search: ({ entry, vods }) => {
-      // 参照可能な場合は直接開く
-      const vod = vods.find(
+    isAvailable({ entry, vods }): boolean {
+      this.vod = vods?.find(
         (x) =>
           x.work_id === entry.work.annictId &&
           x.channel_id === annictChannelIds.bandai_channel &&
           x.vod_code !== undefined
       )
-      if (vod !== undefined) {
-        const url = `https://www.b-ch.com/ttl/index.php?ttl_c=${vod.vod_code}`
+      return this.vod !== undefined
+    },
+    search({ entry }) {
+      // 参照可能な場合は直接開く
+      if (this.vod !== undefined) {
+        const url = `https://www.b-ch.com/ttl/index.php?ttl_c=${this.vod.vod_code}`
         window.open(url)
         return
       }
@@ -218,6 +250,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   youtube: {
     title: 'YouTube',
+    type: 'search',
     icon: IconBrandYoutube,
     isAvailable(): boolean {
       return true
@@ -269,7 +302,7 @@ export function FileSearchButton({ configs, ...props }: FileSearchButtonProps): 
         {...props}
         disabled={isDisabled}
         onClick={() => {
-          integration.search({ entry, config: integration.config, vods: vods ?? [] })
+          integration.search({ entry, config: integration.config, vods })
         }}
       >
         {integration.title}
@@ -285,20 +318,22 @@ export function FileSearchButton({ configs, ...props }: FileSearchButtonProps): 
         </Button>
       </Menu.Target>
       <Menu.Dropdown>
-        {integrations.map((integration) => {
-          const Icon = integration.icon
-          return (
-            <Menu.Item
-              key={integration.title}
-              icon={<Icon size="1rem" stroke={1.5} />}
-              onClick={() => {
-                integration.search({ entry, config: integration.config, vods: vods ?? [] })
-              }}
-            >
-              {`${integration.title} で検索`}
-            </Menu.Item>
-          )
-        })}
+        {integrations
+          .filter((integration) => integration.isAvailable({ entry, config: integration.config, vods }))
+          .map((integration) => {
+            const Icon = integration.icon
+            return (
+              <Menu.Item
+                key={integration.title}
+                icon={<Icon size="1rem" stroke={1.5} />}
+                onClick={() => {
+                  integration.search({ entry, config: integration.config, vods })
+                }}
+              >
+                {`${integration.title} で${integration.type === 'search' ? '検索' : '視聴'}`}
+              </Menu.Item>
+            )
+          })}
       </Menu.Dropdown>
     </Menu>
   )
