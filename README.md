@@ -5,13 +5,21 @@
 
 annict-tracker は Annict の視聴記録を便利にする Web アプリケーションです。
 
+https://annict-tracker.vercel.app で公開しています。
+
+## Features
+
+✨　
+
 ## Gallery
 
-<img width="696" alt="image" src="https://user-images.githubusercontent.com/7302150/197771681-2d0f0e53-4f15-493e-8025-b8d3fc0b2328.png">
+<img width="679" alt="disclaimer" src="https://github.com/SlashNephy/annict-tracker/assets/7302150/4577cea6-66d1-41c4-a5f7-eb75e60ce140">
 
-<img width="1024" alt="image" src="https://user-images.githubusercontent.com/7302150/197772434-c646a93a-6883-4eed-bda0-386a261aeff3.png">
+<img width="1799" alt="main view" src="https://github.com/SlashNephy/annict-tracker/assets/7302150/219b7c8b-c2dd-40c7-80e3-11376256f36c">
 
-<img width="966" alt="image" src="https://user-images.githubusercontent.com/7302150/197772831-bd61938b-e627-46e5-b84b-34d1ce86b022.png">
+<img width="1318" alt="controls" src="https://github.com/SlashNephy/annict-tracker/assets/7302150/8eb193ae-5b72-4229-a815-db65e0ae91ed">
+
+<img width="967" alt="settings" src="https://github.com/SlashNephy/annict-tracker/assets/7302150/a1f0d1ae-dbf3-404d-bfec-5f343d18f613">
 
 ## Get Started
 
