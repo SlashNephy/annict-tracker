@@ -77,17 +77,39 @@ const exampleAnnictProfile = {
 }
 export type AnnictProfile = typeof exampleAnnictProfile
 
+// https://annict.com/db/channels
+export const annictChannelIds = {
+  bandai_channel: 107,
+  niconico_channel: 165,
+  d_anime: 241,
+  prime_video: 243,
+  netflix: 244,
+  abema: 260,
+  d_anime_niconico: 306,
+}
+
 export const isStreamingService = (channelId?: number): boolean => {
-  // https://annict.com/db/channels
-  switch (channelId) {
-    case 243: // Amazon プライム・ビデオ
-    case 244: // Netflix
-    case 107: // バンダイチャンネル
-    case 165: // ニコニコチャンネル
-    case 241: // dアニメストア
-    case 306: // dアニメストア ニコニコ支店
-      return true
-    default:
-      return false
+  if (channelId === undefined) {
+    return false
   }
+
+  return Object.values(annictChannelIds).includes(channelId)
+}
+
+export type AnnictVodData = {
+  work_id: number
+  program_id: number
+  channel_id: number
+  channel_name: string
+  started_at?: string
+  is_rebroadcast: boolean
+  vod_code?: string
+  vod_title?: string
+}
+
+export async function fetchAnnictVodData(ref = 'master'): Promise<AnnictVodData[]> {
+  const response = await fetch(
+    `https://raw.githubusercontent.com/SlashNephy/.github/${ref}/env/userscript/bin/collect-vod-data/dist/data.json`
+  )
+  return response.json()
 }
