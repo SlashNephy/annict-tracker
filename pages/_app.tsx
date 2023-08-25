@@ -1,5 +1,5 @@
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
-import { NotificationsProvider } from '@mantine/notifications'
+import { Notifications } from '@mantine/notifications'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Analytics } from '@vercel/analytics/react'
 import Head from 'next/head'
@@ -50,16 +50,15 @@ export default function MyApp(props: AppProps<{ session: Session }>): React.JSX.
             colorScheme,
           }}
         >
-          <NotificationsProvider limit={3} position="bottom-right">
-            <QueryClientProvider client={queryClient}>
-              <SessionProvider refetchOnWindowFocus={false} refetchWhenOffline={false} session={session}>
-                <RecoilRoot>
-                  <Component {...pageProps} />
-                  <Analytics />
-                </RecoilRoot>
-              </SessionProvider>
-            </QueryClientProvider>
-          </NotificationsProvider>
+          <Notifications limit={3} position="bottom-right" />
+          <QueryClientProvider client={queryClient}>
+            <SessionProvider refetchOnWindowFocus={false} refetchWhenOffline={false} session={session}>
+              <RecoilRoot>
+                <Component {...pageProps} />
+                <Analytics />
+              </RecoilRoot>
+            </SessionProvider>
+          </QueryClientProvider>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

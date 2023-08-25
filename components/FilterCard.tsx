@@ -33,7 +33,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.ReactEleme
     <Card {...props}>
       <Card.Section>
         <Accordion chevronPosition="left">
-          <Accordion.Item value="settings">
+          <Accordion.Item style={{ border: 'unset' }} value="settings">
             <Accordion.Control>
               <Group position="apart">
                 <Text size="lg">{packageJson.name}</Text>
@@ -92,61 +92,58 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.ReactEleme
               </Group>
 
               <Text>シーズン</Text>
-              <Chip.Group
-                multiple
-                mb="md"
-                ml="md"
-                mt="md"
-                value={seasonFilters}
-                onChange={(value) => {
-                  setSeasonFilters(value as SeasonName[])
-                }}
-              >
-                <Chip value={SeasonName.Spring}>春</Chip>
-                <Chip value={SeasonName.Summer}>夏</Chip>
-                <Chip value={SeasonName.Autumn}>秋</Chip>
-                <Chip value={SeasonName.Winter}>冬</Chip>
-              </Chip.Group>
+              <Group mb="md" ml="md" mt="md">
+                <Chip.Group
+                  multiple
+                  value={seasonFilters}
+                  onChange={(value) => {
+                    setSeasonFilters(value as SeasonName[])
+                  }}
+                >
+                  <Chip value={SeasonName.Spring}>春</Chip>
+                  <Chip value={SeasonName.Summer}>夏</Chip>
+                  <Chip value={SeasonName.Autumn}>秋</Chip>
+                  <Chip value={SeasonName.Winter}>冬</Chip>
+                </Chip.Group>
+              </Group>
 
               <Text>放送時間</Text>
-              <Chip.Group
-                multiple
-                mb="md"
-                ml="md"
-                mt="md"
-                value={timeFilters}
-                onChange={(value) => {
-                  setTimeFilters(value as TimeTag[])
-                }}
-              >
-                <Chip value="finished">昨日以前</Chip>
-                <Chip value="yesterday">昨日</Chip>
-                <Chip value="today">今日</Chip>
-                <Chip value="tomorrow">明日</Chip>
-                <Chip value="future">明日以降</Chip>
-                <Chip value="undetermined">未定</Chip>
-                <Chip value="unset">放送情報なし</Chip>
-              </Chip.Group>
+              <Group mb="md" ml="md" mt="md">
+                <Chip.Group
+                  multiple
+                  value={timeFilters}
+                  onChange={(value) => {
+                    setTimeFilters(value as TimeTag[])
+                  }}
+                >
+                  <Chip value="finished">昨日以前</Chip>
+                  <Chip value="yesterday">昨日</Chip>
+                  <Chip value="today">今日</Chip>
+                  <Chip value="tomorrow">明日</Chip>
+                  <Chip value="future">明日以降</Chip>
+                  <Chip value="undetermined">未定</Chip>
+                  <Chip value="unset">放送情報なし</Chip>
+                </Chip.Group>
+              </Group>
 
               <Text>放送曜日</Text>
-              <Chip.Group
-                multiple
-                mb="md"
-                ml="md"
-                mt="md"
-                value={dayFilters}
-                onChange={(value) => {
-                  setDayFilters(value as DayTag[])
-                }}
-              >
-                <Chip value="sunday">日曜</Chip>
-                <Chip value="monday">月曜</Chip>
-                <Chip value="tuesday">火曜</Chip>
-                <Chip value="wednesday">水曜</Chip>
-                <Chip value="thursday">木曜</Chip>
-                <Chip value="friday">金曜</Chip>
-                <Chip value="saturday">土曜</Chip>
-              </Chip.Group>
+              <Group mb="md" ml="md" mt="md">
+                <Chip.Group
+                  multiple
+                  value={dayFilters}
+                  onChange={(value) => {
+                    setDayFilters(value as DayTag[])
+                  }}
+                >
+                  <Chip value="sunday">日曜</Chip>
+                  <Chip value="monday">月曜</Chip>
+                  <Chip value="tuesday">火曜</Chip>
+                  <Chip value="wednesday">水曜</Chip>
+                  <Chip value="thursday">木曜</Chip>
+                  <Chip value="friday">金曜</Chip>
+                  <Chip value="saturday">土曜</Chip>
+                </Chip.Group>
+              </Group>
             </Accordion.Panel>
           </Accordion.Item>
         </Accordion>

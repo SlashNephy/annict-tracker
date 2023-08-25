@@ -131,13 +131,15 @@ export default function Settings(): React.ReactElement {
                         </HoverCard.Dropdown>
                       </HoverCard>
                     </Group>
-                    <Chip.Group multiple mb="md" ml="md" value={syobocalChannels} onChange={setSyobocalChannels}>
-                      {availableChannels.map((c) => (
-                        <Chip key={c.syobocalId} size="xs" value={c.syobocalId?.toString()}>
-                          {c.name}
-                        </Chip>
-                      ))}
-                    </Chip.Group>
+                    <Group mb="md" ml="md">
+                      <Chip.Group multiple value={syobocalChannels} onChange={setSyobocalChannels}>
+                        {availableChannels.map((c) => (
+                          <Chip key={c.syobocalId} size="xs" value={c.syobocalId?.toString()}>
+                            {c.name}
+                          </Chip>
+                        ))}
+                      </Chip.Group>
+                    </Group>
                   </Stack>
                 )}
               </Stack>

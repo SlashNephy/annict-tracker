@@ -311,7 +311,7 @@ export function FileSearchButton({ configs, ...props }: FileSearchButtonProps): 
   }
 
   return (
-    <Menu withinPortal position="bottom-start" transition="pop-top-right" width={220}>
+    <Menu withinPortal position="bottom-start" transitionProps={{ transition: 'pop-top-right' }} width={220}>
       <Menu.Target>
         <Button {...props} disabled={isDisabled} rightIcon={<IconChevronDown size="1.05rem" stroke={1.5} />}>
           検索
