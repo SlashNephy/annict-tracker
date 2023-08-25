@@ -9,7 +9,7 @@ https://annict-tracker.vercel.app で公開しています。
 
 ## Features
 
-✨　
+✨
 
 ## Gallery
 
