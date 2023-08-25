@@ -12,7 +12,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import type { TextProps } from '@mantine/core'
 
-export function RelativeTimeLabel({ time, ...props }: { time: Date } & TextProps): React.ReactElement {
+export function RelativeTimeLabel({ time, ...props }: { time: Date } & TextProps): React.JSX.Element {
   const createText = useCallback(() => {
     const now = new Date()
     const years = differenceInYears(time, now)

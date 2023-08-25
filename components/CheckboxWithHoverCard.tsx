@@ -8,7 +8,7 @@ export function CheckboxWithHoverCard({
   label,
   description,
   ...props
-}: { label: string; description: string } & Omit<CheckboxProps, 'label'>): React.ReactElement {
+}: { label: string; description: string } & Omit<CheckboxProps, 'label'>): React.JSX.Element {
   return (
     <Checkbox
       label={

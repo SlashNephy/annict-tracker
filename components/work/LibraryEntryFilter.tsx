@@ -11,7 +11,7 @@ import {
 } from '../../lib/atoms.ts'
 import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
-export function LibraryEntryFilter({ children }: React.PropsWithChildren): React.ReactElement {
+export function LibraryEntryFilter({ children }: React.PropsWithChildren): React.JSX.Element {
   const { entry } = useLibraryEntry()
   const isOnlyCurrentSeason = useRecoilValue(isOnlyCurrentSeasonState)
   const hideRebroadcasting = useRecoilValue(hideRebroadcastingState)

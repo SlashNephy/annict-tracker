@@ -39,7 +39,7 @@ import { useBrowserNotification } from '../lib/useBrowserNotification.tsx'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
 import { useSaya } from '../lib/useSaya.ts'
 
-export default function Settings(): React.ReactElement {
+export default function Settings(): React.JSX.Element {
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
   const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
   const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()

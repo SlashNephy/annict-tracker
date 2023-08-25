@@ -7,7 +7,7 @@ const getInitialProps = createGetInitialProps()
 export default class MyDocument extends Document {
   public static getInitialProps = getInitialProps
 
-  public render(): React.ReactElement {
+  public render(): React.JSX.Element {
     return (
       <Html lang="ja">
         <Head>

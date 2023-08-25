@@ -4,7 +4,7 @@ import React from 'react'
 
 import type { ButtonProps } from '@mantine/core'
 
-export function AnnictSignInButton(props: ButtonProps): React.ReactElement {
+export function AnnictSignInButton(props: ButtonProps): React.JSX.Element {
   return (
     <Button
       {...props}

@@ -5,7 +5,7 @@ import packageJson from '../package.json'
 
 import type { CardProps } from '@mantine/core'
 
-export function FooterCard(props: Omit<CardProps, 'children'>): React.ReactElement {
+export function FooterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
   return (
     <Card {...props}>
       <Text>

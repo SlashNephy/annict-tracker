@@ -20,7 +20,7 @@ import packageJson from '../package.json'
 import type { DayTag, TimeTag } from '../models/filters'
 import type { CardProps } from '@mantine/core'
 
-export function FilterCard(props: Omit<CardProps, 'children'>): React.ReactElement {
+export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
   const session = useAuthenticatedSession()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
   const [hideRebroadcasting, setHideRebroadcasting] = useRecoilState(hideRebroadcastingState)

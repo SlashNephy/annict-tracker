@@ -15,7 +15,7 @@ export function LibraryGrid({
 }: {
   grid?: Omit<GridProps, 'children'>
   col?: Omit<ColProps, 'children'>
-}): React.ReactElement {
+}): React.JSX.Element {
   const { entries, isLoading, isError, error } = useLibraryEntries()
 
   if (isLoading) {

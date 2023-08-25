@@ -11,7 +11,7 @@ import { LibraryGrid } from '../components/LibraryGrid.tsx'
 import { AnnictClientProvider } from '../lib/useAnnictClient.ts'
 import packageJson from '../package.json'
 
-export function IndexAsGuestUser(): React.ReactElement {
+export function IndexAsGuestUser(): React.JSX.Element {
   return (
     <Container mt="xl">
       <Center>
@@ -47,7 +47,7 @@ export function IndexAsGuestUser(): React.ReactElement {
   )
 }
 
-export function IndexAsAnnictUser(): React.ReactElement {
+export function IndexAsAnnictUser(): React.JSX.Element {
   return (
     <Container size="xl">
       <FilterCard withBorder mb="xl" mt="xl" p="lg" radius="md" shadow="sm" />
@@ -57,7 +57,7 @@ export function IndexAsAnnictUser(): React.ReactElement {
   )
 }
 
-export default function Index(): React.ReactElement {
+export default function Index(): React.JSX.Element {
   const { data } = useSession()
 
   return (

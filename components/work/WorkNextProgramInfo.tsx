@@ -15,7 +15,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { StackProps } from '@mantine/core'
 
-export function WorkNextProgramInfo(props: Omit<StackProps, 'children'>): React.ReactElement {
+export function WorkNextProgramInfo(props: Omit<StackProps, 'children'>): React.JSX.Element {
   const { entry, isLoading, isError } = useLibraryEntry()
   const enableBrowserNotification = useRecoilValue(enableBrowserNotificationState)
   const programNotificationThresholdMinutes = useRecoilValue(programNotificationThresholdMinutesState)

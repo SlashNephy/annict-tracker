@@ -12,7 +12,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { CardProps } from '@mantine/core'
 
-export function WorkCard(props: Omit<CardProps, 'children'>): React.ReactElement {
+export function WorkCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
   const { entry } = useLibraryEntry()
   const configs = useRecoilValue(effectiveIntegrationConfigsState)
 

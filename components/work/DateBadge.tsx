@@ -6,7 +6,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 import type { BadgeProps } from '@mantine/core'
 import type { ReactNode } from 'react'
 
-export function DateBadge(props: Omit<BadgeProps, 'color'>): React.ReactElement {
+export function DateBadge(props: Omit<BadgeProps, 'color'>): React.JSX.Element {
   const { entry } = useLibraryEntry()
 
   const badges = [] as ReactNode[]

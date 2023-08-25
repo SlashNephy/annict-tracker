@@ -40,7 +40,7 @@ const links: AppLink[] = [
   },
 ]
 
-export function AppLayout({ children }: React.PropsWithChildren): React.ReactElement {
+export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Element {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
   const theme = useMantineTheme()
   const isSmall = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`)

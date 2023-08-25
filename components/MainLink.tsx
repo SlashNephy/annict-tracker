@@ -7,7 +7,7 @@ import { isNavbarExpandState } from '../lib/atoms.ts'
 
 import type { AppLink } from './AppLayout'
 
-export function MainLink({ icon, color, label, ...props }: AppLink): React.ReactElement {
+export function MainLink({ icon, color, label, ...props }: AppLink): React.JSX.Element {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
 
   return (

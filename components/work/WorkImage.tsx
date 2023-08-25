@@ -10,7 +10,7 @@ import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { ImageProps } from '@mantine/core'
 
-export function WorkImage(props: Omit<ImageProps, 'src'>): React.ReactElement {
+export function WorkImage(props: Omit<ImageProps, 'src'>): React.JSX.Element {
   const { entry } = useLibraryEntry()
   const arm = useArmSupplementary(true)
 
