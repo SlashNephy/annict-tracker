@@ -1,6 +1,4 @@
-import { Accordion, Avatar, Card, Chip, Group, Menu, Text } from '@mantine/core'
-import { IconLogout } from '@tabler/icons-react'
-import { signOut } from 'next-auth/react'
+import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 
@@ -14,14 +12,12 @@ import {
   seasonFiltersState,
   timeFiltersState,
 } from '../lib/atoms.ts'
-import { useAuthenticatedSession } from '../lib/useAuthenticatedSession.ts'
 import packageJson from '../package.json'
 
 import type { DayTag, TimeTag } from '../models/filters'
 import type { CardProps } from '@mantine/core'
 
 export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
-  const session = useAuthenticatedSession()
   const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
   const [hideRebroadcasting, setHideRebroadcasting] = useRecoilState(hideRebroadcastingState)
   const [hideStreamingServices, setHideStreamingServices] = useRecoilState(hideStreamingServicesState)
@@ -35,27 +31,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
         <Accordion chevronPosition="left">
           <Accordion.Item style={{ border: 'unset' }} value="settings">
             <Accordion.Control>
-              <Group position="apart">
-                <Text size="lg">{packageJson.name}</Text>
-                <Menu closeOnItemClick={false}>
-                  <Menu.Target>
-                    <Avatar mr="md" src={session.user?.image ?? null} />
-                  </Menu.Target>
-                  <Menu.Dropdown>
-                    <Menu.Label>{session.user?.name}</Menu.Label>
-                    <Menu.Divider />
-                    <Menu.Item
-                      color="red"
-                      icon={<IconLogout size={14} />}
-                      onClick={() => {
-                        signOut().catch(console.error)
-                      }}
-                    >
-                      ログアウト
-                    </Menu.Item>
-                  </Menu.Dropdown>
-                </Menu>
-              </Group>
+              <Text size="lg">{packageJson.name}</Text>
             </Accordion.Control>
             <Accordion.Panel>
               <Group>
