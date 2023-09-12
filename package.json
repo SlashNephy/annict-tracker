@@ -21,8 +21,7 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "start": "next start",
-    "tsc": "tsc --noEmit",
-    "webhint": "hint http://localhost:3000"
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
@@ -60,13 +59,12 @@
     "concurrently": "8.2.1",
     "eslint": "8.49.0",
     "graphql": "16.8.0",
-    "hint": "7.1.10",
     "prettier": "3.0.3",
     "typescript": "5.2.2"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "eslintConfig": {
     "extends": [
