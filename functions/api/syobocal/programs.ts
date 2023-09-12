@@ -17,7 +17,7 @@ export type SyobocalProgramsResponse =
     }
 
 const schema = z.object({
-  id: z.string().array(),
+  id: z.union([z.string(), z.array(z.string())]),
 })
 
 // CORS 回避のため、Cloudflare Worker から fetch する API
@@ -36,13 +36,15 @@ export const onRequestGet: PagesFunction = async (context) => {
     )
   }
 
+  const ids = typeof query.data.id === 'string' ? [query.data.id] : query.data.id
+
   // TODO: Cookie でユーザーを確認する
   // TODO: キャッシュ
 
   try {
     return json({
       success: true,
-      result: await lookupPrograms(...query.data.id),
+      result: await lookupPrograms(ids),
     } satisfies SyobocalProgramsResponse)
   } catch (e: unknown) {
     console.error(`failed to fetch programs: ${e}`)
@@ -57,11 +59,11 @@ export const onRequestGet: PagesFunction = async (context) => {
   }
 }
 
-async function lookupPrograms(...id: string[]): Promise<SyobocalProgramLookupResult> {
+async function lookupPrograms(ids: string[]): Promise<SyobocalProgramLookupResult> {
   const params = new URLSearchParams({
     // eslint-disable-next-line @typescript-eslint/naming-convention
     Command: 'ProgLookup',
-    TID: id.join(','),
+    TID: ids.join(','),
   }).toString()
 
   const response = await fetch(`https://cal.syoboi.jp/db.php?${params}`, {
