@@ -6,6 +6,10 @@ import { json } from '../../lib.ts'
 
 import type { SyobocalProgramLookupResult } from '../../../lib/services/syobocal.ts'
 
+const schema = z.object({
+  id: z.union([z.string().regex(/^\d+$/), z.array(z.string().regex(/^\d+$/))]),
+})
+
 export type SyobocalProgramsResponse =
   | {
       success: true
@@ -15,10 +19,6 @@ export type SyobocalProgramsResponse =
       success: false
       error: string
     }
-
-const schema = z.object({
-  id: z.union([z.string(), z.array(z.string())]),
-})
 
 // CORS 回避のため、Cloudflare Worker から fetch する API
 export const onRequestGet: PagesFunction = async (context) => {
