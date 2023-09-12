@@ -2,7 +2,7 @@ import { XMLParser } from 'fast-xml-parser'
 import queryString from 'query-string'
 import { z } from 'zod'
 
-import { json } from '../../lib.ts'
+import { json } from '../../lib/response.ts'
 
 import type { SyobocalProgramLookupResult } from '../../../lib/services/syobocal.ts'
 
