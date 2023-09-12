@@ -21,7 +21,7 @@ export type SyobocalProgram = {
   STSubTitle?: string
 }
 
-type SyobocalProgramLookupResult = {
+export type SyobocalProgramLookupResult = {
   ProgLookupResponse?: {
     ProgItems?: {
       ProgItem?: SyobocalProgram[]
