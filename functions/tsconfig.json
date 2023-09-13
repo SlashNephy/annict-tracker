@@ -7,6 +7,7 @@
     "types": ["@cloudflare/workers-types"],
     "allowImportingTsExtensions": true,
     "useUnknownInCatchVariables": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "strictNullChecks": true
   }
 }

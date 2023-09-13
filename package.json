@@ -24,6 +24,7 @@
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
+    "@auth/core": "0.14.0",
     "@emotion/react": "11.11.1",
     "@emotion/server": "11.11.0",
     "@mantine/core": "6.0.20",
@@ -74,6 +75,14 @@
   "eslintConfig": {
     "extends": [
       "@slashnephy/eslint-config"
+    ],
+    "overrides": [
+      {
+        "files": "functions/**/*.ts",
+        "parserOptions": {
+          "project": "functions/tsconfig.json"
+        }
+      }
     ]
   }
 }
