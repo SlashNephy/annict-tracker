@@ -1,7 +1,6 @@
 import { Auth } from '@auth/core'
 
 import type { OAuthConfig } from '@auth/core/providers'
-import type { Session } from '@auth/core/types'
 
 type Env = {
   AUTH_SECRET: string
@@ -80,8 +79,4 @@ type AnnictProfile = {
   created_at: string
   email: string
   notifications_count: number
-}
-
-type AnnictSession = Session & {
-  accessToken?: string
 }
