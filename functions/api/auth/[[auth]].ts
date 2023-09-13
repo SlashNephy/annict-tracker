@@ -36,6 +36,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
             image: profile.avatar_url,
           }
         },
+        checks: ['none'],
       } satisfies OAuthConfig<AnnictProfile>,
     ],
     secret: context.env.AUTH_SECRET,
