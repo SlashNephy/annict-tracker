@@ -1,7 +1,6 @@
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { Analytics } from '@vercel/analytics/react'
 import Head from 'next/head'
 import { SessionProvider } from 'next-auth/react'
 import React, { useEffect } from 'react'
@@ -55,7 +54,6 @@ export default function MyApp(props: AppProps<{ session: Session }>): React.JSX.
             <SessionProvider refetchOnWindowFocus={false} refetchWhenOffline={false} session={session}>
               <RecoilRoot>
                 <Component {...pageProps} />
-                <Analytics />
               </RecoilRoot>
             </SessionProvider>
           </QueryClientProvider>
