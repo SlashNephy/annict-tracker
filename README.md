@@ -1,7 +1,6 @@
 # annict-tracker
 
 [![Check](https://github.com/SlashNephy/annict-tracker/actions/workflows/check-node.yml/badge.svg)](https://github.com/SlashNephy/annict-tracker/actions/workflows/check-node.yml)
-[![Build Image](https://github.com/SlashNephy/annict-tracker/actions/workflows/build-image.yml/badge.svg)](https://github.com/SlashNephy/annict-tracker/actions/workflows/build-image.yml)
 
 annict-tracker は Annict の視聴記録を便利にする Web アプリケーションです。
 
@@ -49,7 +48,3 @@ Vercel にデプロイする場合は上記の環境変数をダッシュボー�
 ```console
 $ vercel
 ```
-
-### Docker
-
-Docker イメージは [ghcr.io/slashnephy/annict-tracker](https://github.com/SlashNephy/annict-tracker/pkgs/container/annict-tracker) で公開されています。
