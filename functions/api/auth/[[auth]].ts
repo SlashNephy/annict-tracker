@@ -1,6 +1,7 @@
 import { Auth } from '@auth/core'
 
 import type { OAuthConfig } from '@auth/core/providers'
+import type { Session } from '@auth/core/types'
 
 type Env = {
   AUTH_SECRET: string
@@ -42,6 +43,21 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     session: {
       strategy: 'jwt',
     },
+    // TODO: 適切にホストを検証する
+    trustHost: true,
+    callbacks: {
+      jwt({ token, account }) {
+        if (account !== null) {
+          token.accessToken = account.access_token
+        }
+        return token
+      },
+      session({ session, token }) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- あとでちゃんと型をつける
+        ;(session as any).accessToken = token.accessToken
+        return session
+      },
+    },
   })
 }
 
@@ -64,4 +80,8 @@ type AnnictProfile = {
   created_at: string
   email: string
   notifications_count: number
+}
+
+type AnnictSession = Session & {
+  accessToken?: string
 }
