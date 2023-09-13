@@ -69,7 +69,7 @@
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "eslintConfig": {
     "extends": [
