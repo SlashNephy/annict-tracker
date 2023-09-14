@@ -9,7 +9,7 @@ import { useRecoilState } from 'recoil'
 import { MainLink } from './MainLink.tsx'
 import packageJson from '../../package.json'
 import { isNavbarExpandState } from '../lib/atoms.ts'
-import { useUpdateChecker } from '../lib/useUpdateChecker.ts'
+import { useCheckUpdate } from '../lib/useCheckUpdate.ts'
 
 import type { AnchorProps, MantineColor } from '@mantine/core'
 import type { ReactNode } from 'react'
@@ -54,7 +54,7 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
     return packageJson.name
   }, [location.pathname])
 
-  useUpdateChecker()
+  useCheckUpdate()
 
   return (
     <AppShell
