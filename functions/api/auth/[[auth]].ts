@@ -1,8 +1,9 @@
 import { Auth } from '@auth/core'
 
+import type { Env } from '../../env.ts'
 import type { OAuthConfig } from '@auth/core/providers'
 
-type Env = {
+export type AuthEnv = {
   AUTH_SECRET: string
   ANNICT_CLIENT_ID: string
   ANNICT_CLIENT_SECRET: string
@@ -57,6 +58,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         return session
       },
     },
+    debug: context.env.NODE_ENV === 'development',
   })
 }
 
