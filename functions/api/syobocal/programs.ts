@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 import { json } from '../../lib/response.ts'
 
-import type { SyobocalProgramLookupResult } from '../../../lib/services/syobocal.ts'
+import type { SyobocalProgramLookupResult } from '../../../src/lib/services/syobocal.ts'
 
 const schema = z.object({
   id: z.union([z.string().regex(/^\d+$/), z.array(z.string().regex(/^\d+$/))]),
