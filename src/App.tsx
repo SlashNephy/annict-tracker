@@ -19,7 +19,7 @@ export function App({ children }: PropsWithChildren): React.JSX.Element {
 
   // 本番環境以外の OAuth 2 クライアントは使用できないため、本番環境にリダイレクトする
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production' && !window.location.href.startsWith('https://annict-tracker.pages.dev')) {
+    if (import.meta.env.PROD && !window.location.href.startsWith('https://annict-tracker.pages.dev')) {
       window.location.replace('https://annict-tracker.pages.dev')
     }
   }, [])
