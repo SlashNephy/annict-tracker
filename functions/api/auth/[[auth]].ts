@@ -10,9 +10,7 @@ export type AuthEnv = {
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-  const request = new Request(context.request.url)
-
-  return await Auth(request, {
+  return await Auth(context.request, {
     providers: [
       {
         id: 'annict',
