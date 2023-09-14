@@ -4,11 +4,7 @@
 
 annict-tracker は Annict の視聴記録を便利にする Web アプリケーションです。
 
-https://annict-tracker.vercel.app で公開しています。
-
-## Features
-
-✨
+https://annict-tracker.pages.dev で公開しています。
 
 ## Gallery
 
@@ -22,20 +18,32 @@ https://annict-tracker.vercel.app で公開しています。
 
 ## Get Started
 
+annict-tracker は、Cloudflare Pages にデプロイする構成になっています。
+
+```
+annict-tracker
+  ├ src/
+  │  └ Vite + Mantine (フロントエンド)
+  ├ functions/
+  │  └ Cloudflare Worker + @auth/core (バックエンド)
+  ...
+```
+
 ### 環境変数
 
-実行にはいくつか環境変数が必要です。`.env.example` をもとに `.env` を作成してください。
+ローカル実行にはいくつか環境変数が必要です。`.dev.vars.example` をもとに `.dev.vars` を作成してください。
 
-- `NEXTAUTH_URL`
-  - アプリがデプロイされる URL を指定します。例えば、ローカル起動の場合は `http://localhost:3000` としてください。
-- `NEXTAUTH_SECRET`
-  - Cookie のシークレットです。本番環境では必須です。https://next-auth.js.org/configuration/options#secret
+- `AUTH_SECRET`
+  - Cookie のシークレットです。
+  - 生成方法などは https://authjs.dev/getting-started/oauth-tutorial#adding-environment-variables を参照してください。
 - `ANNICT_CLIENT_ID`, `ANNICT_CLIENT_SECRET`
-  - Annict の OAuth 2 クライアント ID 及びシークレットです。https://annict.com/oauth/applications/new で発行できます。
+  - Annict の OAuth 2 クライアント ID 及びシークレットです。
+  - https://annict.com/oauth/applications/new で発行できます。
+    - リダイレクト URI には次の値を入力してください。
+      - `http://127.0.0.1:8788/api/auth/callback/annict`
+    - `read write` (読み込み + 書き込み) スコープが必要です。
 
-### ローカル起動
-
-`vercel dev` コマンドは使用できません。([Stack Overflow](https://stackoverflow.com/a/73858666))
+### ローカル実行
 
 ```console
 $ yarn dev
@@ -43,8 +51,9 @@ $ yarn dev
 
 ### デプロイ
 
-Vercel にデプロイする場合は上記の環境変数をダッシュボードから追加する必要があります。
-
-```console
-$ vercel
-```
+- [Deploy a Vite 3 site · Cloudflare Pages docs](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vite3-project/) を参照してください。
+- 環境変数を設定してください。
+- Annict の OAuth 2 クライアントのリダイレクト URI を適切に変更してください。
+  - 例えば、`https://annict-tracker.pages.dev` にデプロイしたなら
+    - `https://annict-tracker.pages.dev/api/auth/callback/annict` が正しい URI です。
+  - ローカル実行に使用するクライアントと分けることをおすすめします。
