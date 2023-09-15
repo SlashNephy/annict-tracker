@@ -35,10 +35,6 @@ dist-ssr
 !.yarn/sdks
 !.yarn/versions
 
-# if you are NOT using Zero-installs, then:
-# comment the following lines
-!.yarn/cache
-
 # and uncomment the following lines
 # .pnp.*
 
