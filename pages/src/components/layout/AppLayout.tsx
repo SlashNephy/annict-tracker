@@ -1,42 +1,13 @@
 import { AppShell, Burger, Group, Header, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
 import { useDocumentTitle, useMediaQuery } from '@mantine/hooks'
-import { IconDeviceTv, IconHelp, IconSettings } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
 import { isNavbarExpandState } from '../../lib/atoms.ts'
 import { useCheckUpdate } from '../../lib/useCheckUpdate.ts'
+import { routes } from '../../router.tsx'
 import { MainLink } from '../MainLink.tsx'
-
-import type { AnchorProps, MantineColor } from '@mantine/core'
-import type { ReactNode } from 'react'
-import type { LinkProps } from 'react-router-dom'
-
-export type AppLink = {
-  icon: ReactNode
-  label: string
-  color?: MantineColor
-} & AnchorProps &
-  LinkProps
-
-const links: AppLink[] = [
-  {
-    icon: <IconDeviceTv size={16} />,
-    label: '視聴記録',
-    to: '/',
-  },
-  {
-    icon: <IconHelp size={16} />,
-    label: '使い方',
-    to: '/help',
-  },
-  {
-    icon: <IconSettings size={16} />,
-    label: '設定',
-    to: '/settings',
-  },
-]
 
 export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Element {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
@@ -45,7 +16,7 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
 
   const location = useLocation()
   const title = useMemo(() => {
-    const link = links.find((l) => l.to === location.pathname)
+    const link = routes.find(({ route }) => route.path === location.pathname)
     if (link !== undefined) {
       return `${link.label} | annict-tracker`
     }
@@ -75,8 +46,8 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
 
               {isExpand && (
                 <Group>
-                  {links.map((link) => (
-                    <MainLink key={link.label} {...link} />
+                  {routes.map((r) => (
+                    <MainLink key={r.route.path} {...r} />
                   ))}
                 </Group>
               )}
@@ -102,8 +73,8 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
                 </Group>
               </Navbar.Section>
               <Navbar.Section grow component={ScrollArea} mt="sm" style={{ overflow: 'visible' }}>
-                {links.map((link) => (
-                  <MainLink key={link.label} {...link} />
+                {routes.map((r) => (
+                  <MainLink key={r.route.path} {...r} />
                 ))}
               </Navbar.Section>
             </Navbar>

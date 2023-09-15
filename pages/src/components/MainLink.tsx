@@ -1,12 +1,13 @@
 import { Anchor, Group, Text, ThemeIcon, Tooltip, UnstyledButton } from '@mantine/core'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
 import { isNavbarExpandState } from '../lib/atoms.ts'
 
-import type { AppLink } from './layout/AppLayout.tsx'
+import type { Route } from '../router.tsx'
 
-export function MainLink({ icon, color, label, ...props }: AppLink): React.JSX.Element {
+export function MainLink({ icon: Icon, label, ...props }: Route): React.JSX.Element {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
 
   return (
@@ -24,6 +25,8 @@ export function MainLink({ icon, color, label, ...props }: AppLink): React.JSX.E
       })}
     >
       <Anchor
+        component={Link}
+        to={props.route.path}
         {...props}
         onClick={() => {
           setIsExpand(false)
@@ -31,8 +34,8 @@ export function MainLink({ icon, color, label, ...props }: AppLink): React.JSX.E
       >
         <Group>
           <Tooltip label={label} position="right">
-            <ThemeIcon color={color} variant="light">
-              {icon}
+            <ThemeIcon variant="light">
+              <Icon size={16} />
             </ThemeIcon>
           </Tooltip>
 

@@ -1,26 +1,9 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
 import { App } from './App.tsx'
-import { Help } from './pages/help.tsx'
-import { Index } from './pages/index.tsx'
-import { Settings } from './pages/settings.tsx'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Index />,
-  },
-  {
-    path: '/settings',
-    element: <Settings />,
-  },
-  {
-    path: '/help',
-    element: <Help />,
-  },
-])
+import { router } from './router.tsx'
 
 const root = document.getElementById('root')
 if (root !== null) {
