@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "author": "SlashNephy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SlashNephy/annict-tracker"
+  },
   "license": "MIT",
   "scripts": {
     "build": "yarn workspaces foreach -pi run build",
@@ -14,14 +18,6 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check ."
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SlashNephy/annict-tracker"
-  },
-  "workspaces": [
-    "pages",
-    "functions"
-  ],
   "devDependencies": {
     "@slashnephy/eslint-config": "1.0.6",
     "@slashnephy/prettier-config": "0.1.27",
@@ -30,6 +26,7 @@
     "eslint-import-resolver-typescript": "3.6.0",
     "prettier": "3.0.3"
   },
+  "packageManager": "yarn@3.6.3",
   "eslintConfig": {
     "extends": "@slashnephy/eslint-config",
     "rules": {
@@ -67,5 +64,8 @@
       }
     ]
   },
-  "packageManager": "yarn@3.6.3"
+  "workspaces": [
+    "pages",
+    "functions"
+  ]
 }
