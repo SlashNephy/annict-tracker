@@ -31,7 +31,7 @@ annict-tracker
 
 ### 環境変数
 
-ローカル実行にはいくつか環境変数が必要です。`.dev.vars.example` をもとに `.dev.vars` を作成してください。
+ローカル実行にはいくつか環境変数が必要です。`functions/.dev.vars.example` をもとに `functions/.dev.vars` を作成してください。
 
 - `AUTH_SECRET`
   - Cookie のシークレットです。
@@ -47,6 +47,12 @@ annict-tracker
 
 ```console
 $ yarn dev
+```
+
+### ビルド
+
+```console
+$ yarn build
 ```
 
 ### デプロイ
