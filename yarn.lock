@@ -2670,10 +2670,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.5.9":
-  version: 20.5.9
-  resolution: "@types/node@npm:20.5.9"
-  checksum: 717490e94131722144878b4ca1a963ede1673bb8f2ef78c2f5b50b918df6dc9b35e7f8283e5c2a7a9f137730f7c08dc6228e53d4494a94c9ee16881e6ce6caed
+"@types/node@npm:20.6.1":
+  version: 20.6.1
+  resolution: "@types/node@npm:20.6.1"
+  checksum: f9848617221b513d558071c804b006750d1ee1734c5ffea3ada9a0edd1642334ad0812222d6b99b7b8c0e1a5f1e557946ae99444c2705e9afc125abdf9fa36c2
   languageName: node
   linkType: hard
 
@@ -8104,7 +8104,7 @@ __metadata:
     "@tabler/icons-react": 2.34.0
     "@tanstack/react-query": 4.35.0
     "@types/js-yaml": 4.0.5
-    "@types/node": 20.5.9
+    "@types/node": 20.6.1
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
     "@vitejs/plugin-react-swc": 3.3.2
