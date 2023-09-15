@@ -1,15 +1,13 @@
 import { AppShell, Burger, Group, Header, Navbar, ScrollArea, Text, useMantineTheme } from '@mantine/core'
-import { useMediaQuery } from '@mantine/hooks'
+import { useDocumentTitle, useMediaQuery } from '@mantine/hooks'
 import { IconDeviceTv, IconHelp, IconSettings } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
-import { MainLink } from './MainLink.tsx'
-import packageJson from '../../package.json'
-import { isNavbarExpandState } from '../lib/atoms.ts'
-import { useCheckUpdate } from '../lib/useCheckUpdate.ts'
+import { isNavbarExpandState } from '../../lib/atoms.ts'
+import { useCheckUpdate } from '../../lib/useCheckUpdate.ts'
+import { MainLink } from '../MainLink.tsx'
 
 import type { AnchorProps, MantineColor } from '@mantine/core'
 import type { ReactNode } from 'react'
@@ -49,10 +47,11 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
   const title = useMemo(() => {
     const link = links.find((l) => l.to === location.pathname)
     if (link !== undefined) {
-      return `${link.label} | ${packageJson.name}`
+      return `${link.label} | annict-tracker`
     }
-    return packageJson.name
+    return 'annict-tracker'
   }, [location.pathname])
+  useDocumentTitle(title)
 
   useCheckUpdate()
 
@@ -71,7 +70,7 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
                     setIsExpand((wasExpand) => !wasExpand)
                   }}
                 />
-                <Text>{packageJson.name}</Text>
+                <Text>annict-tracker</Text>
               </Group>
 
               {isExpand && (
@@ -99,7 +98,7 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
                       setIsExpand((wasExpand) => !wasExpand)
                     }}
                   />
-                  {isExpand && <Text>{packageJson.name}</Text>}
+                  {isExpand && <Text>annict-tracker</Text>}
                 </Group>
               </Navbar.Section>
               <Navbar.Section grow component={ScrollArea} mt="sm" style={{ overflow: 'visible' }}>
@@ -117,9 +116,6 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
         },
       }}
     >
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
       {children}
     </AppShell>
   )

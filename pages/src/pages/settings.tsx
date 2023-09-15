@@ -26,8 +26,8 @@ import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { AnnictSignInButton } from '../components/AnnictSignInButton.tsx'
-import { AppLayout } from '../components/AppLayout.tsx'
 import { CheckboxWithLabel } from '../components/CheckboxWithLabel.tsx'
+import { AppLayout } from '../components/layout/AppLayout.tsx'
 import {
   enableAbemaIntegrationState,
   enableBandaiChannelIntegrationState,

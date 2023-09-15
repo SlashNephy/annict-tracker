@@ -2,7 +2,6 @@ import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
-import { HelmetProvider } from 'react-helmet-async'
 import { RecoilRoot } from 'recoil'
 
 import { useMemorableColorScheme } from './lib/useMemorableColorScheme.ts'
@@ -35,9 +34,7 @@ export function App({ children }: PropsWithChildren): React.JSX.Element {
       >
         <Notifications limit={3} position="bottom-right" />
         <QueryClientProvider client={queryClient}>
-          <RecoilRoot>
-            <HelmetProvider>{children}</HelmetProvider>
-          </RecoilRoot>
+          <RecoilRoot>{children}</RecoilRoot>
         </QueryClientProvider>
       </MantineProvider>
     </ColorSchemeProvider>

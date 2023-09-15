@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil'
 
 import { isNavbarExpandState } from '../lib/atoms.ts'
 
-import type { AppLink } from './AppLayout.tsx'
+import type { AppLink } from './layout/AppLayout.tsx'
 
 export function MainLink({ icon, color, label, ...props }: AppLink): React.JSX.Element {
   const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
