@@ -1,1 +1,2 @@
-graphql/*/generated/*.ts
+pages/graphql/*/generated/*.ts
+pages/dist/

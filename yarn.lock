@@ -3103,47 +3103,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "annict-tracker@workspace:."
   dependencies:
-    "@auth/core": 0.14.0
-    "@cloudflare/workers-types": 4.20230904.0
-    "@emotion/react": 11.11.1
-    "@emotion/server": 11.11.0
-    "@graphql-codegen/cli": 5.0.0
-    "@graphql-codegen/client-preset": 4.1.0
-    "@mantine/core": 6.0.20
-    "@mantine/hooks": 6.0.20
-    "@mantine/next": 6.0.20
-    "@mantine/notifications": 6.0.20
     "@slashnephy/eslint-config": 1.0.6
     "@slashnephy/prettier-config": 0.1.27
-    "@slashnephy/typescript-extension": 0.2.3
-    "@tabler/icons-react": 2.34.0
-    "@tanstack/react-query": 4.35.0
-    "@types/js-yaml": 4.0.5
-    "@types/node": 20.5.9
-    "@types/query-string": 6.3.0
-    "@types/react": 18.2.21
-    "@types/react-dom": 18.2.7
-    "@vitejs/plugin-react-swc": 3.3.2
     concurrently: 8.2.1
-    date-fns: 2.30.0
     eslint: 8.49.0
-    fast-xml-parser: 4.2.7
-    graphql: 16.8.0
-    graphql-request: 6.1.0
-    js-yaml: 4.1.0
+    eslint-import-resolver-typescript: 3.6.0
     prettier: 3.0.3
-    query-string: 8.1.0
-    react: 18.2.0
-    react-dom: 18.2.0
-    react-helmet-async: 1.3.0
-    react-router-dom: 6.16.0
-    recoil: 0.7.7
-    recoil-persist: 5.1.0
-    ts-array-length: 0.1.2
-    typescript: 5.2.2
-    vite: 4.4.5
-    wrangler: 3.7.0
-    zod: 3.22.2
   languageName: unknown
   linkType: soft
 
@@ -4923,7 +4888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^3.5.2":
+"eslint-import-resolver-typescript@npm:3.6.0, eslint-import-resolver-typescript@npm:^3.5.2":
   version: 3.6.0
   resolution: "eslint-import-resolver-typescript@npm:3.6.0"
   dependencies:
@@ -5894,6 +5859,21 @@ __metadata:
   checksum: c3f1f5ba20f4e962efb71344ce0a40722163e85bee2101ce25f88214e78182d2d2476aa85ef37950c579eb6cf6ee811c17b3101bb84004bb75655f3e33f3fdb5
   languageName: node
   linkType: hard
+
+"functions@workspace:functions":
+  version: 0.0.0-use.local
+  resolution: "functions@workspace:functions"
+  dependencies:
+    "@auth/core": 0.14.0
+    "@cloudflare/workers-types": 4.20230904.0
+    "@types/query-string": 6.3.0
+    fast-xml-parser: 4.2.7
+    query-string: 8.1.0
+    typescript: 5.2.2
+    wrangler: 3.8.0
+    zod: 3.22.2
+  languageName: unknown
+  linkType: soft
 
 "gauge@npm:^4.0.3":
   version: 4.0.4
@@ -8074,6 +8054,45 @@ __metadata:
   checksum: 43ca92cbf84676ac8c39ebb4d0beec5bba545099ad9e60d98a92b293d4913f20d4c874f813b3bdab3517d58011eae427df759a7f67b3e464b41c5b6024410dea
   languageName: node
   linkType: hard
+
+"pages@workspace:pages":
+  version: 0.0.0-use.local
+  resolution: "pages@workspace:pages"
+  dependencies:
+    "@auth/core": 0.14.0
+    "@emotion/react": 11.11.1
+    "@emotion/server": 11.11.0
+    "@graphql-codegen/cli": 5.0.0
+    "@graphql-codegen/client-preset": 4.1.0
+    "@graphql-typed-document-node/core": 3.2.0
+    "@mantine/core": 6.0.20
+    "@mantine/hooks": 6.0.20
+    "@mantine/next": 6.0.20
+    "@mantine/notifications": 6.0.20
+    "@mantine/utils": 6.0.20
+    "@slashnephy/typescript-extension": 0.2.3
+    "@tabler/icons-react": 2.34.0
+    "@tanstack/react-query": 4.35.0
+    "@types/js-yaml": 4.0.5
+    "@types/node": 20.5.9
+    "@types/react": 18.2.21
+    "@types/react-dom": 18.2.7
+    "@vitejs/plugin-react-swc": 3.3.2
+    date-fns: 2.30.0
+    graphql: 16.8.0
+    graphql-request: 6.1.0
+    js-yaml: 4.1.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    react-helmet-async: 1.3.0
+    react-router-dom: 6.16.0
+    recoil: 0.7.7
+    recoil-persist: 5.1.0
+    ts-array-length: 0.1.2
+    typescript: 5.2.2
+    vite: 4.4.5
+  languageName: unknown
+  linkType: soft
 
 "param-case@npm:^3.0.4":
   version: 3.0.4
@@ -10365,9 +10384,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:3.7.0":
-  version: 3.7.0
-  resolution: "wrangler@npm:3.7.0"
+"wrangler@npm:3.8.0":
+  version: 3.8.0
+  resolution: "wrangler@npm:3.8.0"
   dependencies:
     "@cloudflare/kv-asset-handler": ^0.2.0
     "@esbuild-plugins/node-globals-polyfill": ^0.2.3
@@ -10388,7 +10407,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: ae70bb2958d5f7d8d7b1d114b1cf11d81667b2f402821f44ec5662e74bfc42596cf0f84cf2a62c2a468542903bcd3f4dc7b37a32dcda5ac28bb7b91ee85af7aa
+  checksum: cba96dbdc3402a61ee518c4d591d7beb714fe55dce6394c15b93eef7c6b9b6eac49358a8b2e009a01ba630837eac89069b99c6c25dae454ec147d9c7a6d78823
   languageName: node
   linkType: hard
 

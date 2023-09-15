@@ -4,7 +4,6 @@ import { useRecoilState } from 'recoil'
 
 import { CheckboxWithHoverCard } from './CheckboxWithHoverCard.tsx'
 import { SeasonName } from '../../graphql/annict/generated/graphql.ts'
-import packageJson from '../../package.json'
 import {
   dayFiltersState,
   hideRebroadcastingState,
@@ -31,7 +30,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
         <Accordion chevronPosition="left">
           <Accordion.Item style={{ border: 'unset' }} value="settings">
             <Accordion.Control>
-              <Text size="lg">{packageJson.name}</Text>
+              <Text size="lg">annict-tracker</Text>
             </Accordion.Control>
             <Accordion.Panel>
               <Group>
