@@ -8090,7 +8090,7 @@ __metadata:
     recoil-persist: 5.1.0
     ts-array-length: 0.1.2
     typescript: 5.2.2
-    vite: 4.4.5
+    vite: 4.4.9
   languageName: unknown
   linkType: soft
 
@@ -8254,7 +8254,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.13, postcss@npm:^8.4.26":
+"postcss@npm:^8.4.13, postcss@npm:^8.4.27":
   version: 8.4.29
   resolution: "postcss@npm:8.4.29"
   dependencies:
@@ -8941,7 +8941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.25.2":
+"rollup@npm:^3.27.1":
   version: 3.29.1
   resolution: "rollup@npm:3.29.1"
   dependencies:
@@ -10139,14 +10139,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.4.5":
-  version: 4.4.5
-  resolution: "vite@npm:4.4.5"
+"vite@npm:4.4.9":
+  version: 4.4.9
+  resolution: "vite@npm:4.4.9"
   dependencies:
     esbuild: ^0.18.10
     fsevents: ~2.3.2
-    postcss: ^8.4.26
-    rollup: ^3.25.2
+    postcss: ^8.4.27
+    rollup: ^3.27.1
   peerDependencies:
     "@types/node": ">= 14"
     less: "*"
@@ -10175,7 +10175,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 825d8c13511b764710ca503e603746e20a7cb963194033dc606c46b1650a0d8986b577ba92507b54143cbf467032e9868ea04913a86a8fcb88b69c5b8551938b
+  checksum: c511024ceae39c68c7dbf2ac4381ee655cd7bb62cf43867a14798bc835d3320b8fa7867a336143c30825c191c1fb4e9aa3348fce831ab617e96203080d3d2908
   languageName: node
   linkType: hard
 
