@@ -4,29 +4,18 @@ import { z } from 'zod'
 
 import { json } from '../../lib/response.ts'
 
-import type { SyobocalProgramLookupResult } from '../../../pages/src/lib/services/syobocal.ts'
+import type { SyobocalProgramsResponse, SyobocalProgramsResult } from './programs.types.ts'
 
 const schema = z.object({
   id: z.union([z.string().regex(/^\d+$/), z.array(z.string().regex(/^\d+$/))]),
 })
-
-export type SyobocalProgramsResponse =
-  | {
-      success: true
-      result: SyobocalProgramLookupResult
-    }
-  | {
-      success: false
-      error: string
-    }
 
 // CORS 回避のため、Cloudflare Worker から fetch する API
 export const onRequestGet: PagesFunction = async (context) => {
   const url = queryString.parseUrl(context.request.url, { arrayFormat: 'comma' })
   const query = await schema.safeParseAsync(url.query)
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-boolean-literal-compare -- type guard が上手く動かない
-  if (query.success === false) {
+  if (!query.success) {
     return json(
       {
         success: false,
@@ -59,7 +48,7 @@ export const onRequestGet: PagesFunction = async (context) => {
   }
 }
 
-async function lookupPrograms(ids: string[]): Promise<SyobocalProgramLookupResult> {
+async function lookupPrograms(ids: string[]): Promise<SyobocalProgramsResult> {
   const params = new URLSearchParams({
     // eslint-disable-next-line @typescript-eslint/naming-convention
     Command: 'ProgLookup',

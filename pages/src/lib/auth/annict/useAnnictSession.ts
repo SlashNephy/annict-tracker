@@ -1,7 +1,7 @@
 import { useAuthenticatedSession, useSession } from '../useSession.ts'
 
-import type { AnnictSession } from '../../../../../functions/api/auth/[[auth]].ts'
 import type { UseSessionOptions } from '../useSession.ts'
+import type { AnnictSession } from 'functions/api/auth/[[auth]].types.ts'
 
 export type UseAnnictSessionOptions = UseSessionOptions<AnnictSession>
 

@@ -1,15 +1,8 @@
 import { Auth } from '@auth/core'
 
+import type { AnnictJwt, AnnictSession } from './[[auth]].types.ts'
 import type { Env } from '../../env.ts'
-import type { JWT } from '@auth/core/jwt'
 import type { OAuthConfig } from '@auth/core/providers'
-import type { Session } from '@auth/core/types'
-
-export type AuthEnv = {
-  AUTH_SECRET: string
-  ANNICT_CLIENT_ID: string
-  ANNICT_CLIENT_SECRET: string
-}
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   return await Auth(context.request, {
@@ -80,12 +73,4 @@ type AnnictProfile = {
   created_at: string
   email: string
   notifications_count: number
-}
-
-export type AnnictSession = Session & {
-  accessToken?: string
-}
-
-export type AnnictJwt = JWT & {
-  accessToken?: string
 }

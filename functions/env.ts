@@ -1,4 +1,10 @@
-import type { AuthEnv } from './api/auth/[[auth]].ts'
+export type Env = CloudflarePagesEnv & {
+  NODE_ENV?: 'development'
+
+  AUTH_SECRET: string
+  ANNICT_CLIENT_ID: string
+  ANNICT_CLIENT_SECRET: string
+}
 
 // https://developers.cloudflare.com/pages/platform/build-configuration/#environment-variables
 type CloudflarePagesEnv =
@@ -11,8 +17,3 @@ type CloudflarePagesEnv =
       CF_PAGES_BRANCH: string
       CF_PAGES_URL: string
     }
-
-export type Env = {
-  NODE_ENV?: 'development'
-} & CloudflarePagesEnv &
-  AuthEnv

@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query'
 import { minutesToMilliseconds } from 'date-fns'
 import { useEffect } from 'react'
 
-import type { VersionResponse } from '../../../functions/api/version.ts'
 import type { UseQueryOptions } from '@tanstack/react-query'
+import type { VersionResponse } from 'functions/api/version.types.ts'
 
 type UseServerVersion = Omit<UseQueryOptions<VersionResponse>, 'queryFn' | 'initialData'>
 

@@ -1,19 +1,10 @@
 import { json } from '../lib/response.ts'
 
+import type { VersionResponse } from './version.types.ts'
 import type { Env } from '../env.ts'
 
-export type VersionResponse =
-  | {
-      environment: 'development'
-    }
-  | {
-      environment: 'production'
-      commit_sha: string
-      branch: string
-    }
-
 export const onRequestGet: PagesFunction<Env> = (context) => {
-  const response: VersionResponse =
+  return json<VersionResponse>(
     context.env.CF_PAGES === '1'
       ? {
           environment: 'production',
@@ -23,6 +14,5 @@ export const onRequestGet: PagesFunction<Env> = (context) => {
       : {
           environment: 'development',
         }
-
-  return json(response)
+  )
 }
