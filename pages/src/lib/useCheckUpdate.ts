@@ -28,12 +28,13 @@ export const useCheckUpdate = (): void => {
 
   // Cloudflare Pages ビルド時に自動的に埋め込まれるコミットハッシュと API で取得できるコミットハッシュを比較して、更新があるかを確認する
   useEffect(() => {
-    const buildSha = import.meta.env.VITE_CF_PAGES_COMMIT_SHA
-    if (!buildSha || !version || version.environment === 'development') {
+    const commitSha = import.meta.env.VITE_CF_PAGES_COMMIT_SHA
+    const branch = import.meta.env.VITE_CF_PAGES_BRANCH
+    if (!commitSha || !branch || !version || version.environment === 'development' || version.branch !== branch) {
       return
     }
 
-    if (version.commit_sha !== buildSha) {
+    if (version.commit_sha !== commitSha) {
       showNotification({
         id: 'update-checker',
         title: '新しいビルドが公開されています',

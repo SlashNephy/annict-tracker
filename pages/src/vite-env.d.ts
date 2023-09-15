@@ -4,6 +4,7 @@
 interface ImportMetaEnv {
   // https://developers.cloudflare.com/pages/platform/build-configuration/#environment-variables
   readonly VITE_CF_PAGES_COMMIT_SHA?: string
+  readonly VITE_CF_PAGES_BRANCH?: string
 }
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
