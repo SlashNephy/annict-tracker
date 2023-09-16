@@ -221,10 +221,17 @@ function IntegrationSettings(): React.JSX.Element {
             </Group>
             <Group mb="md" ml="md">
               <Chip.Group multiple value={syobocalChannels} onChange={setSyobocalChannels}>
-                {availableChannels.map((c) => (
-                  <Chip key={c.syobocalId} size="xs" value={c.syobocalId?.toString()}>
-                    {c.name}
-                  </Chip>
+                {Array.from(availableChannels.groupBy((c) => c.type).entries()).map(([type, channels]) => (
+                  <Stack key={type}>
+                    <Text>{type === 'GR' ? '地上波 / CATV' : type === 'SKY' ? 'スカパー!プレミアム' : type}</Text>
+                    <Group>
+                      {channels.map((c) => (
+                        <Chip key={c.syobocalId} size="xs" value={c.syobocalId?.toString()}>
+                          {c.name}
+                        </Chip>
+                      ))}
+                    </Group>
+                  </Stack>
                 ))}
               </Chip.Group>
             </Group>
