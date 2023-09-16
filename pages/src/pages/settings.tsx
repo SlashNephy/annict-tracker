@@ -1,5 +1,6 @@
 import {
   ActionIcon,
+  Avatar,
   Card,
   Center,
   Checkbox,
@@ -16,6 +17,7 @@ import {
 import {
   IconChecks,
   IconLogin,
+  IconLogout,
   IconSettings,
   IconSparkles,
   IconTrash,
@@ -43,6 +45,8 @@ import {
   epgStationUrlState,
   syobocalChannelsState,
 } from '../lib/atoms.ts'
+import { useAnnictSession } from '../lib/auth/annict/useAnnictSession.ts'
+import { SignOutButton } from '../lib/auth/SignOutButton.tsx'
 import { filterSayaChannel } from '../lib/services/saya.ts'
 import { useBrowserNotification } from '../lib/useBrowserNotification.tsx'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
@@ -69,10 +73,7 @@ export function Settings(): React.JSX.Element {
 }
 
 function UserSettings(): React.JSX.Element {
-  // const session = useSession()
-  const session = {
-    status: 'unauthenticated',
-  }
+  const session = useAnnictSession()
 
   return (
     <Stack>
@@ -82,21 +83,15 @@ function UserSettings(): React.JSX.Element {
       </Group>
 
       <Group ml="xl" p="md">
-        {session.status === 'authenticated' ? (
+        {session ? (
           <>
-            {/* <Avatar mr="md" src={session.data.user?.image ?? null} /> */}
+            <Avatar mr="md" src={session.user?.image ?? null} />
 
-            {/* <Text>{session.data.user?.name}</Text> */}
+            <Text>{session.user?.name}</Text>
 
-            {/* <Button */}
-            {/*  color="red" */}
-            {/*  leftIcon={<IconLogout size={14} />} */}
-            {/*  onClick={() => { */}
-            {/*    // signOut().catch(console.error) */}
-            {/*  }} */}
-            {/* > */}
-            {/*  ログアウト */}
-            {/* </Button> */}
+            <SignOutButton color="red" leftIcon={<IconLogout size={14} />}>
+              ログアウト
+            </SignOutButton>
           </>
         ) : (
           <>
