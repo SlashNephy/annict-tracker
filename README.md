@@ -22,16 +22,16 @@ annict-tracker は、Cloudflare Pages にデプロイする構成になってい
 
 ```
 annict-tracker
-  ├ src/
-  │  └ Vite + Mantine (フロントエンド)
+  ├ pages/
+  │  └ Cloudflare Pages [Vite + Mantine]
   ├ functions/
-  │  └ Cloudflare Worker + @auth/core (バックエンド)
+  │  └ Cloudflare Worker [@auth/core]
   ...
 ```
 
 ### 環境変数
 
-ローカル実行にはいくつか環境変数が必要です。`functions/.dev.vars.example` をもとに `functions/.dev.vars` を作成してください。
+ローカル実行にはいくつか環境変数が必要です。`.dev.vars.example` をもとに `.dev.vars` を作成してください。
 
 - `AUTH_SECRET`
   - Cookie のシークレットです。
@@ -57,9 +57,13 @@ $ yarn build
 
 ### デプロイ
 
+```console
+$ yarn deploy
+```
+
 - [Deploy a Vite 3 site · Cloudflare Pages docs](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vite3-project/) を参照してください。
 - 環境変数を設定してください。
 - Annict の OAuth 2 クライアントのリダイレクト URI を適切に変更してください。
-  - 例えば、`https://annict-tracker.pages.dev` にデプロイしたなら
-    - `https://annict-tracker.pages.dev/api/auth/callback/annict` が正しい URI です。
+  - 例えば、`https://xxx.pages.dev` にデプロイしたなら
+    - `https://xxx.pages.dev/api/auth/callback/annict` が正しい URI です。
   - ローカル実行に使用するクライアントと分けることをおすすめします。

@@ -3080,8 +3080,8 @@ __metadata:
     "@slashnephy/prettier-config": 0.1.27
     concurrently: 8.2.1
     eslint: 8.49.0
-    eslint-import-resolver-typescript: 3.6.0
     prettier: 3.0.3
+    wrangler: 3.8.0
   languageName: unknown
   linkType: soft
 
@@ -4822,7 +4822,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:3.6.0, eslint-import-resolver-typescript@npm:^3.5.2":
+"eslint-import-resolver-typescript@npm:^3.5.2":
   version: 3.6.0
   resolution: "eslint-import-resolver-typescript@npm:3.6.0"
   dependencies:
@@ -5813,7 +5813,6 @@ __metadata:
     fast-xml-parser: 4.2.7
     query-string: 8.1.0
     typescript: 5.2.2
-    wrangler: 3.8.0
     zod: 3.22.2
   languageName: unknown
   linkType: soft

@@ -10,7 +10,8 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn workspaces foreach -pi run build",
-    "dev": "yarn workspace functions dev",
+    "dev": "wrangler pages dev -- yarn workspace pages dev",
+    "deploy": "yarn build && wrangler pages deploy pages/dist",
     "format": "concurrently -n format: -m 1 'yarn:format:*'",
     "format:eslint": "yarn lint:eslint --fix",
     "format:prettier": "yarn lint:prettier --write",
@@ -23,8 +24,8 @@
     "@slashnephy/prettier-config": "0.1.27",
     "concurrently": "8.2.1",
     "eslint": "8.49.0",
-    "eslint-import-resolver-typescript": "3.6.0",
-    "prettier": "3.0.3"
+    "prettier": "3.0.3",
+    "wrangler": "3.8.0"
   },
   "packageManager": "yarn@3.6.3",
   "eslintConfig": {

@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc --noEmit",
-    "dev": "wrangler pages dev -- yarn workspace pages dev"
+    "build": "tsc --noEmit"
   },
   "dependencies": {
     "@auth/core": "0.14.0",
@@ -15,8 +14,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "4.20230914.0",
     "@types/query-string": "6.3.0",
-    "typescript": "5.2.2",
-    "wrangler": "3.8.0"
+    "typescript": "5.2.2"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
