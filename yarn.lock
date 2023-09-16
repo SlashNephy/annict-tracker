@@ -2024,20 +2024,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/next@npm:6.0.20":
-  version: 6.0.20
-  resolution: "@mantine/next@npm:6.0.20"
-  dependencies:
-    "@mantine/ssr": 6.0.20
-    "@mantine/styles": 6.0.20
-  peerDependencies:
-    next: "*"
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: e1c0a35f6107e63ab1d7b9b87173351046a6b4dcfd7b2fa8c717953c4e88c63771fd41892e4174b0719acd45b35a19147549dff7f5ea3ade2d9f5193418534ba
-  languageName: node
-  linkType: hard
-
 "@mantine/notifications@npm:6.0.20":
   version: 6.0.20
   resolution: "@mantine/notifications@npm:6.0.20"
@@ -2050,21 +2036,6 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: d97c518a6912140dccc84059ee0d5e91b92de10605f88ab4144cdc92ad69f71a9a7579e503014cf4589ede690e76a5f227f5ba369a294fdd51ed6ebf80cc0c29
-  languageName: node
-  linkType: hard
-
-"@mantine/ssr@npm:6.0.20":
-  version: 6.0.20
-  resolution: "@mantine/ssr@npm:6.0.20"
-  dependencies:
-    "@mantine/styles": 6.0.20
-    html-react-parser: 1.4.12
-  peerDependencies:
-    "@emotion/react": ">=11.9.0"
-    "@emotion/server": ">=11.4.0"
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
-  checksum: 8754b7e16a78f6be944f4cf08b6d1604efbdc0993e177e84e2692acd65f56523ef4ba7f6ee0173b7c8aa54c97786609df1a7c5c224cf76f28f5c2943928bdb52
   languageName: node
   linkType: hard
 
@@ -4318,44 +4289,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-serializer@npm:^1.0.1":
-  version: 1.4.1
-  resolution: "dom-serializer@npm:1.4.1"
-  dependencies:
-    domelementtype: ^2.0.1
-    domhandler: ^4.2.0
-    entities: ^2.0.0
-  checksum: fbb0b01f87a8a2d18e6e5a388ad0f7ec4a5c05c06d219377da1abc7bb0f674d804f4a8a94e3f71ff15f6cb7dcfc75704a54b261db672b9b3ab03da6b758b0b22
-  languageName: node
-  linkType: hard
-
-"domelementtype@npm:^2.0.1, domelementtype@npm:^2.2.0":
-  version: 2.3.0
-  resolution: "domelementtype@npm:2.3.0"
-  checksum: ee837a318ff702622f383409d1f5b25dd1024b692ef64d3096ff702e26339f8e345820f29a68bcdcea8cfee3531776b3382651232fbeae95612d6f0a75efb4f6
-  languageName: node
-  linkType: hard
-
-"domhandler@npm:4.3.1, domhandler@npm:^4.2.0, domhandler@npm:^4.2.2":
-  version: 4.3.1
-  resolution: "domhandler@npm:4.3.1"
-  dependencies:
-    domelementtype: ^2.2.0
-  checksum: 4c665ceed016e1911bf7d1dadc09dc888090b64dee7851cccd2fcf5442747ec39c647bb1cb8c8919f8bbdd0f0c625a6bafeeed4b2d656bbecdbae893f43ffaaa
-  languageName: node
-  linkType: hard
-
-"domutils@npm:^2.8.0":
-  version: 2.8.0
-  resolution: "domutils@npm:2.8.0"
-  dependencies:
-    dom-serializer: ^1.0.1
-    domelementtype: ^2.2.0
-    domhandler: ^4.2.0
-  checksum: abf7434315283e9aadc2a24bac0e00eab07ae4313b40cc239f89d84d7315ebdfd2fb1b5bf750a96bc1b4403d7237c7b2ebf60459be394d625ead4ca89b934391
-  languageName: node
-  linkType: hard
-
 "dot-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "dot-case@npm:3.0.4"
@@ -4456,20 +4389,6 @@ __metadata:
     graceful-fs: ^4.2.4
     tapable: ^2.2.0
   checksum: fbd8cdc9263be71cc737aa8a7d6c57b43d6aa38f6cc75dde6fcd3598a130cc465f979d2f4d01bb3bf475acb43817749c79f8eef9be048683602ca91ab52e4f11
-  languageName: node
-  linkType: hard
-
-"entities@npm:^2.0.0":
-  version: 2.2.0
-  resolution: "entities@npm:2.2.0"
-  checksum: 19010dacaf0912c895ea262b4f6128574f9ccf8d4b3b65c7e8334ad0079b3706376360e28d8843ff50a78aabcb8f08f0a32dbfacdc77e47ed77ca08b713669b3
-  languageName: node
-  linkType: hard
-
-"entities@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "entities@npm:3.0.1"
-  checksum: aaf7f12033f0939be91f5161593f853f2da55866db55ccbf72f45430b8977e2b79dbd58c53d0fdd2d00bd7d313b75b0968d09f038df88e308aa97e39f9456572
   languageName: node
   linkType: hard
 
@@ -6300,30 +6219,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-dom-parser@npm:1.2.0":
-  version: 1.2.0
-  resolution: "html-dom-parser@npm:1.2.0"
-  dependencies:
-    domhandler: 4.3.1
-    htmlparser2: 7.2.0
-  checksum: d5e72baba7e1a9da334f023f3b3669247c5cebaf51b23011764202c11b3850339aa0fef9f26e00c2b0510e75fe6183453fcba33304a006f9fcde3d037bf60f3d
-  languageName: node
-  linkType: hard
-
-"html-react-parser@npm:1.4.12":
-  version: 1.4.12
-  resolution: "html-react-parser@npm:1.4.12"
-  dependencies:
-    domhandler: 4.3.1
-    html-dom-parser: 1.2.0
-    react-property: 2.0.0
-    style-to-js: 1.1.0
-  peerDependencies:
-    react: 0.14 || 15 || 16 || 17 || 18
-  checksum: ddc62b2f8d0f8836ca7aa18e51ddd3e329b51d77810547cd6bcb194aa36c61533ed64a8356283b64d57e1b4b96eb7c2fbf6e657e1b4c6d0fad8577132efa6f30
-  languageName: node
-  linkType: hard
-
 "html-tokenize@npm:^2.0.0":
   version: 2.0.1
   resolution: "html-tokenize@npm:2.0.1"
@@ -6336,18 +6231,6 @@ __metadata:
   bin:
     html-tokenize: bin/cmd.js
   checksum: 4e04078fd22cf274fc1fa430490af3feda1c3bc4dd2fc88880caf6c2e816992d508bc44a7b16721b713a6b98d880f43e10ea4b169529056134cd488403adc8fc
-  languageName: node
-  linkType: hard
-
-"htmlparser2@npm:7.2.0":
-  version: 7.2.0
-  resolution: "htmlparser2@npm:7.2.0"
-  dependencies:
-    domelementtype: ^2.0.1
-    domhandler: ^4.2.2
-    domutils: ^2.8.0
-    entities: ^3.0.1
-  checksum: 96563d9965729cfcb3f5f19c26d013c6831b4cb38d79d8c185e9cd669ea6a9ffe8fb9ccc74d29a068c9078aa0e2767053ed6b19aa32723c41550340d0094bea0
   languageName: node
   linkType: hard
 
@@ -6513,13 +6396,6 @@ __metadata:
   version: 1.3.8
   resolution: "ini@npm:1.3.8"
   checksum: dfd98b0ca3a4fc1e323e38a6c8eb8936e31a97a918d3b377649ea15bdb15d481207a0dda1021efbd86b464cae29a0d33c1d7dcaf6c5672bee17fa849bc50a1b3
-  languageName: node
-  linkType: hard
-
-"inline-style-parser@npm:0.1.1":
-  version: 0.1.1
-  resolution: "inline-style-parser@npm:0.1.1"
-  checksum: 5d545056a3e1f2bf864c928a886a0e1656a3517127d36917b973de581bd54adc91b4bf1febcb0da054f204b4934763f1a4e09308b4d55002327cf1d48ac5d966
   languageName: node
   linkType: hard
 
@@ -8090,15 +7966,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pages@workspace:pages"
   dependencies:
-    "@auth/core": 0.14.0
     "@emotion/react": 11.11.1
     "@emotion/server": 11.11.0
     "@graphql-codegen/cli": 5.0.0
     "@graphql-codegen/client-preset": 4.1.0
-    "@graphql-typed-document-node/core": 3.2.0
     "@mantine/core": 6.0.20
     "@mantine/hooks": 6.0.20
-    "@mantine/next": 6.0.20
     "@mantine/notifications": 6.0.20
     "@slashnephy/typescript-extension": 0.2.3
     "@tabler/icons-react": 2.34.0
@@ -8489,13 +8362,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
-  languageName: node
-  linkType: hard
-
-"react-property@npm:2.0.0":
-  version: 2.0.0
-  resolution: "react-property@npm:2.0.0"
-  checksum: 8a444df30ef0937689c7968dae2501a0ca523777169f450e1f7ef5beeb855d6509bd058bf612f6ed8f459aa35468335d356e50264492e1938586e59fdb988262
   languageName: node
   linkType: hard
 
@@ -9517,24 +9383,6 @@ __metadata:
   version: 1.0.5
   resolution: "strnum@npm:1.0.5"
   checksum: 651b2031db5da1bf4a77fdd2f116a8ac8055157c5420f5569f64879133825915ad461513e7202a16d7fec63c54fd822410d0962f8ca12385c4334891b9ae6dd2
-  languageName: node
-  linkType: hard
-
-"style-to-js@npm:1.1.0":
-  version: 1.1.0
-  resolution: "style-to-js@npm:1.1.0"
-  dependencies:
-    style-to-object: 0.3.0
-  checksum: 8facf902b55271de8edf105d7b5d5017869518e34a2ee4b8e25093ea3ecf25ead9cc4b6a7fee7c17f7ac3ff95d36198d81aa4d53a46d4fee7d856903a097557d
-  languageName: node
-  linkType: hard
-
-"style-to-object@npm:0.3.0":
-  version: 0.3.0
-  resolution: "style-to-object@npm:0.3.0"
-  dependencies:
-    inline-style-parser: 0.1.1
-  checksum: 4d7084015207f2a606dfc10c29cb5ba569f2fe8005551df7396110dd694d6ff650f2debafa95bd5d147dfb4ca50f57868e2a7f91bf5d11ef734fe7ccbd7abf59
   languageName: node
   linkType: hard
 
