@@ -38,7 +38,7 @@ export function WorkNextProgramInfo(props: Omit<StackProps, 'children'>): React.
     }
 
     const diff = differenceInMinutes(entry.nextProgramStartAt, new Date())
-    if (diff < 0 || diff > programNotificationThresholdMinutes) {
+    if (diff < 0 || diff > programNotificationThresholdMinutes - 1) {
       return
     }
 
