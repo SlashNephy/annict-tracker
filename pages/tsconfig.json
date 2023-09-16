@@ -17,6 +17,6 @@
     "useUnknownInCatchVariables": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["src", "graphql/*/generated"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

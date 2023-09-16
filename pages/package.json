@@ -5,10 +5,7 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
-    "generate": "concurrently -n generate: 'yarn:generate:*'",
-    "generate:graphql": "concurrently -n graphql: -m 1 'yarn:graphql:*'",
-    "graphql:annict:codegen": "graphql-codegen --config graphql/annict/codegen.ts",
-    "graphql:annict:schema": "curl -o graphql/annict/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
+    "generate": "relay-compiler",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -21,29 +18,35 @@
     "@tabler/icons-react": "2.34.0",
     "@tanstack/react-query": "4.35.3",
     "date-fns": "2.30.0",
-    "graphql-request": "6.1.0",
     "js-yaml": "4.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-relay": "15.0.0",
     "react-router-dom": "6.16.0",
     "recoil": "0.7.7",
     "recoil-persist": "5.1.0",
+    "relay-runtime": "15.0.0",
     "ts-array-length": "0.1.2"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "5.0.0",
-    "@graphql-codegen/client-preset": "4.1.0",
     "@types/js-yaml": "4.0.5",
     "@types/node": "20.6.1",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react-swc": "3.3.2",
     "graphql": "16.8.0",
+    "relay-compiler": "15.0.0",
     "typescript": "5.2.2",
-    "vite": "4.4.9"
+    "vite": "4.4.9",
+    "vite-plugin-relay": "2.0.0"
   },
   "packageManager": "yarn@3.6.3",
   "engines": {
     "node": ">=20"
+  },
+  "relay": {
+    "src": "./src",
+    "schema": "./graphql/annict.schema.graphql",
+    "language": "typescript"
   }
 }
