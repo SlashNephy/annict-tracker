@@ -10,8 +10,8 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn workspaces foreach -pi run build",
-    "dev": "wrangler pages dev --compatibility-date=2023-09-04 -- yarn workspace pages dev",
     "deploy": "yarn build && wrangler pages deploy pages/dist",
+    "dev": "wrangler pages dev --compatibility-date=2023-09-04 -- yarn workspace pages dev",
     "format": "concurrently -n format: -m 1 'yarn:format:*'",
     "format:eslint": "yarn lint:eslint --fix",
     "format:prettier": "yarn lint:prettier --write",
