@@ -18,15 +18,13 @@ jobs:
     permissions:
       contents: 'read'
     with:
-      # FIXME: yarn build が壊れているので代替
-      script: 'workspace pages build'
+      script: 'build'
 
-  # FIXME: .yarnrc.yml の nodeLinker: pnpm で壊れている
-  #  lint:
-  #    uses: SlashNephy/.github/.github/workflows/yarn-lint.yml@master
-  #    permissions:
-  #      contents: 'read'
-  #      pull-requests: 'write'
+  lint:
+    uses: SlashNephy/.github/.github/workflows/yarn-lint.yml@master
+    permissions:
+      contents: 'read'
+      pull-requests: 'write'
 
   format:
     uses: SlashNephy/.github/.github/workflows/yarn-format.yml@master
