@@ -5,7 +5,7 @@ import React from 'react'
 import { AppLayout } from '../layout/AppLayout.tsx'
 
 export type ErrorPageProps = {
-  error: Error
+  error: unknown
   title?: string
 }
 
@@ -17,7 +17,7 @@ export function ErrorPage({ error, title }: ErrorPageProps): React.JSX.Element {
         icon={<IconAlertTriangle size={16} />}
         title={title ?? 'annict-tracker で問題が発生しました。'}
       >
-        {error.toString()}
+        {error?.toString()}
       </Alert>
     </AppLayout>
   )
