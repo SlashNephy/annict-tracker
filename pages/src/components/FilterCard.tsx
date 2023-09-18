@@ -77,7 +77,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                 >
                   <Chip value="SPRING">春</Chip>
                   <Chip value="SUMMER">夏</Chip>
-                  <Chip value="AUTHMN">秋</Chip>
+                  <Chip value="AUTUMN">秋</Chip>
                   <Chip value="WINTER">冬</Chip>
                 </Chip.Group>
               </Group>
