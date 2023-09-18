@@ -1,7 +1,7 @@
 import type { SyobocalProgramsResponse, SyobocalProgramsResult } from 'functions/api/syobocal/programs.types.ts'
 
 export const lookupPrograms = async (tids: number[]): Promise<SyobocalProgramsResult> => {
-  const response = await fetch(`https://annict-tracker.pages.dev/api/syobocal/programs?id=${tids.join(',')}`, {
+  const response = await fetch(`/api/syobocal/programs?id=${tids.join(',')}`, {
     headers: {
       'Content-Type': 'application/json',
     },
