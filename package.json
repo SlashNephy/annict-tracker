@@ -46,19 +46,13 @@
         }
       },
       {
-        "files": [
-          "pages/src/**/*.{ts,tsx}",
-          "pages/graphql/*/generated/*.ts"
-        ],
+        "files": "pages/src/**/*.{ts,tsx}",
         "parserOptions": {
           "project": "./pages/tsconfig.json"
         }
       },
       {
-        "files": [
-          "pages/vite.config.ts",
-          "pages/graphql/*/codegen.ts"
-        ],
+        "files": "pages/vite.config.ts",
         "parserOptions": {
           "project": "./pages/tsconfig.node.json"
         }
