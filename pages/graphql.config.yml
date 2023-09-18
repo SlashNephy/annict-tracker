@@ -1,0 +1,8 @@
+schema: schema.graphql
+extensions:
+  endpoints:
+    api.annict.com:
+      url: https://api.annict.com/graphql
+      headers:
+        Authorization: Bearer ${ANNICT_ACCESS_TOKEN}
+      introspect: true
