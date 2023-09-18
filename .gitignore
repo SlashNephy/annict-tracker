@@ -17,5 +17,4 @@ tsconfig.tsbuildinfo
 dist/
 
 # Relay
-/pages/src/__generated__/*
-!/pages/src/__generated__/.gitkeep
+/pages/src/__generated__/*.graphql.ts
