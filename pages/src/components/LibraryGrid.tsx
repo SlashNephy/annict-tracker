@@ -1,41 +1,32 @@
-import { Alert, Center, Grid, Group, Loader, Text } from '@mantine/core'
-import { IconAlertTriangle } from '@tabler/icons-react'
-import React from 'react'
+import { Center, Grid, Group, Loader, Text } from '@mantine/core'
+import React, { Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 
+import { ErrorPage } from './error/ErrorPage.tsx'
 import { LibraryEntryFilter } from './work/LibraryEntryFilter.tsx'
 import { WorkCard } from './work/WorkCard.tsx'
 import { useLibraryEntries } from '../lib/useLibraryEntries.ts'
 import { LibraryEntryProvider } from '../lib/useLibraryEntry.tsx'
 
-import type { ColProps, GridProps } from '@mantine/core'
+import type { MantineColProps, MantineGridProps } from '../lib/mantine/types.ts'
 
-export function LibraryGrid({
-  grid,
-  col,
-}: {
-  grid?: Omit<GridProps, 'children'>
-  col?: Omit<ColProps, 'children'>
-}): React.JSX.Element {
-  const { entries, isLoading, isError, error } = useLibraryEntries()
+export type LibraryGridProps = {
+  grid: Omit<MantineGridProps, 'children'>
+  col: Omit<MantineColProps, 'children'>
+}
 
-  if (isLoading) {
-    return (
-      <Center m="xl" p="xl">
-        <Group>
-          <Loader color="pink.6" variant="dots" />
-          <Text>データ取得中です...</Text>
-        </Group>
-      </Center>
-    )
-  }
+export function LibraryGrid(props: LibraryGridProps): React.JSX.Element {
+  return (
+    <ErrorBoundary fallbackRender={({ error }) => <ErrorPage error={error} title="現在 Annict API を利用できません" />}>
+      <Suspense fallback={<LibraryGridLoading />}>
+        <LibraryGridContent {...props} />
+      </Suspense>
+    </ErrorBoundary>
+  )
+}
 
-  if (isError) {
-    return (
-      <Alert color="red" icon={<IconAlertTriangle size={16} />} title="現在 Annict API を利用できません">
-        {error?.toString()}
-      </Alert>
-    )
-  }
+function LibraryGridContent({ grid, col }: LibraryGridProps): React.JSX.Element {
+  const entries = useLibraryEntries()
 
   return (
     <Grid {...grid}>
@@ -49,5 +40,16 @@ export function LibraryGrid({
         </LibraryEntryProvider>
       ))}
     </Grid>
+  )
+}
+
+function LibraryGridLoading(): React.JSX.Element {
+  return (
+    <Center m="xl" p="xl">
+      <Group>
+        <Loader color="pink.6" variant="dots" />
+        <Text>データ取得中です...</Text>
+      </Group>
+    </Center>
   )
 }

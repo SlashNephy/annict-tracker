@@ -1,9 +1,9 @@
 import { add, endOfDay, startOfToday, startOfYesterday } from 'date-fns'
 
-import { SeasonName } from '../../graphql/annict/generated/graphql.ts'
 import { AnnictSeason, isStreamingService } from '../lib/services/annict.ts'
 
 import type { DayTag, TimeTag } from './filters.ts'
+import type { SeasonName } from '../__generated__/useLibraryEntries_getViewerQuery.graphql.ts'
 import type { AnnictEpisode, AnnictLibraryEntry, AnnictProgram, AnnictWork } from '../lib/services/annict.ts'
 
 export class LibraryEntryModel {
@@ -129,6 +129,10 @@ export class LibraryEntryModel {
 
     // 放送予定がない場合はシーズンの最後の日にする
     if (this.nextProgramStartAt === null) {
+      if (this.workSeason.name === '%future added value') {
+        throw new Error(`unexpected SeasonName: ${this.workSeason.name}`)
+      }
+
       const month = { SPRING: 6, SUMMER: 9, AUTUMN: 12, WINTER: 3 }[this.workSeason.name]
       return new Date(year, month, 31).getTime()
     }
@@ -137,18 +141,11 @@ export class LibraryEntryModel {
   }
 
   public filterBySeasonName(filters: SeasonName[]): boolean {
-    switch (this.work.seasonName) {
-      case SeasonName.Spring:
-        return filters.includes(SeasonName.Spring)
-      case SeasonName.Summer:
-        return filters.includes(SeasonName.Summer)
-      case SeasonName.Autumn:
-        return filters.includes(SeasonName.Autumn)
-      case SeasonName.Winter:
-        return filters.includes(SeasonName.Winter)
-      default:
-        return true
+    if (this.work.seasonName === null) {
+      return true
     }
+
+    return filters.includes(this.work.seasonName)
   }
 
   public filterByCurrentSeason(isOnlyCurrentSeason: boolean): boolean {

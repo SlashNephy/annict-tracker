@@ -1,18 +1,22 @@
 import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
-import { useQueryClient } from '@tanstack/react-query'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
+import { graphql, useMutation } from 'react-relay'
 
-import { CreateRecordDocument } from '../../../graphql/annict/generated/graphql.ts'
-import { useAnnictClient } from '../../lib/useAnnictClient.ts'
 import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
 
 import type { ButtonProps } from '@mantine/core'
 
+const mutation = graphql`
+  mutation AnnictCreateRecordButton_createRecordMutation($episodeId: ID!) {
+    createRecord(input: { episodeId: $episodeId }) {
+      clientMutationId
+    }
+  }
+`
+
 export function AnnictCreateRecordButton(props: Omit<ButtonProps, 'disabled'>): React.JSX.Element {
   const { entry } = useLibraryEntry()
-  const client = useAnnictClient()
-  const query = useQueryClient()
 
   const isDisabled = useMemo(() => {
     // エピソード情報がない
@@ -24,34 +28,35 @@ export function AnnictCreateRecordButton(props: Omit<ButtonProps, 'disabled'>): 
     return entry.nextProgramStartAt !== null && new Date() < entry.nextProgramStartAt
   }, [entry])
 
-  return (
-    <Button
-      {...props}
-      disabled={isDisabled}
-      onClick={() => {
-        const episodeId = entry.nextEpisode?.id
-        if (episodeId === undefined) {
-          return
-        }
+  const [commit, isInFlight] = useMutation(mutation)
+  const handleClick = useCallback(() => {
+    const episodeId = entry.nextEpisode?.id
+    if (episodeId === undefined) {
+      return
+    }
 
-        client
-          .request(CreateRecordDocument, { episodeId })
-          .then(() => {
-            showNotification({
-              title: '記録しました！',
-              message: `${entry.work.title} ${entry.nextEpisodeLabel}`,
-            })
-            query.invalidateQueries(['entries']).catch(console.error)
-          })
-          .catch((e: unknown) => {
-            showNotification({
-              title: '記録できませんでした',
-              message: `${entry.work.title} ${entry.nextEpisodeLabel}`,
-            })
-            console.error(e)
-          })
-      }}
-    >
+    commit({
+      variables: {
+        episodeId,
+      },
+      onCompleted: () => {
+        showNotification({
+          title: '記録しました！',
+          message: `${entry.work.title} ${entry.nextEpisodeLabel}`,
+        })
+      },
+      onError: (e) => {
+        showNotification({
+          title: '記録できませんでした',
+          message: `${entry.work.title} ${entry.nextEpisodeLabel}`,
+        })
+        console.error(e)
+      },
+    })
+  }, [commit, entry])
+
+  return (
+    <Button {...props} disabled={isDisabled || isInFlight} onClick={handleClick}>
       記録
     </Button>
   )

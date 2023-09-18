@@ -1,8 +1,7 @@
 import { atom, selector } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
-import { SeasonName } from '../../graphql/annict/generated/graphql.ts'
-
+import type { SeasonName } from '../__generated__/useLibraryEntries_getViewerQuery.graphql.ts'
 import type { DayTag, TimeTag } from '../models/filters.ts'
 import type { RecoilState } from 'recoil'
 
@@ -40,7 +39,7 @@ export const enableSyobocalState = atom<boolean>({
 
 export const seasonFiltersState = atom<SeasonName[]>({
   key: 'season-filters',
-  default: [SeasonName.Spring, SeasonName.Summer, SeasonName.Autumn, SeasonName.Winter],
+  default: ['SPRING', 'SUMMER', 'AUTUMN', 'WINTER'],
   effects: [persistAtom],
 })
 

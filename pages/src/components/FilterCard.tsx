@@ -3,7 +3,6 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 
 import { CheckboxWithHoverCard } from './CheckboxWithHoverCard.tsx'
-import { SeasonName } from '../../graphql/annict/generated/graphql.ts'
 import {
   dayFiltersState,
   hideRebroadcastingState,
@@ -13,6 +12,7 @@ import {
   timeFiltersState,
 } from '../lib/atoms.ts'
 
+import type { SeasonName } from '../__generated__/useLibraryEntries_getViewerQuery.graphql.ts'
 import type { DayTag, TimeTag } from '../models/filters.ts'
 import type { CardProps } from '@mantine/core'
 
@@ -75,10 +75,10 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                     setSeasonFilters(value as SeasonName[])
                   }}
                 >
-                  <Chip value={SeasonName.Spring}>春</Chip>
-                  <Chip value={SeasonName.Summer}>夏</Chip>
-                  <Chip value={SeasonName.Autumn}>秋</Chip>
-                  <Chip value={SeasonName.Winter}>冬</Chip>
+                  <Chip value="SPRING">春</Chip>
+                  <Chip value="SUMMER">夏</Chip>
+                  <Chip value="AUTHMN">秋</Chip>
+                  <Chip value="WINTER">冬</Chip>
                 </Chip.Group>
               </Group>
 

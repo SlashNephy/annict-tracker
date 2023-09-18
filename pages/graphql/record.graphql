@@ -1,5 +1,0 @@
-mutation createRecord($episodeId: ID!) {
-  createRecord(input: { episodeId: $episodeId }) {
-    clientMutationId
-  }
-}

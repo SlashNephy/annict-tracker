@@ -1,6 +1,7 @@
 import { Anchor, Card, Center, Container, Text, Title } from '@mantine/core'
 import { IconBrandGithub, IconLogin } from '@tabler/icons-react'
 import React from 'react'
+import { RelayEnvironmentProvider } from 'react-relay'
 
 import { AnnictSignInButton } from '../components/AnnictSignInButton.tsx'
 import { FilterCard } from '../components/FilterCard.tsx'
@@ -8,7 +9,7 @@ import { FooterCard } from '../components/FooterCard.tsx'
 import { AppLayout } from '../components/layout/AppLayout.tsx'
 import { LibraryGrid } from '../components/LibraryGrid.tsx'
 import { useAnnictSession } from '../lib/auth/annict/useAnnictSession.ts'
-import { AnnictClientProvider } from '../lib/useAnnictClient.ts'
+import { getAnnictEnvironment } from '../lib/relay/environment.ts'
 
 function IndexAsGuestUser(): React.JSX.Element {
   return (
@@ -62,9 +63,9 @@ export function Index(): React.JSX.Element {
   return (
     <AppLayout>
       {session?.accessToken ? (
-        <AnnictClientProvider value={session.accessToken}>
+        <RelayEnvironmentProvider environment={getAnnictEnvironment(session.accessToken)}>
           <IndexAsAnnictUser />
-        </AnnictClientProvider>
+        </RelayEnvironmentProvider>
       ) : (
         <IndexAsGuestUser />
       )}

@@ -1,18 +1,10 @@
-import { GraphQLClient } from 'graphql-request'
-
-import { SeasonName } from '../../../graphql/annict/generated/graphql.ts'
-
-import type { GetViewerLibraryEntriesQuery } from '../../../graphql/annict/generated/graphql.ts'
-
-export const createAnnictClient = (accessToken: string): GraphQLClient =>
-  new GraphQLClient('https://api.annict.com/graphql', {
-    headers: {
-      authorization: `Bearer ${accessToken}`,
-    },
-  })
+import type {
+  useLibraryEntries_getViewerQuery$data,
+  SeasonName,
+} from '../../__generated__/useLibraryEntries_getViewerQuery.graphql.ts'
 
 export type AnnictLibraryEntry = NonNullable<
-  NonNullable<NonNullable<NonNullable<GetViewerLibraryEntriesQuery['viewer']>['libraryEntries']>['nodes']>[0]
+  NonNullable<NonNullable<NonNullable<useLibraryEntries_getViewerQuery$data['viewer']>['libraryEntries']>['nodes']>[0]
 >
 export type AnnictWork = NonNullable<AnnictLibraryEntry['work']>
 export type AnnictProgram = NonNullable<AnnictLibraryEntry['nextProgram']>
@@ -30,16 +22,16 @@ export class AnnictSeason {
     const month = now.getMonth() + 1
 
     if (month >= 1 && month <= 3) {
-      return new AnnictSeason(year, SeasonName.Winter)
+      return new AnnictSeason(year, 'WINTER')
     }
     if (month >= 4 && month <= 6) {
-      return new AnnictSeason(year, SeasonName.Spring)
+      return new AnnictSeason(year, 'SPRING')
     }
     if (month >= 7 && month <= 9) {
-      return new AnnictSeason(year, SeasonName.Summer)
+      return new AnnictSeason(year, 'SUMMER')
     }
     if (month >= 10 && month <= 12) {
-      return new AnnictSeason(year, SeasonName.Autumn)
+      return new AnnictSeason(year, 'AUTUMN')
     }
     throw new Error(`Unexpected month: ${month}`)
   }

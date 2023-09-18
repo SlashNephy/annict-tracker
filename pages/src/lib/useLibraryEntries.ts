@@ -1,47 +1,61 @@
-import { useQuery } from '@tanstack/react-query'
-import { secondsToMilliseconds } from 'date-fns'
+import { graphql, useLazyLoadQuery } from 'react-relay'
 
-import { useAnnictClient } from './useAnnictClient.ts'
-import { GetViewerLibraryEntriesDocument } from '../../graphql/annict/generated/graphql.ts'
 import { LibraryEntryModel } from '../models/LibraryEntryModel.ts'
 
-export type LibraryEntriesState = {
-  entries: LibraryEntryModel[]
-  isLoading: boolean
-  isError: boolean
-  error: unknown
-}
+import type { useLibraryEntries_getViewerQuery } from '../__generated__/useLibraryEntries_getViewerQuery.graphql.ts'
 
-export const useLibraryEntries = (): LibraryEntriesState => {
-  const client = useAnnictClient()
-
-  const {
-    data: entries,
-    isLoading,
-    isError,
-    error,
-  } = useQuery(
-    ['entries', client],
-    async () => {
-      const response = await client.request(GetViewerLibraryEntriesDocument, { after: null })
-      return (
-        response.viewer?.libraryEntries?.nodes
-          ?.filter((n): n is NonNullable<typeof n> => n !== null)
-          ?.map((e) => new LibraryEntryModel(e))
-          ?.sort((a, b) => a.sort - b.sort) ?? []
-      )
-    },
-    {
-      retry: true,
-      retryDelay: secondsToMilliseconds(10),
-      refetchInterval: secondsToMilliseconds(60),
+const query = graphql`
+  query useLibraryEntries_getViewerQuery($after: String) {
+    viewer {
+      libraryEntries(states: [WATCHING], after: $after) {
+        nodes {
+          id
+          work {
+            annictId
+            malAnimeId
+            title
+            viewerStatusState
+            syobocalTid
+            seasonYear
+            seasonName
+            image {
+              recommendedImageUrl
+            }
+          }
+          nextProgram {
+            startedAt
+            rebroadcast
+            channel {
+              annictId
+              name
+            }
+          }
+          nextEpisode {
+            id
+            number
+            numberText
+            title
+          }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
     }
-  )
-
-  return {
-    entries: entries ?? [],
-    isLoading,
-    isError,
-    error,
   }
+`
+
+export const useLibraryEntries = (): LibraryEntryModel[] => {
+  // TODO: 60s ごとに refetch
+  const data = useLazyLoadQuery<useLibraryEntries_getViewerQuery>(query, {
+    after: null,
+  })
+
+  return (
+    data.viewer?.libraryEntries?.nodes
+      ?.filter((n): n is NonNullable<typeof n> => n !== null)
+      ?.map((e) => new LibraryEntryModel(e))
+      ?.sort((a, b) => a.sort - b.sort) ?? []
+  )
 }
