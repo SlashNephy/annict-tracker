@@ -53,6 +53,10 @@
     "artifactDirectory": "./src/__generated__",
     "schema": "./schema.graphql",
     "language": "typescript",
-    "eagerEsModules": true
+    "eagerEsModules": true,
+    "customScalars": {
+      "DateTime": "string"
+    },
+    "noFutureProofEnums": true
   }
 }
