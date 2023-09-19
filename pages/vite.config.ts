@@ -11,6 +11,11 @@ export default defineConfig(() => {
   process.env.VITE_CF_PAGES_COMMIT_SHA = process.env.CF_PAGES_COMMIT_SHA
   process.env.VITE_CF_PAGES_BRANCH = process.env.CF_PAGES_BRANCH
 
+  // 開発環境では Recoil の警告を無視する
+  if (process.env.NODE_ENV === 'development') {
+    process.env.VITE_RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLE = 'false'
+  }
+
   return {
     plugins: [
       react(),
