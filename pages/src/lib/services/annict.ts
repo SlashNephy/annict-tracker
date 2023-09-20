@@ -77,7 +77,7 @@ export type AnnictVodData = {
 
 export async function fetchAnnictVodData(ref = 'master'): Promise<AnnictVodData[]> {
   const response = await fetch(
-    `https://raw.githubusercontent.com/SlashNephy/.github/${ref}/env/userscript/bin/collect-vod-data/dist/data.json`
+    `https://raw.githubusercontent.com/SlashNephy/anime-vod-data/${ref}/dist/data.json`
   )
   return response.json()
 }
