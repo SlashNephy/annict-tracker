@@ -6,7 +6,8 @@
     "build": "tsc && vite build",
     "dev": "vite",
     "generate": "relay-compiler",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "watch": "yarn generate --watch"
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
