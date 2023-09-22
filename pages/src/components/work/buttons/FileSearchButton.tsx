@@ -9,17 +9,16 @@ import {
   IconMovie,
   IconSearch,
 } from '@tabler/icons-react'
-import { useQuery } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import { hasLength } from 'ts-array-length'
 
 import { useShouldDisableButton } from './useShouldDisableButton.ts'
-import { fetchAnnictVodData } from '../../../lib/annict/fetchAnnictVodData.ts'
 import { annictChannelIds } from '../../../lib/annict/isStreamingService.ts'
+import { useAnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 
 import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
-import type { AnnictVodData } from '../../../lib/annict/fetchAnnictVodData.ts'
+import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 import type {
   EffectiveSearchIntegrationConfigs,
   SearchIntegrationConfig,
@@ -288,7 +287,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
     [configs]
   )
 
-  const { data: vods } = useQuery(['vods'], async () => await fetchAnnictVodData())
+  const vods = useAnnictVodData()
 
   // 検索ソースが1つのときはそのまま検索ボタンにする
   if (hasLength(integrations, 1)) {
