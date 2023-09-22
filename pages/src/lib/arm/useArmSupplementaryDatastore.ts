@@ -1,21 +1,19 @@
-import { useQuery } from '@tanstack/react-query'
 import { minutesToMilliseconds } from 'date-fns'
+import useSWR from 'swr'
 
 import { ArmDatastore } from './ArmDatastore.ts'
 
 import type { ArmEntry } from './ArmDatastore.ts'
 
-export function useArmSupplementaryDatastore(enabled?: boolean): ArmDatastore | undefined {
-  const { data } = useQuery(
-    ['arm-supplementary'],
+export function useArmSupplementaryDatastore(enabled = true): ArmDatastore {
+  const { data } = useSWR(
+    enabled ? 'arm-supplementary' : null,
     async () => {
       const data = await fetchArmSupplementary()
       return new ArmDatastore(data)
     },
     {
-      enabled,
-      retry: true,
-      retryDelay: minutesToMilliseconds(1),
+      suspense: true,
       refetchInterval: minutesToMilliseconds(15),
     }
   )

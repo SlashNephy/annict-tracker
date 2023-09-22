@@ -1,8 +1,8 @@
-import { useQuery } from '@tanstack/react-query'
+import { hoursToMilliseconds } from 'date-fns'
 import { graphql, useFragment } from 'react-relay'
+import useSWR from 'swr'
 
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
-import { LocalStorageCacheManager } from '../cache.ts'
 import { fetchJikanAnimePictures } from '../jikan/fetchJikanAnimePictures.ts'
 
 import type { useWorkImage_LibraryEntry$key } from '../../__generated__/useWorkImage_LibraryEntry.graphql.ts'
@@ -26,38 +26,30 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): string | 
   )
 
   const arm = useArmSupplementaryDatastore()
-  const { data: imageUrl } = useQuery([`work-image-${work.id}`], async () => {
-    const initialImageUrl = work.image?.recommendedImageUrl
+  const { data: imageUrl } = useSWR(
+    `work-image-${work.id}`,
+    async () => {
+      const initialImageUrl = work.image?.recommendedImageUrl
 
-    // Mixed Contents にならない場合はそのまま返す
-    if (initialImageUrl?.startsWith('https://')) {
-      return initialImageUrl
-    }
+      // Mixed Contents にならない場合はそのまま返す
+      if (initialImageUrl?.startsWith('https://')) {
+        return initialImageUrl
+      }
 
-    // MyAnimeList ID から画像を引いてみる
-    const malId = arm?.findByAnnictId(work.annictId)?.mal_id?.toString() ?? work.malAnimeId
-    if (malId) {
-      // Local Storage のキャッシュが生きていれば使う
-      const cache = LocalStorageCacheManager.get<string | null>(`work-image-${malId}`)
-      if (cache) {
-        return cache
+      // MyAnimeList ID から画像を引いてみる
+      const malId = arm.findByAnnictId(work.annictId)?.mal_id?.toString() ?? work.malAnimeId
+      if (!malId) {
+        // フォールバック不可能なのでそのまま返す
+        return initialImageUrl ?? null
       }
 
       const response = await fetchJikanAnimePictures(malId)
-      const newImageUrl = response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url
-      if (newImageUrl) {
-        LocalStorageCacheManager.set(`work-image-${malId}`, newImageUrl, {
-          ttl: {
-            days: 7,
-          },
-        })
-        return newImageUrl
-      }
+      return response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url ?? null
+    },
+    {
+      refreshInterval: hoursToMilliseconds(12),
     }
-
-    // フォールバック不可能なのでそのまま返す
-    return initialImageUrl ?? null
-  })
+  )
 
   return imageUrl ?? null
 }

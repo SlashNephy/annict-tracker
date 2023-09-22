@@ -1,19 +1,22 @@
-import { useQuery } from '@tanstack/react-query'
+import { minutesToMilliseconds } from 'date-fns'
+import useSWR from 'swr'
 
-import type { UseQueryOptions } from '@tanstack/react-query'
 import type { VersionResponse } from 'functions/api/version.types.ts'
 
-export type UseServerVersionOptions = Omit<UseQueryOptions<VersionResponse>, 'queryFn' | 'initialData'>
-
-export function useServerVersion(options?: UseServerVersionOptions): VersionResponse | null {
-  const { data } = useQuery<VersionResponse>(
+export function useServerVersion(): VersionResponse | undefined {
+  const { data } = useSWR(
     ['version'],
-    async () => {
-      const response = await fetch('/api/version')
-      return await response.json()
-    },
-    options
+    fetchServerVersion,
+
+    {
+      refreshInterval: minutesToMilliseconds(5),
+    }
   )
 
-  return data ?? null
+  return data
+}
+
+async function fetchServerVersion(): Promise<VersionResponse> {
+  const response = await fetch('/api/version')
+  return await response.json()
 }

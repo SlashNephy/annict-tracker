@@ -42,7 +42,7 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
   const syobocalChannels = useRecoilValue(syobocalChannelsState)
 
   // Annict の放送情報があるときは取得する必要はない
-  const programs = useSyobocalPrograms(!isAnnictAvailable && enableSyobocal, entry)
+  const programs = useSyobocalPrograms(entry, !isAnnictAvailable && enableSyobocal)
   const saya = useSayaDatastore(!isAnnictAvailable && enableSyobocal)
 
   return useMemo(() => {
@@ -60,7 +60,7 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
     }
 
     for (const program of programs) {
-      const annictChannel = saya?.findChannelBySyobocalId(program.ChID)
+      const annictChannel = saya.findChannelBySyobocalId(program.ChID)
       if (!annictChannel?.annictId) {
         continue
       }

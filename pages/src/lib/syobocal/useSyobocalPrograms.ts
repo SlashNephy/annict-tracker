@@ -1,5 +1,6 @@
-import { useQuery } from '@tanstack/react-query'
+import { hoursToMilliseconds } from 'date-fns'
 import { graphql, useFragment } from 'react-relay'
+import useSWR from 'swr'
 
 import { lookupSyobocalPrograms } from './lookupSyobocalPrograms.ts'
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
@@ -8,10 +9,7 @@ import type { useSyobocalPrograms_LibraryEntry$key } from '../../__generated__/u
 import type { SyobocalProgram } from 'functions/api/syobocal/programs.types.ts'
 
 // しょぼいカレンダーの API から放送スケジュールを取得する hook
-export function useSyobocalPrograms(
-  enabled: boolean,
-  entryRef: useSyobocalPrograms_LibraryEntry$key
-): SyobocalProgram[] {
+export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$key, enabled = true): SyobocalProgram[] {
   const { work, nextEpisode } = useFragment(
     graphql`
       fragment useSyobocalPrograms_LibraryEntry on LibraryEntry {
@@ -29,8 +27,8 @@ export function useSyobocalPrograms(
   )
 
   const arm = useArmSupplementaryDatastore(enabled)
-  const { data } = useQuery(
-    [`syobocal-program-${work.id}`],
+  const { data } = useSWR(
+    enabled ? `syobocal-program-${work.id}` : null,
     async () => {
       // 次のエピソードがない
       if (!nextEpisode) {
@@ -38,7 +36,7 @@ export function useSyobocalPrograms(
       }
 
       // しょぼいカレンダーとの紐付けがされていない
-      const syobocalTid = arm?.findByAnnictId(work.annictId)?.syobocal_tid ?? work.syobocalTid
+      const syobocalTid = arm.findByAnnictId(work.annictId)?.syobocal_tid ?? work.syobocalTid
       if (!syobocalTid) {
         return []
       }
@@ -50,9 +48,10 @@ export function useSyobocalPrograms(
       )
     },
     {
-      enabled,
+      suspense: true,
+      refreshInterval: hoursToMilliseconds(6),
     }
   )
 
-  return data ?? []
+  return data
 }

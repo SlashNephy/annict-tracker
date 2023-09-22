@@ -1,17 +1,15 @@
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { RecoilRoot } from 'recoil'
+import { SWRConfig } from 'swr'
 
 import { ErrorPage } from './components/error/ErrorPage.tsx'
 import { useMemorableColorScheme } from './lib/useMemorableColorScheme.ts'
 
 // eslint-disable-next-line import/order
 import '@slashnephy/typescript-extension'
-
-const queryClient = new QueryClient()
 
 export type AppProps = {
   children: React.JSX.Element
@@ -31,9 +29,10 @@ export function App({ children }: AppProps): React.JSX.Element {
           }}
         >
           <Notifications limit={3} position="bottom-right" />
-          <QueryClientProvider client={queryClient}>
+          {/* TODO: TTL 付きのキャッシュストアを実装する */}
+          <SWRConfig value={{ revalidateOnFocus: false, revalidateOnReconnect: false }}>
             <RecoilRoot>{children}</RecoilRoot>
-          </QueryClientProvider>
+          </SWRConfig>
         </MantineProvider>
       </ColorSchemeProvider>
     </ErrorBoundary>

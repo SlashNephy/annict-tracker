@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query'
-import { minutesToMilliseconds } from 'date-fns'
+import { hoursToMilliseconds } from 'date-fns'
+import useSWR from 'swr'
 
 export type AnnictVodData = {
   work_id: number
@@ -12,17 +12,16 @@ export type AnnictVodData = {
   vod_title?: string
 }
 
-export function useAnnictVodData(): AnnictVodData[] | undefined {
-  const { data } = useQuery(['vods'], async () => await fetchAnnictVodData(), {
-    retry: true,
-    retryDelay: minutesToMilliseconds(1),
-    refetchInterval: minutesToMilliseconds(15),
+export function useAnnictVodData(enabled = true): AnnictVodData[] {
+  const { data } = useSWR(enabled ? 'vods' : null, fetchAnnictVodData, {
+    suspense: true,
+    refetchInterval: hoursToMilliseconds(6),
   })
 
   return data
 }
 
-async function fetchAnnictVodData(ref = 'master'): Promise<AnnictVodData[]> {
-  const response = await fetch(`https://raw.githubusercontent.com/SlashNephy/anime-vod-data/${ref}/dist/data.json`)
+async function fetchAnnictVodData(): Promise<AnnictVodData[]> {
+  const response = await fetch('https://raw.githubusercontent.com/SlashNephy/anime-vod-data/master/dist/data.json')
   return response.json()
 }

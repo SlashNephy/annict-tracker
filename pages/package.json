@@ -18,7 +18,6 @@
     "@sentry/react": "7.69.0",
     "@slashnephy/typescript-extension": "0.2.3",
     "@tabler/icons-react": "2.34.0",
-    "@tanstack/react-query": "4.35.3",
     "date-fns": "2.30.0",
     "js-yaml": "4.1.0",
     "react": "18.2.0",
@@ -29,6 +28,7 @@
     "recoil": "0.7.7",
     "recoil-persist": "5.1.0",
     "relay-runtime": "15.0.0",
+    "swr": "2.2.2",
     "ts-array-length": "0.1.2"
   },
   "devDependencies": {
