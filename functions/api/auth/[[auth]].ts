@@ -25,7 +25,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         profile(profile) {
           return {
             id: profile.id.toString(),
-            email: profile.email,
             name: profile.name,
             image: profile.avatar_url,
           }
