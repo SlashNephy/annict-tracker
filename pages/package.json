@@ -43,6 +43,7 @@
     "relay-compiler": "15.0.0",
     "typescript": "5.2.2",
     "vite": "4.4.9",
+    "vite-plugin-chunk-split": "0.4.7",
     "vite-plugin-relay": "2.0.0"
   },
   "packageManager": "yarn@3.6.3",

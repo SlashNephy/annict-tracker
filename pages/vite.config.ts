@@ -3,6 +3,7 @@ import * as process from 'process'
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig } from 'vite'
+import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import relay from 'vite-plugin-relay'
 
 // https://vitejs.dev/config/
@@ -20,6 +21,7 @@ export default defineConfig(() => {
     plugins: [
       react(),
       relay,
+      chunkSplitPlugin(),
       sentryVitePlugin({
         org: 'starrybluesky',
         project: 'annict-tracker',
