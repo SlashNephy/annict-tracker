@@ -1,55 +1,35 @@
-import { Center, Grid, Group, Loader, Text } from '@mantine/core'
-import React, { Suspense } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
+import { Grid } from '@mantine/core'
+import React from 'react'
+import { graphql, useLazyLoadQuery } from 'react-relay'
 
-import { ErrorPage } from './error/ErrorPage.tsx'
-import { LibraryEntryFilter } from './work/LibraryEntryFilter.tsx'
-import { WorkCard } from './work/WorkCard.tsx'
-import { useLibraryEntries } from '../lib/useLibraryEntries.ts'
-import { LibraryEntryProvider } from '../lib/useLibraryEntry.tsx'
+import { LibraryGridItem } from './LibraryGridItem.tsx'
 
-import type { MantineColProps, MantineGridProps } from '../lib/mantine/types.ts'
+import type { LibraryGridQuery } from '../__generated__/LibraryGridQuery.graphql.ts'
 
-export type LibraryGridProps = {
-  grid: Omit<MantineGridProps, 'children'>
-  col: Omit<MantineColProps, 'children'>
-}
-
-export function LibraryGrid(props: LibraryGridProps): React.JSX.Element {
-  return (
-    <ErrorBoundary fallbackRender={({ error }) => <ErrorPage error={error} title="現在 Annict API を利用できません" />}>
-      <Suspense fallback={<LibraryGridLoading />}>
-        <LibraryGridContent {...props} />
-      </Suspense>
-    </ErrorBoundary>
+export function LibraryGrid(): React.JSX.Element {
+  // TODO: 60s ごとに refetch
+  const { viewer } = useLazyLoadQuery<LibraryGridQuery>(
+    graphql`
+      query LibraryGridQuery {
+        viewer {
+          # TODO: ページング
+          libraryEntries(states: [WATCHING], after: null) {
+            nodes {
+              id
+              ...LibraryGridItem_LibraryEntry
+            }
+          }
+        }
+      }
+    `,
+    {}
   )
-}
-
-function LibraryGridContent({ grid, col }: LibraryGridProps): React.JSX.Element {
-  const entries = useLibraryEntries()
 
   return (
-    <Grid {...grid}>
-      {entries.map((entry) => (
-        <LibraryEntryProvider key={entry.id} value={entry}>
-          <LibraryEntryFilter>
-            <Grid.Col {...col}>
-              <WorkCard key={entry.id} withBorder p="lg" radius="md" shadow="sm" />
-            </Grid.Col>
-          </LibraryEntryFilter>
-        </LibraryEntryProvider>
-      ))}
+    <Grid gutter="xl">
+      {viewer?.libraryEntries?.nodes
+        ?.filter((node): node is NonNullable<typeof node> => node !== null)
+        .map((node) => <LibraryGridItem key={node.id} entryRef={node} />)}
     </Grid>
-  )
-}
-
-function LibraryGridLoading(): React.JSX.Element {
-  return (
-    <Center m="xl" p="xl">
-      <Group>
-        <Loader color="pink.6" variant="dots" />
-        <Text>データ取得中です...</Text>
-      </Group>
-    </Center>
   )
 }

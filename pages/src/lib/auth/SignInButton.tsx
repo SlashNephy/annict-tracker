@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import { useCsrfToken } from './useCsrfToken.ts'
 
-import type { MantineButtonProps } from '../../lib/mantine/types.ts'
+import type { MantineButtonProps } from '../mantine/types.ts'
 
 export type SignInButtonProps = {
   providerId: string

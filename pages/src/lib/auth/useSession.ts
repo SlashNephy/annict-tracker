@@ -17,12 +17,3 @@ export function useSession<S extends Session | null>(options?: UseSessionOptions
 
   return data ?? null
 }
-
-export function useAuthenticatedSession<S extends Session>(options?: UseSessionOptions<S>): S {
-  const session = useSession(options)
-  if (session === null) {
-    throw new Error('unauthenticated')
-  }
-
-  return session
-}

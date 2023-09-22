@@ -16,7 +16,6 @@ import {
 } from '@mantine/core'
 import {
   IconChecks,
-  IconLogin,
   IconLogout,
   IconSettings,
   IconSparkles,
@@ -28,8 +27,10 @@ import React, { useMemo } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { AnnictSignInButton } from '../components/AnnictSignInButton.tsx'
-import { CheckboxWithLabel } from '../components/CheckboxWithLabel.tsx'
+import { CheckboxWithLabel } from '../components/common/CheckboxWithLabel.tsx'
 import { AppLayout } from '../components/layout/AppLayout.tsx'
+import { SignOutButton } from '../lib/auth/SignOutButton.tsx'
+import { useAnnictSession } from '../lib/auth/useAnnictSession.ts'
 import {
   enableAbemaIntegrationState,
   enableBandaiChannelIntegrationState,
@@ -40,17 +41,14 @@ import {
   enableNetflixIntegrationState,
   enableNiconicoChannelIntegrationState,
   enablePrimeVideoIntegrationState,
-  enableSyobocalState,
   enableYouTubeIntegrationState,
   epgStationUrlState,
-  syobocalChannelsState,
-} from '../lib/atoms.ts'
-import { useAnnictSession } from '../lib/auth/annict/useAnnictSession.ts'
-import { SignOutButton } from '../lib/auth/SignOutButton.tsx'
-import { filterSayaChannel } from '../lib/services/saya.ts'
+} from '../lib/recoil/integrations.ts'
+import { enableSyobocalState, syobocalChannelsState } from '../lib/recoil/syobocal.ts'
+import { filterSayaChannel } from '../lib/saya/filterSayaChannel.ts'
+import { useSayaDatastore } from '../lib/saya/useSayaDatastore.ts'
 import { useBrowserNotification } from '../lib/useBrowserNotification.tsx'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
-import { useSaya } from '../lib/useSaya.ts'
 
 export function Settings(): React.JSX.Element {
   return (
@@ -97,7 +95,7 @@ function UserSettings(): React.JSX.Element {
           <>
             <Text>現在 Annict アカウントでログインしていません。</Text>
 
-            <AnnictSignInButton fullWidth color="pink.6" leftIcon={<IconLogin />} />
+            <AnnictSignInButton />
           </>
         )}
       </Group>
@@ -157,7 +155,7 @@ function IntegrationSettings(): React.JSX.Element {
   )
   const [enableYouTubeIntegration, setEnableYouTubeIntegration] = useRecoilState(enableYouTubeIntegrationState)
 
-  const saya = useSaya(enableSyobocal)
+  const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(
     () => saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? [],
     [saya]

@@ -1,70 +1,51 @@
-import { Anchor, Button, Card, Stack, Text, Title } from '@mantine/core'
-import { IconCheck, IconPhotoOff, IconSearch } from '@tabler/icons-react'
+import { Button, Card, Stack } from '@mantine/core'
 import React from 'react'
+import { graphql, useFragment } from 'react-relay'
 import { useRecoilValue } from 'recoil'
 
-import { AnnictCreateRecordButton } from './AnnictCreateRecordButton.tsx'
-import { FileSearchButton } from './FileSearchButton.tsx'
-import { WorkImage } from './WorkImage.tsx'
-import { WorkNextProgramInfo } from './WorkNextProgramInfo.tsx'
-import { effectiveIntegrationConfigsState } from '../../lib/atoms.ts'
-import { useLibraryEntry } from '../../lib/useLibraryEntry.tsx'
+import { CreateRecordButton } from './buttons/CreateRecordButton.tsx'
+import { FileSearchButton } from './buttons/FileSearchButton.tsx'
+import { NextEpisodeTitle } from './NextEpisodeTitle.tsx'
+import { NextProgramInfo } from './NextProgramInfo.tsx'
+import { WorkCardImage } from './WorkCardImage.tsx'
+import { WorkCardTitle } from './WorkCardTitle.tsx'
+import { effectiveIntegrationConfigsState } from '../../lib/recoil/integrations.ts'
 
-import type { CardProps } from '@mantine/core'
+import type { WorkCard_LibraryEntry$key } from '../../__generated__/WorkCard_LibraryEntry.graphql.ts'
 
-export function WorkCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
-  const { entry } = useLibraryEntry()
+export type WorkCardProps = {
+  entryRef: WorkCard_LibraryEntry$key
+}
+
+export function WorkCard({ entryRef }: WorkCardProps): React.JSX.Element {
+  const entry = useFragment(
+    graphql`
+      fragment WorkCard_LibraryEntry on LibraryEntry {
+        ...WorkCardImage_LibraryEntry
+        ...WorkCardTitle_LibraryEntry
+        ...NextEpisodeTitle_LibraryEntry
+        ...NextProgramInfo_LibraryEntry
+        ...CreateRecordButton_LibraryEntry
+        ...FileSearchButton_LibraryEntry
+      }
+    `,
+    entryRef
+  )
   const configs = useRecoilValue(effectiveIntegrationConfigsState)
 
   return (
-    <Card {...props}>
+    <Card withBorder p="lg" radius="md" shadow="sm">
       <Card.Section>
-        <WorkImage withPlaceholder height={200} placeholder={<IconPhotoOff />} title={entry.work.title} />
+        <WorkCardImage entryRef={entry} />
       </Card.Section>
 
       <Stack>
-        <Title
-          color="blue.4"
-          mt="sm"
-          order={4}
-          style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
-          title={entry.work.title}
-        >
-          <Anchor color="blue.4" href={entry.workUrl} target="_blank">
-            {entry.work.title}
-          </Anchor>
-        </Title>
-
-        <Text
-          style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
-          title={entry.nextEpisodeLabel ?? undefined}
-          weight={500}
-        >
-          {entry.nextEpisodeLabel}
-        </Text>
-
-        <WorkNextProgramInfo />
-
+        <WorkCardTitle entryRef={entry} />
+        <NextEpisodeTitle entryRef={entry} />
+        <NextProgramInfo entryRef={entry} />
         <Button.Group>
-          <AnnictCreateRecordButton
-            fullWidth
-            color="blue"
-            leftIcon={<IconCheck />}
-            mt="md"
-            radius="md"
-            variant="light"
-          />
-          {Object.keys(configs).length > 0 && (
-            <FileSearchButton
-              fullWidth
-              color="blue"
-              configs={configs}
-              leftIcon={<IconSearch />}
-              mt="md"
-              radius="md"
-              variant="light"
-            />
-          )}
+          <CreateRecordButton entryRef={entry} />
+          {Object.keys(configs).length > 0 && <FileSearchButton configs={configs} entryRef={entry} />}
         </Button.Group>
       </Stack>
     </Card>

@@ -1,25 +1,8 @@
 import { showNotification } from '@mantine/notifications'
-import { useQuery } from '@tanstack/react-query'
 import { minutesToMilliseconds } from 'date-fns'
 import { useEffect } from 'react'
 
-import type { UseQueryOptions } from '@tanstack/react-query'
-import type { VersionResponse } from 'functions/api/version.types.ts'
-
-type UseServerVersion = Omit<UseQueryOptions<VersionResponse>, 'queryFn' | 'initialData'>
-
-function useServerVersion(options?: UseServerVersion): VersionResponse | null {
-  const { data } = useQuery<VersionResponse>(
-    ['version'],
-    async () => {
-      const response = await fetch('/api/version')
-      return await response.json()
-    },
-    options
-  )
-
-  return data ?? null
-}
+import { useServerVersion } from './useServerVersion.ts'
 
 export const useCheckUpdate = (): void => {
   const version = useServerVersion({

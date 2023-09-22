@@ -15,6 +15,3 @@ tsconfig.tsbuildinfo
 
 # Vite
 dist/
-
-# Relay
-/pages/src/__generated__/*.graphql.ts

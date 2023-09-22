@@ -1,14 +1,11 @@
+import { IconLogin } from '@tabler/icons-react'
 import React from 'react'
 
 import { SignInButton } from '../lib/auth/SignInButton.tsx'
 
-import type { SignInButtonProps } from '../lib/auth/SignInButton.tsx'
-
-export type AnnictSignInButtonProps = Omit<SignInButtonProps, 'providerId' | 'children'>
-
-export function AnnictSignInButton(props: AnnictSignInButtonProps): React.JSX.Element {
+export function AnnictSignInButton(): React.JSX.Element {
   return (
-    <SignInButton providerId="annict" {...props}>
+    <SignInButton fullWidth color="pink.6" leftIcon={<IconLogin />} providerId="annict">
       Annict でログイン
     </SignInButton>
   )

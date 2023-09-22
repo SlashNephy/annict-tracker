@@ -1,15 +1,17 @@
 import { Anchor, Card, Center, Container, Text, Title } from '@mantine/core'
-import { IconBrandGithub, IconLogin } from '@tabler/icons-react'
-import React from 'react'
-import { RelayEnvironmentProvider } from 'react-relay'
+import { IconBrandGithub } from '@tabler/icons-react'
+import React, { Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 
 import { AnnictSignInButton } from '../components/AnnictSignInButton.tsx'
+import { LoadingSpinner } from '../components/common/LoadingSpinner.tsx'
+import { ErrorPage } from '../components/error/ErrorPage.tsx'
 import { FilterCard } from '../components/FilterCard.tsx'
 import { FooterCard } from '../components/FooterCard.tsx'
 import { AppLayout } from '../components/layout/AppLayout.tsx'
 import { LibraryGrid } from '../components/LibraryGrid.tsx'
-import { useAnnictSession } from '../lib/auth/annict/useAnnictSession.ts'
-import { getAnnictEnvironment } from '../lib/relay/environment.ts'
+import { useAnnictSession } from '../lib/auth/useAnnictSession.ts'
+import { AnnictRelayEnvironment } from '../lib/relay/AnnictRelayEnvironment.tsx'
 
 function IndexAsGuestUser(): React.JSX.Element {
   return (
@@ -23,17 +25,17 @@ function IndexAsGuestUser(): React.JSX.Element {
           <Text mb="lg" size="md">
             annict-tracker は Annict での視聴記録を便利にする Web アプリケーションです。
             <br />
-            利用するには Annict でログインする必要があります。
+            利用するには Annict アカウントでログインする必要があります。
           </Text>
 
-          <AnnictSignInButton fullWidth color="pink.6" leftIcon={<IconLogin />} />
+          <AnnictSignInButton />
 
           <Text color="dimmed" mt="lg" size="sm">
             annict-tracker は現在開発中です。予期しない問題により正しく機能しないことがあります。
             <br />
             annict-tracker はユーザー情報を収集することはありませんが、
             <br />
-            アプリケーションの改善のためにパフォーマンス情報は収集する場合があります。
+            アプリケーションの改善のため、パフォーマンス情報やバグレポートを収集する場合があります。
             <br />
             ソースコードは{' '}
             <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
@@ -51,7 +53,13 @@ function IndexAsAnnictUser(): React.JSX.Element {
   return (
     <Container size="xl">
       <FilterCard withBorder mb="xl" mt="xl" p="lg" radius="md" shadow="sm" />
-      <LibraryGrid col={{ xs: 12, sm: 6, md: 4, lg: 3 }} grid={{ gutter: 'xl' }} />
+      <ErrorBoundary
+        fallbackRender={({ error }) => <ErrorPage error={error} title="現在 Annict API を利用できません" />}
+      >
+        <Suspense fallback={<LoadingSpinner />}>
+          <LibraryGrid />
+        </Suspense>
+      </ErrorBoundary>
       <FooterCard mb="md" mt="md" />
     </Container>
   )
@@ -63,9 +71,9 @@ export function Index(): React.JSX.Element {
   return (
     <AppLayout>
       {session?.accessToken ? (
-        <RelayEnvironmentProvider environment={getAnnictEnvironment(session.accessToken)}>
+        <AnnictRelayEnvironment bearerToken={session.accessToken}>
           <IndexAsAnnictUser />
-        </RelayEnvironmentProvider>
+        </AnnictRelayEnvironment>
       ) : (
         <IndexAsGuestUser />
       )}

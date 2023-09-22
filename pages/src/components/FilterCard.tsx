@@ -2,22 +2,23 @@ import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
 import React from 'react'
 import { useRecoilState } from 'recoil'
 
-import { CheckboxWithHoverCard } from './CheckboxWithHoverCard.tsx'
+import { CheckboxWithHoverCard } from './common/CheckboxWithHoverCard.tsx'
 import {
   dayFiltersState,
   hideRebroadcastingState,
   hideStreamingServicesState,
-  isOnlyCurrentSeasonState,
   seasonFiltersState,
+  showOnlyCurrentSeasonState,
   timeFiltersState,
-} from '../lib/atoms.ts'
+} from '../lib/recoil/filters.ts'
 
-import type { SeasonName } from '../__generated__/useLibraryEntries_getViewerQuery.graphql.ts'
-import type { DayTag, TimeTag } from '../models/filters.ts'
+import type { DayTag } from '../lib/annict/filters/useDayTag.ts'
+import type { SeasonName } from '../lib/annict/filters/useIsCurrentSeason.ts'
+import type { TimeTag } from '../lib/annict/filters/useTimeTag.ts'
 import type { CardProps } from '@mantine/core'
 
 export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
-  const [isOnlyCurrentSeason, setIsOnlyCurrentSeason] = useRecoilState(isOnlyCurrentSeasonState)
+  const [showOnlyCurrentSeason, setShowOnlyCurrentSeason] = useRecoilState(showOnlyCurrentSeasonState)
   const [hideRebroadcasting, setHideRebroadcasting] = useRecoilState(hideRebroadcastingState)
   const [hideStreamingServices, setHideStreamingServices] = useRecoilState(hideStreamingServicesState)
   const [seasonFilters, setSeasonFilters] = useRecoilState(seasonFiltersState)
@@ -35,13 +36,13 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
             <Accordion.Panel>
               <Group>
                 <CheckboxWithHoverCard
-                  checked={isOnlyCurrentSeason}
+                  checked={showOnlyCurrentSeason}
                   description="現在のシーズンに放送中の作品だけを表示します。"
                   label="今期に絞る"
                   mb="md"
                   ml="md"
                   onChange={(event) => {
-                    setIsOnlyCurrentSeason(event.target.checked)
+                    setShowOnlyCurrentSeason(event.target.checked)
                   }}
                 />
                 <CheckboxWithHoverCard

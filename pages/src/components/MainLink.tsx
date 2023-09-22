@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
-import { isNavbarExpandState } from '../lib/atoms.ts'
+import { isNavbarExpandState } from '../lib/recoil/navbar.ts'
 
 import type { Route } from '../router.tsx'
 

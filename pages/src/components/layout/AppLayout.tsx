@@ -4,7 +4,7 @@ import React, { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
-import { isNavbarExpandState } from '../../lib/atoms.ts'
+import { isNavbarExpandState } from '../../lib/recoil/navbar.ts'
 import { useCheckUpdate } from '../../lib/useCheckUpdate.ts'
 import { routes } from '../../router.tsx'
 import { MainLink } from '../MainLink.tsx'
