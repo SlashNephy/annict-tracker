@@ -8,14 +8,16 @@ import { RecoilRoot } from 'recoil'
 import { ErrorPage } from './components/error/ErrorPage.tsx'
 import { useMemorableColorScheme } from './lib/useMemorableColorScheme.ts'
 
-import type { PropsWithChildren } from 'react'
-
 // eslint-disable-next-line import/order
 import '@slashnephy/typescript-extension'
 
 const queryClient = new QueryClient()
 
-export function App({ children }: PropsWithChildren): React.JSX.Element {
+export type AppProps = {
+  children: React.JSX.Element
+}
+
+export function App({ children }: AppProps): React.JSX.Element {
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
 
   return (
