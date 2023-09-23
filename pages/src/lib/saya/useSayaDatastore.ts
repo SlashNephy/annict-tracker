@@ -1,5 +1,5 @@
 import { hoursToMilliseconds } from 'date-fns'
-import yaml from 'js-yaml'
+import { useMemo } from 'react'
 import useSWR from 'swr'
 
 import { SayaDatastore } from './SayaDatastore.ts'
@@ -9,29 +9,19 @@ import type { SayaDefinition } from './SayaDatastore.ts'
 // saya の定義ファイルを読み込む hook
 export function useSayaDatastore(enabled = true): SayaDatastore | null {
   const { data } = useSWR(
-    'saya',
+    enabled ? 'saya' : null,
     async () => {
-      if (!enabled) {
-        return null
-      }
-
-      const data = await fetchSayaDefinition()
-      return new SayaDatastore(data)
+      return await fetchSayaDefinition()
     },
     {
-      suspense: true,
-      refetchInterval: hoursToMilliseconds(6),
+      refreshInterval: hoursToMilliseconds(6),
     }
   )
 
-  return data
+  return useMemo(() => (data ? new SayaDatastore(data) : null), [data])
 }
 
-// TODO: 定義ファイルを .json にする
-async function fetchSayaDefinition(branch = 'master'): Promise<SayaDefinition> {
-  const url = `https://raw.githubusercontent.com/SlashNephy/saya-definitions/${branch}/definitions.yml`
-
-  const response = await fetch(url)
-  const text = await response.text()
-  return yaml.load(text) as SayaDefinition
+async function fetchSayaDefinition(): Promise<SayaDefinition> {
+  const response = await fetch('https://raw.githubusercontent.com/SlashNephy/saya-definitions/master/definitions.json')
+  return await response.json()
 }

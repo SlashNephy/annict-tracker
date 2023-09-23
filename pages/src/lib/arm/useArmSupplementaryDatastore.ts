@@ -1,4 +1,5 @@
 import { minutesToMilliseconds } from 'date-fns'
+import { useMemo } from 'react'
 import useSWR from 'swr'
 
 import { ArmDatastore } from './ArmDatastore.ts'
@@ -7,22 +8,16 @@ import type { ArmEntry } from './ArmDatastore.ts'
 
 export function useArmSupplementaryDatastore(enabled = true): ArmDatastore | null {
   const { data } = useSWR(
-    'arm-supplementary',
+    enabled ? 'arm-supplementary' : null,
     async () => {
-      if (!enabled) {
-        return null
-      }
-
-      const data = await fetchArmSupplementary()
-      return new ArmDatastore(data)
+      return await fetchArmSupplementary()
     },
     {
-      suspense: true,
-      refetchInterval: minutesToMilliseconds(15),
+      refreshInterval: minutesToMilliseconds(15),
     }
   )
 
-  return data
+  return useMemo(() => (data ? new ArmDatastore(data) : null), [data])
 }
 
 async function fetchArmSupplementary(branch = 'master'): Promise<ArmEntry[]> {

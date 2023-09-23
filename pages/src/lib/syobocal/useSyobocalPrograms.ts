@@ -52,10 +52,9 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
       )
     },
     {
-      suspense: true,
       refreshInterval: hoursToMilliseconds(6),
     }
   )
 
-  return data
+  return data ?? []
 }

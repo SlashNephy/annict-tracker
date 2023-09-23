@@ -31,24 +31,6 @@ export function NextProgramInfo({ entryRef }: WorkNextProgramInfoProps): React.J
 
   useWatchProgramSchedule(entry)
 
-  // TODO: Suspense, ErrorBoundary を使う
-  // if (isError) {
-  //   return (
-  //     <Group>
-  //       <Text color="dimmed">放送予定の取得に失敗しました</Text>
-  //     </Group>
-  //   )
-  // }
-  //
-  // if (isLoading) {
-  //   return (
-  //     <Group>
-  //       <Loader size="sm" />
-  //       <Text>放送予定を取得中...</Text>
-  //     </Group>
-  //   )
-  // }
-
   return (
     <Stack>
       <Group>
