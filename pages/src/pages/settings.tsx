@@ -23,14 +23,15 @@ import {
   IconUser,
   IconWorldWww,
 } from '@tabler/icons-react'
+import { useAtom } from 'jotai/index'
 import React, { useMemo } from 'react'
-import { useRecoilState } from 'recoil'
 
 import { AnnictSignInButton } from '../components/AnnictSignInButton.tsx'
 import { CheckboxWithLabel } from '../components/common/CheckboxWithLabel.tsx'
 import { AppLayout } from '../components/layout/AppLayout.tsx'
 import { SignOutButton } from '../lib/auth/SignOutButton.tsx'
 import { useAnnictSession } from '../lib/auth/useAnnictSession.ts'
+import { useRequestNotificationPermission } from '../lib/notification/useRequestNotificationPermission.tsx'
 import {
   enableAbemaIntegrationState,
   enableBandaiChannelIntegrationState,
@@ -44,10 +45,10 @@ import {
   enableYouTubeIntegrationState,
   epgStationUrlState,
 } from '../lib/recoil/integrations.ts'
+import { enableBrowserNotificationState } from '../lib/recoil/notification.ts'
 import { enableSyobocalState, syobocalChannelsState } from '../lib/recoil/syobocal.ts'
 import { filterSayaChannel } from '../lib/saya/filterSayaChannel.ts'
 import { useSayaDatastore } from '../lib/saya/useSayaDatastore.ts'
-import { useBrowserNotification } from '../lib/useBrowserNotification.tsx'
 import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
 
 export function Settings(): React.JSX.Element {
@@ -105,7 +106,8 @@ function UserSettings(): React.JSX.Element {
 
 function GeneralSettings(): React.JSX.Element {
   const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
-  const [enableBrowserNotification, setEnableBrowserNotification] = useBrowserNotification()
+  const [enableBrowserNotification, setEnableBrowserNotification] = useAtom(enableBrowserNotificationState)
+  const requestNotificationPermission = useRequestNotificationPermission()
 
   return (
     <Stack>
@@ -128,6 +130,9 @@ function GeneralSettings(): React.JSX.Element {
         label="ブラウザの通知を有効にする"
         onChange={(event) => {
           setEnableBrowserNotification(event.target.checked)
+          if (event.target.checked) {
+            requestNotificationPermission()
+          }
         }}
       />
     </Stack>
@@ -135,29 +140,29 @@ function GeneralSettings(): React.JSX.Element {
 }
 
 function IntegrationSettings(): React.JSX.Element {
-  const [enableSyobocal, setEnableSyobocal] = useRecoilState(enableSyobocalState)
-  const [syobocalChannels, setSyobocalChannels] = useRecoilState(syobocalChannelsState)
-  const [enableEverythingIntegration, setEnableEverythingIntegration] = useRecoilState(enableEverythingIntegrationState)
-  const [enableEpgStationIntegration, setEnableEpgStationIntegration] = useRecoilState(enableEpgStationIntegrationState)
-  const [epgStationUrl, setEpgStationUrl] = useRecoilState(epgStationUrlState)
-  const [enableDanimeIntegration, setEnableDanimeIntegration] = useRecoilState(enableDanimeIntegrationState)
-  const [enableDanimeNiconicoIntegration, setEnableDanimeNiconicoIntegration] = useRecoilState(
+  const [enableSyobocal, setEnableSyobocal] = useAtom(enableSyobocalState)
+  const [syobocalChannels, setSyobocalChannels] = useAtom(syobocalChannelsState)
+  const [enableEverythingIntegration, setEnableEverythingIntegration] = useAtom(enableEverythingIntegrationState)
+  const [enableEpgStationIntegration, setEnableEpgStationIntegration] = useAtom(enableEpgStationIntegrationState)
+  const [epgStationUrl, setEpgStationUrl] = useAtom(epgStationUrlState)
+  const [enableDanimeIntegration, setEnableDanimeIntegration] = useAtom(enableDanimeIntegrationState)
+  const [enableDanimeNiconicoIntegration, setEnableDanimeNiconicoIntegration] = useAtom(
     enableDanimeNiconicoIntegrationState
   )
-  const [enableAbemaIntegration, setEnableAbemaIntegration] = useRecoilState(enableAbemaIntegrationState)
-  const [enableNetflixIntegration, setEnableNetflixIntegration] = useRecoilState(enableNetflixIntegrationState)
-  const [enablePrimeVideoIntegration, setEnablePrimeVideoIntegration] = useRecoilState(enablePrimeVideoIntegrationState)
-  const [enableNiconicoChannelIntegration, setEnableNiconicoChannelIntegration] = useRecoilState(
+  const [enableAbemaIntegration, setEnableAbemaIntegration] = useAtom(enableAbemaIntegrationState)
+  const [enableNetflixIntegration, setEnableNetflixIntegration] = useAtom(enableNetflixIntegrationState)
+  const [enablePrimeVideoIntegration, setEnablePrimeVideoIntegration] = useAtom(enablePrimeVideoIntegrationState)
+  const [enableNiconicoChannelIntegration, setEnableNiconicoChannelIntegration] = useAtom(
     enableNiconicoChannelIntegrationState
   )
-  const [enableBandaiChannelIntegration, setEnableBandaiChannelIntegration] = useRecoilState(
+  const [enableBandaiChannelIntegration, setEnableBandaiChannelIntegration] = useAtom(
     enableBandaiChannelIntegrationState
   )
-  const [enableYouTubeIntegration, setEnableYouTubeIntegration] = useRecoilState(enableYouTubeIntegrationState)
+  const [enableYouTubeIntegration, setEnableYouTubeIntegration] = useAtom(enableYouTubeIntegrationState)
 
   const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(
-    () => saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? [],
+    () => saya.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel),
     [saya]
   )
 

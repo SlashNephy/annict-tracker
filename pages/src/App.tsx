@@ -1,8 +1,8 @@
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
+import { Provider } from 'jotai'
 import React from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
-import { RecoilRoot } from 'recoil'
 import { SWRConfig } from 'swr'
 
 import { ErrorPage } from './components/error/ErrorPage.tsx'
@@ -31,7 +31,7 @@ export function App({ children }: AppProps): React.JSX.Element {
           <Notifications limit={3} position="bottom-right" />
           {/* TODO: TTL 付きのキャッシュストアを実装する */}
           <SWRConfig value={{ revalidateOnFocus: false, revalidateOnReconnect: false }}>
-            <RecoilRoot>{children}</RecoilRoot>
+            <Provider>{children}</Provider>
           </SWRConfig>
         </MantineProvider>
       </ColorSchemeProvider>

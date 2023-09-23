@@ -17,13 +17,13 @@ import { useShouldDisableButton } from './useShouldDisableButton.ts'
 import { annictChannelIds } from '../../../lib/annict/isStreamingService.ts'
 import { useAnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 
-import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
-import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 import type {
   EffectiveSearchIntegrationConfigs,
   SearchIntegrationConfig,
   SearchIntegrationKey,
-} from '../../../lib/recoil/integrations.ts'
+} from './useIntegrationConfigs.ts'
+import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
+import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 import type { TablerIconsProps } from '@tabler/icons-react'
 
 type SearchIntegrationActionContext<K extends SearchIntegrationKey> = {

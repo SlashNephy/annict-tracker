@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil'
+import { useAtomValue } from 'jotai'
 
 import { useTimeTag } from './useTimeTag.ts'
 import { timeFiltersState } from '../../recoil/filters.ts'
@@ -7,7 +7,7 @@ import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/use
 
 export function useFilterByTime(entryRef: useNextProgram_LibraryEntry$key): boolean {
   const timeTag = useTimeTag(entryRef)
-  const filters = useRecoilValue(timeFiltersState)
+  const filters = useAtomValue(timeFiltersState)
 
   switch (timeTag) {
     case 'yesterday':

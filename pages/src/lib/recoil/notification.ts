@@ -1,20 +1,8 @@
-import { atom } from 'recoil'
+import { atom } from 'jotai'
+import { atomWithStorage } from 'jotai/utils'
 
-import { persistAtom } from './persist.ts'
+export const enableBrowserNotificationState = atomWithStorage('enableBrowserNotification', false)
 
-export const enableBrowserNotificationState = atom<boolean>({
-  key: 'enableBrowserNotification',
-  default: false,
-  effects: [persistAtom],
-})
+export const programNotificationThresholdMinutesState = atomWithStorage('programNotificationThresholdMinutes', 5)
 
-export const programNotificationThresholdMinutesState = atom<number>({
-  key: 'programNotificationThresholdMinutes',
-  default: 5,
-  effects: [persistAtom],
-})
-
-export const notificationHistoriesState = atom<string[]>({
-  key: 'notificationHistories',
-  default: [],
-})
+export const notificationHistoriesState = atom<string[]>([])

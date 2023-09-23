@@ -1,9 +1,4 @@
-import { atom } from 'recoil'
+import { atomWithStorage } from 'jotai/utils'
 
-import { persistAtom } from './persist.ts'
-
-export const isNavbarExpandState = atom<boolean>({
-  key: 'isNavbarExpand',
-  default: false,
-  effects: [persistAtom],
-})
+// TODO: 名前を ~Atom に変える
+export const isNavbarExpandState = atomWithStorage('isNavbarExpand', false)

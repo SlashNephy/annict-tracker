@@ -1,6 +1,6 @@
+import { useAtomValue } from 'jotai'
 import { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
-import { useRecoilValue } from 'recoil'
 
 import { enableSyobocalState, syobocalChannelsState } from '../recoil/syobocal.ts'
 import { useSayaDatastore } from '../saya/useSayaDatastore.ts'
@@ -38,8 +38,8 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
 
   // Annict の放送情報が利用できるかどうか
   const isAnnictAvailable = useMemo(() => !!entry.nextProgram, [entry.nextProgram])
-  const enableSyobocal = useRecoilValue(enableSyobocalState)
-  const syobocalChannels = useRecoilValue(syobocalChannelsState)
+  const enableSyobocal = useAtomValue(enableSyobocalState)
+  const syobocalChannels = useAtomValue(syobocalChannelsState)
 
   // Annict の放送情報があるときは取得する必要はない
   const programs = useSyobocalPrograms(entry, !isAnnictAvailable && enableSyobocal)

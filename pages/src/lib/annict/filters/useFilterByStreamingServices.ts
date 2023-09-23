@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil'
+import { useAtomValue } from 'jotai'
 
 import { hideStreamingServicesState } from '../../recoil/filters.ts'
 import { isStreamingService } from '../isStreamingService.ts'
@@ -8,7 +8,7 @@ import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/use
 
 export function useFilterByStreamingServices(entryRef: useNextProgram_LibraryEntry$key): boolean {
   const nextProgram = useNextProgram(entryRef)
-  const hideStreamingServices = useRecoilValue(hideStreamingServicesState)
+  const hideStreamingServices = useAtomValue(hideStreamingServicesState)
   if (!hideStreamingServices) {
     return true
   }

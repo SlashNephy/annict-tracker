@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil'
+import { useAtomValue } from 'jotai'
 
 import { useDayTag } from './useDayTag.ts'
 import { dayFiltersState, timeFiltersState } from '../../recoil/filters.ts'
@@ -7,8 +7,8 @@ import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/use
 
 export function useFilterByDay(entryRef: useNextProgram_LibraryEntry$key): boolean {
   const dayTag = useDayTag(entryRef)
-  const dayFilters = useRecoilValue(dayFiltersState)
-  const timeFilters = useRecoilValue(timeFiltersState)
+  const dayFilters = useAtomValue(dayFiltersState)
+  const timeFilters = useAtomValue(timeFiltersState)
 
   switch (dayTag) {
     case 'sunday':

@@ -1,6 +1,6 @@
 import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
+import { useAtom } from 'jotai'
 import React from 'react'
-import { useRecoilState } from 'recoil'
 
 import { CheckboxWithHoverCard } from './common/CheckboxWithHoverCard.tsx'
 import {
@@ -18,12 +18,12 @@ import type { TimeTag } from '../lib/annict/filters/useTimeTag.ts'
 import type { CardProps } from '@mantine/core'
 
 export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
-  const [showOnlyCurrentSeason, setShowOnlyCurrentSeason] = useRecoilState(showOnlyCurrentSeasonState)
-  const [hideRebroadcasting, setHideRebroadcasting] = useRecoilState(hideRebroadcastingState)
-  const [hideStreamingServices, setHideStreamingServices] = useRecoilState(hideStreamingServicesState)
-  const [seasonFilters, setSeasonFilters] = useRecoilState(seasonFiltersState)
-  const [timeFilters, setTimeFilters] = useRecoilState(timeFiltersState)
-  const [dayFilters, setDayFilters] = useRecoilState(dayFiltersState)
+  const [showOnlyCurrentSeason, setShowOnlyCurrentSeason] = useAtom(showOnlyCurrentSeasonState)
+  const [hideRebroadcasting, setHideRebroadcasting] = useAtom(hideRebroadcastingState)
+  const [hideStreamingServices, setHideStreamingServices] = useAtom(hideStreamingServicesState)
+  const [seasonFilters, setSeasonFilters] = useAtom(seasonFiltersState)
+  const [timeFilters, setTimeFilters] = useAtom(timeFiltersState)
+  const [dayFilters, setDayFilters] = useAtom(dayFiltersState)
 
   return (
     <Card {...props}>

@@ -1,5 +1,5 @@
+import { useAtomValue } from 'jotai'
 import { graphql, useFragment } from 'react-relay'
-import { useRecoilValue } from 'recoil'
 
 import { seasonFiltersState } from '../../recoil/filters.ts'
 
@@ -21,6 +21,6 @@ export function useFilterBySeasons(entryRef: useFilterBySeasons_LibraryEntry$key
     return false
   }
 
-  const seasonFilters = useRecoilValue(seasonFiltersState)
+  const seasonFilters = useAtomValue(seasonFiltersState)
   return seasonFilters.includes(work.seasonName)
 }

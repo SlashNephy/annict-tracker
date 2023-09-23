@@ -1,15 +1,14 @@
 import { Button, Card, Stack } from '@mantine/core'
 import React from 'react'
 import { graphql, useFragment } from 'react-relay'
-import { useRecoilValue } from 'recoil'
 
 import { CreateRecordButton } from './buttons/CreateRecordButton.tsx'
 import { FileSearchButton } from './buttons/FileSearchButton.tsx'
+import { useIntegrationConfigs } from './buttons/useIntegrationConfigs.ts'
 import { NextEpisodeTitle } from './NextEpisodeTitle.tsx'
 import { NextProgramInfo } from './NextProgramInfo.tsx'
 import { WorkCardImage } from './WorkCardImage.tsx'
 import { WorkCardTitle } from './WorkCardTitle.tsx'
-import { effectiveIntegrationConfigsState } from '../../lib/recoil/integrations.ts'
 
 import type { WorkCard_LibraryEntry$key } from '../../__generated__/WorkCard_LibraryEntry.graphql.ts'
 
@@ -31,7 +30,7 @@ export function WorkCard({ entryRef }: WorkCardProps): React.JSX.Element {
     `,
     entryRef
   )
-  const configs = useRecoilValue(effectiveIntegrationConfigsState)
+  const configs = useIntegrationConfigs()
 
   return (
     <Card withBorder p="lg" radius="md" shadow="sm">

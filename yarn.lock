@@ -1541,6 +1541,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc-jotai/debug-label@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@swc-jotai/debug-label@npm:0.1.0"
+  checksum: 9eb730742e07eef846b42f6dbb6bef46f18f66e0785ce15f72873271a05957fc89bb463ba7bad76078f64eeb02a9a414787576e2a11f11bcc26c579683af8033
+  languageName: node
+  linkType: hard
+
+"@swc-jotai/react-refresh@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@swc-jotai/react-refresh@npm:0.1.0"
+  checksum: 95ec33e81d74fbedc20cc5b9c56b045e0758001335ab91782f6af59869e6fa34d500b00fcad1fe51c4650025c85b0db2a6994233f4f7fc06947f0c734231a359
+  languageName: node
+  linkType: hard
+
 "@swc/core-darwin-arm64@npm:1.3.84":
   version: 1.3.84
   resolution: "@swc/core-darwin-arm64@npm:1.3.84"
@@ -4810,13 +4824,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hamt_plus@npm:1.0.2":
-  version: 1.0.2
-  resolution: "hamt_plus@npm:1.0.2"
-  checksum: af26ea32db03009019cc83dfa9411521a2fa16079443de1a502c9be46d8b3c975acda8ed93fc5750ef08d3186d35901e2d8cfe717dd54bea67b358601fa74e4c
-  languageName: node
-  linkType: hard
-
 "has-bigints@npm:^1.0.1, has-bigints@npm:^1.0.2":
   version: 1.0.2
   resolution: "has-bigints@npm:1.0.2"
@@ -5436,6 +5443,21 @@ __metadata:
   version: 4.14.6
   resolution: "jose@npm:4.14.6"
   checksum: eae81a234e7bf1446b1bd80722b3462b014e3835b155c3a7799c1c5043163a53a0dc28d347004151b031e6b7b863403aabf8814d9cc217ce21f8c2f3ebd4b335
+  languageName: node
+  linkType: hard
+
+"jotai@npm:2.4.2":
+  version: 2.4.2
+  resolution: "jotai@npm:2.4.2"
+  peerDependencies:
+    "@types/react": ">=17.0.0"
+    react: ">=17.0.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    react:
+      optional: true
+  checksum: b0f77afa692435ae922c8ad25f8642b98759127d686c6b3a6e8944b64f351be63e08b14bbcf7f6d2becdf68f2f5c1005b19c853271fc22052db783a2bce25efc
   languageName: node
   linkType: hard
 
@@ -6363,6 +6385,8 @@ __metadata:
     "@sentry/react": 7.69.0
     "@sentry/vite-plugin": 2.7.1
     "@slashnephy/typescript-extension": 0.2.3
+    "@swc-jotai/debug-label": 0.1.0
+    "@swc-jotai/react-refresh": 0.1.0
     "@tabler/icons-react": 2.34.0
     "@types/js-yaml": 4.0.5
     "@types/node": 20.6.1
@@ -6372,14 +6396,13 @@ __metadata:
     "@vitejs/plugin-react-swc": 3.3.2
     babel-plugin-relay: 15.0.0
     date-fns: 2.30.0
+    jotai: 2.4.2
     js-yaml: 4.1.0
     react: 18.2.0
     react-dom: 18.2.0
     react-error-boundary: 4.0.11
     react-relay: 15.0.0
     react-router-dom: 6.16.0
-    recoil: 0.7.7
-    recoil-persist: 5.1.0
     relay-compiler: 15.0.0
     relay-runtime: 15.0.0
     swr: 2.2.2
@@ -6887,31 +6910,6 @@ __metadata:
   dependencies:
     picomatch: ^2.2.1
   checksum: 1ced032e6e45670b6d7352d71d21ce7edf7b9b928494dcaba6f11fba63180d9da6cd7061ebc34175ffda6ff529f481818c962952004d273178acd70f7059b320
-  languageName: node
-  linkType: hard
-
-"recoil-persist@npm:5.1.0":
-  version: 5.1.0
-  resolution: "recoil-persist@npm:5.1.0"
-  peerDependencies:
-    recoil: ^0.7.2
-  checksum: 03ee8417b9bfcb1e5d61af373a304437190da394bf42b0979cf54ec4edeb27e7577f76ae4f9348d131865b87b19dc8dedc158e2bacd3976d4b936be1ab005d18
-  languageName: node
-  linkType: hard
-
-"recoil@npm:0.7.7":
-  version: 0.7.7
-  resolution: "recoil@npm:0.7.7"
-  dependencies:
-    hamt_plus: 1.0.2
-  peerDependencies:
-    react: ">=16.13.1"
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-  checksum: 65edecbcb8d2cde89bfd61ec679c200483472a6cd343c33e4e9142b6ce524fb17d1fecc2bfd8c392926aaa8178c81457f165b32abce2a9662f51f98822c0a9cc
   languageName: node
   linkType: hard
 

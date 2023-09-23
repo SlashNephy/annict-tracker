@@ -1,8 +1,8 @@
 import { useInterval } from '@mantine/hooks'
 import { differenceInMinutes, secondsToMilliseconds } from 'date-fns'
+import { useAtom, useAtomValue } from 'jotai'
 import { useCallback, useEffect } from 'react'
 import { graphql, useFragment } from 'react-relay'
-import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { useNextEpisodeTitle } from './useNextEpisodeTitle.ts'
 import { useNextProgram } from './useNextProgram.ts'
@@ -35,9 +35,9 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
   const nextProgram = useNextProgram(entry)
   const nextEpisodeLabel = useNextEpisodeTitle(entry)
 
-  const enableBrowserNotification = useRecoilValue(enableBrowserNotificationState)
-  const programNotificationThresholdMinutes = useRecoilValue(programNotificationThresholdMinutesState)
-  const [notificationHistories, setNotificationHistories] = useRecoilState(notificationHistoriesState)
+  const enableBrowserNotification = useAtomValue(enableBrowserNotificationState)
+  const programNotificationThresholdMinutes = useAtomValue(programNotificationThresholdMinutesState)
+  const [notificationHistories, setNotificationHistories] = useAtom(notificationHistoriesState)
 
   const createNotification = useCallback(() => {
     // ブラウザ通知が有効ではない

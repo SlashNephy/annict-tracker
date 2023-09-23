@@ -1,14 +1,14 @@
 import { Anchor, Group, Text, ThemeIcon, Tooltip, UnstyledButton } from '@mantine/core'
+import { useAtom } from 'jotai'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useRecoilState } from 'recoil'
 
 import { isNavbarExpandState } from '../lib/recoil/navbar.ts'
 
 import type { Route } from '../router.tsx'
 
 export function MainLink({ icon: Icon, label, ...props }: Route): React.JSX.Element {
-  const [isExpand, setIsExpand] = useRecoilState(isNavbarExpandState)
+  const [isExpand, setIsExpand] = useAtom(isNavbarExpandState)
 
   return (
     <UnstyledButton
