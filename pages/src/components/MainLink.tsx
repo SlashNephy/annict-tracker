@@ -11,19 +11,7 @@ export function MainLink({ icon: Icon, label, ...props }: Route): React.JSX.Elem
   const [isExpand, setIsExpand] = useAtom(isNavbarExpandState)
 
   return (
-    <UnstyledButton
-      sx={(theme) => ({
-        display: 'block',
-        width: '100%',
-        padding: theme.spacing.sm,
-        borderRadius: theme.radius.sm,
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
-
-        '&:hover': {
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-        },
-      })}
-    >
+    <UnstyledButton>
       <Anchor
         component={Link}
         to={props.route.path}

@@ -1,40 +1,31 @@
-import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
+import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
+import '@slashnephy/typescript-extension'
 import { Provider } from 'jotai'
 import React from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { SWRConfig } from 'swr'
 
 import { ErrorPage } from './components/error/ErrorPage.tsx'
-import { useMemorableColorScheme } from './lib/useMemorableColorScheme.ts'
 
 // eslint-disable-next-line import/order
-import '@slashnephy/typescript-extension'
+import '@mantine/core/styles.css'
 
 export type AppProps = {
   children: React.JSX.Element
 }
 
 export function App({ children }: AppProps): React.JSX.Element {
-  const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
-
   return (
     <ErrorBoundary fallbackRender={({ error }) => <ErrorPage error={error} />}>
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            colorScheme,
-          }}
-        >
-          <Notifications limit={3} position="bottom-right" />
-          {/* TODO: TTL 付きのキャッシュストアを実装する */}
-          <SWRConfig value={{ revalidateOnFocus: false, revalidateOnReconnect: false }}>
-            <Provider>{children}</Provider>
-          </SWRConfig>
-        </MantineProvider>
-      </ColorSchemeProvider>
+      <ColorSchemeScript defaultColorScheme="auto" />
+      <MantineProvider defaultColorScheme="auto">
+        <Notifications limit={3} position="bottom-right" />
+        {/* TODO: TTL 付きのキャッシュストアを実装する */}
+        <SWRConfig value={{ revalidateOnFocus: false, revalidateOnReconnect: false }}>
+          <Provider>{children}</Provider>
+        </SWRConfig>
+      </MantineProvider>
     </ErrorBoundary>
   )
 }

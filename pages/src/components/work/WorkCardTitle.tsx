@@ -23,13 +23,13 @@ export function WorkCardTitle({ entryRef }: WorkCardTitleProps): React.JSX.Eleme
 
   return (
     <Title
-      color="blue.4"
+      c="blue.4"
       mt="sm"
       order={4}
       style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
       title={work.title}
     >
-      <Anchor color="blue.4" href={`https://annict.com/works/${work.annictId}`} target="_blank">
+      <Anchor c="blue.4" href={`https://annict.com/works/${work.annictId}`} target="_blank">
         {work.title}
       </Anchor>
     </Title>

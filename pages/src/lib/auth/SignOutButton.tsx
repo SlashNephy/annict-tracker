@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 
 import { useCsrfToken } from './useCsrfToken.ts'
 
-import type { MantineButtonProps } from '../../lib/mantine/types.ts'
+import type { ButtonProps } from '@mantine/core'
 
-export type SignOutButtonProps = MantineButtonProps
+export type SignOutButtonProps = ButtonProps
 
 export function SignOutButton({ children, ...props }: SignOutButtonProps): React.JSX.Element {
   const csrfToken = useCsrfToken()

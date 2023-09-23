@@ -19,7 +19,7 @@ function IndexAsGuestUser(): React.JSX.Element {
       <Center>
         <Card withBorder mb="xl" mt="xl" p="xl" radius="md" shadow="sm">
           <Card.Section m="md" mt="xl" pt="md">
-            <Title align="center">annict-tracker</Title>
+            <Title ta="center">annict-tracker</Title>
           </Card.Section>
 
           <Text mb="lg" size="md">
@@ -30,7 +30,7 @@ function IndexAsGuestUser(): React.JSX.Element {
 
           <AnnictSignInButton />
 
-          <Text color="dimmed" mt="lg" size="sm">
+          <Text c="dimmed" mt="lg" size="sm">
             annict-tracker は現在開発中です。予期しない問題により正しく機能しないことがあります。
             <br />
             annict-tracker はユーザー情報を収集することはありませんが、

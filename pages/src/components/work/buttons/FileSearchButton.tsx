@@ -298,7 +298,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
         fullWidth
         color="blue"
         disabled={isDisabled}
-        leftIcon={<IconSearch />}
+        leftSection={<IconSearch />}
         mt="md"
         radius="md"
         variant="light"
@@ -318,10 +318,10 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
           fullWidth
           color="blue"
           disabled={isDisabled}
-          leftIcon={<IconSearch />}
+          leftSection={<IconSearch />}
           mt="md"
           radius="md"
-          rightIcon={<IconChevronDown size="1.05rem" stroke={1.5} />}
+          rightSection={<IconChevronDown size="1.05rem" stroke={1.5} />}
           variant="light"
         >
           検索
@@ -335,7 +335,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
             return (
               <Menu.Item
                 key={integration.title}
-                icon={<Icon size="1rem" stroke={1.5} />}
+                leftSection={<Icon size="1rem" stroke={1.5} />}
                 onClick={() => {
                   integration.search({ work: entry.work, config: integration.config, vods })
                 }}

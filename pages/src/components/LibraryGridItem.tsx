@@ -43,7 +43,7 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
   // 放送時間が古い順に並び替える。ソート順は非同期で確定されるため、CSS order を使う
   const sortNumber = useSortNumber(entry)
   return (
-    <Grid.Col hidden={!isEnabled} lg={3} md={4} sm={6} style={{ order: sortNumber }} xs={12}>
+    <Grid.Col hidden={!isEnabled} span={{ lg: 3, md: 4, sm: 6, xs: 12 }} style={{ order: sortNumber }}>
       <WorkCard entryRef={entry} />
     </Grid.Col>
   )

@@ -9,7 +9,7 @@ export function Help(): React.JSX.Element {
       <Container mt="xl">
         <Center>
           <Card withBorder mb="xl" mt="xl" p="xl" radius="md" shadow="sm">
-            <Text italic>TODO...</Text>
+            <Text fs="italic">TODO...</Text>
           </Card>
         </Center>
       </Container>

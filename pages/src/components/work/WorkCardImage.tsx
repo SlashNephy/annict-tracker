@@ -1,5 +1,4 @@
 import { Image } from '@mantine/core'
-import { IconPhotoOff } from '@tabler/icons-react'
 import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
@@ -24,15 +23,7 @@ export function WorkCardImage({ entryRef }: WorkCardImageProps): React.JSX.Eleme
     entryRef
   )
 
+  // TODO: プレースホルダー <IconPhotoOff />
   const imageUrl = useWorkImage(entry)
-  return (
-    <Image
-      withPlaceholder
-      alt={entry.work.title}
-      height={200}
-      placeholder={<IconPhotoOff />}
-      src={imageUrl}
-      title={entry.work.title}
-    />
-  )
+  return <Image alt={entry.work.title} height={200} src={imageUrl} title={entry.work.title} />
 }

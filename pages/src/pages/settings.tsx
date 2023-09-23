@@ -3,16 +3,17 @@ import {
   Avatar,
   Card,
   Center,
-  Checkbox,
   Chip,
   Container,
   Divider,
   Group,
   HoverCard,
+  Radio,
   Stack,
   Switch,
   Text,
   TextInput,
+  useMantineColorScheme,
 } from '@mantine/core'
 import {
   IconChecks,
@@ -49,7 +50,6 @@ import { enableBrowserNotificationState } from '../lib/recoil/notification.ts'
 import { enableSyobocalState, syobocalChannelsState } from '../lib/recoil/syobocal.ts'
 import { filterSayaChannel } from '../lib/saya/filterSayaChannel.ts'
 import { useSayaDatastore } from '../lib/saya/useSayaDatastore.ts'
-import { useMemorableColorScheme } from '../lib/useMemorableColorScheme.ts'
 
 export function Settings(): React.JSX.Element {
   return (
@@ -88,7 +88,7 @@ function UserSettings(): React.JSX.Element {
 
             <Text>{session.user?.name}</Text>
 
-            <SignOutButton color="red" leftIcon={<IconLogout size={14} />}>
+            <SignOutButton color="red" leftSection={<IconLogout size={14} />}>
               ログアウト
             </SignOutButton>
           </>
@@ -105,7 +105,7 @@ function UserSettings(): React.JSX.Element {
 }
 
 function GeneralSettings(): React.JSX.Element {
-  const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
+  const { colorScheme, setColorScheme } = useMantineColorScheme()
   const [enableBrowserNotification, setEnableBrowserNotification] = useAtom(enableBrowserNotificationState)
   const requestNotificationPermission = useRequestNotificationPermission()
 
@@ -116,13 +116,31 @@ function GeneralSettings(): React.JSX.Element {
         <Text>一般設定</Text>
       </Group>
 
-      <Checkbox
-        checked={colorScheme === 'dark'}
-        label="ダークモードを有効にする"
-        onChange={() => {
-          toggleColorScheme()
-        }}
-      />
+      <Radio.Group label="カラースキーム" value={colorScheme}>
+        <Group>
+          <Radio
+            label="ライト"
+            value="light"
+            onClick={() => {
+              setColorScheme('light')
+            }}
+          />
+          <Radio
+            label="ダーク"
+            value="dark"
+            onClick={() => {
+              setColorScheme('dark')
+            }}
+          />
+          <Radio
+            label="OS と同期させる"
+            value="auto"
+            onClick={() => {
+              setColorScheme('auto')
+            }}
+          />
+        </Group>
+      </Radio.Group>
 
       <CheckboxWithLabel
         checked={enableBrowserNotification}
@@ -266,8 +284,8 @@ function IntegrationSettings(): React.JSX.Element {
         {enableEpgStationIntegration && (
           <TextInput
             description="EPGStation トップページの URL を入力します。"
-            icon={<IconWorldWww />}
             label="EPGStation 統合で使用される URL"
+            leftSection={<IconWorldWww />}
             pl="xl"
             placeholder="http://localhost:8888"
             value={epgStationUrl}

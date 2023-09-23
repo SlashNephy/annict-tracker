@@ -10,13 +10,11 @@ import {
 } from 'date-fns'
 import React, { useCallback, useEffect, useState } from 'react'
 
-import type { MantineTextProps } from '../../lib/mantine/types.ts'
-
-export type RelativeTimeTextProps = MantineTextProps & {
+export type RelativeTimeTextProps = {
   time: Date
 }
 
-export function RelativeTimeText({ time, ...props }: RelativeTimeTextProps): React.JSX.Element {
+export function RelativeTimeText({ time }: RelativeTimeTextProps): React.JSX.Element {
   const createText = useCallback(() => {
     const now = new Date()
     const years = differenceInYears(time, now)
@@ -60,5 +58,5 @@ export function RelativeTimeText({ time, ...props }: RelativeTimeTextProps): Rea
     }
   }, [update])
 
-  return <Text {...props}>{label}</Text>
+  return <Text span>{label}</Text>
 }
