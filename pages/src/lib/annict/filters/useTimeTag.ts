@@ -4,8 +4,7 @@ import { useNextProgram } from '../useNextProgram.ts'
 
 import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
 
-// TODO: unset 廃止
-export type TimeTag = 'yesterday' | 'today' | 'tomorrow' | 'finished' | 'future' | 'undetermined' | 'unset'
+export type TimeTag = 'yesterday' | 'today' | 'tomorrow' | 'finished' | 'future' | 'undetermined'
 
 // https://github.com/kiraka/annict-web/blob/853819f59a8adb1c0f41df19cbe3bf651d765fee/app/models/tv_time.rb
 export function useTimeTag(entryRef: useNextProgram_LibraryEntry$key): TimeTag {

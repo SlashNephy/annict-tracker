@@ -97,8 +97,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                   <Chip value="today">今日</Chip>
                   <Chip value="tomorrow">明日</Chip>
                   <Chip value="future">明日以降</Chip>
-                  <Chip value="undetermined">未定</Chip>
-                  <Chip value="unset">放送情報なし</Chip>
+                  <Chip value="undetermined">放送情報なし</Chip>
                 </Chip.Group>
               </Group>
 

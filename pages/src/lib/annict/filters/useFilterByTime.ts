@@ -22,7 +22,5 @@ export function useFilterByTime(entryRef: useNextProgram_LibraryEntry$key): bool
       return filters.includes('future')
     case 'undetermined':
       return filters.includes('undetermined')
-    case 'unset':
-      return filters.includes('unset')
   }
 }
