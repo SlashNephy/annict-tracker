@@ -4,13 +4,13 @@ import { useAtom } from 'jotai'
 import React, { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { isNavbarExpandState } from '../../lib/recoil/navbar.ts'
+import { isNavbarExpandAtom } from '../../lib/jotai/navbar.ts'
 import { useCheckUpdate } from '../../lib/useCheckUpdate.ts'
 import { routes } from '../../router.tsx'
 import { MainLink } from '../MainLink.tsx'
 
 export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Element {
-  const [isExpand, setIsExpand] = useAtom(isNavbarExpandState)
+  const [isExpand, setIsExpand] = useAtom(isNavbarExpandAtom)
   const theme = useMantineTheme()
 
   const location = useLocation()

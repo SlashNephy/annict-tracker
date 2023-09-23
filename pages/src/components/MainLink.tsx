@@ -3,12 +3,12 @@ import { useAtom } from 'jotai'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { isNavbarExpandState } from '../lib/recoil/navbar.ts'
+import { isNavbarExpandAtom } from '../lib/jotai/navbar.ts'
 
 import type { Route } from '../router.tsx'
 
 export function MainLink({ icon: Icon, label, ...props }: Route): React.JSX.Element {
-  const [isExpand, setIsExpand] = useAtom(isNavbarExpandState)
+  const [isExpand, setIsExpand] = useAtom(isNavbarExpandAtom)
 
   return (
     <UnstyledButton>

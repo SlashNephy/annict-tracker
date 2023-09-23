@@ -32,22 +32,22 @@ import { CheckboxWithLabel } from '../components/common/CheckboxWithLabel.tsx'
 import { AppLayout } from '../components/layout/AppLayout.tsx'
 import { SignOutButton } from '../lib/auth/SignOutButton.tsx'
 import { useAnnictSession } from '../lib/auth/useAnnictSession.ts'
-import { useRequestNotificationPermission } from '../lib/notification/useRequestNotificationPermission.tsx'
 import {
-  enableAbemaIntegrationState,
-  enableBandaiChannelIntegrationState,
-  enableDanimeIntegrationState,
-  enableDanimeNiconicoIntegrationState,
-  enableEpgStationIntegrationState,
-  enableEverythingIntegrationState,
-  enableNetflixIntegrationState,
-  enableNiconicoChannelIntegrationState,
-  enablePrimeVideoIntegrationState,
-  enableYouTubeIntegrationState,
-  epgStationUrlState,
-} from '../lib/recoil/integrations.ts'
-import { enableBrowserNotificationState } from '../lib/recoil/notification.ts'
-import { enableSyobocalState, syobocalChannelsState } from '../lib/recoil/syobocal.ts'
+  enableAbemaIntegrationAtom,
+  enableBandaiChannelIntegrationAtom,
+  enableDanimeIntegrationAtom,
+  enableDanimeNiconicoIntegrationAtom,
+  enableEpgStationIntegrationAtom,
+  enableEverythingIntegrationAtom,
+  enableNetflixIntegrationAtom,
+  enableNiconicoChannelIntegrationAtom,
+  enablePrimeVideoIntegrationAtom,
+  enableYouTubeIntegrationAtom,
+  epgStationUrlAtom,
+} from '../lib/jotai/integrations.ts'
+import { enableBrowserNotificationAtom } from '../lib/jotai/notification.ts'
+import { enableSyobocalAtom, syobocalChannelsAtom } from '../lib/jotai/syobocal.ts'
+import { useRequestNotificationPermission } from '../lib/notification/useRequestNotificationPermission.tsx'
 import { filterSayaChannel } from '../lib/saya/filterSayaChannel.ts'
 import { useSayaDatastore } from '../lib/saya/useSayaDatastore.ts'
 
@@ -106,7 +106,7 @@ function UserSettings(): React.JSX.Element {
 
 function GeneralSettings(): React.JSX.Element {
   const { colorScheme, setColorScheme } = useMantineColorScheme()
-  const [enableBrowserNotification, setEnableBrowserNotification] = useAtom(enableBrowserNotificationState)
+  const [enableBrowserNotification, setEnableBrowserNotification] = useAtom(enableBrowserNotificationAtom)
   const requestNotificationPermission = useRequestNotificationPermission()
 
   return (
@@ -158,25 +158,25 @@ function GeneralSettings(): React.JSX.Element {
 }
 
 function IntegrationSettings(): React.JSX.Element {
-  const [enableSyobocal, setEnableSyobocal] = useAtom(enableSyobocalState)
-  const [syobocalChannels, setSyobocalChannels] = useAtom(syobocalChannelsState)
-  const [enableEverythingIntegration, setEnableEverythingIntegration] = useAtom(enableEverythingIntegrationState)
-  const [enableEpgStationIntegration, setEnableEpgStationIntegration] = useAtom(enableEpgStationIntegrationState)
-  const [epgStationUrl, setEpgStationUrl] = useAtom(epgStationUrlState)
-  const [enableDanimeIntegration, setEnableDanimeIntegration] = useAtom(enableDanimeIntegrationState)
+  const [enableSyobocal, setEnableSyobocal] = useAtom(enableSyobocalAtom)
+  const [syobocalChannels, setSyobocalChannels] = useAtom(syobocalChannelsAtom)
+  const [enableEverythingIntegration, setEnableEverythingIntegration] = useAtom(enableEverythingIntegrationAtom)
+  const [enableEpgStationIntegration, setEnableEpgStationIntegration] = useAtom(enableEpgStationIntegrationAtom)
+  const [epgStationUrl, setEpgStationUrl] = useAtom(epgStationUrlAtom)
+  const [enableDanimeIntegration, setEnableDanimeIntegration] = useAtom(enableDanimeIntegrationAtom)
   const [enableDanimeNiconicoIntegration, setEnableDanimeNiconicoIntegration] = useAtom(
-    enableDanimeNiconicoIntegrationState
+    enableDanimeNiconicoIntegrationAtom
   )
-  const [enableAbemaIntegration, setEnableAbemaIntegration] = useAtom(enableAbemaIntegrationState)
-  const [enableNetflixIntegration, setEnableNetflixIntegration] = useAtom(enableNetflixIntegrationState)
-  const [enablePrimeVideoIntegration, setEnablePrimeVideoIntegration] = useAtom(enablePrimeVideoIntegrationState)
+  const [enableAbemaIntegration, setEnableAbemaIntegration] = useAtom(enableAbemaIntegrationAtom)
+  const [enableNetflixIntegration, setEnableNetflixIntegration] = useAtom(enableNetflixIntegrationAtom)
+  const [enablePrimeVideoIntegration, setEnablePrimeVideoIntegration] = useAtom(enablePrimeVideoIntegrationAtom)
   const [enableNiconicoChannelIntegration, setEnableNiconicoChannelIntegration] = useAtom(
-    enableNiconicoChannelIntegrationState
+    enableNiconicoChannelIntegrationAtom
   )
   const [enableBandaiChannelIntegration, setEnableBandaiChannelIntegration] = useAtom(
-    enableBandaiChannelIntegrationState
+    enableBandaiChannelIntegrationAtom
   )
-  const [enableYouTubeIntegration, setEnableYouTubeIntegration] = useAtom(enableYouTubeIntegrationState)
+  const [enableYouTubeIntegration, setEnableYouTubeIntegration] = useAtom(enableYouTubeIntegrationAtom)
 
   const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(

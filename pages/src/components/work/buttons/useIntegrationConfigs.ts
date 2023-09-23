@@ -1,18 +1,18 @@
 import { useAtomValue } from 'jotai'
 
 import {
-  enableAbemaIntegrationState,
-  enableBandaiChannelIntegrationState,
-  enableDanimeIntegrationState,
-  enableDanimeNiconicoIntegrationState,
-  enableEpgStationIntegrationState,
-  enableEverythingIntegrationState,
-  enableNetflixIntegrationState,
-  enableNiconicoChannelIntegrationState,
-  enablePrimeVideoIntegrationState,
-  enableYouTubeIntegrationState,
-  epgStationUrlState,
-} from '../../../lib/recoil/integrations.ts'
+  enableAbemaIntegrationAtom,
+  enableBandaiChannelIntegrationAtom,
+  enableDanimeIntegrationAtom,
+  enableDanimeNiconicoIntegrationAtom,
+  enableEpgStationIntegrationAtom,
+  enableEverythingIntegrationAtom,
+  enableNetflixIntegrationAtom,
+  enableNiconicoChannelIntegrationAtom,
+  enablePrimeVideoIntegrationAtom,
+  enableYouTubeIntegrationAtom,
+  epgStationUrlAtom,
+} from '../../../lib/jotai/integrations.ts'
 
 import type { Atom } from 'jotai'
 
@@ -51,15 +51,15 @@ export type EffectiveSearchIntegrationConfigs = { [K in SearchIntegrationKey]?: 
 export function useIntegrationConfigs(): EffectiveSearchIntegrationConfigs {
   const configs: EffectiveSearchIntegrationConfigs = {}
   const states: Record<SearchIntegrationKeyWithoutAdditionalConfig, Atom<boolean>> = {
-    everything: enableEverythingIntegrationState,
-    d_anime: enableDanimeIntegrationState,
-    d_anime_niconico: enableDanimeNiconicoIntegrationState,
-    abema: enableAbemaIntegrationState,
-    netflix: enableNetflixIntegrationState,
-    prime_video: enablePrimeVideoIntegrationState,
-    niconico_channel: enableNiconicoChannelIntegrationState,
-    bandai_channel: enableBandaiChannelIntegrationState,
-    youtube: enableYouTubeIntegrationState,
+    everything: enableEverythingIntegrationAtom,
+    d_anime: enableDanimeIntegrationAtom,
+    d_anime_niconico: enableDanimeNiconicoIntegrationAtom,
+    abema: enableAbemaIntegrationAtom,
+    netflix: enableNetflixIntegrationAtom,
+    prime_video: enablePrimeVideoIntegrationAtom,
+    niconico_channel: enableNiconicoChannelIntegrationAtom,
+    bandai_channel: enableBandaiChannelIntegrationAtom,
+    youtube: enableYouTubeIntegrationAtom,
   }
 
   for (const [key, state] of Object.entries(states)) {
@@ -74,11 +74,11 @@ export function useIntegrationConfigs(): EffectiveSearchIntegrationConfigs {
     }
   }
 
-  if (useAtomValue(enableEpgStationIntegrationState)) {
+  if (useAtomValue(enableEpgStationIntegrationAtom)) {
     configs.epgstation = {
       key: 'epgstation',
       isEnabled: true,
-      url: useAtomValue(epgStationUrlState),
+      url: useAtomValue(epgStationUrlAtom),
     }
   }
 

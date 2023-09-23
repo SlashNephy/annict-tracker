@@ -1,13 +1,13 @@
 import { useAtomValue } from 'jotai'
 
 import { useTimeTag } from './useTimeTag.ts'
-import { timeFiltersState } from '../../recoil/filters.ts'
+import { timeFiltersAtom } from '../../jotai/filters.ts'
 
 import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
 
 export function useFilterByTime(entryRef: useNextProgram_LibraryEntry$key): boolean {
   const timeTag = useTimeTag(entryRef)
-  const filters = useAtomValue(timeFiltersState)
+  const filters = useAtomValue(timeFiltersAtom)
 
   switch (timeTag) {
     case 'yesterday':

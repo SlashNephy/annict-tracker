@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai'
 
-import { hideStreamingServicesState } from '../../recoil/filters.ts'
+import { hideStreamingServicesAtom } from '../../jotai/filters.ts'
 import { isStreamingService } from '../isStreamingService.ts'
 import { useNextProgram } from '../useNextProgram.ts'
 
@@ -8,7 +8,7 @@ import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/use
 
 export function useFilterByStreamingServices(entryRef: useNextProgram_LibraryEntry$key): boolean {
   const nextProgram = useNextProgram(entryRef)
-  const hideStreamingServices = useAtomValue(hideStreamingServicesState)
+  const hideStreamingServices = useAtomValue(hideStreamingServicesAtom)
   if (!hideStreamingServices) {
     return true
   }

@@ -7,10 +7,10 @@ import { graphql, useFragment } from 'react-relay'
 import { useNextEpisodeTitle } from './useNextEpisodeTitle.ts'
 import { useNextProgram } from './useNextProgram.ts'
 import {
-  enableBrowserNotificationState,
-  notificationHistoriesState,
-  programNotificationThresholdMinutesState,
-} from '../recoil/notification.ts'
+  enableBrowserNotificationAtom,
+  notificationHistoriesAtom,
+  programNotificationThresholdMinutesAtom,
+} from '../jotai/notification.ts'
 
 import type { useWatchProgramSchedule_LibraryEntry$key } from '../../__generated__/useWatchProgramSchedule_LibraryEntry.graphql.ts'
 
@@ -35,9 +35,9 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
   const nextProgram = useNextProgram(entry)
   const nextEpisodeLabel = useNextEpisodeTitle(entry)
 
-  const enableBrowserNotification = useAtomValue(enableBrowserNotificationState)
-  const programNotificationThresholdMinutes = useAtomValue(programNotificationThresholdMinutesState)
-  const [notificationHistories, setNotificationHistories] = useAtom(notificationHistoriesState)
+  const enableBrowserNotification = useAtomValue(enableBrowserNotificationAtom)
+  const programNotificationThresholdMinutes = useAtomValue(programNotificationThresholdMinutesAtom)
+  const [notificationHistories, setNotificationHistories] = useAtom(notificationHistoriesAtom)
 
   const createNotification = useCallback(() => {
     // ブラウザ通知が有効ではない
