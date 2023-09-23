@@ -4242,6 +4242,7 @@ __metadata:
     "@auth/core": 0.14.0
     "@cloudflare/workers-types": 4.20230914.0
     "@types/query-string": 6.3.0
+    date-fns: 2.30.0
     fast-xml-parser: 4.2.7
     query-string: 8.1.0
     typescript: 5.2.2

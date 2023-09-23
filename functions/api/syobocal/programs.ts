@@ -1,3 +1,4 @@
+import { hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
 import { XMLParser } from 'fast-xml-parser'
 import queryString from 'query-string'
 import { z } from 'zod'
@@ -31,10 +32,17 @@ export const onRequestGet: PagesFunction = async (context) => {
   // TODO: キャッシュ
 
   try {
-    return json({
-      success: true,
-      result: await lookupPrograms(ids),
-    } satisfies SyobocalProgramsResponse)
+    return json(
+      {
+        success: true,
+        result: await lookupPrograms(ids),
+      } satisfies SyobocalProgramsResponse,
+      {
+        headers: {
+          'Cache-Control': `max-age=${hoursToMilliseconds(6)} stale-while-revalidate=${minutesToMilliseconds(1)}`,
+        },
+      }
+    )
   } catch (e: unknown) {
     console.error(`failed to fetch programs: ${e}`)
 

@@ -1,3 +1,5 @@
+import { hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
+
 import { json } from '../lib/response.ts'
 
 import type { VersionResponse } from './version.types.ts'
@@ -13,6 +15,11 @@ export const onRequestGet: PagesFunction<Env> = (context) => {
         }
       : {
           environment: 'development',
-        }
+        },
+    {
+      headers: {
+        'Cache-Control': `max-age=${hoursToMilliseconds(1)} stale-while-revalidate=${minutesToMilliseconds(15)}`,
+      },
+    }
   )
 }
