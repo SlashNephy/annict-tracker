@@ -5,7 +5,7 @@ type CsrfResponse = {
 }
 
 export function useCsrfToken(): string | null {
-  const { data } = useSWR('csrf', fetchCsrfToken)
+  const { data } = useSWR('csrf', async () => await fetchCsrfToken())
 
   return data?.csrfToken ?? null
 }

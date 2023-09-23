@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import type { Session } from '@auth/core/types'
 
 export function useSession<S extends Session>(): S | null {
-  const { data } = useSWR<S>('session', fetchSession, {
+  const { data } = useSWR<S>('session', async () => await fetchSession(), {
     refreshInterval: minutesToMilliseconds(15),
   })
 
