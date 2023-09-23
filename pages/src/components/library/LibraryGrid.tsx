@@ -36,7 +36,7 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
   )
 
   useEffect(() => {
-    const interval = window.setInterval(refetch, minutesToMilliseconds(1))
+    const interval = window.setInterval(() => refetch({}), minutesToMilliseconds(1))
     return () => {
       window.clearInterval(interval)
     }
