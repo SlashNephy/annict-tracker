@@ -13,10 +13,20 @@ export type AnnictVodData = {
 }
 
 export function useAnnictVodData(enabled = true): AnnictVodData[] {
-  const { data } = useSWR(enabled ? 'vods' : null, fetchAnnictVodData, {
-    suspense: true,
-    refetchInterval: hoursToMilliseconds(6),
-  })
+  const { data } = useSWR(
+    'vods',
+    async () => {
+      if (!enabled) {
+        return []
+      }
+
+      return await fetchAnnictVodData()
+    },
+    {
+      suspense: true,
+      refetchInterval: hoursToMilliseconds(6),
+    }
+  )
 
   return data
 }

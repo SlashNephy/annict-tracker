@@ -37,7 +37,7 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): string | 
       }
 
       // MyAnimeList ID から画像を引いてみる
-      const malId = arm.findByAnnictId(work.annictId)?.mal_id?.toString() ?? work.malAnimeId
+      const malId = arm?.findByAnnictId(work.annictId)?.mal_id?.toString() ?? work.malAnimeId
       if (!malId) {
         // フォールバック不可能なのでそのまま返す
         return initialImageUrl ?? null

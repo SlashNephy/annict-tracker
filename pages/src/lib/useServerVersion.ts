@@ -5,7 +5,7 @@ import type { VersionResponse } from 'functions/api/version.types.ts'
 
 export function useServerVersion(): VersionResponse | undefined {
   const { data } = useSWR(
-    ['version'],
+    'version',
     fetchServerVersion,
 
     {

@@ -7,10 +7,14 @@ import { SayaDatastore } from './SayaDatastore.ts'
 import type { SayaDefinition } from './SayaDatastore.ts'
 
 // saya の定義ファイルを読み込む hook
-export function useSayaDatastore(enabled = true): SayaDatastore {
+export function useSayaDatastore(enabled = true): SayaDatastore | null {
   const { data } = useSWR(
-    enabled ? 'saya' : null,
+    'saya',
     async () => {
+      if (!enabled) {
+        return null
+      }
+
       const data = await fetchSayaDefinition()
       return new SayaDatastore(data)
     },

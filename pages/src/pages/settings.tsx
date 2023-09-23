@@ -162,7 +162,7 @@ function IntegrationSettings(): React.JSX.Element {
 
   const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(
-    () => saya.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel),
+    () => saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? [],
     [saya]
   )
 

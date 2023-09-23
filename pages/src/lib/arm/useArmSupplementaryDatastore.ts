@@ -5,10 +5,14 @@ import { ArmDatastore } from './ArmDatastore.ts'
 
 import type { ArmEntry } from './ArmDatastore.ts'
 
-export function useArmSupplementaryDatastore(enabled = true): ArmDatastore {
+export function useArmSupplementaryDatastore(enabled = true): ArmDatastore | null {
   const { data } = useSWR(
-    enabled ? 'arm-supplementary' : null,
+    'arm-supplementary',
     async () => {
+      if (!enabled) {
+        return null
+      }
+
       const data = await fetchArmSupplementary()
       return new ArmDatastore(data)
     },

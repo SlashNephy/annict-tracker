@@ -28,15 +28,19 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
 
   const arm = useArmSupplementaryDatastore(enabled)
   const { data } = useSWR(
-    enabled ? `syobocal-program-${work.id}` : null,
+    `syobocal-program-${work.id}`,
     async () => {
+      if (!enabled) {
+        return []
+      }
+
       // 次のエピソードがない
       if (!nextEpisode) {
         return []
       }
 
       // しょぼいカレンダーとの紐付けがされていない
-      const syobocalTid = arm.findByAnnictId(work.annictId)?.syobocal_tid ?? work.syobocalTid
+      const syobocalTid = arm?.findByAnnictId(work.annictId)?.syobocal_tid ?? work.syobocalTid
       if (!syobocalTid) {
         return []
       }

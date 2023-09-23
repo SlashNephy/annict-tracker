@@ -60,7 +60,7 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
     }
 
     for (const program of programs) {
-      const annictChannel = saya.findChannelBySyobocalId(program.ChID)
+      const annictChannel = saya?.findChannelBySyobocalId(program.ChID)
       if (!annictChannel?.annictId) {
         continue
       }
