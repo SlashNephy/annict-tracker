@@ -17,7 +17,14 @@ export const seasonFiltersAtom = atomWithStorage<SeasonName[]>('seasonFilters', 
   'WINTER',
 ])
 
-export const timeFiltersAtom = atomWithStorage<TimeTag[]>('timeFilters', ['yesterday', 'today', 'tomorrow', 'finished'])
+export const timeFiltersAtom = atomWithStorage<TimeTag[]>('timeFilters', [
+  'finished',
+  'yesterday',
+  'today',
+  'tomorrow',
+  'future',
+  'undetermined',
+])
 
 export const dayFiltersAtom = atomWithStorage<DayTag[]>('dayFilters', [
   'sunday',
