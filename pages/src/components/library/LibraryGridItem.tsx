@@ -2,16 +2,16 @@ import { Grid } from '@mantine/core'
 import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
-import { WorkCard } from './work/WorkCard.tsx'
-import { useFilterByCurrentSeason } from '../lib/annict/filters/useFilterByCurrentSeason.ts'
-import { useFilterByDay } from '../lib/annict/filters/useFilterByDay.ts'
-import { useFilterByRebroadcasting } from '../lib/annict/filters/useFilterByRebroadcasting.ts'
-import { useFilterBySeasons } from '../lib/annict/filters/useFilterBySeasons.ts'
-import { useFilterByStreamingServices } from '../lib/annict/filters/useFilterByStreamingServices.ts'
-import { useFilterByTime } from '../lib/annict/filters/useFilterByTime.ts'
-import { useSortNumber } from '../lib/annict/filters/useSortNumber.ts'
+import { useFilterByCurrentSeason } from '../../lib/annict/filters/useFilterByCurrentSeason.ts'
+import { useFilterByDay } from '../../lib/annict/filters/useFilterByDay.ts'
+import { useFilterByRebroadcasting } from '../../lib/annict/filters/useFilterByRebroadcasting.ts'
+import { useFilterBySeasons } from '../../lib/annict/filters/useFilterBySeasons.ts'
+import { useFilterByStreamingServices } from '../../lib/annict/filters/useFilterByStreamingServices.ts'
+import { useFilterByTime } from '../../lib/annict/filters/useFilterByTime.ts'
+import { useSortNumber } from '../../lib/annict/filters/useSortNumber.ts'
+import { WorkCard } from '../work/WorkCard.tsx'
 
-import type { LibraryGridItem_LibraryEntry$key } from '../__generated__/LibraryGridItem_LibraryEntry.graphql.ts'
+import type { LibraryGridItem_LibraryEntry$key } from '../../__generated__/LibraryGridItem_LibraryEntry.graphql.ts'
 
 export type LibraryGridItemProps = {
   entryRef: LibraryGridItem_LibraryEntry$key
