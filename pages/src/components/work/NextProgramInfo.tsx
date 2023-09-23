@@ -51,26 +51,23 @@ export function NextProgramInfo({ entryRef }: WorkNextProgramInfoProps): React.J
 
   return (
     <Stack>
-      <Text>
-        <Group>
-          <Text span>{nextProgram?.channel.name}</Text>
-          <ScheduleBadge entryRef={entry} />
-          <RebroadcastBadge entryRef={entry} />
-          <SyobocalSourceBadge entryRef={entry} />
-        </Group>
-      </Text>
+      <Group>
+        <Text span>{nextProgram?.channel.name}</Text>
+        <ScheduleBadge entryRef={entry} />
+        <RebroadcastBadge entryRef={entry} />
+        <SyobocalSourceBadge entryRef={entry} />
+      </Group>
 
-      <Text>
-        {nextProgram && (
-          <>
-            <Text span>{format(nextProgram.startAt, 'yyyy/MM/dd (EE) HH:mm', { locale: ja })}</Text>
-            <Text span> </Text>
+      {nextProgram && (
+        <Text>
+          <Text span>
+            {format(nextProgram.startAt, 'yyyy/MM/dd (EE) HH:mm', { locale: ja })}
             <Text span size="sm">
               (<RelativeTimeText time={nextProgram.startAt} />)
             </Text>
-          </>
-        )}
-      </Text>
+          </Text>
+        </Text>
+      )}
     </Stack>
   )
 }

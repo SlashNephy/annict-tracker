@@ -11,19 +11,18 @@ export type SyobocalSourceBadgeBadge = {
 
 export function SyobocalSourceBadge({ entryRef }: SyobocalSourceBadgeBadge): React.JSX.Element {
   const nextProgram = useNextProgram(entryRef)
+  if (nextProgram?.source !== 'syobocal') {
+    return <></>
+  }
 
   return (
-    <>
-      {nextProgram?.source === 'syobocal' && (
-        <Badge
-          key="syobocal"
-          color="blue"
-          title="この放送情報はしょぼいカレンダーとの連携で取得されました。"
-          variant="outline"
-        >
-          しょぼカル
-        </Badge>
-      )}
-    </>
+    <Badge
+      key="syobocal"
+      color="blue"
+      title="この放送情報はしょぼいカレンダーとの連携で取得されました。"
+      variant="outline"
+    >
+      しょぼカル
+    </Badge>
   )
 }

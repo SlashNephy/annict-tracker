@@ -11,14 +11,13 @@ export type RebroadcastBadge = {
 
 export function RebroadcastBadge({ entryRef }: RebroadcastBadge): React.JSX.Element {
   const nextProgram = useNextProgram(entryRef)
+  if (!nextProgram?.isRebroadcast) {
+    return <></>
+  }
 
   return (
-    <>
-      {nextProgram?.isRebroadcast && (
-        <Badge key="rebroadcast" color="yellow" variant="outline">
-          再放送
-        </Badge>
-      )}
-    </>
+    <Badge key="rebroadcast" color="yellow" variant="outline">
+      再放送
+    </Badge>
   )
 }
