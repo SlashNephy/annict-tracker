@@ -57,7 +57,7 @@
   "relay": {
     "src": "./src",
     "artifactDirectory": "./src/__generated__",
-    "schema": "./schema.graphql",
+    "schema": "./annict.schema.graphql",
     "language": "typescript",
     "eagerEsModules": true,
     "customScalars": {
