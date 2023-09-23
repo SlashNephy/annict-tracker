@@ -1,0 +1,11 @@
+{
+  "src": "./src",
+  "artifactDirectory": "./src/__generated__",
+  "schema": "./anilist.schema.graphql",
+  "language": "typescript",
+  "eagerEsModules": true,
+  "customScalars": {
+    "DateTime": "string"
+  },
+  "noFutureProofEnums": true
+}

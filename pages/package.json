@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "vite",
-    "generate": "relay-compiler",
+    "generate": "relay-compiler ./annict.relay.config.json",
     "preview": "vite preview",
     "watch": "yarn generate --watch"
   },
@@ -53,16 +53,5 @@
   "packageManager": "yarn@3.6.3",
   "engines": {
     "node": ">=20"
-  },
-  "relay": {
-    "src": "./src",
-    "artifactDirectory": "./src/__generated__",
-    "schema": "./annict.schema.graphql",
-    "language": "typescript",
-    "eagerEsModules": true,
-    "customScalars": {
-      "DateTime": "string"
-    },
-    "noFutureProofEnums": true
   }
 }
