@@ -10,6 +10,17 @@ export function useRequestNotificationPermission(): () => void {
 
   return useCallback(() => {
     requestPermission({
+      onAlreadyGranted() {
+        const item = new Notification('ブラウザ通知は有効です', {
+          body: '放送時間が近付いた番組が通知されます',
+          lang: 'ja',
+          silent: true,
+          requireInteraction: true,
+        })
+        setTimeout(() => {
+          item.close()
+        }, secondsToMilliseconds(10))
+      },
       onAlreadyDenied() {
         showNotification({
           title: 'ブラウザ通知が許可されていません',
