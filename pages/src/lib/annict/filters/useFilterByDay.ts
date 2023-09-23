@@ -25,7 +25,7 @@ export function useFilterByDay(entryRef: useNextProgram_LibraryEntry$key): boole
       return dayFilters.includes('friday')
     case 'saturday':
       return dayFilters.includes('saturday')
-    case 'unset':
+    case null:
       return timeFilters.includes('undetermined')
   }
 }
