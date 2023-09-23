@@ -8,38 +8,38 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime'
-import { FragmentRefs } from 'relay-runtime'
+import { Fragment, ReaderFragment } from 'relay-runtime';
+import { FragmentRefs } from "relay-runtime";
 export type NextProgramInfo_LibraryEntry$data = {
-  readonly ' $fragmentSpreads': FragmentRefs<'useNextProgram_LibraryEntry' | 'useWatchProgramSchedule_LibraryEntry'>
-  readonly ' $fragmentType': 'NextProgramInfo_LibraryEntry'
-}
+  readonly " $fragmentSpreads": FragmentRefs<"useNextProgram_LibraryEntry" | "useWatchProgramSchedule_LibraryEntry">;
+  readonly " $fragmentType": "NextProgramInfo_LibraryEntry";
+};
 export type NextProgramInfo_LibraryEntry$key = {
-  readonly ' $data'?: NextProgramInfo_LibraryEntry$data
-  readonly ' $fragmentSpreads': FragmentRefs<'NextProgramInfo_LibraryEntry'>
-}
+  readonly " $data"?: NextProgramInfo_LibraryEntry$data;
+  readonly " $fragmentSpreads": FragmentRefs<"NextProgramInfo_LibraryEntry">;
+};
 
 const node: ReaderFragment = {
-  argumentDefinitions: [],
-  kind: 'Fragment',
-  metadata: null,
-  name: 'NextProgramInfo_LibraryEntry',
-  selections: [
+  "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "NextProgramInfo_LibraryEntry",
+  "selections": [
     {
-      args: null,
-      kind: 'FragmentSpread',
-      name: 'useNextProgram_LibraryEntry',
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "useNextProgram_LibraryEntry"
     },
     {
-      args: null,
-      kind: 'FragmentSpread',
-      name: 'useWatchProgramSchedule_LibraryEntry',
-    },
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "useWatchProgramSchedule_LibraryEntry"
+    }
   ],
-  type: 'LibraryEntry',
-  abstractKey: null,
-}
+  "type": "LibraryEntry",
+  "abstractKey": null
+};
 
-;(node as any).hash = '2220aae7eb737a54142ade5ebccf249f'
+(node as any).hash = "2220aae7eb737a54142ade5ebccf249f";
 
-export default node
+export default node;
