@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
-    "dev": "vite",
+    "dev": "concurrently -k 'yarn:dev:*'",
+    "dev:vite": "vite",
+    "dev:relay": "yarn generate --watch",
     "generate": "relay-compiler",
-    "preview": "vite preview",
-    "watch": "yarn generate --watch"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@mantine/colors-generator": "7.0.0",
@@ -41,6 +42,7 @@
     "@types/react-relay": "14.1.5",
     "@vitejs/plugin-react-swc": "3.3.2",
     "babel-plugin-relay": "15.0.0",
+    "concurrently": "8.2.1",
     "postcss": "8.4.30",
     "postcss-preset-mantine": "1.7.0",
     "postcss-simple-vars": "7.0.1",
