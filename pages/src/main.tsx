@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 
 import { App } from './App.tsx'
-import { router } from './router.tsx'
+import { router } from './routes/router.tsx'
 
 if (import.meta.env.PROD) {
   init({

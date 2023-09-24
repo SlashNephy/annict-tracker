@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 
 import { isNavbarExpandAtom } from '../../lib/jotai/navbar.ts'
 import { useCheckUpdate } from '../../lib/useCheckUpdate.ts'
-import { routes } from '../../router.tsx'
+import { routes } from '../../routes/router.tsx'
 import { MainLink } from '../MainLink.tsx'
 
 export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Element {

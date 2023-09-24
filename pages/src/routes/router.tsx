@@ -2,9 +2,9 @@ import { IconDeviceTv, IconHelp, IconSettings } from '@tabler/icons-react'
 import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
-import { Help } from './pages/help.tsx'
-import { Index } from './pages/index.tsx'
-import { Settings } from './pages/settings.tsx'
+import { Help } from './help.tsx'
+import { Index } from './index.tsx'
+import { Settings } from './settings.tsx'
 
 import type { TablerIconsProps } from '@tabler/icons-react'
 import type { RouteObject } from 'react-router-dom'

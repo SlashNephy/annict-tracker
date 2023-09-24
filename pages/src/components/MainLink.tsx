@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { isNavbarExpandAtom } from '../lib/jotai/navbar.ts'
 
-import type { Route } from '../router.tsx'
+import type { Route } from '../routes/router.tsx'
 
 export function MainLink({ icon: Icon, label, ...props }: Route): React.JSX.Element {
   const [isExpand, setIsExpand] = useAtom(isNavbarExpandAtom)
