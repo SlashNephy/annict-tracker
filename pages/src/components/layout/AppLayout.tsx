@@ -5,7 +5,7 @@ import React, { useMemo } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { isNavbarExpandAtom } from '../../lib/jotai/navbar.ts'
-import { useCheckUpdate } from '../../lib/useCheckUpdate.ts'
+import { useCheckUpdate } from '../../lib/workers/useCheckUpdate.ts'
 import { routes } from '../../routes/router.tsx'
 import { MainLink } from '../MainLink.tsx'
 

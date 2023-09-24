@@ -10,11 +10,18 @@ export const useCheckUpdate = (): void => {
   useEffect(() => {
     const commitSha = import.meta.env.VITE_CF_PAGES_COMMIT_SHA
     const branch = import.meta.env.VITE_CF_PAGES_BRANCH
-    if (!commitSha || !branch || !version || version.environment === 'development' || version.branch !== branch) {
+    if (
+      !commitSha ||
+      !branch ||
+      !version ||
+      !version.success ||
+      version.result.environment === 'development' ||
+      version.result.branch !== branch
+    ) {
       return
     }
 
-    if (version.commit_sha !== commitSha) {
+    if (version.result.commit_sha !== commitSha) {
       showNotification({
         id: 'update-checker',
         title: '新しいビルドが公開されています',
