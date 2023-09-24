@@ -22,16 +22,17 @@ export function WorkCardTitle({ entryRef }: WorkCardTitleProps): React.JSX.Eleme
   )
 
   return (
-    <Title
-      c="blue.4"
-      mt="sm"
-      order={4}
-      style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
-      title={work.title}
-    >
-      <Anchor c="blue.4" href={`https://annict.com/works/${work.annictId}`} target="_blank">
+    <Anchor c="blue.4" href={`https://annict.com/works/${work.annictId}`} target="_blank">
+      <Title
+        c="blue.4"
+        fw={600}
+        mt="sm"
+        order={4}
+        style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+        title={work.title}
+      >
         {work.title}
-      </Anchor>
-    </Title>
+      </Title>
+    </Anchor>
   )
 }
