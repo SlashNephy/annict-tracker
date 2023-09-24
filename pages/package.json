@@ -5,8 +5,8 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "concurrently -k 'yarn:dev:*'",
-    "dev:vite": "vite",
     "dev:relay": "yarn generate --watch",
+    "dev:vite": "vite",
     "generate": "relay-compiler",
     "preview": "vite preview"
   },
