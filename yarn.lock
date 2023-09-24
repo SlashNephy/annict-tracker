@@ -1090,18 +1090,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@piotr-cz/swr-idb-cache@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@piotr-cz/swr-idb-cache@npm:1.0.1"
-  dependencies:
-    idb: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
-  peerDependencies:
-    react: ^16.11.0 || ^17.0.0 || ^18.0.0
-    swr: ^2.0.0-beta.3
-  checksum: 1b1147af065ce87ef7e747cbed0e0ce1521713e435bd0b6f9f20161be61c62b48565453de11861c225e553520f24176e109980ef54081b271169e337fd419ebc
-  languageName: node
-  linkType: hard
-
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -4866,13 +4854,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"idb@npm:^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0":
-  version: 7.1.1
-  resolution: "idb@npm:7.1.1"
-  checksum: 1973c28d53c784b177bdef9f527ec89ec239ec7cf5fcbd987dae75a16c03f5b7dfcc8c6d3285716fd0309dd57739805390bd9f98ce23b1b7d8849a3b52de8d56
-  languageName: node
-  linkType: hard
-
 "ieee754@npm:^1.1.13":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
@@ -6302,7 +6283,6 @@ __metadata:
     "@mantine/core": 7.0.0
     "@mantine/hooks": 7.0.0
     "@mantine/notifications": 7.0.0
-    "@piotr-cz/swr-idb-cache": 1.0.1
     "@sentry/react": 7.70.0
     "@sentry/vite-plugin": 2.7.1
     "@slashnephy/typescript-extension": 0.2.3
