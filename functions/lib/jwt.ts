@@ -12,7 +12,7 @@ export async function verifyJwt(headers: Headers, env: Env): Promise<JWT | null>
       cookies: parse(headers.get('Cookie') ?? ''),
       headers: {},
     },
-    secureCookie: env.NODE_ENV === 'production',
+    secureCookie: env.NODE_ENV !== 'development',
     secret: env.AUTH_SECRET,
   })
 }
