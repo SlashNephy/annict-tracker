@@ -44,7 +44,7 @@ export function NextProgramInfo({ entryRef }: WorkNextProgramInfoProps): React.J
         <Text>
           <Text span>
             {format(nextProgram.startAt, 'yyyy/MM/dd (EE) HH:mm', { locale: ja })}
-            <Text span size="sm">
+            <Text span ml={4} size="sm">
               (<RelativeTimeText time={nextProgram.startAt} />)
             </Text>
           </Text>
