@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fbab9b6eddba94f6eef520cad43083ba>>
+ * @generated SignedSource<<7e0290b0334a5f0b2c349b5be19197d6>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,6 +11,7 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type CreateRecordButton_LibraryEntry$data = {
+  readonly id: string;
   readonly nextEpisode: {
     readonly id: string;
     readonly number: number | null;
@@ -33,6 +34,13 @@ var v0 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "title",
   "storageKey": null
 };
@@ -42,6 +50,7 @@ return {
   "metadata": null,
   "name": "CreateRecordButton_LibraryEntry",
   "selections": [
+    (v0/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -50,14 +59,8 @@ return {
       "name": "nextEpisode",
       "plural": false,
       "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
         (v0/*: any*/),
+        (v1/*: any*/),
         {
           "alias": null,
           "args": null,
@@ -83,7 +86,7 @@ return {
       "name": "work",
       "plural": false,
       "selections": [
-        (v0/*: any*/)
+        (v1/*: any*/)
       ],
       "storageKey": null
     },
@@ -103,6 +106,6 @@ return {
 };
 })();
 
-(node as any).hash = "b2931a20c0813a5c8baede5269dada2c";
+(node as any).hash = "dfa731855f7bc3219fb85058aa07056e";
 
 export default node;

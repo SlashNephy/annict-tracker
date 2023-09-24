@@ -17,6 +17,7 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
   const entry = useFragment(
     graphql`
       fragment CreateRecordButton_LibraryEntry on LibraryEntry {
+        id
         nextEpisode {
           id
           title
@@ -50,6 +51,10 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
     }
 
     commit({
+      // 現在の LibraryEntry を削除する
+      updater: (store) => {
+        store.delete(entry.id)
+      },
       variables: {
         episodeId,
       },
