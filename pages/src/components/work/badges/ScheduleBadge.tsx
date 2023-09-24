@@ -2,6 +2,7 @@ import { Badge } from '@mantine/core'
 import React from 'react'
 
 import { useTimeTag } from '../../../lib/annict/filters/useTimeTag.ts'
+import { useNextProgram } from '../../../lib/annict/useNextProgram.ts'
 
 import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
 
@@ -10,7 +11,9 @@ export type WorkScheduleBadgeProps = {
 }
 
 export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): React.JSX.Element {
+  const nextProgram = useNextProgram(entryRef)
   const tag = useTimeTag(entryRef)
+
   switch (tag) {
     case 'yesterday':
       return (
@@ -20,9 +23,17 @@ export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): React.JSX.E
       )
     case 'today':
       return (
-        <Badge key="today" color="red">
-          今日
-        </Badge>
+        <>
+          <Badge key="today" color="red">
+            今日
+          </Badge>
+          {/* 今日放送であっても終了していたら出す */}
+          {nextProgram && nextProgram.startAt.getTime() < Date.now() && (
+            <Badge key="finished" color="green">
+              終了
+            </Badge>
+          )}
+        </>
       )
     case 'tomorrow':
       return (
