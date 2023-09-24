@@ -15,7 +15,6 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
     graphql`
       fragment useSyobocalPrograms_LibraryEntry on LibraryEntry {
         work {
-          id
           annictId
           syobocalTid
         }
@@ -42,8 +41,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
         return []
       }
 
-      // TODO: 1リクエストにまとめたい
-      const response = await lookupSyobocalPrograms([syobocalTid])
+      const response = await lookupSyobocalPrograms(syobocalTid)
       return response.reverse().filter((x) => x.count === nextEpisodeNumber)
     },
     {

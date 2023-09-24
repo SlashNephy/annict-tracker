@@ -10,7 +10,7 @@ import type { SyobocalProgramsResponse } from './programs.types.ts'
 import type { Env } from '../../env.ts'
 
 const schema = z.object({
-  id: z.union([z.string().regex(/^\d+$/), z.array(z.string().regex(/^\d+$/))]),
+  id: z.string().regex(/^\d+$/),
 })
 
 // CORS 回避のため、Cloudflare Worker から fetch する API
@@ -39,11 +39,10 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     )
   }
 
-  const ids = typeof query.data.id === 'string' ? [query.data.id] : query.data.id
   // TODO: キャッシュ
 
   try {
-    const response = await lookupPrograms(ids)
+    const response = await lookupPrograms(query.data.id)
     if (response.ProgLookupResponse.Result.Code !== 200) {
       throw new Error(`invalid response: ${response.ProgLookupResponse.Result.Message}`)
     }

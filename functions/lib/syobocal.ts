@@ -40,10 +40,10 @@ enum RawSyobocalProgramFlag {
   Rebroadcast = 1 << 3,
 }
 
-export async function lookupPrograms(ids: string[]): Promise<RawSyobocalProgramsResponse> {
+export async function lookupPrograms(id: string): Promise<RawSyobocalProgramsResponse> {
   const params = new URLSearchParams({
     Command: 'ProgLookup',
-    TID: ids.join(','),
+    TID: id,
   }).toString()
 
   const response = await fetch(`https://cal.syoboi.jp/db.php?${params}`, {

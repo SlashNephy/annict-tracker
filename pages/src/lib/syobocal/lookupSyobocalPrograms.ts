@@ -1,8 +1,8 @@
 import type { SyobocalProgram, SyobocalProgramsResponse } from 'functions/api/syobocal/programs.types.ts'
 
-export async function lookupSyobocalPrograms(tids: number[]): Promise<SyobocalProgram[]> {
+export async function lookupSyobocalPrograms(tid: number): Promise<SyobocalProgram[]> {
   // CORS でオリジナルの API を叩けないので Cloudflare Workers でプロキシする
-  const response = await fetch(`/api/syobocal/programs?id=${tids.join(',')}`, {
+  const response = await fetch(`/api/syobocal/programs?id=${tid}`, {
     headers: {
       'Content-Type': 'application/json',
     },

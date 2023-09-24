@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b6fd9741f7d065e6279fca880609a597>>
+ * @generated SignedSource<<744ce5d0faab96c53b329899300d299c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,7 +16,6 @@ export type useSyobocalPrograms_LibraryEntry$data = {
   } | null;
   readonly work: {
     readonly annictId: number;
-    readonly id: string;
     readonly syobocalTid: number | null;
   };
   readonly " $fragmentType": "useSyobocalPrograms_LibraryEntry";
@@ -40,13 +39,6 @@ const node: ReaderFragment = {
       "name": "work",
       "plural": false,
       "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
         {
           "alias": null,
           "args": null,
@@ -87,6 +79,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "c1e3664e39a1844023476177826b7998";
+(node as any).hash = "3d4846d6b0d9e984380ace57e9cbd052";
 
 export default node;
