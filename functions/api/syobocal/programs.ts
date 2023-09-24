@@ -39,7 +39,7 @@ export const onRequestGet: PagesFunction = async (context) => {
       } satisfies SyobocalProgramsResponse,
       {
         headers: {
-          'Cache-Control': `max-age=${hoursToMilliseconds(6)} stale-while-revalidate=${minutesToMilliseconds(1)}`,
+          'Cache-Control': `max-age=${hoursToMilliseconds(6)} stale-while-revalidate=${hoursToMilliseconds(2)}`,
         },
       }
     )
