@@ -31,5 +31,8 @@ export default defineConfig(() => {
     build: {
       sourcemap: true,
     },
+    esbuild: {
+      exclude: process.env.NODE_ENV === 'development' ? [] : ['console', 'debugger'],
+    },
   }
 })
