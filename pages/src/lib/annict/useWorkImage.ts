@@ -1,6 +1,8 @@
+import { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import useSWRImmutable from 'swr/immutable'
 
+import { fetchAniListImage } from '../anilist/fetchAniListImage.ts'
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
 import { fetchJikanAnimePictures } from '../jikan/fetchJikanAnimePictures.ts'
 
@@ -31,7 +33,12 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
   )
 
   const arm = useArmSupplementaryDatastore()
-  const { data: imageUrl } = useSWRImmutable(`work-image-${work.id}`, async () => {
+  const armEntry = useMemo(() => arm?.findByAnnictId(work.annictId), [work.annictId, arm])
+
+  const aniListId = useMemo(() => armEntry?.anilist_id, [armEntry])
+  const malId = useMemo(() => armEntry?.mal_id?.toString() ?? work.malAnimeId, [armEntry, work.malAnimeId])
+
+  const { data: imageUrl } = useSWRImmutable([`work-image-${work.annictId}`, aniListId, malId], async () => {
     const initialImageUrl = work.image?.recommendedImageUrl
 
     // Mixed Contents にならない場合はそのまま返す
@@ -39,14 +46,21 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
       return initialImageUrl
     }
 
-    // MyAnimeList ID から画像を引いてみる
-    const malId = arm?.findByAnnictId(work.annictId)?.mal_id?.toString() ?? work.malAnimeId
-    if (!malId) {
-      return
+    // AniList から画像を引いてみる
+    if (aniListId) {
+      const response = await fetchAniListImage(aniListId)
+      if (response.data.Media.coverImage.extraLarge) {
+        return response.data.Media.coverImage.extraLarge
+      }
+
+      console.log(response)
     }
 
-    const response = await fetchJikanAnimePictures(malId)
-    return response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url
+    // MyAnimeList から画像を引いてみる
+    if (malId) {
+      const response = await fetchJikanAnimePictures(malId)
+      return response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url
+    }
   })
 
   return {
