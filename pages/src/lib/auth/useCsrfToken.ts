@@ -1,11 +1,16 @@
-import useSWR from 'swr'
+import { preload } from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 type CsrfResponse = {
   csrfToken: string
 }
 
+const key = 'csrf'
+
+void preload(key, fetchCsrfToken)
+
 export function useCsrfToken(): string | null {
-  const { data } = useSWR('csrf', async () => await fetchCsrfToken())
+  const { data } = useSWRImmutable(key, fetchCsrfToken)
 
   return data?.csrfToken ?? null
 }

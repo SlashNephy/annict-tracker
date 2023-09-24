@@ -38,7 +38,8 @@
         }
       ],
       "@typescript-eslint/no-unsafe-enum-comparison": "off",
-      "import/no-anonymous-default-export": "off"
+      "import/no-anonymous-default-export": "off",
+      "no-void": "off"
     },
     "overrides": [
       {
