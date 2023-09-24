@@ -2,7 +2,6 @@ import { hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
 import { StatusCodes } from 'http-status-codes'
 
 import { verifyJwt } from '../lib/jwt.ts'
-import { json } from '../lib/response.ts'
 
 import type { VersionResponse } from './version.types.ts'
 import type { Env } from '../env.ts'
@@ -10,16 +9,16 @@ import type { Env } from '../env.ts'
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const jwt = await verifyJwt(context.request.headers, context.env)
   if (!jwt) {
-    return json<VersionResponse>(
+    return Response.json(
       {
         success: false,
         error: 'unauthorized',
-      },
+      } satisfies VersionResponse,
       { status: StatusCodes.UNAUTHORIZED }
     )
   }
 
-  return json<VersionResponse>(
+  return Response.json(
     {
       success: true,
       result:
@@ -32,7 +31,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
           : {
               environment: 'development',
             },
-    },
+    } satisfies VersionResponse,
     {
       headers: {
         'Cache-Control': `max-age=${hoursToMilliseconds(1)} stale-while-revalidate=${minutesToMilliseconds(15)}`,
