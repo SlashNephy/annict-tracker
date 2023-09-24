@@ -12,14 +12,11 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
   const isMobile = useMediaQuery('(max-width: 62em)', false)
 
   const location = useLocation()
-  const title = useMemo(() => {
-    const link = routes.find(({ route }) => route.path === location.pathname)
-    if (link !== undefined) {
-      return `${link.label} | annict-tracker`
-    }
-    return 'annict-tracker'
+  const route = useMemo(() => {
+    return routes.find(({ route }) => route.path === location.pathname)
   }, [location.pathname])
-  useDocumentTitle(title)
+
+  useDocumentTitle(route ? `${route.label} | annict-tracker` : 'annict-tracker')
 
   useCheckUpdate()
 
@@ -35,7 +32,7 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
       <AppShell.Header>
         <Group p="xs">
           <Burger opened={isNavbarOpened} size="sm" onClick={toggleNavbar} />
-          <Text>annict-tracker</Text>
+          <Text>{isNavbarOpened ? 'annict-tracker' : route?.label}</Text>
         </Group>
       </AppShell.Header>
 
