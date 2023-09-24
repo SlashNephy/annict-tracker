@@ -10,6 +10,7 @@ import type { useNextProgram_LibraryEntry$key } from '../../__generated__/useNex
 
 export type NextProgram = {
   startAt: Date
+  endAt?: Date
   channel: {
     annictId: number
     name: string
@@ -76,6 +77,7 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
 
       return {
         startAt: new Date(program.startAt),
+        endAt: new Date(program.endAt),
         channel: {
           annictId: annictChannel.annictId,
           name: annictChannel.name,

@@ -16,6 +16,7 @@ export type SyobocalProgram = {
   pid: number
 
   startAt: number
+  endAt: number
   count?: number
   flags: SyobocalProgramFlag[]
   note?: string

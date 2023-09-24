@@ -66,6 +66,7 @@ export function parseSyobocalProgramsResponse(response: RawSyobocalProgramsRespo
           chid: item.ChID,
           pid: item.PID,
           startAt: Date.parse(item.StTime),
+          endAt: Date.parse(item.EdTime),
           count: item.Count || undefined,
           flags: parseSyobocalProgramFlags(item.Flag, item.Warn),
           note: item.ProgComment || undefined,

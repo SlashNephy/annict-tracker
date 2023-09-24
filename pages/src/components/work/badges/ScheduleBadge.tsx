@@ -1,4 +1,5 @@
 import { Badge } from '@mantine/core'
+import { add, isAfter } from 'date-fns'
 import React from 'react'
 
 import { useTimeTag } from '../../../lib/annict/filters/useTimeTag.ts'
@@ -27,12 +28,13 @@ export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): React.JSX.E
           <Badge key="today" color="red">
             今日
           </Badge>
-          {/* 今日放送であっても終了していたら出す */}
-          {nextProgram && nextProgram.startAt.getTime() < Date.now() && (
-            <Badge key="finished" color="green">
-              終了
-            </Badge>
-          )}
+          {/* 今日放送であっても終了していたら出す。番組の長さを30分に仮定している */}
+          {nextProgram &&
+            isAfter(new Date(), nextProgram.endAt ? nextProgram.endAt : add(nextProgram.startAt, { minutes: 30 })) && (
+              <Badge key="finished" color="green">
+                終了
+              </Badge>
+            )}
         </>
       )
     case 'tomorrow':
