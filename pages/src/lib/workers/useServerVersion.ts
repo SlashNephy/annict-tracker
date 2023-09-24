@@ -1,6 +1,5 @@
 import { minutesToMilliseconds } from 'date-fns'
-import { preload } from 'swr'
-import useSWRImmutable from 'swr/immutable'
+import useSWR, { preload } from 'swr'
 
 import type { VersionResponse } from 'functions/api/version.types.ts'
 
@@ -8,8 +7,8 @@ const key = 'version'
 
 void preload(key, fetchServerVersion)
 
-export function useServerVersion(): VersionResponse | undefined {
-  const { data } = useSWRImmutable(
+export function useServerVersion(): VersionResponse | null {
+  const { data } = useSWR(
     key,
     fetchServerVersion,
 
@@ -18,7 +17,7 @@ export function useServerVersion(): VersionResponse | undefined {
     }
   )
 
-  return data
+  return data ?? null
 }
 
 async function fetchServerVersion(): Promise<VersionResponse> {
