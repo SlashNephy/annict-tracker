@@ -1,9 +1,12 @@
 import {
   ActionIcon,
   Avatar,
+  Box,
+  Button,
   Card,
   Center,
   Chip,
+  ColorPicker,
   Container,
   Divider,
   Group,
@@ -18,6 +21,7 @@ import {
 import {
   IconChecks,
   IconLogout,
+  IconPaint,
   IconSettings,
   IconSparkles,
   IconTrash,
@@ -47,6 +51,7 @@ import {
 } from '../lib/jotai/integrations.ts'
 import { enableBrowserNotificationAtom } from '../lib/jotai/notification.ts'
 import { enableSyobocalAtom, syobocalChannelsAtom } from '../lib/jotai/syobocal.ts'
+import { baseColorAtom } from '../lib/jotai/theme.ts'
 import { useRequestNotificationPermission } from '../lib/notification/useRequestNotificationPermission.tsx'
 import { filterSayaChannel } from '../lib/saya/filterSayaChannel.ts'
 import { useSayaDatastore } from '../lib/saya/useSayaDatastore.ts'
@@ -61,6 +66,8 @@ export function Settings(): React.JSX.Element {
               <UserSettings />
               <Divider />
               <GeneralSettings />
+              <Divider />
+              <ThemeSettings />
               <Divider />
               <IntegrationSettings />
             </Stack>
@@ -105,7 +112,6 @@ function UserSettings(): React.JSX.Element {
 }
 
 function GeneralSettings(): React.JSX.Element {
-  const { colorScheme, setColorScheme } = useMantineColorScheme()
   const [enableBrowserNotification, setEnableBrowserNotification] = useAtom(enableBrowserNotificationAtom)
   const requestNotificationPermission = useRequestNotificationPermission()
 
@@ -116,7 +122,34 @@ function GeneralSettings(): React.JSX.Element {
         <Text>一般設定</Text>
       </Group>
 
-      <Radio.Group label="カラースキーム" value={colorScheme}>
+      <CheckboxWithLabel
+        checked={enableBrowserNotification}
+        description="放送時間が近付いたとき (約5分前) に放送予定の通知が表示されます。"
+        label="ブラウザの通知を有効にする"
+        onChange={(event) => {
+          setEnableBrowserNotification(event.target.checked)
+          if (event.target.checked) {
+            requestNotificationPermission()
+          }
+        }}
+      />
+    </Stack>
+  )
+}
+
+function ThemeSettings(): React.JSX.Element {
+  const { colorScheme, setColorScheme } = useMantineColorScheme()
+  const [baseColor, setBaseColor] = useAtom(baseColorAtom)
+
+  return (
+    <Stack>
+      <Group>
+        <IconPaint />
+        <Text>テーマ設定</Text>
+      </Group>
+
+      <Text>カラースキーム</Text>
+      <Radio.Group value={colorScheme}>
         <Group>
           <Radio
             label="ライト"
@@ -142,17 +175,27 @@ function GeneralSettings(): React.JSX.Element {
         </Group>
       </Radio.Group>
 
-      <CheckboxWithLabel
-        checked={enableBrowserNotification}
-        description="放送時間が近付いたとき (約5分前) に放送予定の通知が表示されます。"
-        label="ブラウザの通知を有効にする"
-        onChange={(event) => {
-          setEnableBrowserNotification(event.target.checked)
-          if (event.target.checked) {
-            requestNotificationPermission()
-          }
-        }}
-      />
+      <Text>カスタムカラー</Text>
+      <Text size="sm">UI の配色をお好きな色に変更できます。設定値はリロード後に反映されます。</Text>
+      <Text size="sm">著しく可読性が低下するおそれがありますので、設定の際はご注意ください。</Text>
+      <Center>
+        <Group>
+          <ColorPicker value={baseColor} onChange={setBaseColor} />
+          <Stack>
+            <Group>
+              <Box bg={baseColor} h={20} w={20} />
+              <Text>HEX: {baseColor}</Text>
+            </Group>
+            <Button
+              onClick={() => {
+                window.location.reload()
+              }}
+            >
+              ページをリロード
+            </Button>
+          </Stack>
+        </Group>
+      </Center>
     </Stack>
   )
 }

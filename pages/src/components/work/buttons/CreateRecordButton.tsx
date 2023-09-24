@@ -72,7 +72,6 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
   return (
     <Button
       fullWidth
-      color="blue"
       disabled={isDisabled || isInFlight}
       leftSection={<IconCheck />}
       mt="md"

@@ -18,7 +18,6 @@ export function SyobocalSourceBadge({ entryRef }: SyobocalSourceBadgeBadge): Rea
   return (
     <Badge
       key="syobocal"
-      color="blue"
       title="この放送情報はしょぼいカレンダーとの連携で取得されました。"
       variant="outline"
       onClick={() => {

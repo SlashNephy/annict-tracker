@@ -5,7 +5,7 @@ export function LoadingSpinner(): React.JSX.Element {
   return (
     <Center m="xl" p="xl">
       <Group>
-        <Loader color="pink.6" variant="dots" />
+        <Loader variant="dots" />
         <Text>データ取得中です...</Text>
       </Group>
     </Center>

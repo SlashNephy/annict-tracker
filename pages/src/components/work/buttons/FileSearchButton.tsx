@@ -296,7 +296,6 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
     return (
       <Button
         fullWidth
-        color="blue"
         disabled={isDisabled}
         leftSection={<IconSearch />}
         mt="md"
@@ -316,7 +315,6 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
       <Menu.Target>
         <Button
           fullWidth
-          color="blue"
           disabled={isDisabled}
           leftSection={<IconSearch />}
           mt="md"

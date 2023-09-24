@@ -875,6 +875,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/colors-generator@npm:7.0.0":
+  version: 7.0.0
+  resolution: "@mantine/colors-generator@npm:7.0.0"
+  peerDependencies:
+    chroma-js: ^2.4.2
+  checksum: f8688c4650b64b7ca2bb5afbcc5f68a0e3c766ef23c8d8274be7995e7e939458d22f4d6646ce47823b6fc912953647a308ae7024a410adc862f8f0ea816ee798
+  languageName: node
+  linkType: hard
+
 "@mantine/core@npm:7.0.0":
   version: 7.0.0
   resolution: "@mantine/core@npm:7.0.0"
@@ -2445,6 +2454,13 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: c57cf9dd0791e2f18a5ee9c1a299ae6e801ff58fee96dc8bfd0dcb4738a6ce58dd252a3605b1c93c6418fe4f9d5093b28ffbf4d66648cb2a9c67eaef9679be2f
+  languageName: node
+  linkType: hard
+
+"chroma-js@npm:2.4.2":
+  version: 2.4.2
+  resolution: "chroma-js@npm:2.4.2"
+  checksum: cf9884c02d406286e4370599bcd1afbf089384407df46b3a69edfedcba7bb99e8f959a5cfdbfec750b305c441c06ca40cd1f70ba3a6c2ce739ac09a92520ddae
   languageName: node
   linkType: hard
 
@@ -6075,6 +6091,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pages@workspace:pages"
   dependencies:
+    "@mantine/colors-generator": 7.0.0
     "@mantine/core": 7.0.0
     "@mantine/hooks": 7.0.0
     "@mantine/notifications": 7.0.0
@@ -6091,6 +6108,7 @@ __metadata:
     "@types/react-relay": 14.1.5
     "@vitejs/plugin-react-swc": 3.3.2
     babel-plugin-relay: 15.0.0
+    chroma-js: 2.4.2
     date-fns: 2.30.0
     jotai: 2.4.2
     postcss: 8.4.30

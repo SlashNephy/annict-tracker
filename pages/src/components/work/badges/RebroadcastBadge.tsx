@@ -16,7 +16,7 @@ export function RebroadcastBadge({ entryRef }: RebroadcastBadge): React.JSX.Elem
   }
 
   return (
-    <Badge key="rebroadcast" color="yellow" variant="outline">
+    <Badge key="rebroadcast" color="yellow.6" variant="outline">
       再放送
     </Badge>
   )
