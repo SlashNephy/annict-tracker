@@ -31,6 +31,9 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
     entryRef
   )
 
+  // 放送時間が古い順に並び替える。ソート順は非同期で確定されるため、CSS order を使う
+  const sortNumber = useSortNumber(entry)
+
   const isEnabled = [
     useFilterByCurrentSeason(entry),
     useFilterByRebroadcasting(entry),
@@ -40,10 +43,12 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
     useFilterByDay(entry),
   ].every(Boolean)
 
-  // 放送時間が古い順に並び替える。ソート順は非同期で確定されるため、CSS order を使う
-  const sortNumber = useSortNumber(entry)
+  if (!isEnabled) {
+    return <></>
+  }
+
   return (
-    <Grid.Col hidden={!isEnabled} span={{ lg: 3, md: 4, sm: 6, xs: 12 }} style={{ order: sortNumber }}>
+    <Grid.Col span={{ lg: 3, md: 4, sm: 6, xs: 12 }} style={{ order: sortNumber }}>
       <WorkCard entryRef={entry} />
     </Grid.Col>
   )
