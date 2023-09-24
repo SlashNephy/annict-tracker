@@ -13,15 +13,9 @@ export type AnnictVodData = {
 }
 
 export function useAnnictVodData(enabled = true): AnnictVodData[] {
-  const { data } = useSWRImmutable(
-    enabled ? 'vods' : null,
-    async () => {
-      return await fetchAnnictVodData()
-    },
-    {
-      refreshInterval: hoursToMilliseconds(6),
-    }
-  )
+  const { data } = useSWRImmutable(enabled ? 'vods' : null, fetchAnnictVodData, {
+    refreshInterval: hoursToMilliseconds(6),
+  })
 
   return data ?? []
 }

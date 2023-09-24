@@ -8,15 +8,9 @@ import type { SayaDefinition } from './SayaDatastore.ts'
 
 // saya の定義ファイルを読み込む hook
 export function useSayaDatastore(enabled = true): SayaDatastore | null {
-  const { data } = useSWRImmutable(
-    enabled ? 'saya' : null,
-    async () => {
-      return await fetchSayaDefinition()
-    },
-    {
-      refreshInterval: hoursToMilliseconds(6),
-    }
-  )
+  const { data } = useSWRImmutable(enabled ? 'saya' : null, fetchSayaDefinition, {
+    refreshInterval: hoursToMilliseconds(6),
+  })
 
   return useMemo(() => (data ? new SayaDatastore(data) : null), [data])
 }
