@@ -1,6 +1,6 @@
 import { Button, Center, Grid, Space } from '@mantine/core'
 import { minutesToMilliseconds } from 'date-fns'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
 
 import { LibraryGridItem } from './LibraryGridItem.tsx'
@@ -12,7 +12,13 @@ export type LibraryGridProps = {
 }
 
 export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element {
-  const { data, refetch, hasNext, loadNext, isLoadingNext } = usePaginationFragment(
+  const {
+    data,
+    refetch: _refetch,
+    hasNext,
+    loadNext,
+    isLoadingNext,
+  } = usePaginationFragment(
     graphql`
       fragment LibraryGrid_User on User
       @argumentDefinitions(
@@ -35,10 +41,20 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
     viewerRef
   )
 
+  const refetch = useCallback(() => {
+    _refetch({}, { fetchPolicy: 'store-and-network' })
+  }, [_refetch])
+
   useEffect(() => {
-    const interval = window.setInterval(() => refetch({}), minutesToMilliseconds(1))
+    // 定期的に再取得
+    const interval = window.setInterval(refetch, minutesToMilliseconds(15))
+
+    // ウインドウがアクティブになったときに再取得
+    window.addEventListener('focus', refetch)
+
     return () => {
       window.clearInterval(interval)
+      window.removeEventListener('focus', refetch)
     }
   }, [refetch])
 

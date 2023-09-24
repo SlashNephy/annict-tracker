@@ -1,3 +1,4 @@
+import { minutesToMilliseconds } from 'date-fns'
 import { Environment, Network, Observable, RecordSource, Store } from 'relay-runtime'
 
 export function createAnnictEnvironment(bearerToken: string): Environment {
@@ -18,6 +19,8 @@ export function createAnnictEnvironment(bearerToken: string): Environment {
 
       return Observable.from(response.then(async (data) => data.json()))
     }),
-    store: new Store(new RecordSource()),
+    store: new Store(new RecordSource(), {
+      queryCacheExpirationTime: minutesToMilliseconds(15),
+    }),
   })
 }
