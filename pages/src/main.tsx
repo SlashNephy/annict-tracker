@@ -17,6 +17,7 @@ if (import.meta.env.PROD) {
 const root = document.getElementById('root')
 if (root !== null) {
   createRoot(root).render(
+    // @ts-expect-error 一時的に型が壊れているので対処
     <React.StrictMode>
       <App>
         <RouterProvider router={router} />
