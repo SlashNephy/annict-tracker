@@ -2,10 +2,9 @@ import { Container } from '@mantine/core'
 import React, { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
+import { FilterCard } from './FilterCard.tsx'
 import { LoadingSpinner } from '../common/LoadingSpinner.tsx'
 import { ErrorPage } from '../error/ErrorPage.tsx'
-import { FilterCard } from '../FilterCard.tsx'
-import { FooterCard } from '../FooterCard.tsx'
 import { ViewerLibrary } from '../library/ViewerLibrary.tsx'
 
 export function LoginUser(): React.JSX.Element {
@@ -19,7 +18,6 @@ export function LoginUser(): React.JSX.Element {
           <ViewerLibrary />
         </Suspense>
       </ErrorBoundary>
-      <FooterCard mb="md" mt="md" />
     </Container>
   )
 }

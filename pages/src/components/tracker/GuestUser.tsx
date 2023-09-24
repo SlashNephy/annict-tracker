@@ -2,7 +2,7 @@ import { Anchor, Card, Center, Container, Text, Title } from '@mantine/core'
 import { IconBrandGithub } from '@tabler/icons-react'
 import React from 'react'
 
-import { AnnictSignInButton } from '../AnnictSignInButton.tsx'
+import { AnnictSignInButton } from './AnnictSignInButton.tsx'
 
 export function GuestUser(): React.JSX.Element {
   return (

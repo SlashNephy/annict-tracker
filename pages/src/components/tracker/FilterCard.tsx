@@ -2,7 +2,6 @@ import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
 import { useAtom } from 'jotai'
 import React from 'react'
 
-import { CheckboxWithHoverCard } from './common/CheckboxWithHoverCard.tsx'
 import {
   dayFiltersAtom,
   hideRebroadcastingAtom,
@@ -10,11 +9,12 @@ import {
   seasonFiltersAtom,
   showOnlyCurrentSeasonAtom,
   timeFiltersAtom,
-} from '../lib/jotai/filters.ts'
+} from '../../lib/jotai/filters.ts'
+import { CheckboxWithHoverCard } from '../common/CheckboxWithHoverCard.tsx'
 
-import type { DayTag } from '../lib/annict/filters/useDayTag.ts'
-import type { SeasonName } from '../lib/annict/filters/useIsCurrentSeason.ts'
-import type { TimeTag } from '../lib/annict/filters/useTimeTag.ts'
+import type { DayTag } from '../../lib/annict/filters/useDayTag.ts'
+import type { SeasonName } from '../../lib/annict/filters/useIsCurrentSeason.ts'
+import type { TimeTag } from '../../lib/annict/filters/useTimeTag.ts'
 import type { CardProps } from '@mantine/core'
 
 export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {

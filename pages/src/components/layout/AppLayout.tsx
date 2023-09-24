@@ -1,17 +1,15 @@
-import { AppShell, Burger, Group, Text, useMantineTheme } from '@mantine/core'
-import { useDocumentTitle } from '@mantine/hooks'
-import { useAtom } from 'jotai'
+import { Anchor, AppShell, Burger, Card, Container, Group, Text, ThemeIcon, Tooltip } from '@mantine/core'
+import { useDisclosure, useDocumentTitle, useMediaQuery } from '@mantine/hooks'
+import { IconBrandGithub } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-import { isNavbarExpandAtom } from '../../lib/jotai/navbar.ts'
 import { useCheckUpdate } from '../../lib/workers/useCheckUpdate.ts'
 import { routes } from '../../routes/router.tsx'
-import { MainLink } from '../MainLink.tsx'
 
 export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Element {
-  const [isExpand, setIsExpand] = useAtom(isNavbarExpandAtom)
-  const theme = useMantineTheme()
+  const [isNavbarOpened, { toggle: toggleNavbar, close: closeNavbar }] = useDisclosure(false)
+  const isMobile = useMediaQuery('(max-width: 62em)', false)
 
   const location = useLocation()
   const title = useMemo(() => {
@@ -26,48 +24,57 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
   useCheckUpdate()
 
   return (
-    <AppShell header={{ height: 50 }} navbar={{ width: { base: isExpand ? 200 : 50 }, breakpoint: 'sm' }}>
+    <AppShell
+      header={{ height: 50, collapsed: !isMobile }}
+      navbar={{
+        width: isMobile ? 9999 : 60,
+        breakpoint: 'sm',
+        collapsed: { mobile: !isNavbarOpened, desktop: isMobile ? !isNavbarOpened : false },
+      }}
+    >
       <AppShell.Header>
         <Group p="xs">
-          <Burger
-            color={theme.colors.gray[6]}
-            opened={isExpand}
-            size="sm"
-            onClick={() => {
-              setIsExpand((wasExpand) => !wasExpand)
-            }}
-          />
+          <Burger opened={isNavbarOpened} size="sm" onClick={toggleNavbar} />
           <Text>annict-tracker</Text>
         </Group>
-
-        {isExpand && (
-          <Group>
-            {routes.map((r) => (
-              <MainLink key={r.route.path} {...r} />
-            ))}
-          </Group>
-        )}
       </AppShell.Header>
 
-      <AppShell.Navbar pt="md">
-        <Group p="xs">
-          <Burger
-            color={theme.colors.gray[6]}
-            opened={isExpand}
-            size="sm"
-            onClick={() => {
-              setIsExpand((wasExpand) => !wasExpand)
-            }}
-          />
-          {isExpand && <Text>annict-tracker</Text>}
-        </Group>
+      <AppShell.Navbar p="md">
+        {routes.map(({ route, label, icon: Icon }) => (
+          <Anchor key={route.path} component={Link} mb="lg" to={route.path} onClick={closeNavbar}>
+            <Group>
+              <Tooltip label={label} position="right">
+                <ThemeIcon variant="light">
+                  <Icon size={20} />
+                </ThemeIcon>
+              </Tooltip>
 
-        {routes.map((r) => (
-          <MainLink key={r.route.path} {...r} />
+              {}
+              {isMobile && <Text>{label}</Text>}
+            </Group>
+          </Anchor>
         ))}
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>
+
+      <AppShell.Footer pb="sm" pos="relative" withBorder={false}>
+        <Container>
+          <Card m="md">
+            <Text>
+              <IconBrandGithub style={{ marginRight: '4px', display: 'inline-block', verticalAlign: 'middle' }} />
+              <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
+                annict-tracker
+              </Anchor>{' '}
+              made with &hearts; by{' '}
+              <Anchor href="https://github.com/SlashNephy" target="_blank">
+                @SlashNephy
+              </Anchor>
+              .
+            </Text>
+          </Card>
+        </Container>
+      </AppShell.Footer>
     </AppShell>
   )
 }

@@ -27,9 +27,9 @@ import {
 import { useAtom } from 'jotai/index'
 import React, { useMemo } from 'react'
 
-import { AnnictSignInButton } from '../components/AnnictSignInButton.tsx'
 import { CheckboxWithLabel } from '../components/common/CheckboxWithLabel.tsx'
 import { AppLayout } from '../components/layout/AppLayout.tsx'
+import { AnnictSignInButton } from '../components/tracker/AnnictSignInButton.tsx'
 import { SignOutButton } from '../lib/auth/SignOutButton.tsx'
 import { useAnnictSession } from '../lib/auth/useAnnictSession.ts'
 import {
