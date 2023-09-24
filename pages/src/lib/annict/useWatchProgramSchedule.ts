@@ -61,7 +61,7 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
     }
 
     const _ = new Notification(work.title, {
-      body: `${nextProgram.channel.name}で${diff}分後に始まります\n\n${nextEpisodeLabel}`,
+      body: `${nextProgram.channel.name}で${diff + 1}分後に始まります\n\n${nextEpisodeLabel}`,
       image: work.image?.recommendedImageUrl ?? undefined,
       lang: 'ja',
     })
