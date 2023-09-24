@@ -8143,6 +8143,7 @@ __metadata:
   resolution: "vercel@workspace:vercel"
   dependencies:
     "@mantine/core": 7.0.0
+    "@mantine/hooks": 7.0.0
     "@tabler/icons-react": 2.35.0
     "@types/node": 20.6.4
     "@types/react": 18.2.22
