@@ -13,5 +13,6 @@ export function AnnictRelayEnvironment({ bearerToken, children }: RelayEnvironme
     return createAnnictEnvironment(bearerToken)
   }, [bearerToken])
 
+  // @ts-expect-error XXX: 一時的に ignore。要求される ReactNode の型が食い違っている
   return <RelayEnvironmentProvider environment={environment}>{children}</RelayEnvironmentProvider>
 }
