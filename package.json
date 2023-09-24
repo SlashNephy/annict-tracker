@@ -31,12 +31,13 @@
   "eslintConfig": {
     "extends": "@slashnephy/eslint-config",
     "rules": {
-      "no-restricted-syntax": [
+      "@typescript-eslint/prefer-literal-enum-member": [
         "error",
         {
-          "selector": "TSEnumDeclaration"
+          "allowBitwiseExpressions": true
         }
-      ]
+      ],
+      "@typescript-eslint/no-unsafe-enum-comparison": "off"
     },
     "overrides": [
       {

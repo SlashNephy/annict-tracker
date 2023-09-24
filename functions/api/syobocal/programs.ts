@@ -1,11 +1,11 @@
-import { hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
-import { XMLParser } from 'fast-xml-parser'
+import { hoursToMilliseconds } from 'date-fns'
 import queryString from 'query-string'
 import { z } from 'zod'
 
 import { json } from '../../lib/response.ts'
+import { lookupPrograms, parseSyobocalProgramsResponse } from '../../lib/syobocal.ts'
 
-import type { SyobocalProgramsResponse, SyobocalProgramsResult } from './programs.types.ts'
+import type { SyobocalProgramsResponse } from './programs.types.ts'
 
 const schema = z.object({
   id: z.union([z.string().regex(/^\d+$/), z.array(z.string().regex(/^\d+$/))]),
@@ -32,10 +32,15 @@ export const onRequestGet: PagesFunction = async (context) => {
   // TODO: キャッシュ
 
   try {
+    const response = await lookupPrograms(ids)
+    if (response.ProgLookupResponse.Result.Code !== 200) {
+      throw new Error(`invalid response: ${response.ProgLookupResponse.Result.Message}`)
+    }
+
     return json(
       {
         success: true,
-        result: await lookupPrograms(ids),
+        result: parseSyobocalProgramsResponse(response).sort((p) => p.startAt),
       } satisfies SyobocalProgramsResponse,
       {
         headers: {
@@ -54,22 +59,4 @@ export const onRequestGet: PagesFunction = async (context) => {
       { status: 500 }
     )
   }
-}
-
-async function lookupPrograms(ids: string[]): Promise<SyobocalProgramsResult> {
-  const params = new URLSearchParams({
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    Command: 'ProgLookup',
-    TID: ids.join(','),
-  }).toString()
-
-  const response = await fetch(`https://cal.syoboi.jp/db.php?${params}`, {
-    headers: {
-      'User-Agent': 'annict-tracker-worker/1.0 (+https://github.com/SlashNephy/annict-tracker)',
-    },
-  })
-  const text = await response.text()
-
-  const parser = new XMLParser()
-  return parser.parse(text)
 }

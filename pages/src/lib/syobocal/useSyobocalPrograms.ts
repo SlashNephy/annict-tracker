@@ -47,9 +47,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
 
       // TODO: 1リクエストにまとめたい
       const response = await lookupSyobocalPrograms([syobocalTid])
-      return (
-        response.ProgLookupResponse?.ProgItems?.ProgItem?.reverse()?.filter((x) => x.Count === nextEpisode.number) ?? []
-      )
+      return response.reverse().filter((x) => x.count === nextEpisode.number)
     },
     {
       refreshInterval: hoursToMilliseconds(6),

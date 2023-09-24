@@ -65,7 +65,7 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
     }
 
     for (const program of programs) {
-      const annictChannel = saya?.findChannelBySyobocalId(program.ChID)
+      const annictChannel = saya?.findChannelBySyobocalId(program.chid)
       if (!annictChannel?.annictId) {
         continue
       }
@@ -74,17 +74,16 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
         continue
       }
 
-      const channelPrograms = programs.filter((x) => x.ChID === annictChannel.annictId)
       return {
-        startAt: new Date(program.StTime),
+        startAt: new Date(program.startAt),
         channel: {
           annictId: annictChannel.annictId,
           name: annictChannel.name,
         },
-        isRebroadcast: Object.values(channelPrograms.groupBy((x) => x.Count)).some((x) => x.length > 1),
+        isRebroadcast: program.flags.includes('rebroadcast'),
         source: {
           name: 'syobocal',
-          url: `https://cal.syoboi.jp/tid/${program.TID}/time?Filter=${program.ChID}#${program.PID}`,
+          url: `https://cal.syoboi.jp/tid/${program.tid}/time?Filter=${program.chid}#${program.pid}`,
         },
       }
     }
