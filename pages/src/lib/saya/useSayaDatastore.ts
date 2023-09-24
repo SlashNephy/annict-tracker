@@ -1,6 +1,6 @@
 import { hoursToMilliseconds } from 'date-fns'
 import { useMemo } from 'react'
-import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 import { SayaDatastore } from './SayaDatastore.ts'
 
@@ -8,7 +8,7 @@ import type { SayaDefinition } from './SayaDatastore.ts'
 
 // saya の定義ファイルを読み込む hook
 export function useSayaDatastore(enabled = true): SayaDatastore | null {
-  const { data } = useSWR(
+  const { data } = useSWRImmutable(
     enabled ? 'saya' : null,
     async () => {
       return await fetchSayaDefinition()

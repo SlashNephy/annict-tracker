@@ -1,10 +1,10 @@
 import { minutesToMilliseconds } from 'date-fns'
-import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 import type { VersionResponse } from 'functions/api/version.types.ts'
 
 export function useServerVersion(): VersionResponse | undefined {
-  const { data } = useSWR(
+  const { data } = useSWRImmutable(
     'version',
     async () => await fetchServerVersion(),
 

@@ -9,6 +9,7 @@ import { NextEpisodeTitle } from './NextEpisodeTitle.tsx'
 import { NextProgramInfo } from './NextProgramInfo.tsx'
 import { WorkCardImage } from './WorkCardImage.tsx'
 import { WorkCardTitle } from './WorkCardTitle.tsx'
+import { SWRCacheProvider } from '../../lib/swr/SWRCacheProvider.tsx'
 
 import type { WorkCard_LibraryEntry$key } from '../../__generated__/WorkCard_LibraryEntry.graphql.ts'
 
@@ -35,7 +36,9 @@ export function WorkCard({ entryRef }: WorkCardProps): React.JSX.Element {
   return (
     <Card withBorder p="lg" radius="md" shadow="sm">
       <Card.Section>
-        <WorkCardImage entryRef={entry} />
+        <SWRCacheProvider>
+          <WorkCardImage entryRef={entry} />
+        </SWRCacheProvider>
       </Card.Section>
 
       <Stack>

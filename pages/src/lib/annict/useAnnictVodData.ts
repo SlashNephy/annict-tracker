@@ -1,5 +1,5 @@
 import { hoursToMilliseconds } from 'date-fns'
-import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 export type AnnictVodData = {
   work_id: number
@@ -13,7 +13,7 @@ export type AnnictVodData = {
 }
 
 export function useAnnictVodData(enabled = true): AnnictVodData[] {
-  const { data } = useSWR(
+  const { data } = useSWRImmutable(
     enabled ? 'vods' : null,
     async () => {
       return await fetchAnnictVodData()

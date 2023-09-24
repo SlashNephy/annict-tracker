@@ -1,13 +1,13 @@
 import { minutesToMilliseconds } from 'date-fns'
 import { useMemo } from 'react'
-import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 import { ArmDatastore } from './ArmDatastore.ts'
 
 import type { ArmEntry } from './ArmDatastore.ts'
 
 export function useArmSupplementaryDatastore(enabled = true): ArmDatastore | null {
-  const { data } = useSWR(
+  const { data } = useSWRImmutable(
     enabled ? 'arm-supplementary' : null,
     async () => {
       return await fetchArmSupplementary()

@@ -1,6 +1,6 @@
-import { hoursToMilliseconds } from 'date-fns'
+import { minutesToMilliseconds } from 'date-fns'
 import { graphql, useFragment } from 'react-relay'
-import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
 
 import { lookupSyobocalPrograms } from './lookupSyobocalPrograms.ts'
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
@@ -27,7 +27,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
   )
 
   const arm = useArmSupplementaryDatastore(enabled)
-  const { data } = useSWR(
+  const { data } = useSWRImmutable(
     `syobocal-program-${work.id}`,
     async () => {
       if (!enabled) {
@@ -50,7 +50,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
       return response.reverse().filter((x) => x.count === nextEpisode.number)
     },
     {
-      refreshInterval: hoursToMilliseconds(6),
+      refreshInterval: minutesToMilliseconds(30),
     }
   )
 
