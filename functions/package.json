@@ -9,7 +9,7 @@
     "@auth/core": "0.15.1",
     "cookie": "0.5.0",
     "date-fns": "2.30.0",
-    "fast-xml-parser": "4.3.0",
+    "fast-xml-parser": "4.3.1",
     "http-status-codes": "2.3.0",
     "query-string": "8.1.0",
     "zod": "3.22.2"

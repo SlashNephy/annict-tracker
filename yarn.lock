@@ -1543,18 +1543,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons-react@npm:2.34.0":
-  version: 2.34.0
-  resolution: "@tabler/icons-react@npm:2.34.0"
-  dependencies:
-    "@tabler/icons": 2.34.0
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: b9b9cb0631d2db01f6aec20a4f6d5e025698d3525c6756175efdf2f2398b83a68f0c48d7d6264b3dca31fcaa6008376a7e70f168d1610898b19ae4e951f336b2
-  languageName: node
-  linkType: hard
-
 "@tabler/icons-react@npm:2.35.0":
   version: 2.35.0
   resolution: "@tabler/icons-react@npm:2.35.0"
@@ -1564,13 +1552,6 @@ __metadata:
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0
   checksum: f3c13cf02d66639c7e1be9c542d647637f7bf729cd62ec11314c5db004d15dc763f45a61be0ece52413ff44f2e8221dba1c616d555facc89c51193b5ad460263
-  languageName: node
-  linkType: hard
-
-"@tabler/icons@npm:2.34.0":
-  version: 2.34.0
-  resolution: "@tabler/icons@npm:2.34.0"
-  checksum: 0778e25c8aeb86f5b152cd0bd22ada6e474b51a1a5cdbf98d811397e0f6ba96cbe0bc72a983e159fcc9da6a5472b93738d1c6809ce70eb8e15844edea633e224
   languageName: node
   linkType: hard
 
@@ -1606,13 +1587,6 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: e60b153664572116dfea673c5bda7778dbff150498f44f998e34b5886d8afc47f16799280e4b6e241c0472aef1bc36add771c569c68fc5125fc2ae519a3eb9ac
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:20.6.4":
-  version: 20.6.4
-  resolution: "@types/node@npm:20.6.4"
-  checksum: 5fdf81c8760b620a3f3b2cdac1688008f0c73a00af98e067b4621a572d39b831eaeee8fbd7300cd06667dec31d8b032fbb8e1bbedae56ec6ff1230a338b4e8a5
   languageName: node
   linkType: hard
 
@@ -1665,7 +1639,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.2.21":
+"@types/react@npm:*":
   version: 18.2.21
   resolution: "@types/react@npm:18.2.21"
   dependencies:
@@ -4270,14 +4244,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:4.3.0":
-  version: 4.3.0
-  resolution: "fast-xml-parser@npm:4.3.0"
+"fast-xml-parser@npm:4.3.1":
+  version: 4.3.1
+  resolution: "fast-xml-parser@npm:4.3.1"
   dependencies:
     strnum: ^1.0.5
   bin:
     fxparser: src/cli/cli.js
-  checksum: 8cd2262a19a1a5c5ebf782eb17d7d52f4d8192edee49c188feecf6bfaf70046c088edbb6a92f0a6911ba18b8fd2d2c0c3b87f018b297983ef621c1ddfa09c0a0
+  checksum: eddd19dc95f907d9a932012e9ee6240d5d58f9f4a7179996cc0c5ef377bba15638cb025cf4e820f0895f3d4e6edd03d5e7efa675dcfbf895bb8e0f3355b98126
   languageName: node
   linkType: hard
 
@@ -4478,7 +4452,7 @@ __metadata:
     "@types/query-string": 6.3.0
     cookie: 0.5.0
     date-fns: 2.30.0
-    fast-xml-parser: 4.3.0
+    fast-xml-parser: 4.3.1
     http-status-codes: 2.3.0
     query-string: 8.1.0
     typescript: 5.2.2
@@ -6334,9 +6308,9 @@ __metadata:
     "@slashnephy/typescript-extension": 0.2.3
     "@swc-jotai/debug-label": 0.1.0
     "@swc-jotai/react-refresh": 0.1.0
-    "@tabler/icons-react": 2.34.0
+    "@tabler/icons-react": 2.35.0
     "@types/node": 20.6.4
-    "@types/react": 18.2.21
+    "@types/react": 18.2.22
     "@types/react-dom": 18.2.7
     "@types/react-relay": 14.1.5
     "@vitejs/plugin-react-swc": 3.3.2
