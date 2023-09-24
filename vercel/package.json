@@ -1,0 +1,29 @@
+{
+  "name": "vercel",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mantine/core": "7.0.0",
+    "@tabler/icons-react": "2.35.0",
+    "next": "13.5.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.6.4",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "postcss": "8.4.30",
+    "postcss-preset-mantine": "1.7.0",
+    "postcss-simple-vars": "7.0.1",
+    "typescript": "5.2.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

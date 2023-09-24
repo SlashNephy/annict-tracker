@@ -1,1 +1,5 @@
 pages/src/__generated__/
+pages/dist/
+
+vercel/out/
+vercel/.next/

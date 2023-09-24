@@ -1,2 +1,5 @@
 pages/src/__generated__/*.graphql.ts
 pages/dist/
+
+vercel/out/
+vercel/out/.next/

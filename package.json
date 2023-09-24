@@ -58,11 +58,21 @@
         "parserOptions": {
           "project": "./pages/tsconfig.node.json"
         }
+      },
+      {
+        "files": "vercel/**/*.{ts,tsx}",
+        "parserOptions": {
+          "project": "./vercel/tsconfig.json"
+        },
+        "rules": {
+          "react-refresh/only-export-components": "off"
+        }
       }
     ]
   },
   "workspaces": [
     "pages",
-    "functions"
+    "functions",
+    "vercel"
   ]
 }
