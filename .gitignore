@@ -16,3 +16,5 @@ tsconfig.tsbuildinfo
 # Vite
 dist/
 .swc/
+vite.config.js
+vite.config.d.ts
