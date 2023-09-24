@@ -20,7 +20,7 @@ export function createAnnictEnvironment(bearerToken: string): Environment {
       return Observable.from(response.then(async (data) => data.json()))
     }),
     store: new Store(new RecordSource(), {
-      queryCacheExpirationTime: minutesToMilliseconds(15),
+      queryCacheExpirationTime: minutesToMilliseconds(5),
     }),
   })
 }

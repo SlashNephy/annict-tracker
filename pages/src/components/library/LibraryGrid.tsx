@@ -42,12 +42,12 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
   )
 
   const refetch = useCallback(() => {
-    _refetch({}, { fetchPolicy: 'store-and-network' })
+    _refetch({}, { fetchPolicy: 'network-only' })
   }, [_refetch])
 
   useEffect(() => {
     // 定期的に再取得
-    const interval = window.setInterval(refetch, minutesToMilliseconds(15))
+    const interval = window.setInterval(refetch, minutesToMilliseconds(5))
 
     // ウインドウがアクティブになったときに再取得
     window.addEventListener('focus', refetch)
