@@ -15,7 +15,10 @@ export type NextProgram = {
     name: string
   }
   isRebroadcast: boolean
-  source: string
+  source: {
+    name: string
+    url?: string
+  }
 }
 
 export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextProgram | null {
@@ -55,7 +58,9 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
           name: entry.nextProgram.channel.name,
         },
         isRebroadcast: entry.nextProgram.rebroadcast,
-        source: 'annict',
+        source: {
+          name: 'annict',
+        },
       }
     }
 
@@ -77,7 +82,10 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
           name: annictChannel.name,
         },
         isRebroadcast: Object.values(channelPrograms.groupBy((x) => x.Count)).some((x) => x.length > 1),
-        source: 'syobocal',
+        source: {
+          name: 'syobocal',
+          url: `https://cal.syoboi.jp/tid/${program.TID}/time?Filter=${program.ChID}#${program.PID}`,
+        },
       }
     }
 
