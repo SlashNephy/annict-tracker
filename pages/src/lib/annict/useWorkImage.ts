@@ -3,6 +3,7 @@ import useSWRImmutable from 'swr/immutable'
 
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
 import { fetchJikanAnimePictures } from '../jikan/fetchJikanAnimePictures.ts'
+import { buildHttpsUri } from '../workers/buildHttpsUri.ts'
 
 import type { useWorkImage_LibraryEntry$key } from '../../__generated__/useWorkImage_LibraryEntry.graphql.ts'
 
@@ -33,11 +34,15 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): string | 
       return initialImageUrl
     }
 
+    // HTTPS 化して返す
+    if (initialImageUrl) {
+      return buildHttpsUri(initialImageUrl)
+    }
+
     // MyAnimeList ID から画像を引いてみる
     const malId = arm?.findByAnnictId(work.annictId)?.mal_id?.toString() ?? work.malAnimeId
     if (!malId) {
-      // フォールバック不可能なのでそのまま返す
-      return initialImageUrl ?? null
+      return null
     }
 
     const response = await fetchJikanAnimePictures(malId)
