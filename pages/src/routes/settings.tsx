@@ -10,12 +10,12 @@ import {
   Container,
   Divider,
   Group,
-  HoverCard,
   Radio,
   Stack,
   Switch,
   Text,
   TextInput,
+  Tooltip,
   useMantineColorScheme,
 } from '@mantine/core'
 import {
@@ -53,7 +53,6 @@ import { enableBrowserNotificationAtom } from '../lib/jotai/notification.ts'
 import { enableSyobocalAtom, syobocalChannelsAtom } from '../lib/jotai/syobocal.ts'
 import { baseColorAtom } from '../lib/jotai/theme.ts'
 import { useRequestNotificationPermission } from '../lib/notification/useRequestNotificationPermission.tsx'
-import { filterSayaChannel } from '../lib/saya/filterSayaChannel.ts'
 import { useSayaDatastore } from '../lib/saya/useSayaDatastore.ts'
 
 export function Settings(): React.JSX.Element {
@@ -223,9 +222,14 @@ function IntegrationSettings(): React.JSX.Element {
 
   const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(
-    () => saya?.definition.channels.distinctBy((c) => c.syobocalId).filter(filterSayaChannel) ?? [],
+    () => saya?.definition.channels.distinctBy((c) => c.syobocalId).filter((c) => !!c.syobocalId) ?? [],
     [saya]
   )
+  const availableChannelIds = useMemo(
+    () => availableChannels.map((c) => c.syobocalId?.toString()).filter((c): c is NonNullable<typeof c> => !!c),
+    [availableChannels]
+  )
+  const isAllChannelsSelected = availableChannelIds.length === syobocalChannels.length
 
   return (
     <Stack>
@@ -248,55 +252,68 @@ function IntegrationSettings(): React.JSX.Element {
           <Stack pl="lg">
             <Group>
               <Text size="sm">しょぼいカレンダーで放送予定を代用するチャンネル</Text>
-              <HoverCard shadow="md" width={280}>
-                <HoverCard.Target>
-                  <ActionIcon
-                    variant="default"
-                    onClick={() => {
-                      setSyobocalChannels(
-                        availableChannels
-                          .map((x) => x.syobocalId?.toString())
-                          .filter((x): x is NonNullable<typeof x> => x !== undefined)
-                      )
-                    }}
-                  >
-                    <IconChecks size={14} />
-                  </ActionIcon>
-                </HoverCard.Target>
-                <HoverCard.Dropdown>
-                  <Text size="sm">すべてのチャンネルを選択します</Text>
-                </HoverCard.Dropdown>
-              </HoverCard>
-              <HoverCard shadow="md" width={280}>
-                <HoverCard.Target>
-                  <ActionIcon
-                    variant="default"
-                    onClick={() => {
+              <Tooltip
+                label={isAllChannelsSelected ? 'すべてのチャンネルを解除します' : 'すべてのチャンネルを選択します'}
+              >
+                <ActionIcon
+                  variant="default"
+                  onClick={() => {
+                    if (isAllChannelsSelected) {
                       setSyobocalChannels([])
-                    }}
-                  >
-                    <IconTrash size={14} />
-                  </ActionIcon>
-                </HoverCard.Target>
-                <HoverCard.Dropdown>
-                  <Text size="sm">チャンネルの選択をリセットします</Text>
-                </HoverCard.Dropdown>
-              </HoverCard>
+                    } else {
+                      setSyobocalChannels(availableChannelIds)
+                    }
+                  }}
+                >
+                  {isAllChannelsSelected ? <IconTrash size={14} /> : <IconChecks size={14} />}
+                </ActionIcon>
+              </Tooltip>
             </Group>
             <Group mb="md" ml="md">
               <Chip.Group multiple value={syobocalChannels} onChange={setSyobocalChannels}>
-                {Array.from(availableChannels.groupBy((c) => c.type).entries()).map(([type, channels]) => (
-                  <Stack key={type}>
-                    <Text>{type === 'GR' ? '地上波 / CATV' : type === 'SKY' ? 'スカパー!プレミアム' : type}</Text>
-                    <Group>
-                      {channels.map((c) => (
-                        <Chip key={c.syobocalId} size="xs" value={c.syobocalId?.toString()}>
-                          {c.name}
-                        </Chip>
-                      ))}
-                    </Group>
-                  </Stack>
-                ))}
+                {Array.from(availableChannels.groupBy((c) => c.type).entries()).map(([type, channels]) => {
+                  const typeName = type === 'GR' ? '地上波 / CATV' : type === 'SKY' ? 'スカパー!プレミアム' : type
+                  const channelIds = channels
+                    .map((c) => c.syobocalId?.toString())
+                    .filter((c): c is NonNullable<typeof c> => !!c)
+                  const isAllSelected =
+                    channelIds.filter((c) => syobocalChannels.includes(c)).length === channels.length
+
+                  return (
+                    <Stack key={type}>
+                      <Group>
+                        <Text>{typeName}</Text>
+                        <Tooltip
+                          label={
+                            isAllSelected
+                              ? `${typeName} のすべてのチャンネルを解除します`
+                              : `${typeName} のすべてのチャンネルを選択します`
+                          }
+                        >
+                          <ActionIcon
+                            variant="default"
+                            onClick={() => {
+                              if (isAllSelected) {
+                                setSyobocalChannels((prev) => prev.filter((c) => !channelIds.includes(c)))
+                              } else {
+                                setSyobocalChannels((prev) => [...prev, ...channelIds].distinct())
+                              }
+                            }}
+                          >
+                            {isAllSelected ? <IconTrash size={14} /> : <IconChecks size={14} />}
+                          </ActionIcon>
+                        </Tooltip>
+                      </Group>
+                      <Group>
+                        {channels.map((c) => (
+                          <Chip key={c.syobocalId} size="xs" value={c.syobocalId?.toString()}>
+                            {c.name}
+                          </Chip>
+                        ))}
+                      </Group>
+                    </Stack>
+                  )
+                })}
               </Chip.Group>
             </Group>
           </Stack>
