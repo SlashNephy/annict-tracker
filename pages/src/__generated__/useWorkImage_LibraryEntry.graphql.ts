@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<77e604b69a4a9b77570d6dada5835d3e>>
+ * @generated SignedSource<<a0a3008fee609258ad7d887bdbd7ceef>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,6 +15,7 @@ export type useWorkImage_LibraryEntry$data = {
     readonly annictId: number;
     readonly id: string;
     readonly image: {
+      readonly copyright: string | null;
       readonly recommendedImageUrl: string | null;
     } | null;
     readonly malAnimeId: string | null;
@@ -68,6 +69,13 @@ const node: ReaderFragment = {
               "kind": "ScalarField",
               "name": "recommendedImageUrl",
               "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "copyright",
+              "storageKey": null
             }
           ],
           "storageKey": null
@@ -87,6 +95,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "c68e0d3ee27b24cf45f3a0ad6b95b3e0";
+(node as any).hash = "6bbff79bab282e746c1d9aa2aced454b";
 
 export default node;

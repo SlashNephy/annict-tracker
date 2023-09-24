@@ -7,8 +7,13 @@ import { buildHttpsUri } from '../workers/buildHttpsUri.ts'
 
 import type { useWorkImage_LibraryEntry$key } from '../../__generated__/useWorkImage_LibraryEntry.graphql.ts'
 
+export type WorkImage = {
+  url?: string
+  copyright?: string
+}
+
 // Annict が HTTP 画像を返して Mixed Contents になる場合があるので代替ソースでフォールバックする hook
-export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): string | null {
+export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage {
   const { work } = useFragment(
     graphql`
       fragment useWorkImage_LibraryEntry on LibraryEntry {
@@ -17,6 +22,7 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): string | 
           annictId
           image {
             recommendedImageUrl
+            copyright
           }
           malAnimeId
         }
@@ -42,12 +48,15 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): string | 
     // MyAnimeList ID から画像を引いてみる
     const malId = arm?.findByAnnictId(work.annictId)?.mal_id?.toString() ?? work.malAnimeId
     if (!malId) {
-      return null
+      return
     }
 
     const response = await fetchJikanAnimePictures(malId)
-    return response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url ?? null
+    return response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url
   })
 
-  return imageUrl ?? null
+  return {
+    url: imageUrl,
+    copyright: work.image?.copyright ?? undefined,
+  }
 }
