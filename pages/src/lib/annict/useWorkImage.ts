@@ -3,7 +3,6 @@ import useSWRImmutable from 'swr/immutable'
 
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
 import { fetchJikanAnimePictures } from '../jikan/fetchJikanAnimePictures.ts'
-import { buildHttpsUri } from '../workers/buildHttpsUri.ts'
 
 import type { useWorkImage_LibraryEntry$key } from '../../__generated__/useWorkImage_LibraryEntry.graphql.ts'
 
@@ -38,11 +37,6 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
     // Mixed Contents にならない場合はそのまま返す
     if (initialImageUrl?.startsWith('https://')) {
       return initialImageUrl
-    }
-
-    // HTTPS 化して返す
-    if (initialImageUrl) {
-      return buildHttpsUri(initialImageUrl)
     }
 
     // MyAnimeList ID から画像を引いてみる
