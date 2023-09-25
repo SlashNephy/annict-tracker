@@ -1,8 +1,7 @@
 import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
-import { Provider } from 'jotai'
+import { ErrorBoundary } from '@sentry/react'
 import React from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
 import { SWRConfig } from 'swr'
 
 import { ErrorPage } from './components/error/ErrorPage.tsx'
@@ -22,7 +21,7 @@ export function App({ children }: AppProps): React.JSX.Element {
   const theme = useCustomTheme()
 
   return (
-    <ErrorBoundary fallbackRender={({ error }) => <ErrorPage error={error} />}>
+    <ErrorBoundary fallback={({ error }) => <ErrorPage error={error} />}>
       <ColorSchemeScript defaultColorScheme="auto" />
       <MantineProvider defaultColorScheme="auto" theme={theme}>
         <Notifications limit={3} position="bottom-right" />
