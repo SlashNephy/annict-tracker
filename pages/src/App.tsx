@@ -25,9 +25,7 @@ export function App({ children }: AppProps): React.JSX.Element {
       <ColorSchemeScript defaultColorScheme="auto" />
       <MantineProvider defaultColorScheme="auto" theme={theme}>
         <Notifications limit={3} position="bottom-right" />
-        <SWRConfig>
-          <Provider>{children}</Provider>
-        </SWRConfig>
+        <SWRConfig>{children}</SWRConfig>
       </MantineProvider>
     </ErrorBoundary>
   )

@@ -175,7 +175,7 @@ function ThemeSettings(): React.JSX.Element {
       </Radio.Group>
 
       <Text>カスタムカラー</Text>
-      <Text size="sm">UI の配色をお好きな色に変更できます。設定値はリロード後に反映されます。</Text>
+      <Text size="sm">UI の配色をお好きな色に変更できます。</Text>
       <Text size="sm">著しく可読性が低下するおそれがありますので、設定の際はご注意ください。</Text>
       <Center>
         <Group>
