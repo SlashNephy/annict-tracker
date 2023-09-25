@@ -1,12 +1,11 @@
 import {
   ActionIcon,
   Avatar,
-  Box,
-  Button,
   Card,
   Center,
   Chip,
   ColorPicker,
+  ColorSwatch,
   Container,
   Divider,
   Group,
@@ -28,7 +27,7 @@ import {
   IconUser,
   IconWorldWww,
 } from '@tabler/icons-react'
-import { useAtom } from 'jotai/index'
+import { useAtom } from 'jotai'
 import React, { useMemo } from 'react'
 
 import { CheckboxWithLabel } from '../components/common/CheckboxWithLabel.tsx'
@@ -51,9 +50,11 @@ import {
 } from '../lib/jotai/integrations.ts'
 import { enableBrowserNotificationAtom } from '../lib/jotai/notification.ts'
 import { enableSyobocalAtom, syobocalChannelsAtom } from '../lib/jotai/syobocal.ts'
-import { baseColorAtom } from '../lib/jotai/theme.ts'
+import { customColorAtom, customColorFormatAtom, customColorFormats } from '../lib/jotai/theme.ts'
 import { useRequestNotificationPermission } from '../lib/notification/useRequestNotificationPermission.tsx'
 import { useSayaDatastore } from '../lib/saya/useSayaDatastore.ts'
+
+import type { CustomColorFormat } from '../lib/jotai/theme.ts'
 
 export function Settings(): React.JSX.Element {
   return (
@@ -138,7 +139,8 @@ function GeneralSettings(): React.JSX.Element {
 
 function ThemeSettings(): React.JSX.Element {
   const { colorScheme, setColorScheme } = useMantineColorScheme()
-  const [baseColor, setBaseColor] = useAtom(baseColorAtom)
+  const [customColor, setCustomColor] = useAtom(customColorAtom)
+  const [customColorFormat, setCustomColorFormat] = useAtom(customColorFormatAtom)
 
   return (
     <Stack>
@@ -178,22 +180,29 @@ function ThemeSettings(): React.JSX.Element {
       <Text size="sm">UI の配色をお好きな色に変更できます。</Text>
       <Text size="sm">著しく可読性が低下するおそれがありますので、設定の際はご注意ください。</Text>
       <Center>
-        <Group>
-          <ColorPicker value={baseColor} onChange={setBaseColor} />
-          <Stack>
-            <Group>
-              <Box bg={baseColor} h={20} w={20} />
-              <Text>HEX: {baseColor}</Text>
-            </Group>
-            <Button
-              onClick={() => {
-                window.location.reload()
+        <Stack>
+          <Group>
+            <Radio.Group
+              value={customColorFormat}
+              onChange={(value) => {
+                setCustomColorFormat(value as CustomColorFormat)
               }}
             >
-              ページをリロード
-            </Button>
-          </Stack>
-        </Group>
+              <Group>
+                {customColorFormats.map((format) => (
+                  <Radio key={format} label={format.toUpperCase()} value={format} />
+                ))}
+              </Group>
+            </Radio.Group>
+          </Group>
+          <Group>
+            <ColorPicker format={customColorFormat} value={customColor} onChange={setCustomColor} />
+            <Group>
+              <ColorSwatch color={customColor} />
+              <Text>{customColor}</Text>
+            </Group>
+          </Group>
+        </Stack>
       </Center>
     </Stack>
   )
