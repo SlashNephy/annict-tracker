@@ -8,9 +8,6 @@ import { ErrorPage } from './components/error/ErrorPage.tsx'
 import { useCustomTheme } from './lib/mantine/useCustomTheme.ts'
 
 // eslint-disable-next-line import/order
-import '@slashnephy/typescript-extension'
-
-// eslint-disable-next-line import/order
 import '@mantine/core/styles.css'
 
 export type AppProps = {

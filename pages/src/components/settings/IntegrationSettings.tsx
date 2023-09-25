@@ -1,6 +1,7 @@
 import { ActionIcon, Chip, Group, Stack, Switch, Text, TextInput, Tooltip } from '@mantine/core'
 import { IconChecks, IconSparkles, IconTrash, IconWorldWww } from '@tabler/icons-react'
 import { useAtom } from 'jotai'
+import { group, unique } from 'radash'
 import React, { useMemo } from 'react'
 
 import {
@@ -43,7 +44,7 @@ export function IntegrationSettings(): React.JSX.Element {
 
   const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(
-    () => saya?.definition.channels.distinctBy((c) => c.syobocalId).filter((c) => !!c.syobocalId) ?? [],
+    () => unique(saya?.definition.channels ?? [], (c) => c.syobocalId ?? 0).filter((c) => !!c.syobocalId),
     [saya]
   )
   const availableChannelIds = useMemo(
@@ -92,7 +93,7 @@ export function IntegrationSettings(): React.JSX.Element {
             </Group>
             <Group mb="md" ml="md">
               <Chip.Group multiple value={syobocalChannels} onChange={setSyobocalChannels}>
-                {Array.from(availableChannels.groupBy((c) => c.type).entries()).map(([type, channels]) => {
+                {Object.entries(group(availableChannels, (c) => c.type)).map(([type, channels]) => {
                   const typeName = type === 'GR' ? '地上波 / CATV' : type === 'SKY' ? 'スカパー!プレミアム' : type
                   const channelIds = channels
                     .map((c) => c.syobocalId?.toString())
@@ -117,7 +118,7 @@ export function IntegrationSettings(): React.JSX.Element {
                               if (isAllSelected) {
                                 setSyobocalChannels((prev) => prev.filter((c) => !channelIds.includes(c)))
                               } else {
-                                setSyobocalChannels((prev) => [...prev, ...channelIds].distinct())
+                                setSyobocalChannels((prev) => unique([...prev, ...channelIds]))
                               }
                             }}
                           >

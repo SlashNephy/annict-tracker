@@ -1368,15 +1368,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/typescript-extension@npm:0.2.3":
-  version: 0.2.3
-  resolution: "@slashnephy/typescript-extension@npm:0.2.3"
-  peerDependencies:
-    typescript: ^4
-  checksum: 4dde4e8b230f2e98487d7050cba4bee0d765eafd5d9942350d8c89e79a1b6ff3c2f47cc2b6b66e5ed60cf5b28b3e77c9eda940f6a242123eb048f1ae59d172f7
-  languageName: node
-  linkType: hard
-
 "@storybook/csf@npm:^0.0.1":
   version: 0.0.1
   resolution: "@storybook/csf@npm:0.0.1"
@@ -6285,7 +6276,6 @@ __metadata:
     "@mantine/notifications": 7.0.0
     "@sentry/react": 7.70.0
     "@sentry/vite-plugin": 2.7.1
-    "@slashnephy/typescript-extension": 0.2.3
     "@swc-jotai/debug-label": 0.1.0
     "@swc-jotai/react-refresh": 0.1.0
     "@tabler/icons-react": 2.35.0
@@ -6302,6 +6292,7 @@ __metadata:
     postcss: 8.4.30
     postcss-preset-mantine: 1.7.0
     postcss-simple-vars: 7.0.1
+    radash: 11.0.0
     react: 18.2.0
     react-dom: 18.2.0
     react-relay: 15.0.0
@@ -6677,6 +6668,13 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: b676f8c040cdc5b12723ad2f91414d267605b26419d5c821ff03befa817ddd10e238d22b25d604920340fd73efd8ba795465a0377c4adf45a4a41e4234e42dc4
+  languageName: node
+  linkType: hard
+
+"radash@npm:11.0.0":
+  version: 11.0.0
+  resolution: "radash@npm:11.0.0"
+  checksum: c9203ac64d65dee57aa6bd722a66db83d9910f998086ad15bc6e1a2c0dd8e4d874909d09855932ad00950d03d431ccd3866a250dfc154edce681eb3382604def
   languageName: node
   linkType: hard
 
