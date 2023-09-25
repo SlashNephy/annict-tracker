@@ -42,7 +42,7 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
   )
 
   const refetch = useCallback(() => {
-    _refetch({}, { fetchPolicy: 'network-only' })
+    _refetch({}, { fetchPolicy: 'store-and-network' })
   }, [_refetch])
 
   useEffect(() => {
