@@ -1,10 +1,13 @@
 'use client'
 
 import { Anchor, Card, CardSection, Container, Space, Text, Title } from '@mantine/core'
+import { useViewportSize } from '@mantine/hooks'
 import { IconBrandGithub } from '@tabler/icons-react'
 import React, { useEffect } from 'react'
 
 export default function Home(): React.JSX.Element {
+  const viewport = useViewportSize()
+
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
       return
@@ -24,6 +27,7 @@ export default function Home(): React.JSX.Element {
       <Container>
         <Card
           withBorder
+          miw={Math.min(500, viewport.width)}
           p="xl"
           radius="xs"
           shadow="sm"
