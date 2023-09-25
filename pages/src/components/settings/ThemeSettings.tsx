@@ -1,4 +1,14 @@
-import { Center, ColorPicker, ColorSwatch, Group, Radio, Stack, Text, useMantineColorScheme } from '@mantine/core'
+import {
+  Center,
+  ColorPicker,
+  ColorSwatch,
+  DEFAULT_THEME,
+  Group,
+  Radio,
+  Stack,
+  Text,
+  useMantineColorScheme,
+} from '@mantine/core'
 import { IconPaint } from '@tabler/icons-react'
 import { useAtom } from 'jotai'
 import React from 'react'
@@ -57,7 +67,12 @@ export function ThemeSettings(): React.JSX.Element {
               </Radio.Group>
             </Group>
             <Group>
-              <ColorPicker format={customColorFormat} value={customColor} onChange={setCustomColor} />
+              <ColorPicker
+                format={customColorFormat}
+                swatches={Object.values(DEFAULT_THEME.colors).map((c) => c[5])}
+                value={customColor}
+                onChange={setCustomColor}
+              />
               <Group>
                 <ColorSwatch color={customColor} />
                 <Text>{customColor}</Text>
