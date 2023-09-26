@@ -30,24 +30,6 @@
   "packageManager": "yarn@3.6.3",
   "eslintConfig": {
     "extends": "@slashnephy/eslint-config",
-    "rules": {
-      "@typescript-eslint/prefer-literal-enum-member": [
-        "error",
-        {
-          "allowBitwiseExpressions": true
-        }
-      ],
-      "@typescript-eslint/no-unsafe-enum-comparison": "off",
-      "import/no-anonymous-default-export": "off",
-      "no-void": "off",
-      "yoda": [
-        "error",
-        "never",
-        {
-          "exceptRange": true
-        }
-      ]
-    },
     "overrides": [
       {
         "files": "functions/**/*.ts",
