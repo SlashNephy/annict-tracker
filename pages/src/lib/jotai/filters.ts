@@ -1,8 +1,8 @@
 import { atomWithStorage } from 'jotai/utils'
 
 import type { DayTag } from '../annict/filters/useDayTag.ts'
-import type { SeasonName } from '../annict/filters/useIsCurrentSeason.ts'
 import type { TimeTag } from '../annict/filters/useTimeTag.ts'
+import type { SeasonName } from '../annict/getSeasonOf.ts'
 
 export const showOnlyCurrentSeasonAtom = atomWithStorage('showOnlyCurrentSeason', false)
 

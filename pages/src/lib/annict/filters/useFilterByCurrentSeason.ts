@@ -1,16 +1,30 @@
 import { useAtomValue } from 'jotai'
+import { graphql, useFragment } from 'react-relay'
 
-import { useIsCurrentSeason } from './useIsCurrentSeason.ts'
 import { showOnlyCurrentSeasonAtom } from '../../jotai/filters.ts'
+import { getSeasonOf } from '../getSeasonOf.ts'
 
-import type { useIsCurrentSeason_LibraryEntry$key } from '../../../__generated__/useIsCurrentSeason_LibraryEntry.graphql.ts'
+import type { useFilterByCurrentSeason_LibraryEntry$key } from '../../../__generated__/useFilterByCurrentSeason_LibraryEntry.graphql.ts'
 
-export function useFilterByCurrentSeason(entryRef: useIsCurrentSeason_LibraryEntry$key): boolean {
+export function useFilterByCurrentSeason(entryRef: useFilterByCurrentSeason_LibraryEntry$key): boolean {
+  const { work } = useFragment(
+    graphql`
+      fragment useFilterByCurrentSeason_LibraryEntry on LibraryEntry {
+        work {
+          seasonYear
+          seasonName
+        }
+      }
+    `,
+    entryRef
+  )
+
   const showOnlyCurrentSeason = useAtomValue(showOnlyCurrentSeasonAtom)
-  const isCurrentSeason = useIsCurrentSeason(entryRef)
   if (!showOnlyCurrentSeason) {
     return true
   }
 
-  return isCurrentSeason
+  const now = new Date()
+  const { year, name } = getSeasonOf(now)
+  return work.seasonYear === year && work.seasonName === name
 }

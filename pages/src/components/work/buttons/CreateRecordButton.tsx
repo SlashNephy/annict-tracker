@@ -72,7 +72,7 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
         console.error(e)
       },
     })
-  }, [commit, nextEpisode, work, nextEpisodeTitle])
+  }, [commit, entry.id, nextEpisode?.id, work.title, nextEpisodeTitle])
 
   return (
     <Button

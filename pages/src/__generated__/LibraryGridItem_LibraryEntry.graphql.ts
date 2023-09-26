@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6e77e0fb7498923655584bc5d8b05077>>
+ * @generated SignedSource<<ce436f29f9d58ca4a2710b6b663b02b9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,7 +11,7 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type LibraryGridItem_LibraryEntry$data = {
-  readonly " $fragmentSpreads": FragmentRefs<"WorkCard_LibraryEntry" | "useFilterBySeasons_LibraryEntry" | "useIsCurrentSeason_LibraryEntry" | "useNextProgram_LibraryEntry" | "useSortNumber_LibraryEntry">;
+  readonly " $fragmentSpreads": FragmentRefs<"WorkCard_LibraryEntry" | "useFilterByCurrentSeason_LibraryEntry" | "useFilterBySeasons_LibraryEntry" | "useNextProgram_LibraryEntry" | "useSortNumber_LibraryEntry">;
   readonly " $fragmentType": "LibraryGridItem_LibraryEntry";
 };
 export type LibraryGridItem_LibraryEntry$key = {
@@ -33,7 +33,7 @@ const node: ReaderFragment = {
     {
       "args": null,
       "kind": "FragmentSpread",
-      "name": "useIsCurrentSeason_LibraryEntry"
+      "name": "useFilterByCurrentSeason_LibraryEntry"
     },
     {
       "args": null,
@@ -55,6 +55,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "1ab2c830c85c03397ccdfd3dc3f9e18e";
+(node as any).hash = "5acbdedb2e2c880b68885757c3235b63";
 
 export default node;

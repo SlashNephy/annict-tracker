@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ad6d068f197c8a11918e8f68be984163>>
+ * @generated SignedSource<<a095b2f11c59a08c45e5a62b8d419d20>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,23 +11,23 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 export type SeasonName = "AUTUMN" | "SPRING" | "SUMMER" | "WINTER";
 import { FragmentRefs } from "relay-runtime";
-export type useIsCurrentSeason_LibraryEntry$data = {
+export type useFilterByCurrentSeason_LibraryEntry$data = {
   readonly work: {
     readonly seasonName: SeasonName | null;
     readonly seasonYear: number | null;
   };
-  readonly " $fragmentType": "useIsCurrentSeason_LibraryEntry";
+  readonly " $fragmentType": "useFilterByCurrentSeason_LibraryEntry";
 };
-export type useIsCurrentSeason_LibraryEntry$key = {
-  readonly " $data"?: useIsCurrentSeason_LibraryEntry$data;
-  readonly " $fragmentSpreads": FragmentRefs<"useIsCurrentSeason_LibraryEntry">;
+export type useFilterByCurrentSeason_LibraryEntry$key = {
+  readonly " $data"?: useFilterByCurrentSeason_LibraryEntry$data;
+  readonly " $fragmentSpreads": FragmentRefs<"useFilterByCurrentSeason_LibraryEntry">;
 };
 
 const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "useIsCurrentSeason_LibraryEntry",
+  "name": "useFilterByCurrentSeason_LibraryEntry",
   "selections": [
     {
       "alias": null,
@@ -59,6 +59,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "9d03427e273bd0b17b24232e429ab2a7";
+(node as any).hash = "d72a04c6dc61d25068f309904957882b";
 
 export default node;

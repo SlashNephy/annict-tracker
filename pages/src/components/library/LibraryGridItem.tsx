@@ -22,7 +22,7 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
     graphql`
       fragment LibraryGridItem_LibraryEntry on LibraryEntry {
         ...useNextProgram_LibraryEntry
-        ...useIsCurrentSeason_LibraryEntry
+        ...useFilterByCurrentSeason_LibraryEntry
         ...useFilterBySeasons_LibraryEntry
         ...useSortNumber_LibraryEntry
         ...WorkCard_LibraryEntry
@@ -42,7 +42,6 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
     useFilterByTime(entry),
     useFilterByDay(entry),
   ].every(Boolean)
-
   if (!isEnabled) {
     return <></>
   }
