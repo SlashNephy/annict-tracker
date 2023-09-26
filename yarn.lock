@@ -1359,12 +1359,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/prettier-config@npm:0.1.27":
-  version: 0.1.27
-  resolution: "@slashnephy/prettier-config@npm:0.1.27"
+"@slashnephy/prettier-config@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@slashnephy/prettier-config@npm:1.0.0"
   peerDependencies:
     prettier: ^3
-  checksum: 18eab6982a8b6e34a43d9cc6bbcca5fcb922dacae3ff5de94ceb56b9dcdf3cd6afcf07a9dbb571f4b556763c4ac5340ebe2fc52e86d4f22e19ee5c8abaa433e5
+  checksum: d5ce2595366d099672e2805a85de283e7689ac8a1f497f35076375c92312736abd74c293e6f4e641a5a37f155c0a1eaa697d304bc0bf51bf133492cdaa118a52
   languageName: node
   linkType: hard
 
@@ -1952,7 +1952,7 @@ __metadata:
   resolution: "annict-tracker@workspace:."
   dependencies:
     "@slashnephy/eslint-config": 2.0.0
-    "@slashnephy/prettier-config": 0.1.27
+    "@slashnephy/prettier-config": 1.0.0
     concurrently: 8.2.1
     eslint: 8.50.0
     prettier: 3.0.3
