@@ -6297,7 +6297,6 @@ __metadata:
     react-dom: 18.2.0
     react-relay: 15.0.0
     react-router-dom: 6.16.0
-    react-use-promise: 0.5.0
     relay-compiler: 15.0.0
     relay-runtime: 15.0.0
     swr: 2.2.2
@@ -6839,15 +6838,6 @@ __metadata:
     react: ">=16.6.0"
     react-dom: ">=16.6.0"
   checksum: 75602840106aa9c6545149d6d7ae1502fb7b7abadcce70a6954c4b64a438ff1cd16fc77a0a1e5197cdd72da398f39eb929ea06f9005c45b132ed34e056ebdeb1
-  languageName: node
-  linkType: hard
-
-"react-use-promise@npm:0.5.0":
-  version: 0.5.0
-  resolution: "react-use-promise@npm:0.5.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.2 || ^18.0.0
-  checksum: 369dd981b3b1af69cbe8835a2f79083e3471eacf511f6f232a304ef4617b3dbb174e008061830c31b141cc58e3e1b739368ec61a58f64592753f30171eb4bc4e
   languageName: node
   linkType: hard
 
