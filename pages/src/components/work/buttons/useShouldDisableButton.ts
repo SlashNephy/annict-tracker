@@ -38,8 +38,8 @@ export function useShouldDisableButton(entryRef: useShouldDisableButton_LibraryE
     return true
   }
 
-  if (nextProgram && new Date() < nextProgram.startAt) {
-    return true
+  if (nextProgram) {
+    return new Date() < nextProgram.startAt
   }
 
   if (seasonYear && seasonName && isAfterThanCurrentSeason(seasonYear, seasonName)) {
@@ -57,6 +57,7 @@ function isAfterThanCurrentSeason(seasonYear: number, seasonName: SeasonName): b
   if (currentSeason.year === seasonYear) {
     // 1年の中でシーズン名は WINTER, SPRING, SUMMER, AUTUMN の順に並んでいる
     const seasons: SeasonName[] = ['WINTER', 'SPRING', 'SUMMER', 'AUTUMN']
+
     return seasons.indexOf(currentSeason.name) < seasons.indexOf(seasonName)
   }
 
