@@ -23,7 +23,7 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
     graphql`
       fragment LibraryGrid_User on User
       @argumentDefinitions(
-        first: { type: "Int", defaultValue: 50 }
+        first: { type: "Int", defaultValue: 100 }
         before: { type: "String" }
         after: { type: "String" }
       )
@@ -75,7 +75,7 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
           disabled={isLoadingNext || !hasNext}
           loading={isLoadingNext}
           onClick={() => {
-            loadNext(50)
+            loadNext(100)
           }}
         >
           {isLoadingNext ? '読み込み中...' : 'もっと読み込む'}
