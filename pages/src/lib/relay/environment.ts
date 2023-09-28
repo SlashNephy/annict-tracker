@@ -7,7 +7,6 @@ export function createAnnictEnvironment(bearerToken: string): Environment {
       const response = fetch('https://api.annict.com/graphql', {
         method: 'POST',
         headers: {
-          // eslint-disable-next-line @typescript-eslint/naming-convention
           Authorization: `Bearer ${bearerToken}`,
           'Content-Type': 'application/json',
         },

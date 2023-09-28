@@ -10,6 +10,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     if (url.protocol !== productionProtocol || url.host !== productionHost) {
       url.protocol = productionProtocol
       url.host = productionHost
+
       return Response.redirect(url, 301)
     }
   }

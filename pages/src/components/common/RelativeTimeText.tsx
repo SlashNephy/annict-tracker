@@ -43,6 +43,7 @@ export function RelativeTimeText({ time }: RelativeTimeTextProps): React.JSX.Ele
     }
 
     const seconds = differenceInSeconds(time, now)
+
     return seconds > 0 ? `${seconds}秒後` : `${-seconds}秒前`
   }, [time])
 
@@ -53,6 +54,7 @@ export function RelativeTimeText({ time }: RelativeTimeTextProps): React.JSX.Ele
 
   useEffect(() => {
     const interval = window.setInterval(update, secondsToMilliseconds(1))
+
     return () => {
       window.clearInterval(interval)
     }

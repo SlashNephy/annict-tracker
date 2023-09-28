@@ -9,6 +9,8 @@ import { useCustomTheme } from './lib/mantine/useCustomTheme.ts'
 
 // eslint-disable-next-line import/order
 import '@mantine/core/styles.css'
+// eslint-disable-next-line import/order
+import '@mantine/notifications/styles.css'
 
 export type AppProps = {
   children: React.JSX.Element

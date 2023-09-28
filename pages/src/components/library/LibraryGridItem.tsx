@@ -21,6 +21,7 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
   const entry = useFragment(
     graphql`
       fragment LibraryGridItem_LibraryEntry on LibraryEntry {
+        # eslint-disable-next-line relay/must-colocate-fragment-spreads
         ...useNextProgram_LibraryEntry
         ...useFilterByCurrentSeason_LibraryEntry
         ...useFilterBySeasons_LibraryEntry

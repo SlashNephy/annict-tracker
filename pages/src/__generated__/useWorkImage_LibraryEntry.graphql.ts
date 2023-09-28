@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a0a3008fee609258ad7d887bdbd7ceef>>
+ * @generated SignedSource<<154a0a35f8f841509389a213f3e41256>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,7 +13,6 @@ import { FragmentRefs } from "relay-runtime";
 export type useWorkImage_LibraryEntry$data = {
   readonly work: {
     readonly annictId: number;
-    readonly id: string;
     readonly image: {
       readonly copyright: string | null;
       readonly recommendedImageUrl: string | null;
@@ -41,13 +40,6 @@ const node: ReaderFragment = {
       "name": "work",
       "plural": false,
       "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        },
         {
           "alias": null,
           "args": null,
@@ -95,6 +87,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "6bbff79bab282e746c1d9aa2aced454b";
+(node as any).hash = "8a231ac7c66fca2a4e28bf2c97157f3a";
 
 export default node;

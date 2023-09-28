@@ -17,5 +17,6 @@ export function useSession<S extends Session>(): S | null {
 
 async function fetchSession<S extends Session>(): Promise<S> {
   const response = await fetch('/api/auth/session')
+
   return await response.json()
 }

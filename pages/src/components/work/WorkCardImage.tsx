@@ -25,6 +25,7 @@ export function WorkCardImage({ entryRef }: WorkCardImageProps): React.JSX.Eleme
   )
 
   const imageUrl = useWorkImage(entry)
+
   return imageUrl.url ? (
     <Image
       alt={entry.work.title}

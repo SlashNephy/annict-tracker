@@ -5,6 +5,7 @@ import { graphql, usePaginationFragment } from 'react-relay'
 
 import { LibraryGridItem } from './LibraryGridItem.tsx'
 
+import type { LibraryGrid_PaginationQuery } from '../../__generated__/LibraryGrid_PaginationQuery.graphql.ts'
 import type { LibraryGrid_User$key } from '../../__generated__/LibraryGrid_User.graphql.ts'
 
 export type LibraryGridProps = {
@@ -18,7 +19,7 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
     hasNext,
     loadNext,
     isLoadingNext,
-  } = usePaginationFragment(
+  } = usePaginationFragment<LibraryGrid_PaginationQuery, LibraryGrid_User$key>(
     graphql`
       fragment LibraryGrid_User on User
       @argumentDefinitions(

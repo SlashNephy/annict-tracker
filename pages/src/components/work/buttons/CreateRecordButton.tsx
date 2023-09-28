@@ -7,6 +7,7 @@ import { graphql, useFragment, useMutation } from 'react-relay'
 import { useShouldDisableButton } from './useShouldDisableButton.ts'
 import { useNextEpisodeTitle } from '../../../lib/annict/useNextEpisodeTitle.ts'
 
+import type { CreateRecordButton_createRecordMutation } from '../../../__generated__/CreateRecordButton_createRecordMutation.graphql.ts'
 import type { CreateRecordButton_LibraryEntry$key } from '../../../__generated__/CreateRecordButton_LibraryEntry.graphql.ts'
 
 export type CreateRecordButtonProps = {
@@ -21,8 +22,6 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
         nextEpisode {
           id
           title
-          number
-          numberText
         }
         work {
           title
@@ -37,7 +36,7 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
   const nextEpisodeTitle = useNextEpisodeTitle(entry)
   const isDisabled = useShouldDisableButton(entry)
 
-  const [commit, isInFlight] = useMutation(graphql`
+  const [commit, isInFlight] = useMutation<CreateRecordButton_createRecordMutation>(graphql`
     mutation CreateRecordButton_createRecordMutation($episodeId: ID!) {
       createRecord(input: { episodeId: $episodeId }) {
         clientMutationId

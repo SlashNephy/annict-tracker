@@ -41,6 +41,9 @@
         "files": "pages/src/**/*.{ts,tsx}",
         "parserOptions": {
           "project": "./pages/tsconfig.json"
+        },
+        "rules": {
+          "import/no-cycle": "off"
         }
       },
       {

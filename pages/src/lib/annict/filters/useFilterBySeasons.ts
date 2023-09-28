@@ -22,5 +22,6 @@ export function useFilterBySeasons(entryRef: useFilterBySeasons_LibraryEntry$key
   }
 
   const seasonFilters = useAtomValue(seasonFiltersAtom)
+
   return seasonFilters.includes(work.seasonName)
 }

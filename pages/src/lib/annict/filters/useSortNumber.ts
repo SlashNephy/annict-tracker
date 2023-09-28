@@ -34,6 +34,7 @@ export function useSortNumber(entryRef: useSortNumber_LibraryEntry$key): number 
     // 放送予定がない場合はシーズンの最後の日にする
     if (!nextProgram) {
       const month = { SPRING: 6, SUMMER: 9, AUTUMN: 12, WINTER: 3 }[seasonName]
+
       return new Date(year, month, 31).getTime() / 1000
     }
 

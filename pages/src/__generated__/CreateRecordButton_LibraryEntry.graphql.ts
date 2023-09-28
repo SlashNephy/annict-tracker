@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7e0290b0334a5f0b2c349b5be19197d6>>
+ * @generated SignedSource<<43f9eb0db053c88f70fd46297ffc27ff>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,8 +14,6 @@ export type CreateRecordButton_LibraryEntry$data = {
   readonly id: string;
   readonly nextEpisode: {
     readonly id: string;
-    readonly number: number | null;
-    readonly numberText: string | null;
     readonly title: string | null;
   } | null;
   readonly work: {
@@ -60,21 +58,7 @@ return {
       "plural": false,
       "selections": [
         (v0/*: any*/),
-        (v1/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "number",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "numberText",
-          "storageKey": null
-        }
+        (v1/*: any*/)
       ],
       "storageKey": null
     },
@@ -106,6 +90,6 @@ return {
 };
 })();
 
-(node as any).hash = "dfa731855f7bc3219fb85058aa07056e";
+(node as any).hash = "318b3d0df9003be235237565b32438d1";
 
 export default node;

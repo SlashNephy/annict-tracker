@@ -80,6 +80,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       this.vod = vods?.find(
         (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime && x.vod_code !== undefined
       )
+
       return this.vod !== undefined
     },
     search({ work }) {
@@ -87,6 +88,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       if (this.vod !== undefined) {
         const url = `https://animestore.docomo.ne.jp/animestore/ci_pc?workId=${this.vod.vod_code}`
         window.open(url)
+
         return
       }
 
@@ -106,6 +108,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
         (x) =>
           x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime_niconico && x.vod_code !== undefined
       )
+
       return this.vod !== undefined
     },
     search({ work }) {
@@ -113,6 +116,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       if (this.vod !== undefined) {
         const url = `https://www.nicovideo.jp/series/${this.vod.vod_code}`
         window.open(url)
+
         return
       }
 
@@ -131,6 +135,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       this.vod = vods?.find(
         (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.abema && x.vod_code !== undefined
       )
+
       return this.vod !== undefined
     },
     search({ work }) {
@@ -138,6 +143,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       if (this.vod !== undefined) {
         const url = `https://abema.tv/video/title/${this.vod.vod_code}`
         window.open(url)
+
         return
       }
 
@@ -154,6 +160,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       this.vod = vods?.find(
         (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.netflix && x.vod_code !== undefined
       )
+
       return this.vod !== undefined
     },
     search({ work }) {
@@ -161,6 +168,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       if (this.vod !== undefined) {
         const url = `https://www.netflix.com/title/${this.vod.vod_code}`
         window.open(url)
+
         return
       }
 
@@ -177,6 +185,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       this.vod = vods?.find(
         (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.prime_video && x.vod_code !== undefined
       )
+
       return this.vod !== undefined
     },
     search({ work }) {
@@ -184,6 +193,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       if (this.vod !== undefined) {
         const url = `https://www.amazon.co.jp/dp/${this.vod.vod_code}`
         window.open(url)
+
         return
       }
 
@@ -201,6 +211,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
         (x) =>
           x.work_id === work.annictId && x.channel_id === annictChannelIds.niconico_channel && x.vod_code !== undefined
       )
+
       return this.vod !== undefined
     },
     search({ work }) {
@@ -208,6 +219,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       if (this.vod !== undefined) {
         const url = `https://ch.nicovideo.jp/${this.vod.vod_code}`
         window.open(url)
+
         return
       }
 
@@ -225,6 +237,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
         (x) =>
           x.work_id === work.annictId && x.channel_id === annictChannelIds.bandai_channel && x.vod_code !== undefined
       )
+
       return this.vod !== undefined
     },
     search({ work }) {
@@ -232,6 +245,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
       if (this.vod !== undefined) {
         const url = `https://www.b-ch.com/ttl/index.php?ttl_c=${this.vod.vod_code}`
         window.open(url)
+
         return
       }
 
@@ -330,6 +344,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
           .filter((integration) => integration.isAvailable({ work: entry.work, config: integration.config, vods }))
           .map((integration) => {
             const Icon = integration.icon
+
             return (
               <Menu.Item
                 key={integration.title}

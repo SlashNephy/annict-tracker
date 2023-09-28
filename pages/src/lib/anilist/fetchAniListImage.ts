@@ -1,6 +1,5 @@
 export type AniListMediaImage = {
   data: {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     Media: {
       coverImage: {
         extraLarge: string

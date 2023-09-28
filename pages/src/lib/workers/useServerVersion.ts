@@ -22,5 +22,6 @@ export function useServerVersion(): VersionResponse | null {
 
 async function fetchServerVersion(): Promise<VersionResponse> {
   const response = await fetch('/api/version')
+
   return await response.json()
 }

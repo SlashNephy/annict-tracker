@@ -21,5 +21,6 @@ export function useNextEpisodeTitle(entry: useNextEpisodeTitle_LibraryEntry$key)
   }
 
   const number = nextEpisode.numberText ?? `#${nextEpisode.number}`
+
   return nextEpisode.title ? `${number}「${nextEpisode.title}」` : number
 }

@@ -54,6 +54,7 @@ export async function lookupPrograms(id: string): Promise<RawSyobocalProgramsRes
   const text = await response.text()
 
   const parser = new XMLParser()
+
   return parser.parse(text)
 }
 

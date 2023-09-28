@@ -17,5 +17,6 @@ export function useCsrfToken(): string | null {
 
 async function fetchCsrfToken(): Promise<CsrfResponse> {
   const response = await fetch('/api/auth/csrf')
+
   return await response.json()
 }

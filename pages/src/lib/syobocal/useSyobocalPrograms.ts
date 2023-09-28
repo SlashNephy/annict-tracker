@@ -42,6 +42,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
       }
 
       const response = await lookupSyobocalPrograms(syobocalTid)
+
       return response.reverse().filter((x) => x.count === nextEpisodeNumber)
     },
     {

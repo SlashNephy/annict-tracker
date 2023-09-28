@@ -19,7 +19,6 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
     graphql`
       fragment useWorkImage_LibraryEntry on LibraryEntry {
         work {
-          id
           annictId
           image {
             recommendedImageUrl
@@ -59,6 +58,7 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
       // MyAnimeList から画像を引いてみる
       if (malId) {
         const response = await fetchJikanAnimePictures(malId)
+
         return response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url
       }
     }

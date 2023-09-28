@@ -42,10 +42,12 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         if (account) {
           ;(token as AnnictJwt).accessToken = account.access_token
         }
+
         return token
       },
       session({ session, token }) {
         ;(session as AnnictSession).accessToken = (token as AnnictJwt).accessToken
+
         return session
       },
     },

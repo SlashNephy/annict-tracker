@@ -17,5 +17,6 @@ export function useSayaDatastore(enabled = true): SayaDatastore | null {
 
 async function fetchSayaDefinition(): Promise<SayaDefinition> {
   const response = await fetch('https://raw.githubusercontent.com/SlashNephy/saya-definitions/master/definitions.json')
+
   return await response.json()
 }

@@ -26,5 +26,6 @@ export function useFilterByCurrentSeason(entryRef: useFilterByCurrentSeason_Libr
 
   const now = new Date()
   const { year, name } = getSeasonOf(now)
+
   return work.seasonYear === year && work.seasonName === name
 }

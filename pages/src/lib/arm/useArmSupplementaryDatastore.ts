@@ -16,5 +16,6 @@ export function useArmSupplementaryDatastore(enabled = true): ArmDatastore | nul
 
 async function fetchArmSupplementary(): Promise<ArmEntry[]> {
   const response = await fetch('https://raw.githubusercontent.com/SlashNephy/arm-supplementary/master/dist/arm.json')
+
   return await response.json()
 }

@@ -67,6 +67,7 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
     })
     setNotificationHistories((previous) => {
       previous.push(id)
+
       return previous
     })
   }, [
@@ -83,6 +84,7 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
   const timer = useInterval(createNotification, secondsToMilliseconds(30))
   useEffect(() => {
     timer.start()
+
     return timer.stop
   }, [timer])
 }
