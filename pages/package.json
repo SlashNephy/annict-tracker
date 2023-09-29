@@ -33,7 +33,7 @@
     "@sentry/vite-plugin": "2.7.1",
     "@swc-jotai/debug-label": "0.1.0",
     "@swc-jotai/react-refresh": "0.1.0",
-    "@types/node": "20.6.4",
+    "@types/node": "20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "@types/react-relay": "14.1.5",
