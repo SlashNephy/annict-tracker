@@ -36,7 +36,7 @@
     "@types/node": "20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
-    "@types/react-relay": "14.1.5",
+    "@types/react-relay": "14.1.6",
     "@vitejs/plugin-react-swc": "3.3.2",
     "babel-plugin-relay": "15.0.0",
     "concurrently": "8.2.1",
