@@ -882,18 +882,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/colors-generator@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@mantine/colors-generator@npm:7.0.0"
+"@mantine/colors-generator@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@mantine/colors-generator@npm:7.0.2"
   peerDependencies:
     chroma-js: ^2.4.2
-  checksum: f8688c4650b64b7ca2bb5afbcc5f68a0e3c766ef23c8d8274be7995e7e939458d22f4d6646ce47823b6fc912953647a308ae7024a410adc862f8f0ea816ee798
+  checksum: cfb6f377dbeb58b67872db4eb998c6084d08359812246178a8760f4bf5ef8ef64ce8514fdbcdc264202b2306baa06b094df87cd89e63a6eb4a25f365154c8ded
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@mantine/core@npm:7.0.0"
+"@mantine/core@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@mantine/core@npm:7.0.2"
   dependencies:
     "@floating-ui/react": ^0.24.8
     clsx: 2.0.0
@@ -902,43 +902,43 @@ __metadata:
     react-textarea-autosize: 8.5.2
     type-fest: ^3.13.1
   peerDependencies:
-    "@mantine/hooks": 7.0.0
+    "@mantine/hooks": 7.0.2
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: f6f1176c264c8be95110c942c46acf67093d3024593f6a8f81c2558817cf736777f803dc8cc36f927cc45e47027440c2304523e2f32d714ace75426c9a3f5796
+  checksum: 14ace2862934d4142e64cf7ec980e46e42042d7f66f5a47fb91c1a019aff6c970124ea00a586db3b45ff9d63c1e196179e5925654567bd9abea8960024218d54
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@mantine/hooks@npm:7.0.0"
+"@mantine/hooks@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@mantine/hooks@npm:7.0.2"
   peerDependencies:
     react: ^18.2.0
-  checksum: f34a0dfb872ce0a0649db5bdd9d55d07764020710dc39531236f2fc5ba852764787684790ab5245d8b9005dcfcfd49db7206621f1dd6d94f8aef6ed9dac402a1
+  checksum: 6ec1a85474c046066304c934640e83402012af3315f880b4cefa5b888e0a7d3ff8e75e6583c31297a767e68b848fb13c41e108dc5bf9685c8ff6c377aad0b1a6
   languageName: node
   linkType: hard
 
-"@mantine/notifications@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@mantine/notifications@npm:7.0.0"
+"@mantine/notifications@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@mantine/notifications@npm:7.0.2"
   dependencies:
-    "@mantine/store": 7.0.0
+    "@mantine/store": 7.0.2
     react-transition-group: 4.4.5
   peerDependencies:
-    "@mantine/core": 7.0.0
-    "@mantine/hooks": 7.0.0
+    "@mantine/core": 7.0.2
+    "@mantine/hooks": 7.0.2
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: 9fd97c2f0039078651b4a88d9e19121c2c3ae6157fb8d6b6701634be6a6429ca7136447d86c824b3dcb0574448831ed253f9f3aa9fa061eab44cc9c673f4a795
+  checksum: bc344cfceaf0e4775840612e9824228c04737dc83c8c7dbc655847a699207500a6698f6ff36bd355e359fdeca8393306f71d1b83dd6fac56ac6f3ae8e7148e44
   languageName: node
   linkType: hard
 
-"@mantine/store@npm:7.0.0":
-  version: 7.0.0
-  resolution: "@mantine/store@npm:7.0.0"
+"@mantine/store@npm:7.0.2":
+  version: 7.0.2
+  resolution: "@mantine/store@npm:7.0.2"
   peerDependencies:
     react: ^18.2.0
-  checksum: eab4dae5a72a821daebfc4188af4d5bf2188e5ca2167e5c5ddf5fe053464474690335fb753e79a664390830e2e14516e8167686287be2aa4eb5f45be7740665e
+  checksum: 82b3f96d0d157b6120d455057efc83b6d685fdeaf478cc22339764bbf5dc86bd9dc56ccee4ed942fa5e3cb0c636301978ca73bf38b3c5dbae90711a8846deb37
   languageName: node
   linkType: hard
 
@@ -6294,10 +6294,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pages@workspace:pages"
   dependencies:
-    "@mantine/colors-generator": 7.0.0
-    "@mantine/core": 7.0.0
-    "@mantine/hooks": 7.0.0
-    "@mantine/notifications": 7.0.0
+    "@mantine/colors-generator": 7.0.2
+    "@mantine/core": 7.0.2
+    "@mantine/hooks": 7.0.2
+    "@mantine/notifications": 7.0.2
     "@sentry/react": 7.70.0
     "@sentry/vite-plugin": 2.7.1
     "@swc-jotai/debug-label": 0.1.0
@@ -8150,8 +8150,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vercel@workspace:vercel"
   dependencies:
-    "@mantine/core": 7.0.0
-    "@mantine/hooks": 7.0.0
+    "@mantine/core": 7.0.2
+    "@mantine/hooks": 7.0.2
     "@tabler/icons-react": 2.35.0
     "@types/node": 20.6.5
     "@types/react": 18.2.23
