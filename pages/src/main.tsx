@@ -8,10 +8,11 @@ import { App } from './App.tsx'
 import { router } from './routes/router.tsx'
 
 init({
+  environment: import.meta.env.PROD ? 'production' : 'development',
   dsn: 'https://406bfa633652c954c74eb4251033d857@o4505899258871808.ingest.sentry.io/4505900803686400',
   integrations: [new BrowserTracing()],
   sampleRate: import.meta.env.PROD ? 1 : 0,
-  tracesSampleRate: import.meta.env.PROD ? 0.2 : 0,
+  tracesSampleRate: import.meta.env.PROD ? 0.25 : 0,
 })
 
 const root = document.getElementById('root')
