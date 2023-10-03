@@ -5,7 +5,8 @@ export type Season = {
   name: SeasonName
 }
 
-export type SeasonName = 'SPRING' | 'SUMMER' | 'AUTUMN' | 'WINTER'
+export const seasonNames = ['SPRING', 'SUMMER', 'AUTUMN', 'WINTER'] as const
+export type SeasonName = (typeof seasonNames)[number]
 
 export function getSeasonOf(date: Date): Season {
   const year = date.getFullYear()
@@ -29,5 +30,18 @@ export function getSeasonOf(date: Date): Season {
   return {
     year,
     name,
+  }
+}
+
+export function getSeasonLabel(season: SeasonName): string {
+  switch (season) {
+    case 'SPRING':
+      return '春'
+    case 'SUMMER':
+      return '夏'
+    case 'AUTUMN':
+      return '秋'
+    case 'WINTER':
+      return '冬'
   }
 }

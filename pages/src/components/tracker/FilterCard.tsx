@@ -2,6 +2,9 @@ import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
 import { useAtom } from 'jotai'
 import React from 'react'
 
+import { daysOfWeek, getDayOfWeekLabel } from '../../lib/annict/filters/useDayTag.ts'
+import { getTimeTagLabel, timeTags } from '../../lib/annict/filters/useTimeTag.ts'
+import { getSeasonLabel, seasonNames } from '../../lib/annict/getSeasonOf.ts'
 import {
   dayFiltersAtom,
   hideRebroadcastingAtom,
@@ -12,7 +15,7 @@ import {
 } from '../../lib/jotai/filters.ts'
 import { CheckboxWithHoverCard } from '../common/CheckboxWithHoverCard.tsx'
 
-import type { DayTag } from '../../lib/annict/filters/useDayTag.ts'
+import type { DayOfWeek } from '../../lib/annict/filters/useDayTag.ts'
 import type { TimeTag } from '../../lib/annict/filters/useTimeTag.ts'
 import type { SeasonName } from '../../lib/annict/getSeasonOf.ts'
 import type { CardProps } from '@mantine/core'
@@ -76,10 +79,11 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                     setSeasonFilters(value as SeasonName[])
                   }}
                 >
-                  <Chip value="SPRING">春</Chip>
-                  <Chip value="SUMMER">夏</Chip>
-                  <Chip value="AUTUMN">秋</Chip>
-                  <Chip value="WINTER">冬</Chip>
+                  {seasonNames.map((name) => (
+                    <Chip key={name} value={name}>
+                      {getSeasonLabel(name)}
+                    </Chip>
+                  ))}
                 </Chip.Group>
               </Group>
 
@@ -92,12 +96,11 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                     setTimeFilters(value as TimeTag[])
                   }}
                 >
-                  <Chip value="finished">昨日以前</Chip>
-                  <Chip value="yesterday">昨日</Chip>
-                  <Chip value="today">今日</Chip>
-                  <Chip value="tomorrow">明日</Chip>
-                  <Chip value="future">明日以降</Chip>
-                  <Chip value="undetermined">放送情報なし</Chip>
+                  {timeTags.map((tag) => (
+                    <Chip key={tag} value={tag}>
+                      {getTimeTagLabel(tag)}
+                    </Chip>
+                  ))}
                 </Chip.Group>
               </Group>
 
@@ -107,16 +110,14 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                   multiple
                   value={dayFilters}
                   onChange={(value) => {
-                    setDayFilters(value as DayTag[])
+                    setDayFilters(value as DayOfWeek[])
                   }}
                 >
-                  <Chip value="sunday">日曜</Chip>
-                  <Chip value="monday">月曜</Chip>
-                  <Chip value="tuesday">火曜</Chip>
-                  <Chip value="wednesday">水曜</Chip>
-                  <Chip value="thursday">木曜</Chip>
-                  <Chip value="friday">金曜</Chip>
-                  <Chip value="saturday">土曜</Chip>
+                  {daysOfWeek.map((day) => (
+                    <Chip key={day} value={day}>
+                      {getDayOfWeekLabel(day)}
+                    </Chip>
+                  ))}
                 </Chip.Group>
               </Group>
             </Accordion.Panel>
