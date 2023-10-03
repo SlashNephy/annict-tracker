@@ -72,6 +72,9 @@ export function ThemeSettings(): React.JSX.Element {
                 swatches={Object.values(DEFAULT_THEME.colors).map((c) => c[5])}
                 value={customColor}
                 onChange={setCustomColor}
+                onColorSwatchClick={() => {
+                  setCustomColorFormat('hex')
+                }}
               />
               <Group>
                 <ColorSwatch color={customColor} />
