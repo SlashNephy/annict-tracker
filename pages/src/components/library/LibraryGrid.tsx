@@ -23,12 +23,13 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
     graphql`
       fragment LibraryGrid_User on User
       @argumentDefinitions(
+        states: { type: "[StatusState!]!" }
         first: { type: "Int", defaultValue: 100 }
         before: { type: "String" }
         after: { type: "String" }
       )
       @refetchable(queryName: "LibraryGrid_PaginationQuery") {
-        libraryEntries(states: [WATCHING], first: $first, before: $before, after: $after)
+        libraryEntries(states: $states, first: $first, before: $before, after: $after)
           @connection(key: "LibraryGrid_libraryEntries") {
           edges {
             node {

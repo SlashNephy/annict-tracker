@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7d130497dfd51d845ca89670b6df13e2>>
+ * @generated SignedSource<<db89f045ad6c39db6ec3a066a6260154>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -56,6 +56,11 @@ return {
       "defaultValue": 100,
       "kind": "LocalArgument",
       "name": "first"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "states"
     }
   ],
   "kind": "Fragment",
@@ -90,11 +95,9 @@ return {
       "alias": "libraryEntries",
       "args": [
         {
-          "kind": "Literal",
+          "kind": "Variable",
           "name": "states",
-          "value": [
-            "WATCHING"
-          ]
+          "variableName": "states"
         }
       ],
       "concreteType": "LibraryEntryConnection",
@@ -170,7 +173,7 @@ return {
           "storageKey": null
         }
       ],
-      "storageKey": "__LibraryGrid_libraryEntries_connection(states:[\"WATCHING\"])"
+      "storageKey": null
     },
     (v1/*: any*/)
   ],
@@ -179,6 +182,6 @@ return {
 };
 })();
 
-(node as any).hash = "164852bbfa3625fc3f5a8ab8239d4542";
+(node as any).hash = "58f87ae70f482278ae8d2449552241d8";
 
 export default node;

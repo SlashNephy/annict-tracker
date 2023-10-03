@@ -1,8 +1,11 @@
 import { atomWithStorage } from 'jotai/utils'
 
+import type { StatusState } from '../../__generated__/LibraryGrid_PaginationQuery.graphql.ts'
 import type { DayTag } from '../annict/filters/useDayTag.ts'
 import type { TimeTag } from '../annict/filters/useTimeTag.ts'
 import type { SeasonName } from '../annict/getSeasonOf.ts'
+
+export const stateFiltersAtom = atomWithStorage<StatusState[]>('stateFilters', ['WATCHING'])
 
 export const showOnlyCurrentSeasonAtom = atomWithStorage('showOnlyCurrentSeason', false)
 
