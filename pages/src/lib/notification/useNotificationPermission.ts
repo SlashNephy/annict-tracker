@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react'
 import { useCallback, useEffect, useState } from 'react'
 
 export type RequestPermissionOptions = {
@@ -34,7 +35,7 @@ export function useNotificationPermission(): UseNotificationPermissionReturn {
                 break
             }
           })
-          .catch(console.error)
+          .catch(captureException)
         break
       case 'granted':
         options?.onAlreadyGranted?.()

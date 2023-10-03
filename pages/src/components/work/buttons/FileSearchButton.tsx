@@ -68,7 +68,6 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     search: ({ work, config }) => {
       const url = new URL(config.url)
       url.hash = `#/recorded?keyword=${encodeURIComponent(work.title)}`
-      console.log(url.toString())
       window.open(url.toString())
     },
   },

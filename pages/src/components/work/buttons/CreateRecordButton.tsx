@@ -1,5 +1,6 @@
 import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
+import { captureException } from '@sentry/react'
 import { IconCheck } from '@tabler/icons-react'
 import React, { useCallback } from 'react'
 import { graphql, useFragment, useMutation } from 'react-relay'
@@ -66,9 +67,9 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
       onError: (e) => {
         showNotification({
           title: '記録に失敗しました',
-          message: `${work.title} ${nextEpisodeTitle ?? ''}`,
+          message: `時間を置いて再度お試しください。\n${work.title} ${nextEpisodeTitle ?? ''}`,
         })
-        console.error(e)
+        captureException(e)
       },
     })
   }, [commit, entry.id, nextEpisode?.id, work.title, nextEpisodeTitle])
