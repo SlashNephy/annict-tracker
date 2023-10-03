@@ -26,6 +26,7 @@ export default defineConfig(() => {
         org: 'starrybluesky',
         project: 'annict-tracker',
         authToken: process.env.SENTRY_AUTH_TOKEN,
+        telemetry: false,
       }),
     ],
     build: {
