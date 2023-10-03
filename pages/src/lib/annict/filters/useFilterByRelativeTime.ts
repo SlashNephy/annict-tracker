@@ -1,15 +1,15 @@
 import { useAtomValue } from 'jotai'
 
-import { useTimeTag } from './useTimeTag.ts'
 import { timeFiltersAtom } from '../../jotai/filters.ts'
+import { useRelativeTimeGroup } from '../relativeTimeGroups.ts'
 
 import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
 
-export function useFilterByTime(entryRef: useNextProgram_LibraryEntry$key): boolean {
-  const timeTag = useTimeTag(entryRef)
+export function useFilterByRelativeTime(entryRef: useNextProgram_LibraryEntry$key): boolean {
+  const group = useRelativeTimeGroup(entryRef)
   const filters = useAtomValue(timeFiltersAtom)
 
-  switch (timeTag) {
+  switch (group) {
     case 'yesterday':
       return filters.includes('yesterday')
     case 'today':

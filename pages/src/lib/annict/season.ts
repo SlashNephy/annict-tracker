@@ -1,12 +1,12 @@
 import { run } from '../run.ts'
 
+export const seasonNames = ['SPRING', 'SUMMER', 'AUTUMN', 'WINTER'] as const
+export type SeasonName = (typeof seasonNames)[number]
+
 export type Season = {
   year: number
   name: SeasonName
 }
-
-export const seasonNames = ['SPRING', 'SUMMER', 'AUTUMN', 'WINTER'] as const
-export type SeasonName = (typeof seasonNames)[number]
 
 export function getSeasonOf(date: Date): Season {
   const year = date.getFullYear()
@@ -43,5 +43,7 @@ export function getSeasonLabel(season: SeasonName): string {
       return '秋'
     case 'WINTER':
       return '冬'
+    default:
+      throw new Error(`unknown season: ${season}`)
   }
 }

@@ -2,7 +2,7 @@ import { useAtomValue } from 'jotai'
 import { graphql, useFragment } from 'react-relay'
 
 import { showOnlyCurrentSeasonAtom } from '../../jotai/filters.ts'
-import { getSeasonOf } from '../getSeasonOf.ts'
+import { getSeasonOf } from '../season.ts'
 
 import type { useFilterByCurrentSeason_LibraryEntry$key } from '../../../__generated__/useFilterByCurrentSeason_LibraryEntry.graphql.ts'
 

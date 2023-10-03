@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 
-import { useNextProgram } from '../useNextProgram.ts'
+import { useNextProgram } from './useNextProgram.ts'
 
-import type { useSortNumber_LibraryEntry$key } from '../../../__generated__/useSortNumber_LibraryEntry.graphql.ts'
+import type { useSortNumber_LibraryEntry$key } from '../../__generated__/useSortNumber_LibraryEntry.graphql.ts'
 
 export function useSortNumber(entryRef: useSortNumber_LibraryEntry$key): number {
   const entry = useFragment(

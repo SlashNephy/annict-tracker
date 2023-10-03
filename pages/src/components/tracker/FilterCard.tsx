@@ -2,9 +2,10 @@ import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
 import { useAtom } from 'jotai'
 import React from 'react'
 
-import { daysOfWeek, getDayOfWeekLabel } from '../../lib/annict/filters/useDayTag.ts'
-import { getTimeTagLabel, timeTags } from '../../lib/annict/filters/useTimeTag.ts'
-import { getSeasonLabel, seasonNames } from '../../lib/annict/getSeasonOf.ts'
+import { daysOfWeek, getDayOfWeekLabel } from '../../lib/annict/dayOfWeek.ts'
+import { getRelativeTimeGroupLabel, relativeTimeGroups } from '../../lib/annict/relativeTimeGroups.ts'
+import { getSeasonLabel, seasonNames } from '../../lib/annict/season.ts'
+import { getWatchStatusLabel, watchStatuses } from '../../lib/annict/watchStatus.ts'
 import {
   dayFiltersAtom,
   hideRebroadcastingAtom,
@@ -12,18 +13,21 @@ import {
   seasonFiltersAtom,
   showOnlyCurrentSeasonAtom,
   timeFiltersAtom,
+  watchStatusFiltersAtom,
 } from '../../lib/jotai/filters.ts'
 import { CheckboxWithHoverCard } from '../common/CheckboxWithHoverCard.tsx'
 
-import type { DayOfWeek } from '../../lib/annict/filters/useDayTag.ts'
-import type { TimeTag } from '../../lib/annict/filters/useTimeTag.ts'
-import type { SeasonName } from '../../lib/annict/getSeasonOf.ts'
+import type { DayOfWeek } from '../../lib/annict/dayOfWeek.ts'
+import type { RelativeTimeGroup } from '../../lib/annict/relativeTimeGroups.ts'
+import type { SeasonName } from '../../lib/annict/season.ts'
+import type { WatchStatus } from '../../lib/annict/watchStatus.ts'
 import type { CardProps } from '@mantine/core'
 
 export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
   const [showOnlyCurrentSeason, setShowOnlyCurrentSeason] = useAtom(showOnlyCurrentSeasonAtom)
   const [hideRebroadcasting, setHideRebroadcasting] = useAtom(hideRebroadcastingAtom)
   const [hideStreamingServices, setHideStreamingServices] = useAtom(hideStreamingServicesAtom)
+  const [watchStatusFilters, setWatchStatusFilters] = useAtom(watchStatusFiltersAtom)
   const [seasonFilters, setSeasonFilters] = useAtom(seasonFiltersAtom)
   const [timeFilters, setTimeFilters] = useAtom(timeFiltersAtom)
   const [dayFilters, setDayFilters] = useAtom(dayFiltersAtom)
@@ -70,18 +74,23 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                 />
               </Group>
 
-              <Text>シーズン</Text>
+              <Text>視聴ステータス</Text>
               <Group mb="md" ml="md" mt="md">
                 <Chip.Group
                   multiple
-                  value={seasonFilters}
+                  value={watchStatusFilters}
                   onChange={(value) => {
-                    setSeasonFilters(value as SeasonName[])
+                    // 空にできないようにする
+                    if (value.length === 0) {
+                      return
+                    }
+
+                    setWatchStatusFilters(value as WatchStatus[])
                   }}
                 >
-                  {seasonNames.map((name) => (
-                    <Chip key={name} value={name}>
-                      {getSeasonLabel(name)}
+                  {watchStatuses.map((value) => (
+                    <Chip key={value} value={value}>
+                      {getWatchStatusLabel(value)}
                     </Chip>
                   ))}
                 </Chip.Group>
@@ -93,12 +102,29 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                   multiple
                   value={timeFilters}
                   onChange={(value) => {
-                    setTimeFilters(value as TimeTag[])
+                    setTimeFilters(value as RelativeTimeGroup[])
                   }}
                 >
-                  {timeTags.map((tag) => (
-                    <Chip key={tag} value={tag}>
-                      {getTimeTagLabel(tag)}
+                  {relativeTimeGroups.map((value) => (
+                    <Chip key={value} value={value}>
+                      {getRelativeTimeGroupLabel(value)}
+                    </Chip>
+                  ))}
+                </Chip.Group>
+              </Group>
+
+              <Text>シーズン</Text>
+              <Group mb="md" ml="md" mt="md">
+                <Chip.Group
+                  multiple
+                  value={seasonFilters}
+                  onChange={(value) => {
+                    setSeasonFilters(value as SeasonName[])
+                  }}
+                >
+                  {seasonNames.map((value) => (
+                    <Chip key={value} value={value}>
+                      {getSeasonLabel(value)}
                     </Chip>
                   ))}
                 </Chip.Group>
@@ -113,9 +139,9 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                     setDayFilters(value as DayOfWeek[])
                   }}
                 >
-                  {daysOfWeek.map((day) => (
-                    <Chip key={day} value={day}>
-                      {getDayOfWeekLabel(day)}
+                  {daysOfWeek.map((value) => (
+                    <Chip key={value} value={value}>
+                      {getDayOfWeekLabel(value)}
                     </Chip>
                   ))}
                 </Chip.Group>

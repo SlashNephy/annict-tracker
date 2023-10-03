@@ -1,14 +1,14 @@
 import { add, endOfDay, isWithinInterval, startOfToday, startOfYesterday } from 'date-fns'
 
-import { useNextProgram } from '../useNextProgram.ts'
+import { useNextProgram } from './useNextProgram.ts'
 
-import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
+import type { useNextProgram_LibraryEntry$key } from '../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
 
-export const timeTags = ['finished', 'yesterday', 'today', 'tomorrow', 'future', 'undetermined'] as const
-export type TimeTag = (typeof timeTags)[number]
+export const relativeTimeGroups = ['finished', 'yesterday', 'today', 'tomorrow', 'future', 'undetermined'] as const
+export type RelativeTimeGroup = (typeof relativeTimeGroups)[number]
 
 // https://github.com/kiraka/annict-web/blob/853819f59a8adb1c0f41df19cbe3bf651d765fee/app/models/tv_time.rb
-export function useTimeTag(entryRef: useNextProgram_LibraryEntry$key): TimeTag {
+export function useRelativeTimeGroup(entryRef: useNextProgram_LibraryEntry$key): RelativeTimeGroup {
   const nextProgram = useNextProgram(entryRef)
   if (!nextProgram) {
     return 'undetermined'
@@ -50,8 +50,8 @@ export function useTimeTag(entryRef: useNextProgram_LibraryEntry$key): TimeTag {
   return 'future'
 }
 
-export function getTimeTagLabel(timeTag: TimeTag): string {
-  switch (timeTag) {
+export function getRelativeTimeGroupLabel(group: RelativeTimeGroup): string {
+  switch (group) {
     case 'finished':
       return '昨日以前'
     case 'yesterday':
@@ -64,5 +64,7 @@ export function getTimeTagLabel(timeTag: TimeTag): string {
       return '明日以降'
     case 'undetermined':
       return '放送情報なし'
+    default:
+      throw new Error(`Unknown relative time group: ${group}`)
   }
 }

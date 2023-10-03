@@ -1,10 +1,10 @@
 import { graphql, useFragment } from 'react-relay'
 
-import { getSeasonOf } from '../../../lib/annict/getSeasonOf.ts'
+import { getSeasonOf } from '../../../lib/annict/season.ts'
 import { useNextProgram } from '../../../lib/annict/useNextProgram.ts'
 
 import type { useShouldDisableButton_LibraryEntry$key } from '../../../__generated__/useShouldDisableButton_LibraryEntry.graphql.ts'
-import type { SeasonName } from '../../../lib/annict/getSeasonOf.ts'
+import type { SeasonName } from '../../../lib/annict/season.ts'
 
 export function useShouldDisableButton(entryRef: useShouldDisableButton_LibraryEntry$key): boolean {
   const entry = useFragment(

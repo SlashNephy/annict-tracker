@@ -2,7 +2,7 @@ import { Badge } from '@mantine/core'
 import { add, isAfter } from 'date-fns'
 import React from 'react'
 
-import { useTimeTag } from '../../../lib/annict/filters/useTimeTag.ts'
+import { useRelativeTimeGroup } from '../../../lib/annict/relativeTimeGroups.ts'
 import { useNextProgram } from '../../../lib/annict/useNextProgram.ts'
 
 import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
@@ -13,9 +13,9 @@ export type WorkScheduleBadgeProps = {
 
 export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): React.JSX.Element {
   const nextProgram = useNextProgram(entryRef)
-  const tag = useTimeTag(entryRef)
+  const group = useRelativeTimeGroup(entryRef)
 
-  switch (tag) {
+  switch (group) {
     case 'yesterday':
       return (
         <Badge key="yesterday" c="black" color="teal.3">

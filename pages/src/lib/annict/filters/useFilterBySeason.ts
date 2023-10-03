@@ -5,7 +5,7 @@ import { seasonFiltersAtom } from '../../jotai/filters.ts'
 
 import type { useFilterBySeasons_LibraryEntry$key } from '../../../__generated__/useFilterBySeasons_LibraryEntry.graphql.ts'
 
-export function useFilterBySeasons(entryRef: useFilterBySeasons_LibraryEntry$key): boolean {
+export function useFilterBySeason(entryRef: useFilterBySeasons_LibraryEntry$key): boolean {
   const { work } = useFragment(
     graphql`
       fragment useFilterBySeasons_LibraryEntry on LibraryEntry {

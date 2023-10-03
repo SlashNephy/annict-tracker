@@ -1,12 +1,12 @@
 import { useAtomValue } from 'jotai'
 
-import { useDayTag } from './useDayTag.ts'
 import { dayFiltersAtom, timeFiltersAtom } from '../../jotai/filters.ts'
+import { useDayOfWeek } from '../dayOfWeek.ts'
 
 import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
 
-export function useFilterByDay(entryRef: useNextProgram_LibraryEntry$key): boolean {
-  const dayTag = useDayTag(entryRef)
+export function useFilterByDayOfWeek(entryRef: useNextProgram_LibraryEntry$key): boolean {
+  const dayTag = useDayOfWeek(entryRef)
   const dayFilters = useAtomValue(dayFiltersAtom)
   const timeFilters = useAtomValue(timeFiltersAtom)
 

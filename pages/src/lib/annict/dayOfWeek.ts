@@ -1,11 +1,11 @@
-import { useNextProgram } from '../useNextProgram.ts'
+import { useNextProgram } from './useNextProgram.ts'
 
-import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
+import type { useNextProgram_LibraryEntry$key } from '../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
 
 export const daysOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'] as const
 export type DayOfWeek = (typeof daysOfWeek)[number]
 
-export function useDayTag(entryRef: useNextProgram_LibraryEntry$key): DayOfWeek | null {
+export function useDayOfWeek(entryRef: useNextProgram_LibraryEntry$key): DayOfWeek | null {
   const nextProgram = useNextProgram(entryRef)
   if (!nextProgram) {
     return null

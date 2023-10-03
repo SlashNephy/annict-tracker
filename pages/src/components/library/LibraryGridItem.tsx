@@ -3,12 +3,12 @@ import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
 import { useFilterByCurrentSeason } from '../../lib/annict/filters/useFilterByCurrentSeason.ts'
-import { useFilterByDay } from '../../lib/annict/filters/useFilterByDay.ts'
+import { useFilterByDayOfWeek } from '../../lib/annict/filters/useFilterByDayOfWeek.ts'
 import { useFilterByRebroadcasting } from '../../lib/annict/filters/useFilterByRebroadcasting.ts'
-import { useFilterBySeasons } from '../../lib/annict/filters/useFilterBySeasons.ts'
-import { useFilterByStreamingServices } from '../../lib/annict/filters/useFilterByStreamingServices.ts'
-import { useFilterByTime } from '../../lib/annict/filters/useFilterByTime.ts'
-import { useSortNumber } from '../../lib/annict/filters/useSortNumber.ts'
+import { useFilterByRelativeTime } from '../../lib/annict/filters/useFilterByRelativeTime.ts'
+import { useFilterBySeason } from '../../lib/annict/filters/useFilterBySeason.ts'
+import { useFilterByStreamingService } from '../../lib/annict/filters/useFilterByStreamingService.ts'
+import { useSortNumber } from '../../lib/annict/useSortNumber.ts'
 import { WorkCard } from '../work/WorkCard.tsx'
 
 import type { LibraryGridItem_LibraryEntry$key } from '../../__generated__/LibraryGridItem_LibraryEntry.graphql.ts'
@@ -38,10 +38,10 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
   const isEnabled = [
     useFilterByCurrentSeason(entry),
     useFilterByRebroadcasting(entry),
-    useFilterByStreamingServices(entry),
-    useFilterBySeasons(entry),
-    useFilterByTime(entry),
-    useFilterByDay(entry),
+    useFilterByStreamingService(entry),
+    useFilterBySeason(entry),
+    useFilterByRelativeTime(entry),
+    useFilterByDayOfWeek(entry),
   ].every(Boolean)
   if (!isEnabled) {
     return <></>
