@@ -68,6 +68,7 @@ export function ThemeSettings(): React.JSX.Element {
             </Group>
             <Group>
               <ColorPicker
+                key={customColorFormat}
                 format={customColorFormat}
                 swatches={Object.values(DEFAULT_THEME.colors).map((c) => c[5])}
                 value={customColor}
