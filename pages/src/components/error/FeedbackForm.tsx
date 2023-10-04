@@ -1,8 +1,10 @@
-import { Button, Group, Textarea, TextInput } from '@mantine/core'
+import { ActionIcon, Button, Group, Stack, Textarea, TextInput } from '@mantine/core'
 import { useForm, hasLength, isEmail } from '@mantine/form'
 import { captureUserFeedback } from '@sentry/react'
-import { IconSend } from '@tabler/icons-react'
-import React, { useCallback } from 'react'
+import { IconReload, IconSend } from '@tabler/icons-react'
+import React, { useCallback, useEffect } from 'react'
+
+import { useRandomAniListCharacterName } from '../../lib/anilist/useRandomAniListCharacterName.ts'
 
 export type FeedbackFormProps = {
   eventId: string
@@ -38,6 +40,11 @@ export function FeedbackForm({
     },
   })
 
+  const { characterName, redraw } = useRandomAniListCharacterName()
+  useEffect(() => {
+    form.setFieldValue('name', characterName ?? '')
+  }, [form, characterName])
+
   const handleSubmit = useCallback(
     (values: typeof form.values) => {
       captureUserFeedback({
@@ -54,9 +61,20 @@ export function FeedbackForm({
 
   return (
     <form onSubmit={form.onSubmit(handleSubmit)}>
-      <TextInput label="おなまえ" placeholder="シド・カゲノー" {...form.getInputProps('name')} />
-      <TextInput label="メールアドレス" placeholder="example@annict.com" {...form.getInputProps('email')} />
-      <Textarea autosize required label="コメント" placeholder="..." {...form.getInputProps('comments')} />
+      <Stack>
+        <TextInput
+          label="おなまえ"
+          placeholder="シド・カゲノー"
+          {...form.getInputProps('name')}
+          rightSection={
+            <ActionIcon variant="transparent" onClick={redraw}>
+              <IconReload />
+            </ActionIcon>
+          }
+        />
+        <TextInput label="メールアドレス" placeholder="example@annict.com" {...form.getInputProps('email')} />
+        <Textarea autosize required label="コメント" placeholder="..." {...form.getInputProps('comments')} />
+      </Stack>
 
       <Group justify="center" mt="md">
         <Button leftSection={<IconSend />} type="submit">
