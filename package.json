@@ -28,7 +28,7 @@
     "vite-plugin-pwa": "0.16.5",
     "wrangler": "3.8.0"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "yarn@3.6.4",
   "eslintConfig": {
     "extends": "@slashnephy/eslint-config",
     "overrides": [
