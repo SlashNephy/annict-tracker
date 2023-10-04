@@ -1,5 +1,4 @@
 import { Group, Modal, Space, Text } from '@mantine/core'
-import { captureMessage } from '@sentry/react'
 import { IconMessageReport } from '@tabler/icons-react'
 import React from 'react'
 
@@ -11,8 +10,6 @@ export type FeedbackModalProps = {
 }
 
 export function FeedbackModal({ isOpened, onClose }: FeedbackModalProps): React.JSX.Element {
-  const eventId = captureMessage('feedback')
-
   return (
     <Modal
       centered
@@ -34,13 +31,7 @@ export function FeedbackModal({ isOpened, onClose }: FeedbackModalProps): React.
 
       <Space h="lg" />
 
-      <FeedbackForm
-        cancelLabel="キャンセル"
-        eventId={eventId}
-        submitLabel="送信"
-        onCancel={onClose}
-        onSubmit={onClose}
-      />
+      <FeedbackForm cancelLabel="キャンセル" submitLabel="送信" onCancel={onClose} onSubmit={onClose} />
     </Modal>
   )
 }

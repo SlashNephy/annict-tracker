@@ -1,13 +1,13 @@
 import { ActionIcon, Button, Group, Stack, Textarea, TextInput } from '@mantine/core'
 import { useForm, hasLength, isEmail } from '@mantine/form'
-import { captureUserFeedback } from '@sentry/react'
+import { captureMessage, captureUserFeedback } from '@sentry/react'
 import { IconReload, IconSend } from '@tabler/icons-react'
 import React, { useCallback, useEffect } from 'react'
 
 import { useRandomAniListCharacterName } from '../../lib/anilist/useRandomAniListCharacterName.ts'
 
 export type FeedbackFormProps = {
-  eventId: string
+  eventId?: string
   submitLabel: string
   cancelLabel?: string
   onSubmit(): void
@@ -48,7 +48,7 @@ export function FeedbackForm({
   const handleSubmit = useCallback(
     (values: typeof form.values) => {
       captureUserFeedback({
-        event_id: eventId,
+        event_id: eventId ?? captureMessage('feedback', 'info'),
         name: values.name,
         email: values.email,
         comments: values.comments,
