@@ -35,9 +35,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth/core@npm:0.16.0":
-  version: 0.16.0
-  resolution: "@auth/core@npm:0.16.0"
+"@auth/core@npm:0.16.1":
+  version: 0.16.1
+  resolution: "@auth/core@npm:0.16.1"
   dependencies:
     "@panva/hkdf": ^1.0.4
     cookie: 0.5.0
@@ -50,7 +50,7 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: 8702ac73a2b0a25d7c23ce1bfe104698530596794c37af4101b3df9bac38fd8afa6a115e5406d54d224730ce2a2ffc13810c43e150491df4d99280813da2d1d5
+  checksum: 1bb938fcafb921b511f47c966a94f86de70010be77a196d0db55c7af59c483b81628e29db6b6c6deaa711c7afeae77a56da2e9c640b95a85d959acbdbe7dbb8f
   languageName: node
   linkType: hard
 
@@ -5836,7 +5836,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "functions@workspace:functions"
   dependencies:
-    "@auth/core": 0.16.0
+    "@auth/core": 0.16.1
     "@cloudflare/workers-types": 4.20231002.0
     "@types/cookie": 0.5.2
     "@types/query-string": 6.3.0
