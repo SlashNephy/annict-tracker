@@ -5,7 +5,10 @@ import { IconMessageReport, IconReload } from '@tabler/icons-react'
 import React, { useMemo } from 'react'
 
 import { FeedbackForm } from './FeedbackForm.tsx'
+import { FetchError } from '../../lib/errors/FetchError.ts'
+import { HttpError } from '../../lib/errors/HttpError.ts'
 import { RateLimitedError } from '../../lib/errors/RateLimitedError.ts'
+import { run } from '../../lib/run.ts'
 
 export type ErrorModalProps = {
   error: unknown
@@ -19,10 +22,21 @@ export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
       return
     }
 
-    if (error instanceof RateLimitedError) {
+    const message = run(() => {
+      switch (error.constructor) {
+        case RateLimitedError:
+          return 'Annict API の制限に達しました。しばらく待ってから再度お試しください。'
+        case HttpError:
+          return 'Annict がエラーを返しました。しばらく待ってから再度お試しください。'
+        case FetchError:
+          return 'データを取得に失敗しました。インターネット接続をご確認ください。'
+      }
+    })
+
+    if (message) {
       return (
         <>
-          <Text>Annict API の制限に達しました。しばらく待ってから再度お試しください。</Text>
+          <Text>{message}</Text>
           <Group justify="center" mt="md">
             <Button
               leftSection={<IconReload />}
