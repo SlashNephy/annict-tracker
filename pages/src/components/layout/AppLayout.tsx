@@ -1,25 +1,31 @@
-import { Anchor, AppShell, Burger, Card, Container, Group, Stack, Text, ThemeIcon, Tooltip } from '@mantine/core'
-import { useDisclosure, useDocumentTitle, useMediaQuery } from '@mantine/hooks'
-import { IconBrandGithub, IconSpeakerphone } from '@tabler/icons-react'
-import React, { useMemo } from 'react'
+import { Anchor, AppShell, Burger, Card, Container, Group, Stack, Text } from '@mantine/core'
+import { useDisclosure, useDocumentTitle } from '@mantine/hooks'
+import { IconBrandGithub, IconDeviceTv, IconHelp, IconSettings, IconSpeakerphone } from '@tabler/icons-react'
+import React, { useCallback, useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
+import { NavbarLinkIcon } from './NavbarLinkIcon.tsx'
+import { useIsMobile } from '../../lib/useIsMobile.ts'
 import { useCheckUpdate } from '../../lib/workers/useCheckUpdate.ts'
 import { routes } from '../../routes/router.tsx'
 import { FeedbackModal } from '../error/FeedbackModal.tsx'
 
 export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Element {
   const [isNavbarOpened, { toggle: toggleNavbar, close: closeNavbar }] = useDisclosure(false)
-  const isMobile = useMediaQuery('(max-width: 62em)', false)
+  const isMobile = useIsMobile()
 
   const location = useLocation()
   const route = useMemo(() => {
-    return routes.find(({ route }) => route.path === location.pathname)
+    return routes.find(({ path }) => path === location.pathname)
   }, [location.pathname])
 
   const [isFeedbackModalOpened, { open: openFeedbackModal, close: closeFeedbackModal }] = useDisclosure(false)
+  const handleClickFeedbackIcon = useCallback(() => {
+    openFeedbackModal()
+    closeNavbar()
+  }, [openFeedbackModal, closeNavbar])
 
-  useDocumentTitle(route ? `${route.label} | annict-tracker` : 'annict-tracker')
+  useDocumentTitle(route ? `${route.title} | annict-tracker` : 'annict-tracker')
 
   useCheckUpdate()
 
@@ -35,59 +41,26 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
       <AppShell.Header>
         <Group p="xs">
           <Burger opened={isNavbarOpened} size="sm" onClick={toggleNavbar} />
-          <Text>{isNavbarOpened ? 'annict-tracker' : route?.label}</Text>
+          <Text>{isNavbarOpened || !route ? 'annict-tracker' : route.title}</Text>
         </Group>
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
         <Stack gap="sm">
-          {routes.map(({ route, label, icon: Icon }) => (
-            <Anchor key={route.path} component={Link} mb="lg" to={route.path} onClick={closeNavbar}>
-              <Group>
-                <Tooltip label={label} position="right">
-                  <ThemeIcon variant="light">
-                    <Icon size={20} />
-                  </ThemeIcon>
-                </Tooltip>
-                {isMobile && <Text>{label}</Text>}
-              </Group>
-            </Anchor>
-          ))}
+          <NavbarLinkIcon component={Link} icon={IconDeviceTv} title="視聴記録" to="/" onClick={closeNavbar} />
+          <NavbarLinkIcon component={Link} icon={IconHelp} title="使い方" to="/help" onClick={closeNavbar} />
         </Stack>
-        <Stack bottom={0} gap="sm" pos="absolute">
-          <Anchor
-            mb="lg"
-            onClick={() => {
-              openFeedbackModal()
-              closeNavbar()
-            }}
-          >
-            <Group>
-              <Tooltip label="フィードバック" position="right">
-                <ThemeIcon variant="light">
-                  <IconSpeakerphone size={20} />
-                </ThemeIcon>
-              </Tooltip>
-              {isMobile && <Text>フィードバック</Text>}
-            </Group>
-          </Anchor>
 
-          <Anchor
-            mb="lg"
-            onClick={() => {
-              window.open('https://github.com/SlashNephy/annict-tracker', '_blank')
-              closeNavbar()
-            }}
-          >
-            <Group>
-              <Tooltip label="GitHub" position="right">
-                <ThemeIcon variant="light">
-                  <IconBrandGithub size={20} />
-                </ThemeIcon>
-              </Tooltip>
-              {isMobile && <Text>GitHub</Text>}
-            </Group>
-          </Anchor>
+        <Stack bottom={0} gap="sm" pos="absolute">
+          <NavbarLinkIcon<'a'>
+            href="https://github.com/SlashNephy/annict-tracker"
+            icon={IconBrandGithub}
+            target="_blank"
+            title="GitHub"
+            onClick={closeNavbar}
+          />
+          <NavbarLinkIcon<'a'> icon={IconSpeakerphone} title="フィードバック" onClick={handleClickFeedbackIcon} />
+          <NavbarLinkIcon component={Link} icon={IconSettings} title="設定" to="/settings" onClick={closeNavbar} />
         </Stack>
       </AppShell.Navbar>
 
