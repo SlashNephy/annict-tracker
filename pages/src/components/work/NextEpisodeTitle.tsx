@@ -26,7 +26,11 @@ export function NextEpisodeTitle({ entryRef }: WorkNextEpisodeTitleProps): React
   }
 
   return (
-    <Text fw={500} style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+    <Text
+      fw={500}
+      style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+      title={nextEpisodeTitle}
+    >
       {nextEpisodeTitle}
     </Text>
   )
