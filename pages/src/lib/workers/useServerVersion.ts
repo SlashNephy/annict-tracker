@@ -7,15 +7,10 @@ const key = 'version'
 
 void preload(key, fetchServerVersion)
 
-export function useServerVersion(): VersionResponse | null {
-  const { data } = useSWR(
-    key,
-    fetchServerVersion,
-
-    {
-      refreshInterval: minutesToMilliseconds(5),
-    }
-  )
+export function useServerVersion(enabled = true): VersionResponse | null {
+  const { data } = useSWR(enabled ? key : undefined, fetchServerVersion, {
+    refreshInterval: minutesToMilliseconds(5),
+  })
 
   return data ?? null
 }

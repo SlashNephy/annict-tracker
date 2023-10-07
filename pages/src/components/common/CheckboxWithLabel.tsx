@@ -3,10 +3,9 @@ import React from 'react'
 
 import type { CheckboxProps } from '@mantine/core'
 
-export function CheckboxWithLabel({
-  description,
-  ...props
-}: { description: string } & CheckboxProps): React.JSX.Element {
+export type CheckboxWithLabelProps = { description: string } & CheckboxProps
+
+export function CheckboxWithLabel({ description, ...props }: CheckboxWithLabelProps): React.JSX.Element {
   return (
     <Stack>
       <Checkbox {...props} />
