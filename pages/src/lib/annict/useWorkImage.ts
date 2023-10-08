@@ -1,9 +1,13 @@
+import { hoursToMilliseconds } from 'date-fns'
+import { random } from 'radash'
 import { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import useSWRImmutable from 'swr/immutable'
 
 import { fetchAniListImage } from '../anilist/fetchAniListImage.ts'
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
+import { find, put } from '../indexdb/database.ts'
+import { useIndexedDB } from '../indexdb/useIndexedDB.ts'
 import { fetchJikanAnimePictures } from '../jikan/fetchJikanAnimePictures.ts'
 
 import type { useWorkImage_LibraryEntry$key } from '../../__generated__/useWorkImage_LibraryEntry.graphql.ts'
@@ -39,27 +43,49 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
     return [armEntry?.anilist_id, armEntry?.mal_id?.toString() ?? work.malAnimeId]
   }, [arm, work])
 
+  const database = useIndexedDB()
   const { data } = useSWRImmutable(
-    [work.image?.recommendedImageUrl, aniListId, malId],
-    async ([initialImageUrl, aniListId, malId]) => {
+    [database, work.annictId, work.image?.recommendedImageUrl, aniListId, malId],
+    async ([db, annictId, initialImageUrl, aniListId, malId]) => {
       // Mixed Contents にならない場合はそのまま返す
       if (initialImageUrl?.startsWith('https://')) {
         return initialImageUrl
       }
 
+      // IndexedDB の準備ができていないときは外部リクエストしない
+      if (!db) {
+        return undefined
+      }
+
+      const cache = await find(db, 'work-image-cache', annictId)
+      if (cache?.url) {
+        return cache.url
+      }
+
+      // dog pile effect を避けるため 3 ~ 7 日間の間にランダムに TTL を設定する
+      const day = hoursToMilliseconds(24)
+      const ttl = random(day * 3, day * 7)
+
       // AniList から画像を引いてみる
       if (aniListId) {
         const response = await fetchAniListImage(aniListId)
-        if (response.data.Media.coverImage.extraLarge) {
-          return response.data.Media.coverImage.extraLarge
+        const url = response.data.Media.coverImage.extraLarge
+        if (url) {
+          await put(db, 'work-image-cache', annictId, { url }, ttl)
+
+          return url
         }
       }
 
       // MyAnimeList から画像を引いてみる
       if (malId) {
         const response = await fetchJikanAnimePictures(malId)
+        const url = response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url
+        if (url) {
+          await put(db, 'work-image-cache', annictId, { url }, ttl)
 
-        return response.data[0]?.webp?.large_image_url ?? response.data[0]?.jpg?.large_image_url
+          return url
+        }
       }
     }
   )
