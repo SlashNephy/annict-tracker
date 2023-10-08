@@ -2439,11 +2439,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/bundler-plugin-core@npm:2.7.1":
-  version: 2.7.1
-  resolution: "@sentry/bundler-plugin-core@npm:2.7.1"
+"@sentry/bundler-plugin-core@npm:2.8.0":
+  version: 2.8.0
+  resolution: "@sentry/bundler-plugin-core@npm:2.8.0"
   dependencies:
-    "@sentry/cli": ^2.20.1
+    "@sentry/cli": ^2.21.2
     "@sentry/node": ^7.60.0
     "@sentry/utils": ^7.60.0
     dotenv: ^16.3.1
@@ -2451,13 +2451,13 @@ __metadata:
     glob: 9.3.2
     magic-string: 0.27.0
     unplugin: 1.0.1
-  checksum: 43371c0b3e0a3dfe0c43ff6f88b6c2318c339a7d0d9351b3dd4783a34ea8a71dfcbffcb45e8ce1ea7b829c14931c2f2e02562e724482d27bb085d5841750a4ab
+  checksum: 9434aa89179423481ef941c3bf340a5f3251ca8bdff81ea81631258ccadfea9c6c81193857f1767829fd66643c6dcaab39e9b2a31b0e614f0f12fc9e769afda3
   languageName: node
   linkType: hard
 
-"@sentry/cli@npm:^2.20.1":
-  version: 2.20.7
-  resolution: "@sentry/cli@npm:2.20.7"
+"@sentry/cli@npm:^2.21.2":
+  version: 2.21.2
+  resolution: "@sentry/cli@npm:2.21.2"
   dependencies:
     https-proxy-agent: ^5.0.0
     node-fetch: ^2.6.7
@@ -2466,7 +2466,7 @@ __metadata:
     which: ^2.0.2
   bin:
     sentry-cli: bin/sentry-cli
-  checksum: 415c5287dbc3ae92f07b22f80c145d30548f396f5c7008f571d4d360c03f71aae95c096990f7656c6ed4893197bf21f7efe2add50d1838fb9a64b7b6693d384e
+  checksum: 84b578453b6ed936c81068177909354a52d7d2b1ed118440ce56c714beaeaae9140be3f33a86aa53ce62b6857c4378e37328c581cfe54e75cb760be238669afc
   languageName: node
   linkType: hard
 
@@ -2568,13 +2568,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/vite-plugin@npm:2.7.1":
-  version: 2.7.1
-  resolution: "@sentry/vite-plugin@npm:2.7.1"
+"@sentry/vite-plugin@npm:2.8.0":
+  version: 2.8.0
+  resolution: "@sentry/vite-plugin@npm:2.8.0"
   dependencies:
-    "@sentry/bundler-plugin-core": 2.7.1
+    "@sentry/bundler-plugin-core": 2.8.0
     unplugin: 1.0.1
-  checksum: a676fced23f7dde4e2481d4516ab080cc557f5d12bfc19afb6989136a1eeab3ef3404d2ce58d24aa67440d352cef3dc84b7e713785654bc40bc8814906210851
+  checksum: 144fd37846d216835b836ee457efddbf2e5d45fefd49ab80c922db20fc21467aa4b16a2961d5589b531578d2fd5e023f4c65c321c4d7890532db270392125611
   languageName: node
   linkType: hard
 
@@ -7510,7 +7510,7 @@ __metadata:
     "@mantine/hooks": 7.1.2
     "@mantine/notifications": 7.1.2
     "@sentry/react": 7.73.0
-    "@sentry/vite-plugin": 2.7.1
+    "@sentry/vite-plugin": 2.8.0
     "@swc-jotai/debug-label": 0.1.0
     "@swc-jotai/react-refresh": 0.1.0
     "@tabler/icons-react": 2.38.0
