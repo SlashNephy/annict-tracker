@@ -11,18 +11,21 @@ import {
 } from '@mantine/core'
 import { IconPaint } from '@tabler/icons-react'
 import { useAtom } from 'jotai'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
 import { customColorAtom, customColorFormatAtom, customColorFormats } from '../../lib/jotai/theme.ts'
 import { colorSchemeLabels, colorSchemes } from '../../lib/mantine/colorSchemes.ts'
-
-import type { CustomColorFormat } from '../../lib/jotai/theme.ts'
+import { TypedRadioGroup } from '../../lib/mantine/TypedRadioGroup.tsx'
 
 export function ThemeSettings(): React.JSX.Element {
   const { colorScheme, setColorScheme } = useMantineColorScheme()
   const [customColor, setCustomColor] = useAtom(customColorAtom)
   const [customColorFormat, setCustomColorFormat] = useAtom(customColorFormatAtom)
   const colorSwatches = useMemo(() => Object.values(DEFAULT_THEME.colors).map((c) => c[5]), [])
+
+  const handleClickColorSwatch = useCallback(() => {
+    setCustomColorFormat('hex')
+  }, [setCustomColorFormat])
 
   return (
     <Stack>
@@ -55,18 +58,13 @@ export function ThemeSettings(): React.JSX.Element {
         <Center>
           <Stack>
             <Group>
-              <Radio.Group
-                value={customColorFormat}
-                onChange={(value) => {
-                  setCustomColorFormat(value as CustomColorFormat)
-                }}
-              >
+              <TypedRadioGroup value={customColorFormat} onToggle={setCustomColorFormat}>
                 <Group>
                   {customColorFormats.map((format) => (
                     <Radio key={format} label={format.toUpperCase()} value={format} />
                   ))}
                 </Group>
-              </Radio.Group>
+              </TypedRadioGroup>
             </Group>
             <Group>
               <ColorPicker
@@ -75,9 +73,7 @@ export function ThemeSettings(): React.JSX.Element {
                 swatches={colorSwatches}
                 value={customColor}
                 onChange={setCustomColor}
-                onColorSwatchClick={() => {
-                  setCustomColorFormat('hex')
-                }}
+                onColorSwatchClick={handleClickColorSwatch}
               />
               <Group>
                 <ColorSwatch color={customColor} />

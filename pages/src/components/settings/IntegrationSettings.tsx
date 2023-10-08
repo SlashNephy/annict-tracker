@@ -7,6 +7,7 @@ import React, { useCallback, useMemo } from 'react'
 
 import { epgStationUrlAtom, searchIntegrationKeysAtom } from '../../lib/jotai/integrations.ts'
 import { enableSyobocalAtom, syobocalChannelsAtom } from '../../lib/jotai/syobocal.ts'
+import { TypedSwitchGroup } from '../../lib/mantine/TypedSwitchGroup.tsx'
 import { useSayaDatastore } from '../../lib/saya/useSayaDatastore.ts'
 import { CheckboxWithLabel } from '../common/CheckboxWithLabel.tsx'
 import { getSearchIntegrationLabel, searchIntegrationKeys } from '../work/buttons/useIntegrationConfigs.ts'
@@ -183,13 +184,13 @@ export function IntegrationSettings(): React.JSX.Element {
       <Stack>
         <Text size="sm">作品を以下のストリーミングサービス内で検索可能にします。</Text>
 
-        <Switch.Group value={searchIntegrations} onChange={setSearchIntegrations}>
+        <TypedSwitchGroup value={searchIntegrations} onToggle={setSearchIntegrations}>
           <Group>
             {searchIntegrationKeys.slice(2).map((key) => (
               <Switch key={key} label={getSearchIntegrationLabel(key)} value={key} />
             ))}
           </Group>
-        </Switch.Group>
+        </TypedSwitchGroup>
       </Stack>
     </Stack>
   )
