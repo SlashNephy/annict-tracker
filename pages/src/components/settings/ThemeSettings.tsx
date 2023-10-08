@@ -11,7 +11,7 @@ import {
 } from '@mantine/core'
 import { IconPaint } from '@tabler/icons-react'
 import { useAtom } from 'jotai'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { customColorAtom, customColorFormatAtom, customColorFormats } from '../../lib/jotai/theme.ts'
 import { colorSchemeLabels, colorSchemes } from '../../lib/mantine/colorSchemes.ts'
@@ -22,6 +22,7 @@ export function ThemeSettings(): React.JSX.Element {
   const { colorScheme, setColorScheme } = useMantineColorScheme()
   const [customColor, setCustomColor] = useAtom(customColorAtom)
   const [customColorFormat, setCustomColorFormat] = useAtom(customColorFormatAtom)
+  const colorSwatches = useMemo(() => Object.values(DEFAULT_THEME.colors).map((c) => c[5]), [])
 
   return (
     <Stack>
@@ -39,6 +40,7 @@ export function ThemeSettings(): React.JSX.Element {
                 key={scheme}
                 label={colorSchemeLabels[scheme]}
                 value={scheme}
+                // eslint-disable-next-line react/jsx-no-bind
                 onClick={() => {
                   setColorScheme(scheme)
                 }}
@@ -70,7 +72,7 @@ export function ThemeSettings(): React.JSX.Element {
               <ColorPicker
                 key={customColorFormat}
                 format={customColorFormat}
-                swatches={Object.values(DEFAULT_THEME.colors).map((c) => c[5])}
+                swatches={colorSwatches}
                 value={customColor}
                 onChange={setCustomColor}
                 onColorSwatchClick={() => {

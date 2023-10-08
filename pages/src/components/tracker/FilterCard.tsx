@@ -1,6 +1,6 @@
 import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
 import { useAtom } from 'jotai'
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import { daysOfWeek, getDayOfWeekLabel } from '../../lib/annict/dayOfWeek.ts'
 import { getRelativeTimeGroupLabel, relativeTimeGroups } from '../../lib/annict/relativeTimeGroups.ts'
@@ -32,6 +32,36 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
   const [timeFilters, setTimeFilters] = useAtom(timeFiltersAtom)
   const [dayFilters, setDayFilters] = useAtom(dayFiltersAtom)
 
+  const handleChangeWatchStatusFilters = useCallback(
+    (value: string[]) => {
+      // 空にできないようにする
+      if (value.length === 0) {
+        return
+      }
+
+      setWatchStatusFilters(value as WatchStatus[])
+    },
+    [setWatchStatusFilters]
+  )
+  const handleChangeTimeFilters = useCallback(
+    (value: string[]) => {
+      setTimeFilters(value as RelativeTimeGroup[])
+    },
+    [setTimeFilters]
+  )
+  const handleChangeSeasonFilters = useCallback(
+    (value: string[]) => {
+      setSeasonFilters(value as SeasonName[])
+    },
+    [setSeasonFilters]
+  )
+  const handleChangeDayFilters = useCallback(
+    (value: string[]) => {
+      setDayFilters(value as DayOfWeek[])
+    },
+    [setDayFilters]
+  )
+
   return (
     <Card {...props}>
       <Card.Section>
@@ -48,9 +78,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                   label="今期に絞る"
                   mb="md"
                   ml="md"
-                  onChange={(event) => {
-                    setShowOnlyCurrentSeason(event.target.checked)
-                  }}
+                  onToggle={setShowOnlyCurrentSeason}
                 />
                 <CheckboxWithHoverCard
                   checked={hideRebroadcasting}
@@ -58,9 +86,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                   label="再放送を除く"
                   mb="md"
                   ml="md"
-                  onChange={(event) => {
-                    setHideRebroadcasting(event.target.checked)
-                  }}
+                  onToggle={setHideRebroadcasting}
                 />
                 <CheckboxWithHoverCard
                   checked={hideStreamingServices}
@@ -68,26 +94,13 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
                   label="配信サービスを除く"
                   mb="md"
                   ml="md"
-                  onChange={(event) => {
-                    setHideStreamingServices(event.target.checked)
-                  }}
+                  onToggle={setHideStreamingServices}
                 />
               </Group>
 
               <Text>視聴ステータス</Text>
               <Group mb="md" ml="md" mt="md">
-                <Chip.Group
-                  multiple
-                  value={watchStatusFilters}
-                  onChange={(value) => {
-                    // 空にできないようにする
-                    if (value.length === 0) {
-                      return
-                    }
-
-                    setWatchStatusFilters(value as WatchStatus[])
-                  }}
-                >
+                <Chip.Group multiple value={watchStatusFilters} onChange={handleChangeWatchStatusFilters}>
                   {watchStatuses.map((value) => (
                     <Chip key={value} value={value}>
                       {getWatchStatusLabel(value)}
@@ -98,13 +111,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
 
               <Text>放送時間</Text>
               <Group mb="md" ml="md" mt="md">
-                <Chip.Group
-                  multiple
-                  value={timeFilters}
-                  onChange={(value) => {
-                    setTimeFilters(value as RelativeTimeGroup[])
-                  }}
-                >
+                <Chip.Group multiple value={timeFilters} onChange={handleChangeTimeFilters}>
                   {relativeTimeGroups.map((value) => (
                     <Chip key={value} value={value}>
                       {getRelativeTimeGroupLabel(value)}
@@ -115,13 +122,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
 
               <Text>シーズン</Text>
               <Group mb="md" ml="md" mt="md">
-                <Chip.Group
-                  multiple
-                  value={seasonFilters}
-                  onChange={(value) => {
-                    setSeasonFilters(value as SeasonName[])
-                  }}
-                >
+                <Chip.Group multiple value={seasonFilters} onChange={handleChangeSeasonFilters}>
                   {seasonNames.map((value) => (
                     <Chip key={value} value={value}>
                       {getSeasonLabel(value)}
@@ -132,13 +133,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
 
               <Text>放送曜日</Text>
               <Group mb="md" ml="md" mt="md">
-                <Chip.Group
-                  multiple
-                  value={dayFilters}
-                  onChange={(value) => {
-                    setDayFilters(value as DayOfWeek[])
-                  }}
-                >
+                <Chip.Group multiple value={dayFilters} onChange={handleChangeDayFilters}>
                   {daysOfWeek.map((value) => (
                     <Chip key={value} value={value}>
                       {getDayOfWeekLabel(value)}

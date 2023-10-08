@@ -1,5 +1,5 @@
 import { Badge } from '@mantine/core'
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import { useNextProgram } from '../../../lib/annict/useNextProgram.ts'
 
@@ -11,6 +11,13 @@ export type SyobocalSourceBadgeBadge = {
 
 export function SyobocalSourceBadge({ entryRef }: SyobocalSourceBadgeBadge): React.JSX.Element {
   const nextProgram = useNextProgram(entryRef)
+
+  const handleClick = useCallback(() => {
+    if (nextProgram?.source.url) {
+      window.open(nextProgram.source.url)
+    }
+  }, [nextProgram])
+
   if (nextProgram?.source.name !== 'syobocal') {
     return <></>
   }
@@ -20,11 +27,7 @@ export function SyobocalSourceBadge({ entryRef }: SyobocalSourceBadgeBadge): Rea
       key="syobocal"
       title="この放送情報はしょぼいカレンダーとの連携で取得されました。"
       variant="outline"
-      onClick={() => {
-        if (nextProgram.source.url) {
-          window.open(nextProgram.source.url)
-        }
-      }}
+      onClick={handleClick}
     >
       しょぼいカレンダー
     </Badge>

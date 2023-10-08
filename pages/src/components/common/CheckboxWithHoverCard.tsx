@@ -1,14 +1,31 @@
 import { ActionIcon, Checkbox, HoverCard, Text } from '@mantine/core'
 import { IconInfoCircle } from '@tabler/icons-react'
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import type { CheckboxProps } from '@mantine/core'
+import type { ChangeEventHandler } from 'react'
+
+export type CheckboxWithHoverCardProps = CheckboxProps & {
+  label: string | React.JSX.Element
+  description: string | React.JSX.Element
+  onToggle?(checked: boolean): void
+}
 
 export function CheckboxWithHoverCard({
   label,
   description,
+  onChange,
+  onToggle,
   ...props
-}: { label: string; description: string } & Omit<CheckboxProps, 'label'>): React.JSX.Element {
+}: CheckboxWithHoverCardProps): React.JSX.Element {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      onChange?.(event)
+      onToggle?.(event.target.checked)
+    },
+    [onChange, onToggle]
+  )
+
   return (
     <Checkbox
       label={
@@ -26,6 +43,7 @@ export function CheckboxWithHoverCard({
           </HoverCard>
         </>
       }
+      onChange={handleChange}
       {...props}
     />
   )

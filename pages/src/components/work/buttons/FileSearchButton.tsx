@@ -314,6 +314,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
         mt="md"
         radius="md"
         variant="light"
+        // eslint-disable-next-line react/jsx-no-bind
         onClick={() => {
           integration.search({ work: entry.work, config: integration.config, vods })
         }}
@@ -342,12 +343,13 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
         {integrations
           .filter((integration) => integration.isAvailable({ work: entry.work, config: integration.config, vods }))
           .map((integration) => {
-            const Icon = integration.icon
+            const { icon: Icon } = integration
 
             return (
               <Menu.Item
                 key={integration.title}
                 leftSection={<Icon size="1rem" stroke={1.5} />}
+                // eslint-disable-next-line react/jsx-no-bind
                 onClick={() => {
                   integration.search({ work: entry.work, config: integration.config, vods })
                 }}

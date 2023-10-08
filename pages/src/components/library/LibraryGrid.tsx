@@ -43,6 +43,9 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
     viewerRef
   )
 
+  const handleClickLoadMore = useCallback(() => {
+    loadNext(100)
+  }, [loadNext])
   const refetch = useCallback(() => {
     if (!window.navigator.onLine) {
       return
@@ -76,15 +79,11 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
       <Space h="lg" />
 
       <Center>
-        <Button
-          disabled={isLoadingNext || !hasNext}
-          loading={isLoadingNext}
-          onClick={() => {
-            loadNext(100)
-          }}
-        >
-          {isLoadingNext ? '読み込み中...' : 'もっと読み込む'}
-        </Button>
+        {hasNext && (
+          <Button disabled={isLoadingNext} loading={isLoadingNext} onClick={handleClickLoadMore}>
+            {isLoadingNext ? '読み込み中...' : 'もっと読み込む'}
+          </Button>
+        )}
       </Center>
     </>
   )

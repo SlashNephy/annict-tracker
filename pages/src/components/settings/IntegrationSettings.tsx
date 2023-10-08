@@ -1,46 +1,24 @@
 import { ActionIcon, Chip, Group, Stack, Switch, Text, TextInput, Tooltip } from '@mantine/core'
 import { IconChecks, IconSparkles, IconTrash, IconWorldWww } from '@tabler/icons-react'
+import { produce } from 'immer'
 import { useAtom } from 'jotai'
 import { group, unique } from 'radash'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
-import {
-  enableAbemaIntegrationAtom,
-  enableBandaiChannelIntegrationAtom,
-  enableDanimeIntegrationAtom,
-  enableDanimeNiconicoIntegrationAtom,
-  enableEpgStationIntegrationAtom,
-  enableEverythingIntegrationAtom,
-  enableNetflixIntegrationAtom,
-  enableNiconicoChannelIntegrationAtom,
-  enablePrimeVideoIntegrationAtom,
-  enableYouTubeIntegrationAtom,
-  epgStationUrlAtom,
-} from '../../lib/jotai/integrations.ts'
+import { epgStationUrlAtom, searchIntegrationKeysAtom } from '../../lib/jotai/integrations.ts'
 import { enableSyobocalAtom, syobocalChannelsAtom } from '../../lib/jotai/syobocal.ts'
 import { useSayaDatastore } from '../../lib/saya/useSayaDatastore.ts'
 import { CheckboxWithLabel } from '../common/CheckboxWithLabel.tsx'
+import { getSearchIntegrationLabel, searchIntegrationKeys } from '../work/buttons/useIntegrationConfigs.ts'
+
+import type { SearchIntegrationKey } from '../work/buttons/useIntegrationConfigs.ts'
+import type { ChangeEventHandler, ChangeEvent } from 'react'
 
 export function IntegrationSettings(): React.JSX.Element {
   const [enableSyobocal, setEnableSyobocal] = useAtom(enableSyobocalAtom)
   const [syobocalChannels, setSyobocalChannels] = useAtom(syobocalChannelsAtom)
-  const [enableEverythingIntegration, setEnableEverythingIntegration] = useAtom(enableEverythingIntegrationAtom)
-  const [enableEpgStationIntegration, setEnableEpgStationIntegration] = useAtom(enableEpgStationIntegrationAtom)
+  const [searchIntegrations, setSearchIntegrations] = useAtom(searchIntegrationKeysAtom)
   const [epgStationUrl, setEpgStationUrl] = useAtom(epgStationUrlAtom)
-  const [enableDanimeIntegration, setEnableDanimeIntegration] = useAtom(enableDanimeIntegrationAtom)
-  const [enableDanimeNiconicoIntegration, setEnableDanimeNiconicoIntegration] = useAtom(
-    enableDanimeNiconicoIntegrationAtom
-  )
-  const [enableAbemaIntegration, setEnableAbemaIntegration] = useAtom(enableAbemaIntegrationAtom)
-  const [enableNetflixIntegration, setEnableNetflixIntegration] = useAtom(enableNetflixIntegrationAtom)
-  const [enablePrimeVideoIntegration, setEnablePrimeVideoIntegration] = useAtom(enablePrimeVideoIntegrationAtom)
-  const [enableNiconicoChannelIntegration, setEnableNiconicoChannelIntegration] = useAtom(
-    enableNiconicoChannelIntegrationAtom
-  )
-  const [enableBandaiChannelIntegration, setEnableBandaiChannelIntegration] = useAtom(
-    enableBandaiChannelIntegrationAtom
-  )
-  const [enableYouTubeIntegration, setEnableYouTubeIntegration] = useAtom(enableYouTubeIntegrationAtom)
 
   const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(
@@ -52,6 +30,43 @@ export function IntegrationSettings(): React.JSX.Element {
     [availableChannels]
   )
   const isAllChannelsSelected = availableChannelIds.length === syobocalChannels.length
+
+  const handleToggleAllChannelsButton = useCallback(() => {
+    setSyobocalChannels(isAllChannelsSelected ? [] : availableChannelIds)
+  }, [availableChannelIds, isAllChannelsSelected, setSyobocalChannels])
+  const handleToggleIntegration = useCallback(
+    (event: ChangeEvent<HTMLInputElement>, key: SearchIntegrationKey) => {
+      return produce(searchIntegrations, (draft) => {
+        if (event.target.checked) {
+          draft.push(key)
+        } else {
+          const index = draft.indexOf(key)
+          if (index !== -1) {
+            draft.splice(index, 1)
+          }
+        }
+      })
+    },
+    [searchIntegrations]
+  )
+  const handleToggleEverythingIntegration: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      setSearchIntegrations(handleToggleIntegration(event, 'everything'))
+    },
+    [handleToggleIntegration, setSearchIntegrations]
+  )
+  const handleToggleEpgStationIntegration: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      setSearchIntegrations(handleToggleIntegration(event, 'epgstation'))
+    },
+    [handleToggleIntegration, setSearchIntegrations]
+  )
+  const handleChangeEpgStationUrl: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (event) => {
+      setEpgStationUrl(event.target.value)
+    },
+    [setEpgStationUrl]
+  )
 
   return (
     <Stack>
@@ -65,9 +80,7 @@ export function IntegrationSettings(): React.JSX.Element {
           checked={enableSyobocal}
           description="Annict に放送時間が登録されていない場合に「しょぼいカレンダー」のデータで代用します。"
           label="しょぼいカレンダーを参照する"
-          onChange={(event) => {
-            setEnableSyobocal(event.target.checked)
-          }}
+          onToggle={setEnableSyobocal}
         />
 
         {enableSyobocal && (
@@ -77,16 +90,7 @@ export function IntegrationSettings(): React.JSX.Element {
               <Tooltip
                 label={isAllChannelsSelected ? 'すべてのチャンネルを解除します' : 'すべてのチャンネルを選択します'}
               >
-                <ActionIcon
-                  variant="default"
-                  onClick={() => {
-                    if (isAllChannelsSelected) {
-                      setSyobocalChannels([])
-                    } else {
-                      setSyobocalChannels(availableChannelIds)
-                    }
-                  }}
-                >
+                <ActionIcon variant="default" onClick={handleToggleAllChannelsButton}>
                   {isAllChannelsSelected ? <IconTrash size={14} /> : <IconChecks size={14} />}
                 </ActionIcon>
               </Tooltip>
@@ -114,12 +118,17 @@ export function IntegrationSettings(): React.JSX.Element {
                         >
                           <ActionIcon
                             variant="default"
+                            // eslint-disable-next-line react/jsx-no-bind
                             onClick={() => {
-                              if (isAllSelected) {
-                                setSyobocalChannels((prev) => prev.filter((c) => !channelIds.includes(c)))
-                              } else {
-                                setSyobocalChannels((prev) => unique([...prev, ...channelIds]))
-                              }
+                              setSyobocalChannels(
+                                produce(syobocalChannels, (draft) => {
+                                  if (isAllSelected) {
+                                    return draft.filter((c) => !channelIds.includes(c))
+                                  }
+
+                                  return unique([...draft, ...channelIds])
+                                })
+                              )
                             }}
                           >
                             {isAllSelected ? <IconTrash size={14} /> : <IconChecks size={14} />}
@@ -146,24 +155,19 @@ export function IntegrationSettings(): React.JSX.Element {
         <Text size="sm">録画ファイルを以下のプロバイダー内で検索可能にします。</Text>
 
         <Switch
-          checked={enableEverythingIntegration}
+          checked={searchIntegrations.includes('everything')}
           description="録画ファイルを Everything (Windows) で検索可能にします。Everything の設定で「URLプロトコル」を有効にする必要があります。"
           label="Everything"
-          onChange={(event) => {
-            setEnableEverythingIntegration(event.target.checked)
-          }}
+          onChange={handleToggleEverythingIntegration}
         />
 
         <Switch
-          checked={enableEpgStationIntegration}
+          checked={searchIntegrations.includes('epgstation')}
           description="録画ファイルを EPGStation で検索可能にします。ご自身で稼働させている EPGStation の URL を設定する必要があります。"
           label="EPGStation"
-          onChange={(event) => {
-            setEnableEpgStationIntegration(event.target.checked)
-          }}
+          onChange={handleToggleEpgStationIntegration}
         />
-        {/* XXX: recoil-persist で永続化しているため hydration error が発生する... (サーバーは常に enableEpgStationIntegration=false) */}
-        {enableEpgStationIntegration && (
+        {searchIntegrations.includes('epgstation') && (
           <TextInput
             description="EPGStation トップページの URL を入力します。"
             label="EPGStation 統合で使用される URL"
@@ -171,9 +175,7 @@ export function IntegrationSettings(): React.JSX.Element {
             pl="xl"
             placeholder="http://localhost:8888"
             value={epgStationUrl}
-            onChange={(event) => {
-              setEpgStationUrl(event.target.value)
-            }}
+            onChange={handleChangeEpgStationUrl}
           />
         )}
       </Stack>
@@ -181,71 +183,13 @@ export function IntegrationSettings(): React.JSX.Element {
       <Stack>
         <Text size="sm">作品を以下のストリーミングサービス内で検索可能にします。</Text>
 
-        <Group>
-          <Switch
-            checked={enableDanimeIntegration}
-            label="dアニメストア"
-            onChange={(event) => {
-              setEnableDanimeIntegration(event.target.checked)
-            }}
-          />
-
-          <Switch
-            checked={enableDanimeNiconicoIntegration}
-            label="dアニメストア ニコニコ支店"
-            onChange={(event) => {
-              setEnableDanimeNiconicoIntegration(event.target.checked)
-            }}
-          />
-
-          <Switch
-            checked={enableAbemaIntegration}
-            label="ABEMA"
-            onChange={(event) => {
-              setEnableAbemaIntegration(event.target.checked)
-            }}
-          />
-
-          <Switch
-            checked={enableNetflixIntegration}
-            label="Netflix"
-            onChange={(event) => {
-              setEnableNetflixIntegration(event.target.checked)
-            }}
-          />
-
-          <Switch
-            checked={enablePrimeVideoIntegration}
-            label="Prime Video"
-            onChange={(event) => {
-              setEnablePrimeVideoIntegration(event.target.checked)
-            }}
-          />
-
-          <Switch
-            checked={enableNiconicoChannelIntegration}
-            label="ニコニコチャンネル"
-            onChange={(event) => {
-              setEnableNiconicoChannelIntegration(event.target.checked)
-            }}
-          />
-
-          <Switch
-            checked={enableBandaiChannelIntegration}
-            label="バンダイチャンネル"
-            onChange={(event) => {
-              setEnableBandaiChannelIntegration(event.target.checked)
-            }}
-          />
-
-          <Switch
-            checked={enableYouTubeIntegration}
-            label="YouTube"
-            onChange={(event) => {
-              setEnableYouTubeIntegration(event.target.checked)
-            }}
-          />
-        </Group>
+        <Switch.Group value={searchIntegrations} onChange={setSearchIntegrations}>
+          <Group>
+            {searchIntegrationKeys.slice(2).map((key) => (
+              <Switch key={key} label={getSearchIntegrationLabel(key)} value={key} />
+            ))}
+          </Group>
+        </Switch.Group>
       </Stack>
     </Stack>
   )

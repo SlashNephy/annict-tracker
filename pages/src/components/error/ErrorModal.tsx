@@ -17,6 +17,7 @@ export type ErrorModalProps = {
 export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
   const [isOpened, { close }] = useDisclosure(true)
 
+  const handleReload = window.location.reload
   const content = useMemo(() => {
     if (!error) {
       return
@@ -38,12 +39,7 @@ export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
         <>
           <Text>{message}</Text>
           <Group justify="center" mt="md">
-            <Button
-              leftSection={<IconReload />}
-              onClick={() => {
-                window.location.reload()
-              }}
-            >
+            <Button leftSection={<IconReload />} onClick={handleReload}>
               ページを再読み込み
             </Button>
           </Group>
@@ -63,16 +59,12 @@ export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
           cancelLabel="報告しない"
           eventId={captureException(error)}
           submitLabel="報告"
-          onCancel={() => {
-            window.location.reload()
-          }}
-          onSubmit={() => {
-            window.location.reload()
-          }}
+          onCancel={handleReload}
+          onSubmit={handleReload}
         />
       </>
     )
-  }, [error])
+  }, [error, handleReload])
 
   if (!content) {
     return <></>
