@@ -9,10 +9,14 @@ import '@mantine/core/styles.css'
 export const metadata: Metadata = {
   title: 'annict-tracker',
   description: 'annict-tracker は、Annict での視聴記録を便利にする Web アプリケーションです。',
+  metadataBase: new URL('https://annict-tracker.vercel.app'),
   openGraph: {
     title: 'annict-tracker',
     description: 'annict-tracker は、Annict での視聴記録を便利にする Web アプリケーションです。',
-    url: 'https://annict-tracker.pages.dev',
+    url: 'https://annict-tracker.vercel.app',
+  },
+  alternates: {
+    canonical: 'https://annict-tracker.pages.dev',
   },
 }
 
