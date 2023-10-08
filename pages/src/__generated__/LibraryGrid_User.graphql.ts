@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<db89f045ad6c39db6ec3a066a6260154>>
+ * @generated SignedSource<<36cfa168057bde2b762439bcc8f8d51f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -95,6 +95,14 @@ return {
       "alias": "libraryEntries",
       "args": [
         {
+          "kind": "Literal",
+          "name": "orderBy",
+          "value": {
+            "direction": "ASC",
+            "field": "LAST_TRACKED_AT"
+          }
+        },
+        {
           "kind": "Variable",
           "name": "states",
           "variableName": "states"
@@ -182,6 +190,6 @@ return {
 };
 })();
 
-(node as any).hash = "58f87ae70f482278ae8d2449552241d8";
+(node as any).hash = "dae8d128f6f3dcd5ab2f5a00e0292f7b";
 
 export default node;

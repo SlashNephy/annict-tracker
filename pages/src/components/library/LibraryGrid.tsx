@@ -29,8 +29,13 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
         after: { type: "String" }
       )
       @refetchable(queryName: "LibraryGrid_PaginationQuery") {
-        libraryEntries(states: $states, first: $first, before: $before, after: $after)
-          @connection(key: "LibraryGrid_libraryEntries") {
+        libraryEntries(
+          states: $states
+          first: $first
+          before: $before
+          after: $after
+          orderBy: { field: LAST_TRACKED_AT, direction: ASC }
+        ) @connection(key: "LibraryGrid_libraryEntries") {
           edges {
             node {
               id
