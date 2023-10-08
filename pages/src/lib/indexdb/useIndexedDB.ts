@@ -15,6 +15,13 @@ export function useIndexedDB(): IDBPDatabase<DatabaseSchema> | undefined {
     openDB<DatabaseSchema>(databaseName, databaseVersion, {
       upgrade(database) {
         database.createObjectStore('work-image-cache')
+
+        // かつて SWR でキャッシュしていたストアを削除する
+        try {
+          database.deleteObjectStore('swr-cache')
+        } catch (e) {
+          // ignore
+        }
       },
     })
       .then((db) => {

@@ -8,6 +8,10 @@ export type DatabaseSchema = DBSchema & {
     key: number
     value: CacheState<{ url: string }>
   }
+  'swr-cache': {
+    key: string
+    value: CacheState<never>
+  }
 }
 
 export type CacheState<T extends Record<string, unknown>> = T & {
