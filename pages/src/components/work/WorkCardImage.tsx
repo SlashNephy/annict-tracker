@@ -1,8 +1,8 @@
-import { Box, Center, Image } from '@mantine/core'
-import { IconPhotoOff } from '@tabler/icons-react'
+import { Image } from '@mantine/core'
 import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
+import { WorkCardImagePlaceholder } from './WorkCardImagePlaceholder.tsx'
 import { useWorkImage } from '../../lib/annict/useWorkImage.ts'
 
 import type { WorkCardImage_LibraryEntry$key } from '../../__generated__/WorkCardImage_LibraryEntry.graphql.ts'
@@ -34,10 +34,6 @@ export function WorkCardImage({ entryRef }: WorkCardImageProps): React.JSX.Eleme
       title={imageUrl.copyright ? `©${imageUrl.copyright}` : undefined}
     />
   ) : (
-    <Center h={200}>
-      <Box>
-        <IconPhotoOff />
-      </Box>
-    </Center>
+    <WorkCardImagePlaceholder />
   )
 }
