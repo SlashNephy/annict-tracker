@@ -36,8 +36,8 @@ export function GeneralSettings(): React.JSX.Element {
         label="放送予定の通知を有効にする"
         description={
           <>
-            <Text>放送時間が近付いたとき (約5分前) に放送予定の通知が表示されます。</Text>
-            <Text>
+            <Text span>放送時間が近付いたとき (約5分前) に放送予定の通知が表示されます。</Text>
+            <Text span>
               この通知は、OS のネイティブの通知を利用するため、通知の利用許可が必要ですが、annict-tracker
               が非アクティブの状態でも通知を受け取ることができます。
             </Text>
