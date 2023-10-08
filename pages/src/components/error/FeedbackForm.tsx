@@ -43,7 +43,8 @@ export function FeedbackForm({
   const { characterName, redraw } = useRandomAniListCharacterName()
   useEffect(() => {
     form.setFieldValue('name', characterName ?? '')
-  }, [form, characterName])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- form を依存関係に追加すると無限ループしてしまう
+  }, [characterName])
 
   const handleSubmit = useCallback(
     (values: typeof form.values) => {
