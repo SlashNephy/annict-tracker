@@ -52,6 +52,7 @@
     "typescript": "5.2.2",
     "vite": "4.4.11",
     "vite-plugin-chunk-split": "0.4.7",
+    "vite-plugin-pwa": "0.16.5",
     "vite-plugin-relay": "2.0.0"
   },
   "packageManager": "yarn@3.6.3",
