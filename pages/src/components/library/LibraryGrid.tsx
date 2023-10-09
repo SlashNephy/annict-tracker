@@ -1,4 +1,6 @@
 import { Button, Center, Grid, Space } from '@mantine/core'
+import { useNetwork } from '@mantine/hooks'
+import { captureException } from '@sentry/react'
 import { minutesToMilliseconds } from 'date-fns'
 import React, { useCallback, useEffect } from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
@@ -51,13 +53,19 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
   const handleClickLoadMore = useCallback(() => {
     loadNext(100)
   }, [loadNext])
+
+  const network = useNetwork()
   const refetch = useCallback(() => {
-    if (!window.navigator.onLine) {
+    if (!network.online) {
       return
     }
 
-    _refetch({}, { fetchPolicy: 'store-and-network' })
-  }, [_refetch])
+    try {
+      _refetch({}, { fetchPolicy: 'store-and-network' })
+    } catch (e: unknown) {
+      captureException(e)
+    }
+  }, [_refetch, network.online])
 
   useEffect(() => {
     // 定期的に再取得
