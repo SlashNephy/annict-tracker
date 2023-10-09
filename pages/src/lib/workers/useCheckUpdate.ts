@@ -1,4 +1,5 @@
 import { showNotification } from '@mantine/notifications'
+import { minutesToMilliseconds } from 'date-fns'
 import { useAtomValue } from 'jotai'
 import { useEffect, useMemo } from 'react'
 
@@ -37,8 +38,11 @@ export const useCheckUpdate = (): void => {
       return
     }
 
+    let timeout: number | undefined
     if (isAutoUpdateEnabled) {
-      window.location.reload()
+      timeout = window.setTimeout(() => {
+        window.location.reload()
+      }, minutesToMilliseconds(3))
     }
 
     showNotification({
@@ -50,5 +54,11 @@ export const useCheckUpdate = (): void => {
         window.location.reload()
       },
     })
+
+    return () => {
+      if (timeout) {
+        window.clearTimeout(timeout)
+      }
+    }
   }, [isUpdateAvailable])
 }
