@@ -30,7 +30,7 @@ export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
         case HttpError:
           return 'Annict がエラーを返しました。しばらく待ってから再度お試しください。'
         case FetchError:
-          return 'データを取得に失敗しました。インターネット接続をご確認ください。'
+          return 'データの取得に失敗しました。インターネット接続をご確認ください。'
       }
     })
 
