@@ -2,7 +2,7 @@ import { Group, Modal, Text, Space, Button } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { captureException } from '@sentry/react'
 import { IconMessageReport, IconReload } from '@tabler/icons-react'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
 import { FeedbackForm } from './FeedbackForm.tsx'
 import { FetchError } from '../../lib/errors/FetchError.ts'
@@ -17,7 +17,9 @@ export type ErrorModalProps = {
 export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
   const [isOpened, { close }] = useDisclosure(true)
 
-  const handleReload = window.location.reload
+  const handleReload = useCallback(() => {
+    window.location.reload()
+  }, [])
   const content = useMemo(() => {
     if (!error) {
       return
