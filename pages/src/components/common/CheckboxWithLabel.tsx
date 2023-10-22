@@ -27,9 +27,13 @@ export function CheckboxWithLabel({
     <Stack>
       <Checkbox onChange={handleChange} {...props} />
       <Group>
-        <Text ml="lg" size="sm">
-          {description}
-        </Text>
+        {typeof description === 'string' ? (
+          <Text ml="lg" size="sm">
+            {description}
+          </Text>
+        ) : (
+          description
+        )}
       </Group>
     </Stack>
   )

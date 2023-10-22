@@ -1,4 +1,4 @@
-import { Group, Stack, Text } from '@mantine/core'
+import { Anchor, Code, Group, Stack, Text } from '@mantine/core'
 import { IconSettings } from '@tabler/icons-react'
 import { useAtom } from 'jotai'
 import React, { useCallback } from 'react'
@@ -36,10 +36,22 @@ export function GeneralSettings(): React.JSX.Element {
         label="放送予定の通知を有効にする"
         description={
           <>
-            <Text span>放送時間が近付いたとき (約5分前) に放送予定の通知が表示されます。</Text>
-            <Text span>
+            <Text ml="lg" size="sm">
+              放送時間が近付いたとき (約5分前) に放送予定の通知が表示されます。
+            </Text>
+            <Text ml="lg" size="sm">
               この通知は、OS のネイティブの通知を利用するため、通知の利用許可が必要ですが、annict-tracker
               が非アクティブの状態でも通知を受け取ることができます。
+            </Text>
+            <Text ml="lg" size="sm">
+              (annict-tracker のタブが開かれていて、かつ、<Code>annict-tracker.pages.dev</Code> に対して{' '}
+              <Anchor
+                href="https://support.google.com/chrome/answer/12929150?hl=ja#zippy=%2C特定のサイトを常にアクティブにする"
+                target="_blank"
+              >
+                メモリセーバーなどの除外設定
+              </Anchor>{' '}
+              を行う必要があります。)
             </Text>
           </>
         }
