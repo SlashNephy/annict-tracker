@@ -1,5 +1,4 @@
 import {
-  Center,
   ColorPicker,
   ColorSwatch,
   DEFAULT_THEME,
@@ -55,33 +54,31 @@ export function ThemeSettings(): React.JSX.Element {
         <Text>カスタムカラー</Text>
         <Text size="sm">UI の配色をお好きな色に変更できます。</Text>
         <Text size="sm">著しく可読性が低下するおそれがありますので、設定の際はご注意ください。</Text>
-        <Center>
-          <Stack>
-            <Group>
-              <TypedRadioGroup value={customColorFormat} onToggle={setCustomColorFormat}>
-                <Group>
-                  {customColorFormats.map((format) => (
-                    <Radio key={format} label={format.toUpperCase()} value={format} />
-                  ))}
-                </Group>
-              </TypedRadioGroup>
-            </Group>
-            <Group>
-              <ColorPicker
-                key={customColorFormat}
-                format={customColorFormat}
-                swatches={colorSwatches}
-                value={customColor}
-                onChange={setCustomColor}
-                onColorSwatchClick={handleClickColorSwatch}
-              />
+        <Stack>
+          <Group justify="center">
+            <TypedRadioGroup value={customColorFormat} onToggle={setCustomColorFormat}>
               <Group>
-                <ColorSwatch color={customColor} />
-                <Text>{customColor}</Text>
+                {customColorFormats.map((format) => (
+                  <Radio key={format} label={format.toUpperCase()} value={format} />
+                ))}
               </Group>
+            </TypedRadioGroup>
+          </Group>
+          <Group justify="center">
+            <ColorPicker
+              key={customColorFormat}
+              format={customColorFormat}
+              swatches={colorSwatches}
+              value={customColor}
+              onChange={setCustomColor}
+              onColorSwatchClick={handleClickColorSwatch}
+            />
+            <Group>
+              <ColorSwatch color={customColor} />
+              <Text>{customColor}</Text>
             </Group>
-          </Stack>
-        </Center>
+          </Group>
+        </Stack>
       </Stack>
     </Stack>
   )
