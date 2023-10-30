@@ -16,7 +16,7 @@
     "@mantine/form": "7.1.7",
     "@mantine/hooks": "7.1.7",
     "@mantine/notifications": "7.1.7",
-    "@sentry/react": "7.74.1",
+    "@sentry/react": "7.76.0",
     "@tabler/icons-react": "2.40.0",
     "chroma-js": "2.4.2",
     "date-fns": "2.30.0",
