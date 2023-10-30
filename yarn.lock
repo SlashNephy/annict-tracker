@@ -3525,14 +3525,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-relay@npm:15.0.0":
-  version: 15.0.0
-  resolution: "babel-plugin-relay@npm:15.0.0"
+"babel-plugin-relay@npm:16.0.0":
+  version: 16.0.0
+  resolution: "babel-plugin-relay@npm:16.0.0"
   dependencies:
     babel-plugin-macros: ^2.0.0
     cosmiconfig: ^5.0.5
     graphql: 15.3.0
-  checksum: e3e245c8902a38b54ac084b32f079db318ff257e03d026957ee1b34d3df4a0ca2e6b11eb5d2e4d4f32fe55deac930888bd51e8de8af02cc6bffff31218155f9a
+  checksum: 63ed6989ec8d513dcac298ecc6452c2d203102e2d4e90e99d858c73b89599eec536397b0f2dfb5ad8a4466a808374e543c1bccc0586bb4fe9af72dc26c359ac0
   languageName: node
   linkType: hard
 
@@ -7384,7 +7384,7 @@ __metadata:
     "@types/react-dom": 18.2.8
     "@types/react-relay": 14.1.7
     "@vitejs/plugin-react-swc": 3.4.0
-    babel-plugin-relay: 15.0.0
+    babel-plugin-relay: 16.0.0
     chroma-js: 2.4.2
     concurrently: 8.2.2
     date-fns: 2.30.0
