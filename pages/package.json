@@ -48,7 +48,7 @@
     "postcss": "8.4.31",
     "postcss-preset-mantine": "1.9.0",
     "postcss-simple-vars": "7.0.1",
-    "relay-compiler": "15.0.0",
+    "relay-compiler": "16.0.0",
     "typescript": "5.2.2",
     "vite": "4.5.0",
     "vite-plugin-chunk-split": "0.4.7",
