@@ -7088,7 +7088,7 @@ __metadata:
     typescript: 5.2.2
     vite: 4.5.0
     vite-plugin-chunk-split: 0.4.7
-    vite-plugin-pwa: 0.16.6
+    vite-plugin-pwa: 0.16.7
     vite-plugin-relay: 2.0.0
   languageName: unknown
   linkType: soft
@@ -8970,9 +8970,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-pwa@npm:0.16.6":
-  version: 0.16.6
-  resolution: "vite-plugin-pwa@npm:0.16.6"
+"vite-plugin-pwa@npm:0.16.7":
+  version: 0.16.7
+  resolution: "vite-plugin-pwa@npm:0.16.7"
   dependencies:
     debug: ^4.3.4
     fast-glob: ^3.3.1
@@ -8983,7 +8983,7 @@ __metadata:
     vite: ^3.1.0 || ^4.0.0 || ^5.0.0-0
     workbox-build: ^7.0.0
     workbox-window: ^7.0.0
-  checksum: cc62a56b0ed31b67c032bc121d30c3a6105fdd484bbe25ca95d0b28f620adbd991b26d4415c7f1e1e50aea5da8a04a9b5e52b064e30a38fb8535729fdf022484
+  checksum: 605d8fd115b54cc330e367d4101ab1f58cc12ba4819fc3c913a78c7077af92a13d733bf3a0bffe638f8fc793e2714ee22b68e329f7f0fb3e1d0de88e412d0c1f
   languageName: node
   linkType: hard
 
