@@ -3822,6 +3822,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cookie@npm:0.6.0":
+  version: 0.6.0
+  resolution: "cookie@npm:0.6.0"
+  checksum: f56a7d32a07db5458e79c726b77e3c2eff655c36792f2b6c58d351fb5f61531e5b1ab7f46987150136e366c65213cbe31729e02a3eaed630c3bf7334635fb410
+  languageName: node
+  linkType: hard
+
 "core-js-compat@npm:^3.31.0, core-js-compat@npm:^3.33.1":
   version: 3.33.2
   resolution: "core-js-compat@npm:3.33.2"
@@ -5404,7 +5411,7 @@ __metadata:
     "@cloudflare/workers-types": 4.20231025.0
     "@types/cookie": 0.5.4
     "@types/query-string": 6.3.0
-    cookie: 0.5.0
+    cookie: 0.6.0
     date-fns: 2.30.0
     fast-xml-parser: 4.3.2
     http-status-codes: 2.3.0
