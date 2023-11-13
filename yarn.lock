@@ -7103,7 +7103,7 @@ __metadata:
     immer: 10.0.3
     jotai: 2.5.1
     postcss: 8.4.31
-    postcss-preset-mantine: 1.9.1
+    postcss-preset-mantine: 1.11.0
     postcss-simple-vars: 7.0.1
     radash: 11.0.0
     react: 18.2.0
@@ -7257,15 +7257,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-preset-mantine@npm:1.9.1":
-  version: 1.9.1
-  resolution: "postcss-preset-mantine@npm:1.9.1"
+"postcss-preset-mantine@npm:1.11.0":
+  version: 1.11.0
+  resolution: "postcss-preset-mantine@npm:1.11.0"
   dependencies:
     postcss-mixins: ^9.0.4
     postcss-nested: ^6.0.1
   peerDependencies:
     postcss: ">=8.0.0"
-  checksum: 338aca70d6627574755fb7461ce61f32d6fd4866b6f838bfd5174b358fb1562dca91c4b20e898f03431bd82357288d6f60d08b3a19fda80a312e417a3808d137
+  checksum: 957a9f403e4dd1c1b348bae17f4997e3e8a92daf07eea8bc5fd0485e53eab55f500218b10c6a339d9019d888bc07cf4c2e11527c32f802e136d730e3317a7613
   languageName: node
   linkType: hard
 
@@ -8981,7 +8981,7 @@ __metadata:
     "@types/react-dom": 18.2.8
     next: 13.5.6
     postcss: 8.4.31
-    postcss-preset-mantine: 1.9.1
+    postcss-preset-mantine: 1.11.0
     postcss-simple-vars: 7.0.1
     react: 18.2.0
     react-dom: 18.2.0
