@@ -27,7 +27,7 @@
     "prettier": "3.0.3",
     "wrangler": "3.11.0"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "yarn@3.7.0",
   "eslintConfig": {
     "extends": "@slashnephy/eslint-config",
     "overrides": [

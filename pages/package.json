@@ -55,7 +55,7 @@
     "vite-plugin-pwa": "0.16.7",
     "vite-plugin-relay": "2.0.0"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "yarn@3.7.0",
   "engines": {
     "node": ">=20"
   },
