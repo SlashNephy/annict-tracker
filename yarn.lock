@@ -1922,7 +1922,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13, @jridgewell/sourcemap-codec@npm:^1.4.14":
+"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13, @jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.4.15":
   version: 1.4.15
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.15"
   checksum: b881c7e503db3fc7f3c1f35a1dd2655a188cc51a3612d76efc8a6eb74728bef5606e6758ee77423e564092b4a518aba569bbb21c9bac5ab7a35b0c6ae7e344c8
@@ -4283,7 +4283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-module-lexer@npm:^1.0.3":
+"es-module-lexer@npm:^1.4.1":
   version: 1.4.1
   resolution: "es-module-lexer@npm:1.4.1"
   checksum: a11b5a256d4e8e9c7d94c2fd87415ccd1591617b6edd847e064503f8eaece2d25e2e9078a02c5ce3ed5e83bb748f5b4820efbe78072c8beb07ac619c2edec35d
@@ -5861,6 +5861,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"import-meta-resolve@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "import-meta-resolve@npm:4.0.0"
+  checksum: 51c50115fd38e9ba21736f8d7543a58446b92d2cb5f38c9b5ec72426afeb2fb790f82051560a0f16323f44dd73d8d37c07eab5f8dc4635bcdb401daa36727b1a
+  languageName: node
+  linkType: hard
+
 "imurmurhash@npm:^0.1.4":
   version: 0.1.4
   resolution: "imurmurhash@npm:0.1.4"
@@ -6613,12 +6620,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.26.3":
-  version: 0.26.7
-  resolution: "magic-string@npm:0.26.7"
+"magic-string@npm:^0.30.5":
+  version: 0.30.5
+  resolution: "magic-string@npm:0.30.5"
   dependencies:
-    sourcemap-codec: ^1.4.8
-  checksum: 89b0d60cbb32bbf3d1e23c46ea93db082d18a8230b972027aecb10a40bba51be519ecce0674f995571e3affe917b76b09f59d8dbc9a1b2c9c4102a2b6e8a2b01
+    "@jridgewell/sourcemap-codec": ^1.4.15
+  checksum: da10fecff0c0a7d3faf756913ce62bd6d5e7b0402be48c3b27bfd651b90e29677e279069a63b764bcdc1b8ecdcdb898f29a5c5ec510f2323e8d62ee057a6eb18
   languageName: node
   linkType: hard
 
@@ -7235,7 +7242,7 @@ __metadata:
     ts-array-length: 0.1.2
     typescript: 5.2.2
     vite: 4.5.0
-    vite-plugin-chunk-split: 0.4.7
+    vite-plugin-chunk-split: 0.5.0
     vite-plugin-pwa: 0.16.7
     vite-plugin-relay: 2.0.0
   languageName: unknown
@@ -9106,15 +9113,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"vite-plugin-chunk-split@npm:0.4.7":
-  version: 0.4.7
-  resolution: "vite-plugin-chunk-split@npm:0.4.7"
+"vite-plugin-chunk-split@npm:0.5.0":
+  version: 0.5.0
+  resolution: "vite-plugin-chunk-split@npm:0.5.0"
   dependencies:
-    es-module-lexer: ^1.0.3
-    magic-string: ^0.26.3
+    es-module-lexer: ^1.4.1
+    import-meta-resolve: ^4.0.0
+    magic-string: ^0.30.5
   peerDependencies:
-    vite: ^3.1.0
-  checksum: 6e8a7775b20981ca57b98f854369d1b23215de6b78422454264b21bd7bff4a48c9cef55bb2f204693d1caee60cbe6e65ea52b5b26195c8a5a8c2f66b2c9c7687
+    vite: ^4 || ^5
+  checksum: c5822003970849db9f483ad53fa3b6dc45d11aae116edf0fbd50cddce0066df94c605bb9f77b9321d493befe5506fd2043df33e6ff9f1cea4eeb962d8d3ab3d7
   languageName: node
   linkType: hard
 
