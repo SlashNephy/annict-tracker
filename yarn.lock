@@ -2582,7 +2582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.3.95":
+"@swc/core@npm:^1.3.96":
   version: 1.3.96
   resolution: "@swc/core@npm:1.3.96"
   dependencies:
@@ -3089,14 +3089,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react-swc@npm:3.4.1":
-  version: 3.4.1
-  resolution: "@vitejs/plugin-react-swc@npm:3.4.1"
+"@vitejs/plugin-react-swc@npm:3.5.0":
+  version: 3.5.0
+  resolution: "@vitejs/plugin-react-swc@npm:3.5.0"
   dependencies:
-    "@swc/core": ^1.3.95
+    "@swc/core": ^1.3.96
   peerDependencies:
-    vite: ^4
-  checksum: c5f97b5443629efe21fa26312c8b54b02d9f099b374fbd287a639d9183d26635c6bc9d61ddb949d7fc191557c1598d6e863783089ed9c2a728615ce26cd2d6b8
+    vite: ^4 || ^5
+  checksum: 3ee2e194aa3f582db912c44ac6e2625bfba1cb1252c3d4b8b60d480d36702a3c0ca86e5848f829e43266f0b6eccdb3c66b60b34094fb61139e4dcabd9afc34b6
   languageName: node
   linkType: hard
 
@@ -7218,7 +7218,7 @@ __metadata:
     "@types/react": 18.2.23
     "@types/react-dom": 18.2.8
     "@types/react-relay": 14.1.7
-    "@vitejs/plugin-react-swc": 3.4.1
+    "@vitejs/plugin-react-swc": 3.5.0
     babel-plugin-relay: 16.0.0
     chroma-js: 2.4.2
     concurrently: 8.2.2
