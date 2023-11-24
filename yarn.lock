@@ -2735,22 +2735,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons-react@npm:2.41.0":
-  version: 2.41.0
-  resolution: "@tabler/icons-react@npm:2.41.0"
+"@tabler/icons-react@npm:2.42.0":
+  version: 2.42.0
+  resolution: "@tabler/icons-react@npm:2.42.0"
   dependencies:
-    "@tabler/icons": 2.41.0
+    "@tabler/icons": 2.42.0
     prop-types: ^15.7.2
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: a7b90b2213a24012d9f0c95e2d84a7501c574b22ac345564b175533c93cb412da2349976f219cf5ca4aad7fb1889c8a3581e68da68b7572d6ae9900a8d48696f
+  checksum: be4956ddfb9ba0165f815c57189444b4b6a03d7c527381dfcb017d9911f6ac4fd9166aa718d94593339e27e298646863e5f5e96e84e11cf69956413e072fc448
   languageName: node
   linkType: hard
 
-"@tabler/icons@npm:2.41.0":
-  version: 2.41.0
-  resolution: "@tabler/icons@npm:2.41.0"
-  checksum: 1d8a76654e1864e12966dd86320c5be81af66f7d904296b70982a984b8095f733c368a0146f975409256645b8ee9ff9a7c5fdcff418d279cb86bce4e1a1dd9db
+"@tabler/icons@npm:2.42.0":
+  version: 2.42.0
+  resolution: "@tabler/icons@npm:2.42.0"
+  checksum: 0330b5454f445cbf25f18ba3b2d6386c10b3e266feee14a6d5e3ed5a686987e3bb8c1d50eb2f181032c81a96b6c250d89e7247813934ce373adb10867e316578
   languageName: node
   linkType: hard
 
@@ -7304,7 +7304,7 @@ __metadata:
     "@sentry/vite-plugin": 2.10.1
     "@swc-jotai/debug-label": 0.1.0
     "@swc-jotai/react-refresh": 0.1.0
-    "@tabler/icons-react": 2.41.0
+    "@tabler/icons-react": 2.42.0
     "@types/node": 20.9.0
     "@types/react": 18.2.23
     "@types/react-dom": 18.2.8
@@ -9226,7 +9226,7 @@ __metadata:
   dependencies:
     "@mantine/core": 7.2.2
     "@mantine/hooks": 7.2.2
-    "@tabler/icons-react": 2.41.0
+    "@tabler/icons-react": 2.42.0
     "@types/node": 20.9.0
     "@types/react": 18.2.23
     "@types/react-dom": 18.2.8
