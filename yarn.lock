@@ -2328,7 +2328,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-patch@npm:1.5.1, @rushstack/eslint-patch@npm:^1.3.3":
+"@rushstack/eslint-patch@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@rushstack/eslint-patch@npm:1.6.0"
+  checksum: 9fbc39e6070508139ac9ded5cc223780315a1e65ccb7612dd3dff07a0957fa9985a2b049bb5cae21d7eeed44ed315e2868b8755941500dc64ed9932c5760c80d
+  languageName: node
+  linkType: hard
+
+"@rushstack/eslint-patch@npm:^1.3.3":
   version: 1.5.1
   resolution: "@rushstack/eslint-patch@npm:1.5.1"
   checksum: e4c25322312dbaa29e835a7ab4fbac53c8731dd0da65e46646e38945e296429e7fb91c2ef3da5af5d5938d44b0cde1d5290438ebb3dcb015e02b80b5e2530d24
@@ -2502,13 +2509,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:2.0.66":
-  version: 2.0.66
-  resolution: "@slashnephy/eslint-config@npm:2.0.66"
+"@slashnephy/eslint-config@npm:2.0.67":
+  version: 2.0.67
+  resolution: "@slashnephy/eslint-config@npm:2.0.67"
   dependencies:
     "@emotion/eslint-plugin": 11.11.0
     "@next/eslint-plugin-next": 13.5.6
-    "@rushstack/eslint-patch": 1.5.1
+    "@rushstack/eslint-patch": 1.6.0
     "@typescript-eslint/eslint-plugin": 6.12.0
     "@typescript-eslint/parser": 6.12.0
     eslint-config-airbnb: 19.0.4
@@ -2548,7 +2555,7 @@ __metadata:
     yaml-eslint-parser: 1.2.2
   peerDependencies:
     eslint: ^8
-  checksum: 72074eec6d685554847af1bd627eeb13378f314eafe82fa0d7a2515dc232bef11b775228b1209002854b930eed13abc8493d606e012f805a69ee04b3a5eb15ad
+  checksum: 14ecbe62b5b84b78bb331f6441cc57f987b88bc04d4cd01b3dba899ebcd85cadfb9bcd0d2f8256987bb99854fd53af4d72af3d029ddb7df45de69f967bb61caa
   languageName: node
   linkType: hard
 
@@ -3281,7 +3288,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "annict-tracker@workspace:."
   dependencies:
-    "@slashnephy/eslint-config": 2.0.66
+    "@slashnephy/eslint-config": 2.0.67
     "@slashnephy/prettier-config": 1.0.48
     concurrently: 8.2.2
     eslint: 8.54.0
