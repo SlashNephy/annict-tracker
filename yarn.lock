@@ -2778,10 +2778,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cookie@npm:0.5.4":
-  version: 0.5.4
-  resolution: "@types/cookie@npm:0.5.4"
-  checksum: bd9603ce5e9bcbe1c2c9fabe3d1b1da131f1db10a7fa0077b17eb06d59bf4a6192fbb890597e8e2295067a078aaf8299bc662bfe993e8c2d1ecd62f859317ece
+"@types/cookie@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@types/cookie@npm:0.6.0"
+  checksum: 5edce7995775b0b196b142883e4d4f71fd93c294eaec973670f1fa2540b70ea7390408ed513ddefef5fcb12a578100c76596e8f2a714b0c2ae9f70ee773f4510
   languageName: node
   linkType: hard
 
@@ -5488,7 +5488,7 @@ __metadata:
   dependencies:
     "@auth/core": 0.18.0
     "@cloudflare/workers-types": 4.20231121.0
-    "@types/cookie": 0.5.4
+    "@types/cookie": 0.6.0
     "@types/query-string": 6.3.0
     cookie: 0.6.0
     date-fns: 2.30.0
