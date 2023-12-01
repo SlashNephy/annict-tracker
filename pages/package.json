@@ -50,7 +50,7 @@
     "postcss-simple-vars": "7.0.1",
     "relay-compiler": "16.0.0",
     "typescript": "5.3.2",
-    "vite": "5.0.2",
+    "vite": "5.0.4",
     "vite-plugin-chunk-split": "0.5.0",
     "vite-plugin-pwa": "0.17.2",
     "vite-plugin-relay": "2.0.0"
