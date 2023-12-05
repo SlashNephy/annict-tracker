@@ -7317,7 +7317,7 @@ __metadata:
     idb: 7.1.1
     immer: 10.0.3
     jotai: 2.6.0
-    postcss: 8.4.31
+    postcss: 8.4.32
     postcss-preset-mantine: 1.11.0
     postcss-simple-vars: 7.0.1
     radash: 11.0.0
@@ -7523,7 +7523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.13, postcss@npm:^8.4.31":
+"postcss@npm:8.4.32, postcss@npm:^8.4.13, postcss@npm:^8.4.31":
   version: 8.4.32
   resolution: "postcss@npm:8.4.32"
   dependencies:
@@ -9242,7 +9242,7 @@ __metadata:
     "@types/react": 18.2.23
     "@types/react-dom": 18.2.8
     next: 13.5.6
-    postcss: 8.4.31
+    postcss: 8.4.32
     postcss-preset-mantine: 1.11.0
     postcss-simple-vars: 7.0.1
     react: 18.2.0
