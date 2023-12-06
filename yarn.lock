@@ -2815,21 +2815,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:20.10.3":
   version: 20.10.3
   resolution: "@types/node@npm:20.10.3"
   dependencies:
     undici-types: ~5.26.4
   checksum: 34a329494f0ea239af05eeb6f00f396963725b3eb9a2f79c5e6a6d37e823f2ab85e1079c2ee56723a37d8b89e7bbe2bd050c97144e5bb06dab93fd1cace65c97
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:20.10.0":
-  version: 20.10.0
-  resolution: "@types/node@npm:20.10.0"
-  dependencies:
-    undici-types: ~5.26.4
-  checksum: face395140d6f2f1755b91fdd3b697cf56aeb9e2514529ce88d56e56f261ad65be7269d863520a9406d73c338699ea68b418e8677584de0c1efeed09539b6f97
   languageName: node
   linkType: hard
 
@@ -7250,7 +7241,7 @@ __metadata:
     "@swc-jotai/debug-label": 0.1.0
     "@swc-jotai/react-refresh": 0.1.0
     "@tabler/icons-react": 2.42.0
-    "@types/node": 20.10.0
+    "@types/node": 20.10.3
     "@types/react": 18.2.23
     "@types/react-dom": 18.2.8
     "@types/react-relay": 14.1.7
@@ -9183,7 +9174,7 @@ __metadata:
     "@mantine/core": 7.2.2
     "@mantine/hooks": 7.2.2
     "@tabler/icons-react": 2.42.0
-    "@types/node": 20.10.0
+    "@types/node": 20.10.3
     "@types/react": 18.2.23
     "@types/react-dom": 18.2.8
     next: 13.5.6
