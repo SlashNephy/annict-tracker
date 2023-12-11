@@ -7357,7 +7357,7 @@ __metadata:
     swr: 2.2.4
     ts-array-length: 0.1.2
     typescript: 5.3.3
-    vite: 5.0.5
+    vite: 5.0.7
     vite-plugin-chunk-split: 0.5.0
     vite-plugin-pwa: 0.17.2
     vite-plugin-relay: 2.0.0
@@ -9318,9 +9318,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.0.5":
-  version: 5.0.5
-  resolution: "vite@npm:5.0.5"
+"vite@npm:5.0.7":
+  version: 5.0.7
+  resolution: "vite@npm:5.0.7"
   dependencies:
     esbuild: ^0.19.3
     fsevents: ~2.3.3
@@ -9354,7 +9354,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 8df70302934de39ad6fda4f28246e07850f849c2bd197b7af93615f5f39955be460dd19940a46ec5bf2adf81bc32b60985eb5990142212754c733eba4fe3bfa3
+  checksum: 18dcf69ccdb6d79d28c678dec4054ac92fd352fd8b2a1a1eb9512a7791d7036bc625bc1ee7c255edc940ad63ebbde8cc4407954e82c71dcbb70b1afeb345c267
   languageName: node
   linkType: hard
 
