@@ -5584,7 +5584,7 @@ __metadata:
     fast-xml-parser: 4.3.2
     http-status-codes: 2.3.0
     query-string: 8.1.0
-    typescript: 5.3.2
+    typescript: 5.3.3
     zod: 3.22.4
   languageName: unknown
   linkType: soft
@@ -7356,7 +7356,7 @@ __metadata:
     relay-runtime: 15.0.0
     swr: 2.2.4
     ts-array-length: 0.1.2
-    typescript: 5.3.2
+    typescript: 5.3.3
     vite: 5.0.5
     vite-plugin-chunk-split: 0.5.0
     vite-plugin-pwa: 0.17.2
@@ -9012,16 +9012,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.3.2":
-  version: 5.3.2
-  resolution: "typescript@npm:5.3.2"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: d92534dda639eb825db013203404c1fabca8ac630564283c9e7dc9e64fd9c9346c2de95ecebdf3e6e8c1c32941bca1cfe0da37877611feb9daf8feeaea58d230
-  languageName: node
-  linkType: hard
-
 "typescript@npm:5.3.3":
   version: 5.3.3
   resolution: "typescript@npm:5.3.3"
@@ -9029,16 +9019,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 2007ccb6e51bbbf6fde0a78099efe04dc1c3dfbdff04ca3b6a8bc717991862b39fd6126c0c3ebf2d2d98ac5e960bcaa873826bb2bb241f14277034148f41f6a2
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@5.3.2#~builtin<compat/typescript>":
-  version: 5.3.2
-  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=f3b441"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: c034461079fbfde3cb584ddee52afccb15b6e32a0ce186d0b2719968786f7ca73e1b07f71fac4163088790b16811c6ccf79680de190664ef66ff0ba9c1fe4a23
   languageName: node
   linkType: hard
 
@@ -9292,7 +9272,7 @@ __metadata:
     postcss-simple-vars: 7.0.1
     react: 18.2.0
     react-dom: 18.2.0
-    typescript: 5.3.2
+    typescript: 5.3.3
   languageName: unknown
   linkType: soft
 
