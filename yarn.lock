@@ -2536,9 +2536,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:2.0.79":
-  version: 2.0.79
-  resolution: "@slashnephy/eslint-config@npm:2.0.79"
+"@slashnephy/eslint-config@npm:2.0.80":
+  version: 2.0.80
+  resolution: "@slashnephy/eslint-config@npm:2.0.80"
   dependencies:
     "@emotion/eslint-plugin": 11.11.0
     "@next/eslint-plugin-next": 13.5.6
@@ -2582,7 +2582,7 @@ __metadata:
     yaml-eslint-parser: 1.2.2
   peerDependencies:
     eslint: ^8
-  checksum: c80c9bd2eb883d4460e471105f9c3a2044435c4be9cafd1b66874e2886686539d594a1eccfe73dbb37a06af6771ca4f4bf01c5e1451276c603dcb7606e60e7d4
+  checksum: e0cad2ba864093e601a49dd7b01e3b2110ab4cd446746ceeb32be247ed97b50db92d170938d2d27ffde612937aff21bb227d91f42cd52cca653781e5a0580a60
   languageName: node
   linkType: hard
 
@@ -3305,7 +3305,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "annict-tracker@workspace:."
   dependencies:
-    "@slashnephy/eslint-config": 2.0.79
+    "@slashnephy/eslint-config": 2.0.80
     "@slashnephy/prettier-config": 1.0.59
     concurrently: 8.2.2
     eslint: 8.55.0
