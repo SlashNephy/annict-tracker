@@ -2556,9 +2556,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:2.0.84":
-  version: 2.0.84
-  resolution: "@slashnephy/eslint-config@npm:2.0.84"
+"@slashnephy/eslint-config@npm:2.0.85":
+  version: 2.0.85
+  resolution: "@slashnephy/eslint-config@npm:2.0.85"
   dependencies:
     "@emotion/eslint-plugin": 11.11.0
     "@next/eslint-plugin-next": 13.5.6
@@ -2595,14 +2595,14 @@ __metadata:
     eslint-plugin-tsdoc: 0.2.17
     eslint-plugin-unused-imports: 3.0.0
     eslint-plugin-userscripts: 0.4.0
-    eslint-plugin-vitest: 0.3.10
+    eslint-plugin-vitest: 0.3.17
     eslint-plugin-xss: 0.1.12
-    eslint-plugin-yml: 1.10.0
+    eslint-plugin-yml: 1.11.0
     typescript: 5.3.3
     yaml-eslint-parser: 1.2.2
   peerDependencies:
     eslint: ^8
-  checksum: 60e7b5037d57560fff446ad4b9580f0dd604d3b512541ee4ddb9b2578300690addf6800b5016b6edba6a8b112fc0c81242b2f6e51d6531fbaeefc62646e2e1ea
+  checksum: 9f386c04515c02f49f3d06570a84fb6018333181d325e9d6d06ba4ecd2cdb834ee5dbb57aba09845f11157316e8279c98ba185cd2225422635f2a1b123da0e40
   languageName: node
   linkType: hard
 
@@ -3075,7 +3075,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:6.14.0, @typescript-eslint/utils@npm:^6.0.0, @typescript-eslint/utils@npm:^6.11.0":
+"@typescript-eslint/utils@npm:6.14.0, @typescript-eslint/utils@npm:^6.0.0, @typescript-eslint/utils@npm:^6.13.2":
   version: 6.14.0
   resolution: "@typescript-eslint/utils@npm:6.14.0"
   dependencies:
@@ -3236,7 +3236,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "annict-tracker@workspace:."
   dependencies:
-    "@slashnephy/eslint-config": 2.0.84
+    "@slashnephy/eslint-config": 2.0.85
     "@slashnephy/prettier-config": 1.0.63
     concurrently: 8.2.2
     eslint: 8.55.0
@@ -4544,7 +4544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-compat-utils@npm:^0.1.0, eslint-compat-utils@npm:^0.1.2":
+"eslint-compat-utils@npm:^0.1.1, eslint-compat-utils@npm:^0.1.2":
   version: 0.1.2
   resolution: "eslint-compat-utils@npm:0.1.2"
   peerDependencies:
@@ -5036,11 +5036,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vitest@npm:0.3.10":
-  version: 0.3.10
-  resolution: "eslint-plugin-vitest@npm:0.3.10"
+"eslint-plugin-vitest@npm:0.3.17":
+  version: 0.3.17
+  resolution: "eslint-plugin-vitest@npm:0.3.17"
   dependencies:
-    "@typescript-eslint/utils": ^6.11.0
+    "@typescript-eslint/utils": ^6.13.2
   peerDependencies:
     eslint: ">=8.0.0"
     vitest: "*"
@@ -5049,7 +5049,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: c9ac9e669a74225c00d1af7e63634c5518d98d2e8e0a06d0f85aac462f5402389a872e84c2c581693b32a3ec7946a1b9ffd65174c598d854a85ccb3f8b7b2c02
+  checksum: f5093aee41348468b6a979baa22cf54eee1d62e62985b3fc4d1920476c9df2268ffa5c1c8abf62dc3bb54da094709c2b06e266a7a9f6a0d8072b6649dbdf418a
   languageName: node
   linkType: hard
 
@@ -5062,18 +5062,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-yml@npm:1.10.0":
-  version: 1.10.0
-  resolution: "eslint-plugin-yml@npm:1.10.0"
+"eslint-plugin-yml@npm:1.11.0":
+  version: 1.11.0
+  resolution: "eslint-plugin-yml@npm:1.11.0"
   dependencies:
     debug: ^4.3.2
-    eslint-compat-utils: ^0.1.0
+    eslint-compat-utils: ^0.1.1
     lodash: ^4.17.21
     natural-compare: ^1.4.0
     yaml-eslint-parser: ^1.2.1
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: bd913df237a9ee65388389b4ba65c68dbb169d041237d8e8ca1e2f415f0202e0a85aabafdc59d2688bb11ae319d1972df7e292cf0c637b1ebe88ae518497ffff
+  checksum: 6c72d55febd6ef6893e4eb11ef0a477f75c9a5925e9d46a6db97b59a83ea1cb26fbd638fb9d37432fecb727eb36a7eecb51e6cbb4952002eec343dbb69c28e04
   languageName: node
   linkType: hard
 
