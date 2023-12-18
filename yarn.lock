@@ -2593,9 +2593,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:2.0.86":
-  version: 2.0.86
-  resolution: "@slashnephy/eslint-config@npm:2.0.86"
+"@slashnephy/eslint-config@npm:2.0.87":
+  version: 2.0.87
+  resolution: "@slashnephy/eslint-config@npm:2.0.87"
   dependencies:
     "@emotion/eslint-plugin": 11.11.0
     "@next/eslint-plugin-next": 13.5.6
@@ -2614,7 +2614,7 @@ __metadata:
     eslint-plugin-deprecation: 2.0.0
     eslint-plugin-editorconfig: 4.0.3
     eslint-plugin-eslint-comments: 3.2.0
-    eslint-plugin-import: 2.29.0
+    eslint-plugin-import: 2.29.1
     eslint-plugin-jest: 27.6.0
     eslint-plugin-jest-formatting: 3.1.0
     eslint-plugin-json: 3.1.0
@@ -2639,7 +2639,7 @@ __metadata:
     yaml-eslint-parser: 1.2.2
   peerDependencies:
     eslint: ^8
-  checksum: ecdefb3547b543b83a8edb2f0eba12e427de2d301ab37802b3fa8a130877e5a36a1ec9ef21b6766652082449f56dd5b7dd0fb6dfaf4478791c0dfba7883b127b
+  checksum: 4e1422f5c2037a763eeaa0777aeff0fff32adf62df9a2f2baaea001da03e4431cad43371571c766941a4a20680800a88af0471b57b8aa9957f36523f8129c6cf
   languageName: node
   linkType: hard
 
@@ -3273,7 +3273,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "annict-tracker@workspace:."
   dependencies:
-    "@slashnephy/eslint-config": 2.0.86
+    "@slashnephy/eslint-config": 2.0.87
     "@slashnephy/prettier-config": 1.0.65
     concurrently: 8.2.2
     eslint: 8.55.0
@@ -4805,7 +4805,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:2.29.0, eslint-plugin-import@npm:^2.28.1":
+"eslint-plugin-import@npm:2.29.1":
+  version: 2.29.1
+  resolution: "eslint-plugin-import@npm:2.29.1"
+  dependencies:
+    array-includes: ^3.1.7
+    array.prototype.findlastindex: ^1.2.3
+    array.prototype.flat: ^1.3.2
+    array.prototype.flatmap: ^1.3.2
+    debug: ^3.2.7
+    doctrine: ^2.1.0
+    eslint-import-resolver-node: ^0.3.9
+    eslint-module-utils: ^2.8.0
+    hasown: ^2.0.0
+    is-core-module: ^2.13.1
+    is-glob: ^4.0.3
+    minimatch: ^3.1.2
+    object.fromentries: ^2.0.7
+    object.groupby: ^1.0.1
+    object.values: ^1.1.7
+    semver: ^6.3.1
+    tsconfig-paths: ^3.15.0
+  peerDependencies:
+    eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
+  checksum: e65159aef808136d26d029b71c8c6e4cb5c628e65e5de77f1eb4c13a379315ae55c9c3afa847f43f4ff9df7e54515c77ffc6489c6a6f81f7dd7359267577468c
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-import@npm:^2.28.1":
   version: 2.29.0
   resolution: "eslint-plugin-import@npm:2.29.0"
   dependencies:
@@ -8878,6 +8905,18 @@ __metadata:
     minimist: ^1.2.6
     strip-bom: ^3.0.0
   checksum: a6162eaa1aed680537f93621b82399c7856afd10ec299867b13a0675e981acac4e0ec00896860480efc59fc10fd0b16fdc928c0b885865b52be62cadac692447
+  languageName: node
+  linkType: hard
+
+"tsconfig-paths@npm:^3.15.0":
+  version: 3.15.0
+  resolution: "tsconfig-paths@npm:3.15.0"
+  dependencies:
+    "@types/json5": ^0.0.29
+    json5: ^1.0.2
+    minimist: ^1.2.6
+    strip-bom: ^3.0.0
+  checksum: 59f35407a390d9482b320451f52a411a256a130ff0e7543d18c6f20afab29ac19fbe55c360a93d6476213cc335a4d76ce90f67df54c4e9037f7d240920832201
   languageName: node
   linkType: hard
 
