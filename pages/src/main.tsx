@@ -1,6 +1,6 @@
 import { init, BrowserTracing } from '@sentry/react'
 import { Provider } from 'jotai'
-import React from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 
@@ -18,13 +18,12 @@ init({
 const root = document.getElementById('root')
 if (root !== null) {
   createRoot(root).render(
-    // @ts-expect-error 一時的に型が壊れているので対処
-    <React.StrictMode>
+    <StrictMode>
       <Provider>
         <App>
           <RouterProvider router={router} />
         </App>
       </Provider>
-    </React.StrictMode>
+    </StrictMode>
   )
 }

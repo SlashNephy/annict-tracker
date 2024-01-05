@@ -7,7 +7,7 @@ import type { VersionResponse } from './version.types.ts'
 import type { Env } from '../env.ts'
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
-  const jwt = await verifyJwt(context.request.headers, context.env)
+  const jwt = await verifyJwt(context.request, context.env)
   if (!jwt) {
     return Response.json(
       {
