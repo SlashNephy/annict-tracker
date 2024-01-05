@@ -2914,12 +2914,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.8":
-  version: 18.2.8
-  resolution: "@types/react-dom@npm:18.2.8"
+"@types/react-dom@npm:18.2.18":
+  version: 18.2.18
+  resolution: "@types/react-dom@npm:18.2.18"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 5ee45283a0d58071261288ef9e3d374dd442e851527a27a21b57012462d6ef53a72352285e7480e31b3bd10010be3a47e958209438a5bedb7c2fe274e5dabbad
+  checksum: 4ef7725b4cebd4a32e049097ddfdfd855a178e63ead97ab6d3084872e7d6c1acd71aa923488123cd1015f0e0b11489d2b44f674a1df8fe82d7827eabbec6dbf1
   languageName: node
   linkType: hard
 
@@ -2933,7 +2933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:18.2.46":
   version: 18.2.46
   resolution: "@types/react@npm:18.2.46"
   dependencies:
@@ -2941,17 +2941,6 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10fb28a5b8504106512ce3b154c45d1ac045c31633786773a29f003b3079b434060368bb56f95ef6c39510835ceec4fb8fdc271d6ca2b9cdd979379cf53f126b
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.2.23":
-  version: 18.2.23
-  resolution: "@types/react@npm:18.2.23"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: e915662870191ef5665fc93a2ad60a228c7a8f486a25d2a5c3619737ba24fb3791cce3f48d582087c6bf44143c903207b2fe0b006fb3a68b964d75e394fc4c6e
   languageName: node
   linkType: hard
 
@@ -7442,8 +7431,8 @@ __metadata:
     "@swc-jotai/react-refresh": "npm:0.1.0"
     "@tabler/icons-react": "npm:2.44.0"
     "@types/node": "npm:20.10.6"
-    "@types/react": "npm:18.2.23"
-    "@types/react-dom": "npm:18.2.8"
+    "@types/react": "npm:18.2.46"
+    "@types/react-dom": "npm:18.2.18"
     "@types/react-relay": "npm:14.1.7"
     "@vitejs/plugin-react-swc": "npm:3.5.0"
     babel-plugin-relay: "npm:16.1.0"
@@ -9408,8 +9397,8 @@ __metadata:
     "@mantine/hooks": "npm:7.3.2"
     "@tabler/icons-react": "npm:2.44.0"
     "@types/node": "npm:20.10.6"
-    "@types/react": "npm:18.2.23"
-    "@types/react-dom": "npm:18.2.8"
+    "@types/react": "npm:18.2.46"
+    "@types/react-dom": "npm:18.2.18"
     next: "npm:13.5.6"
     postcss: "npm:8.4.32"
     postcss-preset-mantine: "npm:1.12.2"
