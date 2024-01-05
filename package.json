@@ -2,12 +2,17 @@
   "name": "annict-tracker",
   "version": "0.0.0",
   "private": true,
-  "author": "SlashNephy",
   "repository": {
     "type": "git",
     "url": "https://github.com/SlashNephy/annict-tracker"
   },
   "license": "MIT",
+  "author": "SlashNephy",
+  "workspaces": [
+    "pages",
+    "functions",
+    "vercel"
+  ],
   "scripts": {
     "build": "yarn workspaces foreach -pi run build",
     "deploy": "yarn build && wrangler pages deploy pages/dist",
@@ -19,15 +24,6 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check ."
   },
-  "devDependencies": {
-    "@slashnephy/eslint-config": "2.0.100",
-    "@slashnephy/prettier-config": "1.0.73",
-    "concurrently": "8.2.2",
-    "eslint": "8.56.0",
-    "prettier": "3.1.1",
-    "wrangler": "3.11.0"
-  },
-  "packageManager": "yarn@3.6.3",
   "eslintConfig": {
     "extends": "@slashnephy/eslint-config",
     "overrides": [
@@ -63,9 +59,13 @@
       }
     ]
   },
-  "workspaces": [
-    "pages",
-    "functions",
-    "vercel"
-  ]
+  "devDependencies": {
+    "@slashnephy/eslint-config": "2.1.1",
+    "@slashnephy/prettier-config": "1.0.73",
+    "concurrently": "8.2.2",
+    "eslint": "8.56.0",
+    "prettier": "3.1.1",
+    "wrangler": "3.19.0"
+  },
+  "packageManager": "yarn@3.6.3"
 }
