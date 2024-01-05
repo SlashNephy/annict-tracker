@@ -19,7 +19,7 @@
     "@sentry/react": "7.92.0",
     "@tabler/icons-react": "2.45.0",
     "chroma-js": "2.4.2",
-    "date-fns": "2.30.0",
+    "date-fns": "3.0.6",
     "idb": "8.0.0",
     "immer": "10.0.3",
     "jotai": "2.6.1",
