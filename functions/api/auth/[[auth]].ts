@@ -40,12 +40,16 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     callbacks: {
       jwt({ token, account }) {
         if (account) {
+          // TODO: アンビエント宣言で型定義をちゃんとする
+          // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
           ;(token as AnnictJwt).accessToken = account.access_token
         }
 
         return token
       },
       session({ session, token }) {
+        // TODO: アンビエント宣言で型定義をちゃんとする
+        // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
         ;(session as AnnictSession).accessToken = (token as AnnictJwt).accessToken
 
         return session

@@ -10,5 +10,6 @@ export const annictChannelIds = {
 }
 
 export function isStreamingService(channelId: number): boolean {
+  // eslint-disable-next-line @susisu/safe-typescript/no-unsafe-object-enum-method -- 既知のオブジェクトを enumerate するので問題ない
   return Object.values(annictChannelIds).includes(channelId)
 }

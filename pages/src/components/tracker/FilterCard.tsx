@@ -39,24 +39,32 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
         return
       }
 
+      // TODO: リテラル型に purify する
+      // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setWatchStatusFilters(value as WatchStatus[])
     },
     [setWatchStatusFilters]
   )
   const handleChangeTimeFilters = useCallback(
     (value: string[]) => {
+      // TODO: リテラル型に purify する
+      // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setTimeFilters(value as RelativeTimeGroup[])
     },
     [setTimeFilters]
   )
   const handleChangeSeasonFilters = useCallback(
     (value: string[]) => {
+      // TODO: リテラル型に purify する
+      // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setSeasonFilters(value as SeasonName[])
     },
     [setSeasonFilters]
   )
   const handleChangeDayFilters = useCallback(
     (value: string[]) => {
+      // TODO: リテラル型に purify する
+      // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setDayFilters(value as DayOfWeek[])
     },
     [setDayFilters]

@@ -17,6 +17,8 @@ export function TypedSwitchGroup<T>({
   const handleChange = useCallback(
     (value: string[]) => {
       onChange?.(value)
+      // TODO: リテラル型に purify する
+      // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       onToggle?.(value as T[])
     },
     [onChange, onToggle]

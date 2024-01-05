@@ -44,6 +44,7 @@ export function WorkCard({ entryRef }: WorkCardProps): React.JSX.Element {
         <NextProgramInfo entryRef={entry} />
         <Button.Group>
           <CreateRecordButton entryRef={entry} />
+          {/* eslint-disable-next-line @susisu/safe-typescript/no-unsafe-object-enum-method -- 既知のオブジェクトを enumerate するので問題ない */}
           {Object.keys(configs).length > 0 && <FileSearchButton configs={configs} entryRef={entry} />}
         </Button.Group>
       </Stack>

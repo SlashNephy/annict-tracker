@@ -293,6 +293,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
 
   const integrations = useMemo<SearchIntegration<SearchIntegrationKey>[]>(
     () =>
+      // eslint-disable-next-line @susisu/safe-typescript/no-unsafe-object-enum-method -- 既知のオブジェクトを enumerate するので問題ない
       Object.values(configs).map((config) => ({
         ...actions[config.key],
         config,

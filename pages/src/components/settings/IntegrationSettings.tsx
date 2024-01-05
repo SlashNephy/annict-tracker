@@ -98,6 +98,7 @@ export function IntegrationSettings(): React.JSX.Element {
             </Group>
             <Group mb="md" ml="md">
               <Chip.Group multiple value={syobocalChannels} onChange={setSyobocalChannels}>
+                {/* eslint-disable-next-line @susisu/safe-typescript/no-unsafe-object-enum-method -- 既知のオブジェクトを enumerate するので問題ない */}
                 {Object.entries(group(availableChannels, (c) => c.type)).map(([type, channels]) => {
                   const typeName = type === 'GR' ? '地上波 / CATV' : type === 'SKY' ? 'スカパー!プレミアム' : type
                   const channelIds = channels
