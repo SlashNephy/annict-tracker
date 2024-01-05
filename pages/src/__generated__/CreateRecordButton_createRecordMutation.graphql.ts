@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3073cdb82fe85f55d5ac2d37d9f46096>>
+ * @generated SignedSource<<3042b06f6ebac0ed15a98d2c5a79ec99>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,8 +14,8 @@ export type CreateRecordButton_createRecordMutation$variables = {
 };
 export type CreateRecordButton_createRecordMutation$data = {
   readonly createRecord: {
-    readonly clientMutationId: string | null;
-  } | null;
+    readonly clientMutationId: string | null | undefined;
+  } | null | undefined;
 };
 export type CreateRecordButton_createRecordMutation = {
   response: CreateRecordButton_createRecordMutation$data;

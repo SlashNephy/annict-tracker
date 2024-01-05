@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<154a0a35f8f841509389a213f3e41256>>
+ * @generated SignedSource<<39e09067c9dbe4c35425fdd591799514>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,10 +14,10 @@ export type useWorkImage_LibraryEntry$data = {
   readonly work: {
     readonly annictId: number;
     readonly image: {
-      readonly copyright: string | null;
-      readonly recommendedImageUrl: string | null;
-    } | null;
-    readonly malAnimeId: string | null;
+      readonly copyright: string | null | undefined;
+      readonly recommendedImageUrl: string | null | undefined;
+    } | null | undefined;
+    readonly malAnimeId: string | null | undefined;
   };
   readonly " $fragmentType": "useWorkImage_LibraryEntry";
 };

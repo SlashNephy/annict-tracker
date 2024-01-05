@@ -4,8 +4,6 @@ import type { AnnictJwt, AnnictSession } from './[[auth]].types.ts'
 import type { Env } from '../../env.ts'
 import type { OAuthConfig } from '@auth/core/providers'
 
-// @ts-expect-error 一時的に無視。
-// Auth 関数は config に raw が含まれないとき、Promise<Response> を返すはずだが、Promise<ResponseInternal> が返るような型定義になってしまっている
 export const onRequest: PagesFunction<Env> = async (context) => {
   return await Auth(context.request, {
     providers: [
@@ -49,15 +47,10 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
         return token
       },
-      session({ session, ...params }) {
-        // eslint-disable-next-line @susisu/safe-typescript/no-unsafe-object-property-check -- session.strategy = 'jwt' のとき、params.token は必ず存在する
-        if (!('token' in params)) {
-          return session
-        }
-
+      session({ session, token }) {
         // TODO: アンビエント宣言で型定義をちゃんとする
         // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
-        ;(session as AnnictSession).accessToken = (params.token as AnnictJwt).accessToken
+        ;(session as AnnictSession).accessToken = (token as AnnictJwt).accessToken
 
         return session
       },

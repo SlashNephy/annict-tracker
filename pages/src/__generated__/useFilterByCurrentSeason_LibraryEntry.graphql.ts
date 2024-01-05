@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a095b2f11c59a08c45e5a62b8d419d20>>
+ * @generated SignedSource<<e15182a23a6f70687c70cd39b13aba0c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,8 +13,8 @@ export type SeasonName = "AUTUMN" | "SPRING" | "SUMMER" | "WINTER";
 import { FragmentRefs } from "relay-runtime";
 export type useFilterByCurrentSeason_LibraryEntry$data = {
   readonly work: {
-    readonly seasonName: SeasonName | null;
-    readonly seasonYear: number | null;
+    readonly seasonName: SeasonName | null | undefined;
+    readonly seasonYear: number | null | undefined;
   };
   readonly " $fragmentType": "useFilterByCurrentSeason_LibraryEntry";
 };

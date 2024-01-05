@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ac56d7bdb917d05679d9eec565ae1ef5>>
+ * @generated SignedSource<<1552370f960de0f6ef88971fe104b361>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -18,7 +18,7 @@ export type useNextProgram_LibraryEntry$data = {
     };
     readonly rebroadcast: boolean;
     readonly startedAt: string;
-  } | null;
+  } | null | undefined;
   readonly " $fragmentSpreads": FragmentRefs<"useSyobocalPrograms_LibraryEntry">;
   readonly " $fragmentType": "useNextProgram_LibraryEntry";
 };

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a33372457e45a1e03c96e2db7f7a5e63>>
+ * @generated SignedSource<<e34a0047522fafa41914299a57613be2>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,10 +12,10 @@ import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type useNextEpisodeTitle_LibraryEntry$data = {
   readonly nextEpisode: {
-    readonly number: number | null;
-    readonly numberText: string | null;
-    readonly title: string | null;
-  } | null;
+    readonly number: number | null | undefined;
+    readonly numberText: string | null | undefined;
+    readonly title: string | null | undefined;
+  } | null | undefined;
   readonly " $fragmentType": "useNextEpisodeTitle_LibraryEntry";
 };
 export type useNextEpisodeTitle_LibraryEntry$key = {

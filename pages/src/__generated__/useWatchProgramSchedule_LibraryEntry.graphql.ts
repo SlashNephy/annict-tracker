@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e0f541b881cf10032501e6ac4ba9e291>>
+ * @generated SignedSource<<d9e49f7215ab2af678e4cc066d468351>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,8 +14,8 @@ export type useWatchProgramSchedule_LibraryEntry$data = {
   readonly id: string;
   readonly work: {
     readonly image: {
-      readonly recommendedImageUrl: string | null;
-    } | null;
+      readonly recommendedImageUrl: string | null | undefined;
+    } | null | undefined;
     readonly title: string;
   };
   readonly " $fragmentSpreads": FragmentRefs<"useNextEpisodeTitle_LibraryEntry" | "useNextProgram_LibraryEntry">;

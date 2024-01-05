@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<72f30c4adf0379f4558669d2205087fb>>
+ * @generated SignedSource<<22417eeeb30858741e3fdcf5a1903fdc>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,16 +12,16 @@ import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type StatusState = "NO_STATE" | "ON_HOLD" | "STOP_WATCHING" | "WANNA_WATCH" | "WATCHED" | "WATCHING";
 export type LibraryGrid_PaginationQuery$variables = {
-  after?: string | null;
-  before?: string | null;
-  first?: number | null;
+  after?: string | null | undefined;
+  before?: string | null | undefined;
+  first?: number | null | undefined;
   id: string;
   states: ReadonlyArray<StatusState>;
 };
 export type LibraryGrid_PaginationQuery$data = {
   readonly node: {
     readonly " $fragmentSpreads": FragmentRefs<"LibraryGrid_User">;
-  } | null;
+  } | null | undefined;
 };
 export type LibraryGrid_PaginationQuery = {
   response: LibraryGrid_PaginationQuery$data;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9e50548e96608a52f780644baadbb44f>>
+ * @generated SignedSource<<4c001d4cc08dcfcbfddd15044a148b60>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,8 +13,8 @@ export type SeasonName = "AUTUMN" | "SPRING" | "SUMMER" | "WINTER";
 import { FragmentRefs } from "relay-runtime";
 export type useSortNumber_LibraryEntry$data = {
   readonly work: {
-    readonly seasonName: SeasonName | null;
-    readonly seasonYear: number | null;
+    readonly seasonName: SeasonName | null | undefined;
+    readonly seasonYear: number | null | undefined;
   };
   readonly " $fragmentSpreads": FragmentRefs<"useNextProgram_LibraryEntry">;
   readonly " $fragmentType": "useSortNumber_LibraryEntry";

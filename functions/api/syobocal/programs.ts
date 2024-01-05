@@ -28,7 +28,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     )
   }
 
-  const jwt = await verifyJwt(context.request, context.env)
+  const jwt = await verifyJwt(context.request.headers, context.env)
   if (!jwt) {
     return Response.json(
       {

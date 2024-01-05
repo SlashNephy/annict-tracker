@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<744ce5d0faab96c53b329899300d299c>>
+ * @generated SignedSource<<771d694ffa81c4a37cd658fa93381ea8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,11 +12,11 @@ import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type useSyobocalPrograms_LibraryEntry$data = {
   readonly nextEpisode: {
-    readonly number: number | null;
-  } | null;
+    readonly number: number | null | undefined;
+  } | null | undefined;
   readonly work: {
     readonly annictId: number;
-    readonly syobocalTid: number | null;
+    readonly syobocalTid: number | null | undefined;
   };
   readonly " $fragmentType": "useSyobocalPrograms_LibraryEntry";
 };

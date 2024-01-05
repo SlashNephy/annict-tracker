@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0acd0f24852902d2daed235d9e5d2b46>>
+ * @generated SignedSource<<50bc762771cbe2f16013c98716d9f610>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,10 +14,10 @@ import { FragmentRefs } from "relay-runtime";
 export type useShouldDisableButton_LibraryEntry$data = {
   readonly nextEpisode: {
     readonly __typename: "Episode";
-  } | null;
+  } | null | undefined;
   readonly work: {
-    readonly seasonName: SeasonName | null;
-    readonly seasonYear: number | null;
+    readonly seasonName: SeasonName | null | undefined;
+    readonly seasonYear: number | null | undefined;
   };
   readonly " $fragmentSpreads": FragmentRefs<"useNextProgram_LibraryEntry">;
   readonly " $fragmentType": "useShouldDisableButton_LibraryEntry";

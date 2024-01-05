@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<43f9eb0db053c88f70fd46297ffc27ff>>
+ * @generated SignedSource<<f2f0fa480e9428e8f7f608de6358d6ea>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,8 +14,8 @@ export type CreateRecordButton_LibraryEntry$data = {
   readonly id: string;
   readonly nextEpisode: {
     readonly id: string;
-    readonly title: string | null;
-  } | null;
+    readonly title: string | null | undefined;
+  } | null | undefined;
   readonly work: {
     readonly title: string;
   };

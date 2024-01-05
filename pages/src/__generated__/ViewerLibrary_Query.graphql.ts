@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<66d8a7fb4e35df05c85381b41d4561f5>>
+ * @generated SignedSource<<9dc36b17b0a73cd67bd8804854a7a6d0>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,7 +17,7 @@ export type ViewerLibrary_Query$variables = {
 export type ViewerLibrary_Query$data = {
   readonly viewer: {
     readonly " $fragmentSpreads": FragmentRefs<"LibraryGrid_User">;
-  } | null;
+  } | null | undefined;
 };
 export type ViewerLibrary_Query = {
   response: ViewerLibrary_Query$data;

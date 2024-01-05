@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<36cfa168057bde2b762439bcc8f8d51f>>
+ * @generated SignedSource<<35218b854fa2c76b7c9b8c9c2f4b8940>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,9 +17,9 @@ export type LibraryGrid_User$data = {
       readonly node: {
         readonly id: string;
         readonly " $fragmentSpreads": FragmentRefs<"LibraryGridItem_LibraryEntry">;
-      } | null;
-    } | null> | null;
-  } | null;
+      } | null | undefined;
+    } | null | undefined> | null | undefined;
+  } | null | undefined;
   readonly " $fragmentType": "LibraryGrid_User";
 };
 export type LibraryGrid_User$key = {
@@ -86,7 +86,10 @@ return {
         "node"
       ],
       "operation": LibraryGrid_PaginationQuery_graphql,
-      "identifierField": "id"
+      "identifierInfo": {
+        "identifierField": "id",
+        "identifierQueryVariableName": "id"
+      }
     }
   },
   "name": "LibraryGrid_User",
