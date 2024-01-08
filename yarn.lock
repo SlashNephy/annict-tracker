@@ -4181,10 +4181,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:3.0.6":
-  version: 3.0.6
-  resolution: "date-fns@npm:3.0.6"
-  checksum: 4eb4c1f15257026593bd62ea366347be3940a83133fc84aa32e03bc9a19d6f8a919ef0475211200b16de7980e1d797c993713ed092a6f5c941474bce516f7d96
+"date-fns@npm:3.1.0":
+  version: 3.1.0
+  resolution: "date-fns@npm:3.1.0"
+  checksum: d542977c57fbb2166a569e235af5e8dde884f9a15fd6778df41a81237dae2a49891b041c8e4b12dae5270f5f00e508907fe7eee07ad24291edad0d75de352006
   languageName: node
   linkType: hard
 
@@ -5700,7 +5700,7 @@ __metadata:
     "@types/cookie": "npm:0.6.0"
     "@types/query-string": "npm:6.3.0"
     cookie: "npm:0.6.0"
-    date-fns: "npm:3.0.6"
+    date-fns: "npm:3.1.0"
     fast-xml-parser: "npm:4.3.2"
     http-status-codes: "npm:2.3.0"
     query-string: "npm:8.1.0"
@@ -7498,7 +7498,7 @@ __metadata:
     babel-plugin-relay: "npm:16.1.0"
     chroma-js: "npm:2.4.2"
     concurrently: "npm:8.2.2"
-    date-fns: "npm:3.0.6"
+    date-fns: "npm:3.1.0"
     idb: "npm:8.0.0"
     immer: "npm:10.0.3"
     jotai: "npm:2.6.1"
