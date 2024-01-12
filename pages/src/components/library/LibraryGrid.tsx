@@ -85,7 +85,7 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
       <Grid gutter="xl">
         {data.libraryEntries?.edges
           ?.map((edge) => edge?.node)
-          ?.filter((node): node is NonNullable<typeof node> => node !== null)
+          .filter((node): node is NonNullable<typeof node> => node !== null)
           .map((node) => <LibraryGridItem key={node.id} entryRef={node} />)}
       </Grid>
 
