@@ -3406,13 +3406,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-relay@npm:16.0.5":
-  version: 16.0.5
-  resolution: "@types/react-relay@npm:16.0.5"
+"@types/react-relay@npm:16.0.6":
+  version: 16.0.6
+  resolution: "@types/react-relay@npm:16.0.6"
   dependencies:
     "@types/react": "npm:*"
     "@types/relay-runtime": "npm:*"
-  checksum: 43cbb10ad968ebeb55ccc40cec23ea4d42ecd162360bce1ab183cd6eb3c5c140af01ff390c6edf1129e696cd58f3770821fc208526b5a9c8081748a1ac3b9469
+  checksum: a8f370e4a4fe8728eb80939b16ae0c8e056b6e9019b3b1e75fe2c60797bb27db76cc4b84a5e3f6b7036449ed3925110ddc7d0d8ebcd838d56e15b4133e4a38b2
   languageName: node
   linkType: hard
 
@@ -8128,7 +8128,7 @@ __metadata:
     "@types/node": "npm:20.11.0"
     "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.18"
-    "@types/react-relay": "npm:16.0.5"
+    "@types/react-relay": "npm:16.0.6"
     "@vitejs/plugin-react-swc": "npm:3.5.0"
     babel-plugin-relay: "npm:16.1.0"
     chroma-js: "npm:2.4.2"
