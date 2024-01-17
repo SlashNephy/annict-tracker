@@ -16,6 +16,6 @@
     "allowImportingTsExtensions": true,
     "useUnknownInCatchVariables": true,
     "noUncheckedIndexedAccess": true,
-    "strictNullChecks": true
-  }
+    "strictNullChecks": true,
+  },
 }
