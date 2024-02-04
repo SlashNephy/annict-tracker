@@ -8276,7 +8276,7 @@ __metadata:
     immer: "npm:10.0.3"
     jotai: "npm:2.6.4"
     postcss: "npm:8.4.33"
-    postcss-preset-mantine: "npm:1.12.3"
+    postcss-preset-mantine: "npm:1.13.0"
     postcss-simple-vars: "npm:7.0.1"
     radash: "npm:11.0.0"
     react: "npm:18.2.0"
@@ -8430,15 +8430,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-preset-mantine@npm:1.12.3":
-  version: 1.12.3
-  resolution: "postcss-preset-mantine@npm:1.12.3"
+"postcss-preset-mantine@npm:1.13.0":
+  version: 1.13.0
+  resolution: "postcss-preset-mantine@npm:1.13.0"
   dependencies:
     postcss-mixins: "npm:^9.0.4"
     postcss-nested: "npm:^6.0.1"
   peerDependencies:
     postcss: ">=8.0.0"
-  checksum: 0dd18d7bb6e48a03a7f60d6613172e0cc845752c524f186bac52c275cbac6c619d84ba9a326bdf2d8032ed613d07c9bddd115a84c35069ca7f9f001abea457e7
+  checksum: d1d84c77b9f1fc292d5ab47b54a05631a002dd0bb6e5ef29bbd604b0bec36fc3b8ca5c735d1a3d1b081f31c3343d5498262ffe643a318577e8d1fac8b4f32934
   languageName: node
   linkType: hard
 
@@ -10303,7 +10303,7 @@ __metadata:
     "@types/react-dom": "npm:18.2.18"
     next: "npm:14.1.0"
     postcss: "npm:8.4.33"
-    postcss-preset-mantine: "npm:1.12.3"
+    postcss-preset-mantine: "npm:1.13.0"
     postcss-simple-vars: "npm:7.0.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
