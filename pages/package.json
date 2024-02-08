@@ -45,7 +45,7 @@
     "@vitejs/plugin-react-swc": "3.5.0",
     "babel-plugin-relay": "16.2.0",
     "concurrently": "8.2.2",
-    "postcss": "8.4.33",
+    "postcss": "8.4.35",
     "postcss-preset-mantine": "1.13.0",
     "postcss-simple-vars": "7.0.1",
     "relay-compiler": "16.2.0",

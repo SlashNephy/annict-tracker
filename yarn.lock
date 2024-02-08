@@ -8323,7 +8323,7 @@ __metadata:
     idb: "npm:8.0.0"
     immer: "npm:10.0.3"
     jotai: "npm:2.6.4"
-    postcss: "npm:8.4.33"
+    postcss: "npm:8.4.35"
     postcss-preset-mantine: "npm:1.13.0"
     postcss-simple-vars: "npm:7.0.1"
     radash: "npm:11.0.0"
@@ -8529,7 +8529,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.33, postcss@npm:^8.4.13, postcss@npm:^8.4.32":
+"postcss@npm:8.4.35":
+  version: 8.4.35
+  resolution: "postcss@npm:8.4.35"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.0.0"
+    source-map-js: "npm:^1.0.2"
+  checksum: 93a7ce50cd6188f5f486a9ca98950ad27c19dfed996c45c414fa242944497e4d084a8760d3537f078630226f2bd3c6ab84b813b488740f4432e7c7039cd73a20
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.13, postcss@npm:^8.4.32":
   version: 8.4.33
   resolution: "postcss@npm:8.4.33"
   dependencies:
@@ -10361,7 +10372,7 @@ __metadata:
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
     next: "npm:14.1.0"
-    postcss: "npm:8.4.33"
+    postcss: "npm:8.4.35"
     postcss-preset-mantine: "npm:1.13.0"
     postcss-simple-vars: "npm:7.0.1"
     react: "npm:18.2.0"
