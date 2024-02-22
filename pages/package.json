@@ -35,7 +35,7 @@
     "ts-array-length": "0.1.2"
   },
   "devDependencies": {
-    "@sentry/vite-plugin": "2.14.1",
+    "@sentry/vite-plugin": "2.14.2",
     "@swc-jotai/debug-label": "0.1.0",
     "@swc-jotai/react-refresh": "0.1.0",
     "@types/node": "20.11.19",
