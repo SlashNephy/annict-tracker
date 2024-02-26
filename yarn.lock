@@ -3538,14 +3538,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.55":
-  version: 18.2.55
-  resolution: "@types/react@npm:18.2.55"
+"@types/react@npm:18.2.58":
+  version: 18.2.58
+  resolution: "@types/react@npm:18.2.58"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: bf8fe19e73575489e63c0726355f164157cd69e75f2a862436ad2c0586e732cb953a7255a6bc73145e8f9506ee7a723f9a569ca9a39c53984e5b12b84e1c718a
+  checksum: ec5e1a7d8acc55551efec7a3d63441d24c7e94b66bf8039944541a8408048668e51b7b4b0b6e8303cdea271b7c6da242cdc7bb8ca501eedf822956edbdbfc67e
   languageName: node
   linkType: hard
 
@@ -8272,7 +8272,7 @@ __metadata:
     "@swc-jotai/react-refresh": "npm:0.1.0"
     "@tabler/icons-react": "npm:2.47.0"
     "@types/node": "npm:20.11.20"
-    "@types/react": "npm:18.2.55"
+    "@types/react": "npm:18.2.58"
     "@types/react-dom": "npm:18.2.19"
     "@types/react-relay": "npm:16.0.6"
     "@vitejs/plugin-react-swc": "npm:3.5.0"
@@ -10329,7 +10329,7 @@ __metadata:
     "@mantine/hooks": "npm:7.5.3"
     "@tabler/icons-react": "npm:2.47.0"
     "@types/node": "npm:20.11.20"
-    "@types/react": "npm:18.2.55"
+    "@types/react": "npm:18.2.58"
     "@types/react-dom": "npm:18.2.19"
     next: "npm:14.1.0"
     postcss: "npm:8.4.35"
