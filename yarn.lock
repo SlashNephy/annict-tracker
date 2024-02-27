@@ -6161,14 +6161,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:4.3.4":
-  version: 4.3.4
-  resolution: "fast-xml-parser@npm:4.3.4"
+"fast-xml-parser@npm:4.3.5":
+  version: 4.3.5
+  resolution: "fast-xml-parser@npm:4.3.5"
   dependencies:
     strnum: "npm:^1.0.5"
   bin:
     fxparser: src/cli/cli.js
-  checksum: ef859101980cdd02b111fce09e25949a80e373654a6c424091355930f0d364abec144d8bb722d250a0c070416566518e621e198204a6b976db68f20c16d9300b
+  checksum: ccfd943e4ed400bf3acd4b6fcba9a15ec992a4a76c9a0cf825fc06f2b35a79a6d1de477b9a73c23633597c4f2a35838550ec3013a056f2591aa8cb3989d1f242
   languageName: node
   linkType: hard
 
@@ -6376,7 +6376,7 @@ __metadata:
     "@types/query-string": "npm:6.3.0"
     cookie: "npm:0.6.0"
     date-fns: "npm:3.3.1"
-    fast-xml-parser: "npm:4.3.4"
+    fast-xml-parser: "npm:4.3.5"
     http-status-codes: "npm:2.3.0"
     query-string: "npm:8.2.0"
     typescript: "npm:5.3.3"
