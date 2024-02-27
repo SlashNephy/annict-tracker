@@ -1532,10 +1532,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/workers-types@npm:4.20240208.0":
-  version: 4.20240208.0
-  resolution: "@cloudflare/workers-types@npm:4.20240208.0"
-  checksum: 02295c089ea21ebbde28f3a5c5c0e72ed71901356f135c229f98d73b9ffb0518110da4784abc214744e3e32eae7a3d59e8da61d7b4deab9329207b141facec71
+"@cloudflare/workers-types@npm:4.20240222.0":
+  version: 4.20240222.0
+  resolution: "@cloudflare/workers-types@npm:4.20240222.0"
+  checksum: 168057e407098aba8221f814a567c156839beca0af2cf9885b4d3fcd5dc184dd81608857afdf130e818bd40f18747073963f6210ac851197286fcc7d2f27c2c4
   languageName: node
   linkType: hard
 
@@ -6371,7 +6371,7 @@ __metadata:
   resolution: "functions@workspace:functions"
   dependencies:
     "@auth/core": "npm:0.18.0"
-    "@cloudflare/workers-types": "npm:4.20240208.0"
+    "@cloudflare/workers-types": "npm:4.20240222.0"
     "@types/cookie": "npm:0.6.0"
     "@types/query-string": "npm:6.3.0"
     cookie: "npm:0.6.0"
