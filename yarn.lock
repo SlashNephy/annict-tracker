@@ -8399,7 +8399,7 @@ __metadata:
     typescript: "npm:5.3.3"
     vite: "npm:5.1.6"
     vite-plugin-chunk-split: "npm:0.5.0"
-    vite-plugin-pwa: "npm:0.19.2"
+    vite-plugin-pwa: "npm:0.19.4"
     vite-plugin-relay: "npm:2.1.0"
   languageName: unknown
   linkType: soft
@@ -10453,9 +10453,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-pwa@npm:0.19.2":
-  version: 0.19.2
-  resolution: "vite-plugin-pwa@npm:0.19.2"
+"vite-plugin-pwa@npm:0.19.4":
+  version: 0.19.4
+  resolution: "vite-plugin-pwa@npm:0.19.4"
   dependencies:
     debug: "npm:^4.3.4"
     fast-glob: "npm:^3.3.2"
@@ -10470,7 +10470,7 @@ __metadata:
   peerDependenciesMeta:
     "@vite-pwa/assets-generator":
       optional: true
-  checksum: 9da2d752855774e67e9fc75c01240805c8cebf63e411cfcdfcc02c1d1dbde62e8b8f0dc6ac56290a4e76ca2558977ae048cd77ebfa3d831b928cba5ad064fdc0
+  checksum: 353c81ecfd0238158f7360c8cb2d7574fe0209421400afed76d9670677ed9a89275a9df3110e9a7a4cf776967cdcf5c3fd7d7b45ee9db00772420578e21a6009
   languageName: node
   linkType: hard
 
