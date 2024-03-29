@@ -17,8 +17,8 @@
   },
   "devDependencies": {
     "@types/node": "20.11.30",
-    "@types/react": "18.2.67",
-    "@types/react-dom": "18.2.22",
+    "@types/react": "18.2.73",
+    "@types/react-dom": "18.2.23",
     "postcss": "8.4.38",
     "postcss-preset-mantine": "1.13.0",
     "postcss-simple-vars": "7.0.1",

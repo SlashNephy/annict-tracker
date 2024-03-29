@@ -3582,12 +3582,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.22":
-  version: 18.2.22
-  resolution: "@types/react-dom@npm:18.2.22"
+"@types/react-dom@npm:18.2.23":
+  version: 18.2.23
+  resolution: "@types/react-dom@npm:18.2.23"
   dependencies:
     "@types/react": "npm:*"
-  checksum: 310da22244c1bb65a7f213f8727bda821dd211cfb2dd62d1f9b28dd50ef1c196d59e908494bd5f25c13a3844343f3a6135f39fb830aca6f79646fa56c1b56c08
+  checksum: 8311c67767b0aafb5cd94176a90f801f0f5f6930731d57caaa04bb0d87fdef6bc6f723a116d9777d2082ec022682acaad7a62d04dc27e330e818cf34f2ef2703
   languageName: node
   linkType: hard
 
@@ -3612,14 +3612,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.67":
-  version: 18.2.67
-  resolution: "@types/react@npm:18.2.67"
+"@types/react@npm:18.2.73":
+  version: 18.2.73
+  resolution: "@types/react@npm:18.2.73"
   dependencies:
     "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: d7e248dbe8d9d3b05f0d8e128d615fc9c85aa2c5d15634271d20cb9b343dbeffb0875f31a44e7ac63b42afc25949bd4c3633b7ebee45ee4666591ca934a8dffb
+  checksum: 799e30e73464dff40e04f4eb7499ebc31f99b1711a69263b9af340af738e35c9cdf53084e3dacc3b21c031aaa0cba1b51f4ba60490204b7abb75f115b841583f
   languageName: node
   linkType: hard
 
@@ -8378,8 +8377,8 @@ __metadata:
     "@swc-jotai/react-refresh": "npm:0.1.0"
     "@tabler/icons-react": "npm:2.47.0"
     "@types/node": "npm:20.11.30"
-    "@types/react": "npm:18.2.67"
-    "@types/react-dom": "npm:18.2.22"
+    "@types/react": "npm:18.2.73"
+    "@types/react-dom": "npm:18.2.23"
     "@types/react-relay": "npm:16.0.6"
     "@vitejs/plugin-react-swc": "npm:3.5.0"
     babel-plugin-relay: "npm:16.2.0"
@@ -10445,8 +10444,8 @@ __metadata:
     "@mantine/hooks": "npm:7.7.0"
     "@tabler/icons-react": "npm:2.47.0"
     "@types/node": "npm:20.11.30"
-    "@types/react": "npm:18.2.67"
-    "@types/react-dom": "npm:18.2.22"
+    "@types/react": "npm:18.2.73"
+    "@types/react-dom": "npm:18.2.23"
     next: "npm:14.1.4"
     postcss: "npm:8.4.38"
     postcss-preset-mantine: "npm:1.13.0"
