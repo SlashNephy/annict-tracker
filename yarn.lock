@@ -3550,12 +3550,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.12.2":
-  version: 20.12.2
-  resolution: "@types/node@npm:20.12.2"
+"@types/node@npm:20.12.5":
+  version: 20.12.5
+  resolution: "@types/node@npm:20.12.5"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: f1f0ebfe475aefa183763b856e0023b81b76554196e8676a45b9fcfd1012cdd20d32adefb3c0330001c0011e074676603c34c24821a4924228250ea13a75da43
+  checksum: 7b647ea6679016e4e58e1aa439c46b610230ffcbe19173911fbf1d1fa329ec6fd1eeba4e3e2d8743206d3b00d5a0cad75f1c90189e1d1ec057eb48df1a1dd747
   languageName: node
   linkType: hard
 
@@ -8376,7 +8376,7 @@ __metadata:
     "@swc-jotai/debug-label": "npm:0.1.0"
     "@swc-jotai/react-refresh": "npm:0.1.0"
     "@tabler/icons-react": "npm:2.47.0"
-    "@types/node": "npm:20.12.2"
+    "@types/node": "npm:20.12.5"
     "@types/react": "npm:18.2.74"
     "@types/react-dom": "npm:18.2.24"
     "@types/react-relay": "npm:16.0.6"
@@ -10443,7 +10443,7 @@ __metadata:
     "@mantine/core": "npm:7.7.1"
     "@mantine/hooks": "npm:7.7.1"
     "@tabler/icons-react": "npm:2.47.0"
-    "@types/node": "npm:20.12.2"
+    "@types/node": "npm:20.12.5"
     "@types/react": "npm:18.2.74"
     "@types/react-dom": "npm:18.2.24"
     next: "npm:14.1.4"
