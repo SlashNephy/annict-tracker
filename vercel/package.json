@@ -20,7 +20,7 @@
     "@types/react": "18.2.74",
     "@types/react-dom": "18.2.24",
     "postcss": "8.4.38",
-    "postcss-preset-mantine": "1.13.0",
+    "postcss-preset-mantine": "1.14.4",
     "postcss-simple-vars": "7.0.1",
     "typescript": "5.3.3"
   },
