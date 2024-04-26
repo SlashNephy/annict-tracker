@@ -6500,7 +6500,7 @@ __metadata:
     http-status-codes: "npm:2.3.0"
     query-string: "npm:8.2.0"
     typescript: "npm:5.3.3"
-    zod: "npm:3.22.5"
+    zod: "npm:3.23.4"
   languageName: unknown
   linkType: soft
 
@@ -11217,10 +11217,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.22.5":
-  version: 3.22.5
-  resolution: "zod@npm:3.22.5"
-  checksum: a60c1b55c4cc824a5d0432ee29d93b087b5d8a1bd2d0f4cd6e7ffe5b602da9cab2f2c27b1ae6c96d88d9f778cc933cead70e08b7944a98893576c61dca5e0c74
+"zod@npm:3.23.4":
+  version: 3.23.4
+  resolution: "zod@npm:3.23.4"
+  checksum: 29117ce59f16af155d9a3aab024d18e858e55b4b51c1f848772516ec6f019e617a0cdaf4c6e20f15154360a9f4c160056aba34502ec68072c8f0af31dfd653d6
   languageName: node
   linkType: hard
 
