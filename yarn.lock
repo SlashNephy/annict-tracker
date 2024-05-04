@@ -8592,7 +8592,7 @@ __metadata:
     swr: "npm:2.2.5"
     ts-array-length: "npm:0.1.2"
     typescript: "npm:5.3.3"
-    vite: "npm:5.2.10"
+    vite: "npm:5.2.11"
     vite-plugin-chunk-split: "npm:0.5.0"
     vite-plugin-pwa: "npm:0.20.0"
     vite-plugin-relay: "npm:2.1.0"
@@ -10684,9 +10684,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.2.10":
-  version: 5.2.10
-  resolution: "vite@npm:5.2.10"
+"vite@npm:5.2.11":
+  version: 5.2.11
+  resolution: "vite@npm:5.2.11"
   dependencies:
     esbuild: "npm:^0.20.1"
     fsevents: "npm:~2.3.3"
@@ -10720,7 +10720,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: a0c4ac7b95e9a2a59f4e73e5b42a63f33569f5ec505af9dd019f19ff419fd20d66ad9aad6708987d4da173d485358f0024f410af78ac97cf5c92a38f8c96c451
+  checksum: ee0ad038f0831c9514796522deb1e2dcb84bc311abbccb77e4b12216d37fc9559137f4f1b8e75187d51007b954e845c6518e36ee3acac2e2a2789c1181ebb16c
   languageName: node
   linkType: hard
 
