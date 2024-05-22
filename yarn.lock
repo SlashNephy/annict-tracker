@@ -4276,7 +4276,7 @@ __metadata:
     concurrently: "npm:8.2.2"
     eslint: "npm:8.57.0"
     prettier: "npm:3.1.1"
-    wrangler: "npm:3.57.0"
+    wrangler: "npm:3.57.1"
   languageName: unknown
   linkType: soft
 
@@ -11137,9 +11137,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:3.57.0":
-  version: 3.57.0
-  resolution: "wrangler@npm:3.57.0"
+"wrangler@npm:3.57.1":
+  version: 3.57.1
+  resolution: "wrangler@npm:3.57.1"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:0.3.2"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
@@ -11167,7 +11167,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: b1e9390b2e0689849c59ffba3c2cd643d2eb57aeb0a29bc97b4fced5a198aacd95876fca40e55d3e2fa481c6b6288cc9a6635c33f6f8400d60daa982f48057ce
+  checksum: 3e35d28056c7242f095056890a235a7eeff912340991c019726c74bf8247d3733f159a6d1ddfcdfffb2b5deb89dfd687797e9d27a6befbd2e08b448fed8ceca9
   languageName: node
   linkType: hard
 
