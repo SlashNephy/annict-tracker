@@ -3140,10 +3140,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/babel-plugin-component-annotate@npm:2.19.0":
-  version: 2.19.0
-  resolution: "@sentry/babel-plugin-component-annotate@npm:2.19.0"
-  checksum: e4fd5f45e5df81390ccb326464a4c6bca20c21b96c18d4f77b8772be30df1a211562c04d882b0144b52a63f85a2219a783d4c96a699b64934c6108ef073efbe0
+"@sentry/babel-plugin-component-annotate@npm:2.20.1":
+  version: 2.20.1
+  resolution: "@sentry/babel-plugin-component-annotate@npm:2.20.1"
+  checksum: 6c6fb8f6d4cabe9154b1c8b29cb1b8932d156ef98f118be6292750bacde506192a34698b4fab5a08bb4a900cde18e2f204acc77869c4a28fb664ca96a367bec1
   languageName: node
   linkType: hard
 
@@ -3162,19 +3162,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/bundler-plugin-core@npm:2.19.0":
-  version: 2.19.0
-  resolution: "@sentry/bundler-plugin-core@npm:2.19.0"
+"@sentry/bundler-plugin-core@npm:2.20.1":
+  version: 2.20.1
+  resolution: "@sentry/bundler-plugin-core@npm:2.20.1"
   dependencies:
     "@babel/core": "npm:^7.18.5"
-    "@sentry/babel-plugin-component-annotate": "npm:2.19.0"
+    "@sentry/babel-plugin-component-annotate": "npm:2.20.1"
     "@sentry/cli": "npm:^2.22.3"
     dotenv: "npm:^16.3.1"
     find-up: "npm:^5.0.0"
     glob: "npm:^9.3.2"
     magic-string: "npm:0.30.8"
     unplugin: "npm:1.0.1"
-  checksum: 8dbecd88f89fe3122222c16bbd92e30498bed2cb98dcd84370027ec3e29e177a2a734e8a2de91b1c8f28b99d478047c5ec9805ad1cbe9ed1840bc6923f8123db
+  checksum: c5331fe210f3c58597609ac9de5a4f9a55f9a830f39c69dcc948e64d6d6cbe4ad14526b93f2670927d84d3c91676de1994f953c7db1dd450cf9e46b3d562dcfd
   languageName: node
   linkType: hard
 
@@ -3317,13 +3317,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/vite-plugin@npm:2.19.0":
-  version: 2.19.0
-  resolution: "@sentry/vite-plugin@npm:2.19.0"
+"@sentry/vite-plugin@npm:2.20.1":
+  version: 2.20.1
+  resolution: "@sentry/vite-plugin@npm:2.20.1"
   dependencies:
-    "@sentry/bundler-plugin-core": "npm:2.19.0"
+    "@sentry/bundler-plugin-core": "npm:2.20.1"
     unplugin: "npm:1.0.1"
-  checksum: acb4ea36a90a36b003770e6377aee3ac9d12197f97c7732f52d5d3590e4e1ee85d57a426a2f36d1dac0938f40dedc52edf2e930f3da2b0370bc247a03b467cb3
+  checksum: 65dd730c5f5821305d14fa7d99d9de903cc32662a1fc866766c439f0cc30de07e9b8745900b1de24b9654536e253ab670a42a1ce4fb9ac40498b1a299dae3ac4
   languageName: node
   linkType: hard
 
@@ -8582,7 +8582,7 @@ __metadata:
     "@mantine/hooks": "npm:7.10.2"
     "@mantine/notifications": "npm:7.10.2"
     "@sentry/react": "npm:7.99.0"
-    "@sentry/vite-plugin": "npm:2.19.0"
+    "@sentry/vite-plugin": "npm:2.20.1"
     "@swc-jotai/debug-label": "npm:0.1.0"
     "@swc-jotai/react-refresh": "npm:0.1.0"
     "@tabler/icons-react": "npm:2.47.0"
