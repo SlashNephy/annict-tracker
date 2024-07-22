@@ -8601,7 +8601,7 @@ __metadata:
     postcss: "npm:8.4.38"
     postcss-preset-mantine: "npm:1.15.0"
     postcss-simple-vars: "npm:7.0.1"
-    radash: "npm:11.0.0"
+    radash: "npm:12.1.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-error-boundary: "npm:4.0.13"
@@ -9005,10 +9005,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"radash@npm:11.0.0":
-  version: 11.0.0
-  resolution: "radash@npm:11.0.0"
-  checksum: 95e9bf6ce882644770fab183810fdef89164782723dc0f7ebf8a9978d52ac48b1db03ffedbf4a3e64e994d9468e2dd9a8353daef74ab8b1cf07a96682516f00b
+"radash@npm:12.1.0":
+  version: 12.1.0
+  resolution: "radash@npm:12.1.0"
+  checksum: 4add14a04b5a82811f2d18d3d3b9244c1f08bfc0ee4cec8093040077ad5bc82884f63c29952a3b29f424ef1f2188475b2d5c6005d9620c9f200378e6cfdcb2f6
   languageName: node
   linkType: hard
 
