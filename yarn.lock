@@ -3506,10 +3506,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc-jotai/react-refresh@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@swc-jotai/react-refresh@npm:0.1.0"
-  checksum: 67d1021ccb10770299abd73bafc1926e178621a943755b72263fc2417547b5b026da8af5e87422ad249ae88198c2a5be007dd479ad0fe66f5e65bf2d7c16a475
+"@swc-jotai/react-refresh@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@swc-jotai/react-refresh@npm:0.2.0"
+  checksum: d274188773b8a3a865a6af9a6af276271fd2946851a394de363aeb4dd703a44cd9a0fdb2e077d0d7f05947c0d2a185c1aa0e31b9146a4257125c4b2bd11e893a
   languageName: node
   linkType: hard
 
@@ -8584,7 +8584,7 @@ __metadata:
     "@sentry/react": "npm:7.99.0"
     "@sentry/vite-plugin": "npm:2.20.1"
     "@swc-jotai/debug-label": "npm:0.1.1"
-    "@swc-jotai/react-refresh": "npm:0.1.0"
+    "@swc-jotai/react-refresh": "npm:0.2.0"
     "@tabler/icons-react": "npm:2.47.0"
     "@types/node": "npm:20.14.8"
     "@types/react": "npm:18.3.3"
