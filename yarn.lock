@@ -4970,10 +4970,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.6.0":
-  version: 0.6.0
-  resolution: "cookie@npm:0.6.0"
-  checksum: c1f8f2ea7d443b9331680598b0ae4e6af18a618c37606d1bbdc75bec8361cce09fe93e727059a673f2ba24467131a9fb5a4eec76bb1b149c1b3e1ccb268dc583
+"cookie@npm:1.0.0":
+  version: 1.0.0
+  resolution: "cookie@npm:1.0.0"
+  checksum: 0169c29f36c457afc226d8972c6a058c7f2590d0e1eaaa422e4583dfa9954654c62b4b20034a23d3adf9188af61255a61772b9d65a02777110d1dbf974e88acb
   languageName: node
   linkType: hard
 
@@ -6697,7 +6697,7 @@ __metadata:
     "@cloudflare/workers-types": "npm:4.20240620.0"
     "@types/cookie": "npm:0.6.0"
     "@types/query-string": "npm:6.3.0"
-    cookie: "npm:0.6.0"
+    cookie: "npm:1.0.0"
     date-fns: "npm:3.6.0"
     fast-xml-parser: "npm:4.4.0"
     http-status-codes: "npm:2.3.0"

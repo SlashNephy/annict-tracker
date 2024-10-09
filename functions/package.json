@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@auth/core": "0.18.0",
-    "cookie": "0.6.0",
+    "cookie": "1.0.0",
     "date-fns": "3.6.0",
     "fast-xml-parser": "4.4.0",
     "http-status-codes": "2.3.0",
