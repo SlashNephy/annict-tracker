@@ -4823,10 +4823,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chroma-js@npm:2.4.2":
-  version: 2.4.2
-  resolution: "chroma-js@npm:2.4.2"
-  checksum: 2fb16f4189de7818abf9e4d61ab3afc76d4013ebdef36982105c41df834dc5050b04afff1b9559914edab384b39cbe61b26cbdcd4142d39532b1b0f2a2f14f76
+"chroma-js@npm:3.1.2":
+  version: 3.1.2
+  resolution: "chroma-js@npm:3.1.2"
+  checksum: ea09b27d04b477a8fdc3314bfa6dc8de05feab47999ff1acdeba6cf3c32c76338baa5b4562d949d33d8adeca57754e5ea591c15b9985d65583c8771e7e07c2ef
   languageName: node
   linkType: hard
 
@@ -8592,7 +8592,7 @@ __metadata:
     "@types/react-relay": "npm:16.0.6"
     "@vitejs/plugin-react-swc": "npm:3.5.0"
     babel-plugin-relay: "npm:17.0.0"
-    chroma-js: "npm:2.4.2"
+    chroma-js: "npm:3.1.2"
     concurrently: "npm:8.2.2"
     date-fns: "npm:3.6.0"
     idb: "npm:8.0.0"
