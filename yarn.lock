@@ -44,22 +44,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth/core@npm:0.18.0":
-  version: 0.18.0
-  resolution: "@auth/core@npm:0.18.0"
+"@auth/core@npm:0.37.1":
+  version: 0.37.1
+  resolution: "@auth/core@npm:0.37.1"
   dependencies:
-    "@panva/hkdf": "npm:^1.0.4"
-    cookie: "npm:0.5.0"
-    jose: "npm:^4.11.1"
-    oauth4webapi: "npm:^2.0.6"
+    "@panva/hkdf": "npm:^1.2.1"
+    "@types/cookie": "npm:0.6.0"
+    cookie: "npm:0.7.1"
+    jose: "npm:^5.9.3"
+    oauth4webapi: "npm:^3.0.0"
     preact: "npm:10.11.3"
     preact-render-to-string: "npm:5.2.3"
   peerDependencies:
+    "@simplewebauthn/browser": ^9.0.1
+    "@simplewebauthn/server": ^9.0.2
     nodemailer: ^6.8.0
   peerDependenciesMeta:
+    "@simplewebauthn/browser":
+      optional: true
+    "@simplewebauthn/server":
+      optional: true
     nodemailer:
       optional: true
-  checksum: 1cc261cdbc9b11cf4dadf4ef55690a217c7df6a6994247b4ccdfc10494191c35cf4c4464b7aba6619bb472a306e9d1ef44e8dd71649233b1f378cf6c20397ade
+  checksum: ff99ede28c6c7221335f395ab6e639eefc09ef6d105f23de3ff3740e212da88bb68ab472b173ade0b9cc0b41f5a072bd3c7235c04181170cde5a98e01fc081b2
   languageName: node
   linkType: hard
 
@@ -2833,10 +2840,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@panva/hkdf@npm:^1.0.4":
-  version: 1.1.1
-  resolution: "@panva/hkdf@npm:1.1.1"
-  checksum: f0dd12903751d8792420353f809ed3c7de860cf506399759fff5f59f7acfef8a77e2b64012898cee7e5b047708fa0bd91dff5ef55a502bf8ea11aad9842160da
+"@panva/hkdf@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@panva/hkdf@npm:1.2.1"
+  checksum: a4a9d1812f88f02bc163b365524bbaa5239cc4711e5e7be1bda68dabae1c896cf1cd12520949b0925a6910733d1afcb25ab51fd3cf06f0f69aee988fffebf56e
   languageName: node
   linkType: hard
 
@@ -4963,17 +4970,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.5.0, cookie@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "cookie@npm:0.5.0"
-  checksum: aae7911ddc5f444a9025fbd979ad1b5d60191011339bce48e555cb83343d0f98b865ff5c4d71fecdfb8555a5cafdc65632f6fce172f32aaf6936830a883a0380
-  languageName: node
-  linkType: hard
-
 "cookie@npm:0.6.0":
   version: 0.6.0
   resolution: "cookie@npm:0.6.0"
   checksum: c1f8f2ea7d443b9331680598b0ae4e6af18a618c37606d1bbdc75bec8361cce09fe93e727059a673f2ba24467131a9fb5a4eec76bb1b149c1b3e1ccb268dc583
+  languageName: node
+  linkType: hard
+
+"cookie@npm:0.7.1":
+  version: 0.7.1
+  resolution: "cookie@npm:0.7.1"
+  checksum: aec6a6aa0781761bf55d60447d6be08861d381136a0fe94aa084fddd4f0300faa2b064df490c6798adfa1ebaef9e0af9b08a189c823e0811b8b313b3d9a03380
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "cookie@npm:0.5.0"
+  checksum: aae7911ddc5f444a9025fbd979ad1b5d60191011339bce48e555cb83343d0f98b865ff5c4d71fecdfb8555a5cafdc65632f6fce172f32aaf6936830a883a0380
   languageName: node
   linkType: hard
 
@@ -6693,7 +6707,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "functions@workspace:functions"
   dependencies:
-    "@auth/core": "npm:0.18.0"
+    "@auth/core": "npm:0.37.1"
     "@cloudflare/workers-types": "npm:4.20240620.0"
     "@types/cookie": "npm:0.6.0"
     "@types/query-string": "npm:6.3.0"
@@ -7625,10 +7639,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^4.11.1":
-  version: 4.15.4
-  resolution: "jose@npm:4.15.4"
-  checksum: 20fa941597150dffc7af3f41d994500cc3e71cd650b755243dbd80d91cf26c1053f95b78af588f05cfc4371e492a67c5c7a48f689b8605145a8fe28b484d725b
+"jose@npm:^5.9.3":
+  version: 5.9.4
+  resolution: "jose@npm:5.9.4"
+  checksum: f7e7738b5714d85052622dcdda0f3e904bdb322ad766064fd492ed1ff94e29456728193dcc75286df99c4a0c62e694d64d4712ec0ea0eb5019c0a3638ad694a2
   languageName: node
   linkType: hard
 
@@ -8406,10 +8420,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oauth4webapi@npm:^2.0.6":
-  version: 2.7.0
-  resolution: "oauth4webapi@npm:2.7.0"
-  checksum: 47cc610a95cbb9f22199f66bf8c43b6cfbd0bec5cfb7e46b7dcad9e7db424e34f0b2485b7c8ec51d08c0b4d16c419be054768997fc6342bf02c832ffafc99b77
+"oauth4webapi@npm:^3.0.0":
+  version: 3.1.1
+  resolution: "oauth4webapi@npm:3.1.1"
+  checksum: 3c62ed38bb5ea14761fc5f03031819417f8dce6743068ca308cd000316f23eb24decc2cfd8c49d9da5c253be500b46fe27460b1b8fe5fe14a96cb24b4cdfc77e
   languageName: node
   linkType: hard
 
