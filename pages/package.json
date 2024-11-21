@@ -30,7 +30,7 @@
     "react-relay": "16.2.0",
     "react-router-dom": "6.24.0",
     "react-use-promise": "0.5.0",
-    "relay-runtime": "16.2.0",
+    "relay-runtime": "18.2.0",
     "swr": "2.2.5",
     "ts-array-length": "0.1.2"
   },
