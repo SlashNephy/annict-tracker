@@ -29,7 +29,7 @@ export function FeedbackForm({
     },
     validate: {
       name: hasLength({ min: 0, max: 32 }, '32文字以内で入力してください。'),
-      email: (value) => {
+      email: async (value) => {
         if (!value) {
           return null
         }
