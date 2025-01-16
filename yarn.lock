@@ -8649,7 +8649,7 @@ __metadata:
     react-relay: "npm:16.2.0"
     react-router-dom: "npm:6.24.0"
     react-use-promise: "npm:0.5.0"
-    relay-compiler: "npm:17.0.0"
+    relay-compiler: "npm:18.2.0"
     relay-runtime: "npm:16.2.0"
     swr: "npm:2.2.5"
     ts-array-length: "npm:0.1.2"
@@ -9339,12 +9339,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:17.0.0":
-  version: 17.0.0
-  resolution: "relay-compiler@npm:17.0.0"
+"relay-compiler@npm:18.2.0":
+  version: 18.2.0
+  resolution: "relay-compiler@npm:18.2.0"
   bin:
     relay-compiler: cli.js
-  checksum: 1cb4531205f1a26a7b27bfec104cf685c12d92d46b322191ab086ec817fce4a3ae42e520630444a72840d8e5d1a1e00779fd6387c82c542fbf11cc0b884623f4
+  checksum: a03f7c04176681905d1b640b18f5da3d38fdc7c5f92900b3a83b07f7af5aada69e58fe970c70c1a4949516ffafec22a308957e541652411d193489e97b561331
   languageName: node
   linkType: hard
 
