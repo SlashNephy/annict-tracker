@@ -41,7 +41,7 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
 
   const createNotification = useCallback(() => {
     // ブラウザ通知が有効ではない
-    if (!enableBrowserNotification || Notification.permission !== 'granted') {
+    if (!enableBrowserNotification || !window.Notification || Notification.permission !== 'granted') {
       return
     }
 

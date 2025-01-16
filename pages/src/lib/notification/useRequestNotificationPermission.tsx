@@ -48,6 +48,14 @@ export function useRequestNotificationPermission(): () => void {
           color: 'red',
         })
       },
+      onUnavailable() {
+        showNotification({
+          title: 'ブラウザ通知が利用できません',
+          message: 'このブラウザでは通知を利用できません。',
+          icon: <IconAlertTriangle />,
+          color: 'red',
+        })
+      },
     })
   }, [requestPermission])
 }

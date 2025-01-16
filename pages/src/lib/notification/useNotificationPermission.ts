@@ -6,6 +6,7 @@ export type RequestPermissionOptions = {
   onAlreadyDenied?(): void
   onGranted?(): void
   onDenied?(): void
+  onUnavailable?(): void
 }
 
 export type UseNotificationPermissionReturn = {
@@ -16,10 +17,19 @@ export type UseNotificationPermissionReturn = {
 export function useNotificationPermission(): UseNotificationPermissionReturn {
   const [permission, setPermission] = useState<NotificationPermission>('default')
   useEffect(() => {
+    if (!window.Notification) {
+      return
+    }
+
     setPermission(Notification.permission)
   }, [])
 
   const requestPermission = useCallback((options?: RequestPermissionOptions) => {
+    if (!window.Notification) {
+      options?.onUnavailable?.()
+      return
+    }
+
     switch (Notification.permission) {
       case 'default':
         Notification.requestPermission()
