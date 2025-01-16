@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@sentry/vite-plugin": "2.20.1",
-    "@swc-jotai/debug-label": "0.1.1",
+    "@swc-jotai/debug-label": "0.1.0",
     "@swc-jotai/react-refresh": "0.1.0",
     "@types/node": "20.14.8",
     "@types/react": "18.3.3",
