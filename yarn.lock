@@ -6733,7 +6733,7 @@ __metadata:
     fast-xml-parser: "npm:4.4.0"
     http-status-codes: "npm:2.3.0"
     query-string: "npm:8.2.0"
-    typescript: "npm:5.3.3"
+    typescript: "npm:5.7.3"
     zod: "npm:3.23.8"
   languageName: unknown
   linkType: soft
@@ -8653,7 +8653,7 @@ __metadata:
     relay-runtime: "npm:16.2.0"
     swr: "npm:2.2.5"
     ts-array-length: "npm:0.1.2"
-    typescript: "npm:5.3.3"
+    typescript: "npm:5.7.3"
     vite: "npm:5.3.1"
     vite-plugin-chunk-split: "npm:0.5.0"
     vite-plugin-pwa: "npm:0.20.0"
@@ -10430,6 +10430,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:5.7.3":
+  version: 5.7.3
+  resolution: "typescript@npm:5.7.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 6a7e556de91db3d34dc51cd2600e8e91f4c312acd8e52792f243c7818dfadb27bae677175fad6947f9c81efb6c57eb6b2d0c736f196a6ee2f1f7d57b74fc92fa
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>":
   version: 5.3.3
   resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"
@@ -10437,6 +10447,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: c93786fcc9a70718ba1e3819bab56064ead5817004d1b8186f8ca66165f3a2d0100fee91fa64c840dcd45f994ca5d615d8e1f566d39a7470fc1e014dbb4cf15d
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>":
+  version: 5.7.3
+  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=e012d7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 3ac7b7e3e899273d2fbdce6e24b93d4d53a705ad7a7e4cc83b4c57bcb6d25948abcd2a21994f6b9c73ab03960f395aae95f0458de292a66ce0134233261714c3
   languageName: node
   linkType: hard
 
@@ -10724,7 +10744,7 @@ __metadata:
     postcss-simple-vars: "npm:7.0.1"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
-    typescript: "npm:5.3.3"
+    typescript: "npm:5.7.3"
   languageName: unknown
   linkType: soft
 
