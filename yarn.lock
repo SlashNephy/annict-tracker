@@ -3660,22 +3660,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tabler/icons-react@npm:2.47.0":
-  version: 2.47.0
-  resolution: "@tabler/icons-react@npm:2.47.0"
+"@tabler/icons-react@npm:3.29.0":
+  version: 3.29.0
+  resolution: "@tabler/icons-react@npm:3.29.0"
   dependencies:
-    "@tabler/icons": "npm:2.47.0"
-    prop-types: "npm:^15.7.2"
+    "@tabler/icons": "npm:3.29.0"
   peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: 8e3cb9ff71d443f31569176f8d10c55bfdc53d5a762c8133472b8729d8d135380161a7af2cba6ac22b1416030326cf363e33467f5e314933526d8efa34feb222
+    react: ">= 16"
+  checksum: 4c25ba0334812368d3925cd80dc699af1e746f13c80cbb47d0d1a6763b75c025287c6799964f765ba73328a2ff0254a8bebd251bf53b010c6050ca5eb09ad3a9
   languageName: node
   linkType: hard
 
-"@tabler/icons@npm:2.47.0":
-  version: 2.47.0
-  resolution: "@tabler/icons@npm:2.47.0"
-  checksum: 1bf27e9c1fecdd6a80f8ff94e89c49890ae85ca0baf91fe3b28f9325a54a509281a5859beb0197f1833ba58a2af71c9ebaf025ad37f0e562d305982812d1de13
+"@tabler/icons@npm:3.29.0":
+  version: 3.29.0
+  resolution: "@tabler/icons@npm:3.29.0"
+  checksum: 738b532aa7ea0d8ea6b50b3aad33d43edcbc801484f5c5bf23510176f28cb5193a414c1a8979c528531f4076ae5b620b0dcff6a404665b2563c42b7d418aaad0
   languageName: node
   linkType: hard
 
@@ -8626,7 +8625,7 @@ __metadata:
     "@sentry/vite-plugin": "npm:2.20.1"
     "@swc-jotai/debug-label": "npm:0.1.0"
     "@swc-jotai/react-refresh": "npm:0.1.0"
-    "@tabler/icons-react": "npm:2.47.0"
+    "@tabler/icons-react": "npm:3.29.0"
     "@types/node": "npm:20.14.8"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
@@ -10714,7 +10713,7 @@ __metadata:
   dependencies:
     "@mantine/core": "npm:7.10.2"
     "@mantine/hooks": "npm:7.10.2"
-    "@tabler/icons-react": "npm:2.47.0"
+    "@tabler/icons-react": "npm:3.29.0"
     "@types/node": "npm:20.14.8"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
