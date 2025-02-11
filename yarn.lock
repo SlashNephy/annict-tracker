@@ -7663,9 +7663,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jotai@npm:2.8.3":
-  version: 2.8.3
-  resolution: "jotai@npm:2.8.3"
+"jotai@npm:2.12.0":
+  version: 2.12.0
+  resolution: "jotai@npm:2.12.0"
   peerDependencies:
     "@types/react": ">=17.0.0"
     react: ">=17.0.0"
@@ -7674,7 +7674,7 @@ __metadata:
       optional: true
     react:
       optional: true
-  checksum: 9dd603d854849e9ef3dc4fb8ed6deae9034310f55cd8de9c54df53f3ac2a62b8f90c773f4bbc28da40ced08d8195805210e658c670f0c8973d78e7c898fb4179
+  checksum: 97cef4722b81c00bd00e909b23546bcdcd53359f7d2ea6938b26b1c92bc8dd6dc657f924eba17304c4f4c55b1eec4eb378ef047f3235bca2eecd1e9457f3f455
   languageName: node
   linkType: hard
 
@@ -8638,7 +8638,7 @@ __metadata:
     date-fns: "npm:3.6.0"
     idb: "npm:8.0.0"
     immer: "npm:10.1.1"
-    jotai: "npm:2.8.3"
+    jotai: "npm:2.12.0"
     postcss: "npm:8.4.38"
     postcss-preset-mantine: "npm:1.15.0"
     postcss-simple-vars: "npm:7.0.1"
