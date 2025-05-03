@@ -1527,6 +1527,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.25.0":
+  version: 7.27.1
+  resolution: "@babel/runtime@npm:7.27.1"
+  checksum: 34cefcbf781ea5a4f1b93f8563327b9ac82694bebdae91e8bd9d7f58d084cbe5b9a6e7f94d77076e15b0bcdaa0040a36cb30737584028df6c4673b4c67b2a31d
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/template@npm:7.22.15"
@@ -8650,7 +8657,7 @@ __metadata:
     react-router-dom: "npm:6.24.0"
     react-use-promise: "npm:0.5.0"
     relay-compiler: "npm:17.0.0"
-    relay-runtime: "npm:16.2.0"
+    relay-runtime: "npm:19.0.0"
     swr: "npm:2.2.5"
     ts-array-length: "npm:0.1.2"
     typescript: "npm:5.3.3"
@@ -9356,6 +9363,17 @@ __metadata:
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
   checksum: fbb68d3ef96d3d2d89695f6a10162391e633c304b429ff40b2a3fcb146981d75b0ba178c2c5a4ab149900e8b0a95be30659640b2740fdd836528294a3607de63
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:19.0.0":
+  version: 19.0.0
+  resolution: "relay-runtime@npm:19.0.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.0"
+    fbjs: "npm:^3.0.2"
+    invariant: "npm:^2.2.4"
+  checksum: f8b8b3496e2de8b38260c4543a1461ba7f9e17c5acb7732c218d86d5e9fba81bd109c26e39c880978b2e98e1f1cdf84c030db6e73c3e65f08786616cb34256ed
   languageName: node
   linkType: hard
 
