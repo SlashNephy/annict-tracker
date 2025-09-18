@@ -6732,7 +6732,7 @@ __metadata:
     date-fns: "npm:3.6.0"
     fast-xml-parser: "npm:4.4.0"
     http-status-codes: "npm:2.3.0"
-    query-string: "npm:8.2.0"
+    query-string: "npm:9.3.1"
     typescript: "npm:5.3.3"
     zod: "npm:3.23.8"
   languageName: unknown
@@ -9028,14 +9028,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"query-string@npm:8.2.0":
-  version: 8.2.0
-  resolution: "query-string@npm:8.2.0"
+"query-string@npm:9.3.1":
+  version: 9.3.1
+  resolution: "query-string@npm:9.3.1"
   dependencies:
     decode-uri-component: "npm:^0.4.1"
     filter-obj: "npm:^5.1.0"
     split-on-first: "npm:^3.0.0"
-  checksum: a9a6d4aafd3444d67d5766c658cb0d64ea5a87fec683538deb1f95446089d1660c75c9accbb030ba384ab6d329bdffbb367279e55cc880c56789678e0a55dd9b
+  checksum: c56a2242ba749b14413998f620fa52dafaf6fe4fbc4572e46c3d7f5ad1ef2811d4ed4d256f53ed8b9d5e073d2dd672c20cc05ae363b65c8745120e81a5d520a6
   languageName: node
   linkType: hard
 
