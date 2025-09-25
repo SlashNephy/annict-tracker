@@ -1527,6 +1527,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.25.0":
+  version: 7.28.4
+  resolution: "@babel/runtime@npm:7.28.4"
+  checksum: 6c9a70452322ea80b3c9b2a412bcf60771819213a67576c8cec41e88a95bb7bf01fc983754cda35dc19603eef52df22203ccbf7777b9d6316932f9fb77c25163
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/template@npm:7.22.15"
@@ -8646,7 +8653,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-error-boundary: "npm:4.0.13"
-    react-relay: "npm:16.2.0"
+    react-relay: "npm:20.1.1"
     react-router-dom: "npm:6.24.0"
     react-use-promise: "npm:0.5.0"
     relay-compiler: "npm:17.0.0"
@@ -9104,18 +9111,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:16.2.0":
-  version: 16.2.0
-  resolution: "react-relay@npm:16.2.0"
+"react-relay@npm:20.1.1":
+  version: 20.1.1
+  resolution: "react-relay@npm:20.1.1"
   dependencies:
-    "@babel/runtime": "npm:^7.0.0"
+    "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
     nullthrows: "npm:^1.1.1"
-    relay-runtime: "npm:16.2.0"
+    relay-runtime: "npm:20.1.1"
   peerDependencies:
-    react: ^16.9.0 || ^17 || ^18
-  checksum: c28321ea5c6ad3b18a60119c7ebf791673cd3b1b14c2c80f2b716d7b66e20da55fb18514f0d559a92fa7310fc3f35b6494f95175d6e9f338e27e9056e03def51
+    react: ^16.9.0 || ^17 || ^18 || ^19
+  checksum: d619ef8b31190dc3c2ecf8650d8bebc1de069212a3598074d87467ed1bac06fb24227906b0e3641ab7028e19a6d0d7205e6955b65b684b4b8195bafcd9d724b8
   languageName: node
   linkType: hard
 
@@ -9356,6 +9363,17 @@ __metadata:
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
   checksum: fbb68d3ef96d3d2d89695f6a10162391e633c304b429ff40b2a3fcb146981d75b0ba178c2c5a4ab149900e8b0a95be30659640b2740fdd836528294a3607de63
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:20.1.1":
+  version: 20.1.1
+  resolution: "relay-runtime@npm:20.1.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.0"
+    fbjs: "npm:^3.0.2"
+    invariant: "npm:^2.2.4"
+  checksum: ee2d043397d2fb6e5e2cc48930145707a86f80f9c8470153ceae08609806353178f02767f3f0709058d753e0c7bedd3b7d8c149bd2bd7edab64deb2d1bcffbfb
   languageName: node
   linkType: hard
 
