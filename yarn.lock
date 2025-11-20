@@ -3140,10 +3140,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/babel-plugin-component-annotate@npm:2.20.1":
-  version: 2.20.1
-  resolution: "@sentry/babel-plugin-component-annotate@npm:2.20.1"
-  checksum: 6c6fb8f6d4cabe9154b1c8b29cb1b8932d156ef98f118be6292750bacde506192a34698b4fab5a08bb4a900cde18e2f204acc77869c4a28fb664ca96a367bec1
+"@sentry/babel-plugin-component-annotate@npm:4.6.1":
+  version: 4.6.1
+  resolution: "@sentry/babel-plugin-component-annotate@npm:4.6.1"
+  checksum: 8aff72493b2b5aeeb67887054dcb52a3faf4a1b9cf2888f576467df1954ee9784409eef210043c4f3a571958fcd01e940a28cfa5758c7393239405ab5fec7628
   languageName: node
   linkType: hard
 
@@ -3162,82 +3162,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/bundler-plugin-core@npm:2.20.1":
-  version: 2.20.1
-  resolution: "@sentry/bundler-plugin-core@npm:2.20.1"
+"@sentry/bundler-plugin-core@npm:4.6.1":
+  version: 4.6.1
+  resolution: "@sentry/bundler-plugin-core@npm:4.6.1"
   dependencies:
     "@babel/core": "npm:^7.18.5"
-    "@sentry/babel-plugin-component-annotate": "npm:2.20.1"
-    "@sentry/cli": "npm:^2.22.3"
+    "@sentry/babel-plugin-component-annotate": "npm:4.6.1"
+    "@sentry/cli": "npm:^2.57.0"
     dotenv: "npm:^16.3.1"
     find-up: "npm:^5.0.0"
-    glob: "npm:^9.3.2"
+    glob: "npm:^10.5.0"
     magic-string: "npm:0.30.8"
     unplugin: "npm:1.0.1"
-  checksum: c5331fe210f3c58597609ac9de5a4f9a55f9a830f39c69dcc948e64d6d6cbe4ad14526b93f2670927d84d3c91676de1994f953c7db1dd450cf9e46b3d562dcfd
+  checksum: 9144b5dca6cb3846600e5829a95e183e89fbde05236a20402897d9eecc10b4f11bb94259777cdac9736deaf49d1c5ac7d9d3ef4f11bccb60981ce086d35e7abe
   languageName: node
   linkType: hard
 
-"@sentry/cli-darwin@npm:2.25.3":
-  version: 2.25.3
-  resolution: "@sentry/cli-darwin@npm:2.25.3"
+"@sentry/cli-darwin@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-darwin@npm:2.58.2"
   conditions: os=darwin
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-arm64@npm:2.25.3":
-  version: 2.25.3
-  resolution: "@sentry/cli-linux-arm64@npm:2.25.3"
-  conditions: (os=linux | os=freebsd) & cpu=arm64
+"@sentry/cli-linux-arm64@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-linux-arm64@npm:2.58.2"
+  conditions: (os=linux | os=freebsd | os=android) & cpu=arm64
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-arm@npm:2.25.3":
-  version: 2.25.3
-  resolution: "@sentry/cli-linux-arm@npm:2.25.3"
-  conditions: (os=linux | os=freebsd) & cpu=arm
+"@sentry/cli-linux-arm@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-linux-arm@npm:2.58.2"
+  conditions: (os=linux | os=freebsd | os=android) & cpu=arm
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-i686@npm:2.25.3":
-  version: 2.25.3
-  resolution: "@sentry/cli-linux-i686@npm:2.25.3"
-  conditions: (os=linux | os=freebsd) & (cpu=x86 | cpu=ia32)
+"@sentry/cli-linux-i686@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-linux-i686@npm:2.58.2"
+  conditions: (os=linux | os=freebsd | os=android) & (cpu=x86 | cpu=ia32)
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-x64@npm:2.25.3":
-  version: 2.25.3
-  resolution: "@sentry/cli-linux-x64@npm:2.25.3"
-  conditions: (os=linux | os=freebsd) & cpu=x64
+"@sentry/cli-linux-x64@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-linux-x64@npm:2.58.2"
+  conditions: (os=linux | os=freebsd | os=android) & cpu=x64
   languageName: node
   linkType: hard
 
-"@sentry/cli-win32-i686@npm:2.25.3":
-  version: 2.25.3
-  resolution: "@sentry/cli-win32-i686@npm:2.25.3"
+"@sentry/cli-win32-arm64@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-win32-arm64@npm:2.58.2"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@sentry/cli-win32-i686@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-win32-i686@npm:2.58.2"
   conditions: os=win32 & (cpu=x86 | cpu=ia32)
   languageName: node
   linkType: hard
 
-"@sentry/cli-win32-x64@npm:2.25.3":
-  version: 2.25.3
-  resolution: "@sentry/cli-win32-x64@npm:2.25.3"
+"@sentry/cli-win32-x64@npm:2.58.2":
+  version: 2.58.2
+  resolution: "@sentry/cli-win32-x64@npm:2.58.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@sentry/cli@npm:^2.22.3":
-  version: 2.25.3
-  resolution: "@sentry/cli@npm:2.25.3"
+"@sentry/cli@npm:^2.57.0":
+  version: 2.58.2
+  resolution: "@sentry/cli@npm:2.58.2"
   dependencies:
-    "@sentry/cli-darwin": "npm:2.25.3"
-    "@sentry/cli-linux-arm": "npm:2.25.3"
-    "@sentry/cli-linux-arm64": "npm:2.25.3"
-    "@sentry/cli-linux-i686": "npm:2.25.3"
-    "@sentry/cli-linux-x64": "npm:2.25.3"
-    "@sentry/cli-win32-i686": "npm:2.25.3"
-    "@sentry/cli-win32-x64": "npm:2.25.3"
+    "@sentry/cli-darwin": "npm:2.58.2"
+    "@sentry/cli-linux-arm": "npm:2.58.2"
+    "@sentry/cli-linux-arm64": "npm:2.58.2"
+    "@sentry/cli-linux-i686": "npm:2.58.2"
+    "@sentry/cli-linux-x64": "npm:2.58.2"
+    "@sentry/cli-win32-arm64": "npm:2.58.2"
+    "@sentry/cli-win32-i686": "npm:2.58.2"
+    "@sentry/cli-win32-x64": "npm:2.58.2"
     https-proxy-agent: "npm:^5.0.0"
     node-fetch: "npm:^2.6.7"
     progress: "npm:^2.0.3"
@@ -3254,13 +3262,15 @@ __metadata:
       optional: true
     "@sentry/cli-linux-x64":
       optional: true
+    "@sentry/cli-win32-arm64":
+      optional: true
     "@sentry/cli-win32-i686":
       optional: true
     "@sentry/cli-win32-x64":
       optional: true
   bin:
     sentry-cli: bin/sentry-cli
-  checksum: b16ecf182bed345f322eed6e437189774f0d80daa8766249c9738f78460cc0e4823e04682a2777990dbc4fc65da0947083f4775443598a01f7a29decac91e562
+  checksum: 33182ede790dcc556e7af44025314804ca1369c6791742a96e99f9a78a622721e3ad5291488e39e0a59a9273abb953a78c52e11fd190e1632a3c315a00495aac
   languageName: node
   linkType: hard
 
@@ -3317,13 +3327,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/vite-plugin@npm:2.20.1":
-  version: 2.20.1
-  resolution: "@sentry/vite-plugin@npm:2.20.1"
+"@sentry/vite-plugin@npm:4.6.1":
+  version: 4.6.1
+  resolution: "@sentry/vite-plugin@npm:4.6.1"
   dependencies:
-    "@sentry/bundler-plugin-core": "npm:2.20.1"
+    "@sentry/bundler-plugin-core": "npm:4.6.1"
     unplugin: "npm:1.0.1"
-  checksum: 65dd730c5f5821305d14fa7d99d9de903cc32662a1fc866766c439f0cc30de07e9b8745900b1de24b9654536e253ab670a42a1ce4fb9ac40498b1a299dae3ac4
+  checksum: 241d87ff753e874007cfb5a2712e41341ebeae681771e3c5234601e15caaa96d14d0f9e0ca07abc0004aa21b735a03b79a3f68ddec43fca3331b1ab43fd3652d
   languageName: node
   linkType: hard
 
@@ -6868,6 +6878,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:^10.5.0":
+  version: 10.5.0
+  resolution: "glob@npm:10.5.0"
+  dependencies:
+    foreground-child: "npm:^3.1.0"
+    jackspeak: "npm:^3.1.2"
+    minimatch: "npm:^9.0.4"
+    minipass: "npm:^7.1.2"
+    package-json-from-dist: "npm:^1.0.0"
+    path-scurry: "npm:^1.11.1"
+  bin:
+    glob: dist/esm/bin.mjs
+  checksum: ab3bccfefcc0afaedbd1f480cd0c4a2c0e322eb3f0aa7ceaa31b3f00b825069f17cf0f1fc8b6f256795074b903f37c0ade37ddda6a176aa57f1c2bbfe7240653
+  languageName: node
+  linkType: hard
+
 "glob@npm:^7.1.3, glob@npm:^7.1.6":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
@@ -6879,18 +6905,6 @@ __metadata:
     once: "npm:^1.3.0"
     path-is-absolute: "npm:^1.0.0"
   checksum: 59452a9202c81d4508a43b8af7082ca5c76452b9fcc4a9ab17655822e6ce9b21d4f8fbadabe4fe3faef448294cec249af305e2cd824b7e9aaf689240e5e96a7b
-  languageName: node
-  linkType: hard
-
-"glob@npm:^9.3.2":
-  version: 9.3.5
-  resolution: "glob@npm:9.3.5"
-  dependencies:
-    fs.realpath: "npm:^1.0.0"
-    minimatch: "npm:^8.0.2"
-    minipass: "npm:^4.2.4"
-    path-scurry: "npm:^1.6.1"
-  checksum: e5fa8a58adf53525bca42d82a1fad9e6800032b7e4d372209b80cfdca524dd9a7dbe7d01a92d7ed20d89c572457f12c250092bc8817cb4f1c63efefdf9b658c0
   languageName: node
   linkType: hard
 
@@ -7626,6 +7640,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jackspeak@npm:^3.1.2":
+  version: 3.4.3
+  resolution: "jackspeak@npm:3.4.3"
+  dependencies:
+    "@isaacs/cliui": "npm:^8.0.2"
+    "@pkgjs/parseargs": "npm:^0.11.0"
+  dependenciesMeta:
+    "@pkgjs/parseargs":
+      optional: true
+  checksum: 96f8786eaab98e4bf5b2a5d6d9588ea46c4d06bbc4f2eb861fdd7b6b182b16f71d8a70e79820f335d52653b16d4843b29dd9cdcf38ae80406756db9199497cf3
+  languageName: node
+  linkType: hard
+
 "jake@npm:^10.8.5":
   version: 10.8.7
   resolution: "jake@npm:10.8.7"
@@ -7952,6 +7979,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^10.2.0":
+  version: 10.4.3
+  resolution: "lru-cache@npm:10.4.3"
+  checksum: e6e90267360476720fa8e83cc168aa2bf0311f3f2eea20a6ba78b90a885ae72071d9db132f40fda4129c803e7dcec3a6b6a6fbb44ca90b081630b810b5d6a41a
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^5.1.1":
   version: 5.1.1
   resolution: "lru-cache@npm:5.1.1"
@@ -8131,12 +8165,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^8.0.2":
-  version: 8.0.4
-  resolution: "minimatch@npm:8.0.4"
+"minimatch@npm:^9.0.4":
+  version: 9.0.5
+  resolution: "minimatch@npm:9.0.5"
   dependencies:
     brace-expansion: "npm:^2.0.1"
-  checksum: aef05598ee565e1013bc8a10f53410ac681561f901c1a084b8ecfd016c9ed919f58f4bbd5b63e05643189dfb26e8106a84f0e1ff12e4a263aa37e1cae7ce9828
+  checksum: dd6a8927b063aca6d910b119e1f2df6d2ce7d36eab91de83167dd136bb85e1ebff97b0d3de1cb08bd1f7e018ca170b4962479fefab5b2a69e2ae12cb2edc8348
   languageName: node
   linkType: hard
 
@@ -8214,13 +8248,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass@npm:^4.2.4":
-  version: 4.2.8
-  resolution: "minipass@npm:4.2.8"
-  checksum: e148eb6dcb85c980234cad889139ef8ddf9d5bdac534f4f0268446c8792dd4c74f4502479be48de3c1cce2f6450f6da4d0d4a86405a8a12be04c1c36b339569a
-  languageName: node
-  linkType: hard
-
 "minipass@npm:^5.0.0":
   version: 5.0.0
   resolution: "minipass@npm:5.0.0"
@@ -8232,6 +8259,13 @@ __metadata:
   version: 7.0.4
   resolution: "minipass@npm:7.0.4"
   checksum: e864bd02ceb5e0707696d58f7ce3a0b89233f0d686ef0d447a66db705c0846a8dc6f34865cd85256c1472ff623665f616b90b8ff58058b2ad996c5de747d2d18
+  languageName: node
+  linkType: hard
+
+"minipass@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "minipass@npm:7.1.2"
+  checksum: c25f0ee8196d8e6036661104bacd743785b2599a21de5c516b32b3fa2b83113ac89a2358465bc04956baab37ffb956ae43be679b2262bf7be15fce467ccd7950
   languageName: node
   linkType: hard
 
@@ -8602,6 +8636,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"package-json-from-dist@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "package-json-from-dist@npm:1.0.1"
+  checksum: 58ee9538f2f762988433da00e26acc788036914d57c71c246bf0be1b60cdbd77dd60b6a3e1a30465f0b248aeb80079e0b34cb6050b1dfa18c06953bb1cbc7602
+  languageName: node
+  linkType: hard
+
 "package-json-validator@npm:^0.6.3":
   version: 0.6.3
   resolution: "package-json-validator@npm:0.6.3"
@@ -8623,7 +8664,7 @@ __metadata:
     "@mantine/hooks": "npm:7.10.2"
     "@mantine/notifications": "npm:7.10.2"
     "@sentry/react": "npm:7.99.0"
-    "@sentry/vite-plugin": "npm:2.20.1"
+    "@sentry/vite-plugin": "npm:4.6.1"
     "@swc-jotai/debug-label": "npm:0.1.0"
     "@swc-jotai/react-refresh": "npm:0.1.0"
     "@tabler/icons-react": "npm:2.47.0"
@@ -8720,13 +8761,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-scurry@npm:^1.10.1, path-scurry@npm:^1.6.1":
+"path-scurry@npm:^1.10.1":
   version: 1.10.1
   resolution: "path-scurry@npm:1.10.1"
   dependencies:
     lru-cache: "npm:^9.1.1 || ^10.0.0"
     minipass: "npm:^5.0.0 || ^6.0.2 || ^7.0.0"
   checksum: eebfb8304fef1d4f7e1486df987e4fd77413de4fce16508dea69fcf8eb318c09a6b15a7a2f4c22877cec1cb7ecbd3071d18ca9de79eeece0df874a00f1f0bdc8
+  languageName: node
+  linkType: hard
+
+"path-scurry@npm:^1.11.1":
+  version: 1.11.1
+  resolution: "path-scurry@npm:1.11.1"
+  dependencies:
+    lru-cache: "npm:^10.2.0"
+    minipass: "npm:^5.0.0 || ^6.0.2 || ^7.0.0"
+  checksum: 5e8845c159261adda6f09814d7725683257fcc85a18f329880ab4d7cc1d12830967eae5d5894e453f341710d5484b8fdbbd4d75181b4d6e1eb2f4dc7aeadc434
   languageName: node
   linkType: hard
 
