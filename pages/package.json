@@ -20,7 +20,7 @@
     "@tabler/icons-react": "2.47.0",
     "chroma-js": "2.4.2",
     "date-fns": "3.6.0",
-    "idb": "8.0.0",
+    "idb": "8.0.3",
     "immer": "10.1.1",
     "jotai": "2.8.3",
     "radash": "11.0.0",

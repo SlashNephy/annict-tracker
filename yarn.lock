@@ -7162,10 +7162,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"idb@npm:8.0.0":
-  version: 8.0.0
-  resolution: "idb@npm:8.0.0"
-  checksum: 6ff47b46ead4bf02ac3a9145bb2f48bac707b950cf33282a72eec8efcda610ffb0a09aab6eea58450f6c87373060bf50998d307085830a302e9e231eee6cd37d
+"idb@npm:8.0.3":
+  version: 8.0.3
+  resolution: "idb@npm:8.0.3"
+  checksum: e2beccb0be7c6af562a5e92b209363358571a770aecdc68e891d1141d994d8f1e8f34b79dafa309ed7467d0f4df2b7b4c15f67cfd0611100282bfc3d85f9c73c
   languageName: node
   linkType: hard
 
@@ -8636,7 +8636,7 @@ __metadata:
     chroma-js: "npm:2.4.2"
     concurrently: "npm:8.2.2"
     date-fns: "npm:3.6.0"
-    idb: "npm:8.0.0"
+    idb: "npm:8.0.3"
     immer: "npm:10.1.1"
     jotai: "npm:2.8.3"
     postcss: "npm:8.4.38"
