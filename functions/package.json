@@ -12,7 +12,7 @@
     "fast-xml-parser": "4.4.0",
     "http-status-codes": "2.3.0",
     "query-string": "8.2.0",
-    "zod": "3.23.8"
+    "zod": "3.25.76"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20240620.0",
