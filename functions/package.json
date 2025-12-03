@@ -6,7 +6,7 @@
     "build": "tsc --noEmit"
   },
   "dependencies": {
-    "@auth/core": "0.18.0",
+    "@auth/core": "0.34.3",
     "cookie": "0.6.0",
     "date-fns": "3.6.0",
     "fast-xml-parser": "4.4.0",
