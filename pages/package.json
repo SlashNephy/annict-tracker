@@ -46,7 +46,7 @@
     "babel-plugin-relay": "17.0.0",
     "concurrently": "8.2.2",
     "postcss": "8.4.38",
-    "postcss-preset-mantine": "1.15.0",
+    "postcss-preset-mantine": "1.18.0",
     "postcss-simple-vars": "7.0.1",
     "relay-compiler": "17.0.0",
     "typescript": "5.3.3",
