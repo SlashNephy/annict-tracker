@@ -3679,10 +3679,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cookie@npm:0.6.0":
-  version: 0.6.0
-  resolution: "@types/cookie@npm:0.6.0"
-  checksum: b883348d5bf88695fbc2c2276b1c49859267a55cae3cf11ea1dccc1b3be15b466e637ce3242109ba27d616c77c6aa4efe521e3d557110b4fdd9bc332a12445c2
+"@types/cookie@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@types/cookie@npm:1.0.0"
+  dependencies:
+    cookie: "npm:*"
+  checksum: fb0ad67988f3d3e4a181c7758f2db02e9b661d2e56b60256f5071a9458cf9e4425c18ce201c68f44d8022d0a5618f1f205db812ed28c3983c3579c759764d0b6
   languageName: node
   linkType: hard
 
@@ -4969,6 +4971,13 @@ __metadata:
   version: 2.0.0
   resolution: "convert-source-map@npm:2.0.0"
   checksum: c987be3ec061348cdb3c2bfb924bec86dea1eacad10550a85ca23edb0fe3556c3a61c7399114f3331ccb3499d7fd0285ab24566e5745929412983494c3926e15
+  languageName: node
+  linkType: hard
+
+"cookie@npm:*":
+  version: 1.1.1
+  resolution: "cookie@npm:1.1.1"
+  checksum: 85538153054791155cf4d38d2e807e3b9382d71bf71d92fc46fca348515ea574049d0d9ef8eb84d2d54a681ad1d7a7316b1989b901dace50a6c0f4c3858dbdb2
   languageName: node
   linkType: hard
 
@@ -6726,7 +6735,7 @@ __metadata:
   dependencies:
     "@auth/core": "npm:0.18.0"
     "@cloudflare/workers-types": "npm:4.20240620.0"
-    "@types/cookie": "npm:0.6.0"
+    "@types/cookie": "npm:1.0.0"
     "@types/query-string": "npm:6.3.0"
     cookie: "npm:0.6.0"
     date-fns: "npm:3.6.0"
