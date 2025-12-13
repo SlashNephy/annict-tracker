@@ -2,6 +2,7 @@ export type Env = CloudflarePagesEnv & {
   NODE_ENV?: 'development'
 
   AUTH_SECRET: string
+  AUTH_SALT: string
   ANNICT_CLIENT_ID: string
   ANNICT_CLIENT_SECRET: string
 }
