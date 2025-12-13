@@ -4,7 +4,7 @@
 
 annict-tracker は Annict の視聴記録を便利にする Web アプリケーションです。
 
-https://annict-tracker.pages.dev で公開しています。
+<https://annict-tracker.pages.dev> で公開しています。
 
 ## Gallery
 
@@ -35,10 +35,10 @@ annict-tracker
 
 - `AUTH_SECRET`
   - Cookie のシークレットです。
-  - 生成方法などは https://authjs.dev/getting-started/oauth-tutorial#adding-environment-variables を参照してください。
+  - 生成方法などは <https://authjs.dev/getting-started/oauth-tutorial#adding-environment-variables> を参照してください。
 - `ANNICT_CLIENT_ID`, `ANNICT_CLIENT_SECRET`
   - Annict の OAuth 2 クライアント ID 及びシークレットです。
-  - https://annict.com/oauth/applications/new で発行できます。
+  - <https://annict.com/oauth/applications/new> で発行できます。
     - リダイレクト URI には次の値を入力してください。
       - `http://127.0.0.1:8788/api/auth/callback/annict`
     - `read write` (読み込み + 書き込み) スコープが必要です。
@@ -46,19 +46,19 @@ annict-tracker
 ### ローカル実行
 
 ```console
-$ yarn dev
+pnpm dev
 ```
 
 ### ビルド
 
 ```console
-$ yarn build
+pnpm build
 ```
 
 ### デプロイ
 
 ```console
-$ yarn deploy
+pnpm deploy
 ```
 
 - [Deploy a Vite 3 site · Cloudflare Pages docs](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vite3-project/) を参照してください。
