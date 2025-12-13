@@ -15,45 +15,10 @@
     "format": "eslint --fix .",
     "lint": "eslint ."
   },
-  "eslintConfig": {
-    "extends": "@slashnephy/eslint-config",
-    "overrides": [
-      {
-        "files": "functions/**/*.ts",
-        "parserOptions": {
-          "project": "./functions/tsconfig.json"
-        }
-      },
-      {
-        "files": "pages/src/**/*.{ts,tsx}",
-        "parserOptions": {
-          "project": "./pages/tsconfig.json"
-        },
-        "rules": {
-          "import/no-cycle": "off"
-        }
-      },
-      {
-        "files": "pages/vite.config.ts",
-        "parserOptions": {
-          "project": "./pages/tsconfig.node.json"
-        }
-      },
-      {
-        "files": "vercel/**/*.{ts,tsx}",
-        "parserOptions": {
-          "project": "./vercel/tsconfig.json"
-        },
-        "rules": {
-          "react-refresh/only-export-components": "off"
-        }
-      }
-    ]
-  },
   "devDependencies": {
-    "@slashnephy/eslint-config": "2.3.1",
-    "eslint": "8.57.0",
-    "wrangler": "3.62.0"
+    "@slashnephy/eslint-config": "3.0.105",
+    "eslint": "9.39.2",
+    "wrangler": "4.54.0"
   },
   "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501",
   "engines": {
