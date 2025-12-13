@@ -23,8 +23,5 @@
     "postcss-preset-mantine": "1.15.0",
     "postcss-simple-vars": "7.0.1",
     "typescript": "5.3.3"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }

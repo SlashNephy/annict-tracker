@@ -55,9 +55,6 @@
     "vite-plugin-pwa": "0.20.0",
     "vite-plugin-relay": "2.1.0"
   },
-  "engines": {
-    "node": ">=20"
-  },
   "relay": {
     "src": "./src",
     "artifactDirectory": "./src/__generated__",

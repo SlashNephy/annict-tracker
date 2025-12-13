@@ -67,5 +67,8 @@
     "prettier": "3.1.1",
     "wrangler": "3.62.0"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "engines": {
+    "node": ">=24"
+  }
 }
