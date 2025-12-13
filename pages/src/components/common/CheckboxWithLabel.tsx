@@ -20,7 +20,7 @@ export function CheckboxWithLabel({
       onChange?.(event)
       onToggle?.(event.currentTarget.checked)
     },
-    [onToggle]
+    [onChange, onToggle]
   )
 
   return (
