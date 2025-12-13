@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e49f655c350ab3e0606e71984236e55b>>
+ * @generated SignedSource<<51ce24b96a0974404517bb4c8c0f1b8b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,7 +17,7 @@ export type useNextProgram_LibraryEntry$data = {
       readonly name: string;
     };
     readonly rebroadcast: boolean;
-    readonly startedAt: any;
+    readonly startedAt: string;
   } | null | undefined;
   readonly " $fragmentSpreads": FragmentRefs<"useSyobocalPrograms_LibraryEntry">;
   readonly " $fragmentType": "useNextProgram_LibraryEntry";
