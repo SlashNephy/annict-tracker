@@ -16,7 +16,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@slashnephy/eslint-config": "3.0.105",
+    "@slashnephy/eslint-config": "3.0.111",
     "eslint": "9.39.2",
     "wrangler": "4.54.0"
   },

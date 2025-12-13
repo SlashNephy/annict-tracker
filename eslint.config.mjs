@@ -14,10 +14,4 @@ export default config({}, [
   ]),
   { files: ['pages/src/**/*.{ts,tsx}'], rules: { 'import/no-cycle': 'off' } },
   { files: ['vercel/**/*.{ts,tsx}'], rules: { 'react-refresh/only-export-components': 'off' } },
-  {
-    rules: {
-      '@stylistic/quote-props': 'off',
-      '@stylistic/brace-style': ['error', '1tbs'],
-    },
-  },
 ])
