@@ -1,4 +1,4 @@
-import { ColorSchemeScript, MantineProvider } from '@mantine/core'
+import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core'
 import React from 'react'
 
 import type { Metadata } from 'next'
@@ -26,7 +26,7 @@ export type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps): React.JSX.Element {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript defaultColorScheme="auto" />
       </head>
