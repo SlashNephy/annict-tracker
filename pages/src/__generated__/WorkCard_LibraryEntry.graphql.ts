@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c860392cc8de44bd172abfaaa723c84a>>
+ * @generated SignedSource<<8c3af1bf10f9c58e6bda3867225084a4>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type WorkCard_LibraryEntry$data = {
   readonly " $fragmentSpreads": FragmentRefs<"CreateRecordButton_LibraryEntry" | "FileSearchButton_LibraryEntry" | "NextEpisodeTitle_LibraryEntry" | "NextProgramInfo_LibraryEntry" | "WorkCardImage_LibraryEntry" | "WorkCardTitle_LibraryEntry">;

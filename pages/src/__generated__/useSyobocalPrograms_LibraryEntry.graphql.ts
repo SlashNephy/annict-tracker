@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<771d694ffa81c4a37cd658fa93381ea8>>
+ * @generated SignedSource<<21e7a92d2984df72303439e3ac5220cc>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type useSyobocalPrograms_LibraryEntry$data = {
   readonly nextEpisode: {

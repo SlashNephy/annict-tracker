@@ -1,6 +1,6 @@
 import { ActionIcon, Button, Group, Stack, Textarea, TextInput } from '@mantine/core'
-import { useForm, hasLength, isEmail } from '@mantine/form'
-import { captureMessage, captureUserFeedback } from '@sentry/react'
+import { hasLength, isEmail, useForm } from '@mantine/form'
+import { captureFeedback } from '@sentry/react'
 import { IconReload, IconSend } from '@tabler/icons-react'
 import React, { useCallback, useEffect } from 'react'
 
@@ -48,11 +48,10 @@ export function FeedbackForm({
 
   const handleSubmit = useCallback(
     (values: typeof form.values) => {
-      captureUserFeedback({
-        event_id: eventId ?? captureMessage('feedback', 'info'),
+      captureFeedback({
         name: values.name,
         email: values.email,
-        comments: values.comments,
+        message: values.comments,
       })
       onSubmit()
     },

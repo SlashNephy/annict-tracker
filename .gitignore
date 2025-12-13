@@ -180,3 +180,6 @@ next-env.d.ts
 # Cloudflare Workers
 .dev.vars
 .wrangler/tmp/
+
+# Service Workers
+dev-dist/

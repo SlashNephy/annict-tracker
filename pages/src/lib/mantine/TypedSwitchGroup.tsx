@@ -3,7 +3,7 @@ import React, { useCallback } from 'react'
 
 import type { MantinePropsOf } from './type.ts'
 
-export type TypedSwitchGroupProps<T> = MantinePropsOf<typeof Switch.Group> & {
+export type TypedSwitchGroupProps<T> = Omit<MantinePropsOf<typeof Switch.Group>, 'onToggle'> & {
   value: T[]
   onToggle?(values: T[]): void
 }

@@ -3,7 +3,7 @@ import React, { useCallback } from 'react'
 
 import type { MantinePropsOf } from './type.ts'
 
-export type TypedRadioGroupProps<T> = MantinePropsOf<typeof Radio.Group> & {
+export type TypedRadioGroupProps<T> = Omit<MantinePropsOf<typeof Radio.Group>, 'onToggle'> & {
   value: T
   onToggle?(value: T): void
 }

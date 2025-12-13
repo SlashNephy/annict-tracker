@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<489ab1aae13e1f44815de8164442b384>>
+ * @generated SignedSource<<bdede76e3c209b4124a48144bca37286>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type WorkCardImage_LibraryEntry$data = {
   readonly work: {

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1552370f960de0f6ef88971fe104b361>>
+ * @generated SignedSource<<e49f655c350ab3e0606e71984236e55b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type useNextProgram_LibraryEntry$data = {
   readonly nextProgram: {
@@ -17,7 +17,7 @@ export type useNextProgram_LibraryEntry$data = {
       readonly name: string;
     };
     readonly rebroadcast: boolean;
-    readonly startedAt: string;
+    readonly startedAt: any;
   } | null | undefined;
   readonly " $fragmentSpreads": FragmentRefs<"useSyobocalPrograms_LibraryEntry">;
   readonly " $fragmentType": "useNextProgram_LibraryEntry";

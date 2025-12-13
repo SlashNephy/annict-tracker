@@ -4,13 +4,13 @@ import { useAtom, useAtomValue } from 'jotai'
 import { useCallback, useEffect } from 'react'
 import { graphql, useFragment } from 'react-relay'
 
-import { useNextEpisodeTitle } from './useNextEpisodeTitle.ts'
-import { useNextProgram } from './useNextProgram.ts'
 import {
   enableBrowserNotificationAtom,
   notificationHistoriesAtom,
   programNotificationThresholdMinutesAtom,
 } from '../jotai/notification.ts'
+import { useNextEpisodeTitle } from './useNextEpisodeTitle.ts'
+import { useNextProgram } from './useNextProgram.ts'
 
 import type { useWatchProgramSchedule_LibraryEntry$key } from '../../__generated__/useWatchProgramSchedule_LibraryEntry.graphql.ts'
 
@@ -62,6 +62,8 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
 
     const _ = new Notification(work.title, {
       body: `${nextProgram.channel.name}で${diff + 1}分後に始まります\n\n${nextEpisodeLabel}`,
+      // @ts-expect-error -- Notification.image はまだ experimental
+      // https://developer.mozilla.org/ja/docs/Web/API/Notification/image
       image: work.image?.recommendedImageUrl ?? undefined,
       lang: 'ja',
     })

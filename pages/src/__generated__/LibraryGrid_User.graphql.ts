@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<35218b854fa2c76b7c9b8c9c2f4b8940>>
+ * @generated SignedSource<<8db5779890b2c09aeac5a83f7a62dd19>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment, RefetchableFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type LibraryGrid_User$data = {
   readonly id: string;

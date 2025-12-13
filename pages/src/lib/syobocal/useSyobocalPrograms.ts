@@ -3,11 +3,11 @@ import { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import useSWRImmutable from 'swr/immutable'
 
-import { lookupSyobocalPrograms } from './lookupSyobocalPrograms.ts'
 import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
+import { lookupSyobocalPrograms } from './lookupSyobocalPrograms.ts'
 
+import type { SyobocalProgram } from '../../../../functions/api/syobocal/programs.types.ts'
 import type { useSyobocalPrograms_LibraryEntry$key } from '../../__generated__/useSyobocalPrograms_LibraryEntry.graphql.ts'
-import type { SyobocalProgram } from 'functions/api/syobocal/programs.types.ts'
 
 // しょぼいカレンダーの API から放送スケジュールを取得する hook
 export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$key, enabled = true): SyobocalProgram[] {

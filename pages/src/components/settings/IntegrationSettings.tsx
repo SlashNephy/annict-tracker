@@ -12,8 +12,8 @@ import { useSayaDatastore } from '../../lib/saya/useSayaDatastore.ts'
 import { CheckboxWithLabel } from '../common/CheckboxWithLabel.tsx'
 import { getSearchIntegrationLabel, searchIntegrationKeys } from '../work/buttons/useIntegrationConfigs.ts'
 
+import type { ChangeEvent, ChangeEventHandler } from 'react'
 import type { SearchIntegrationKey } from '../work/buttons/useIntegrationConfigs.ts'
-import type { ChangeEventHandler, ChangeEvent } from 'react'
 
 export function IntegrationSettings(): React.JSX.Element {
   const [enableSyobocal, setEnableSyobocal] = useAtom(enableSyobocalAtom)
@@ -38,7 +38,7 @@ export function IntegrationSettings(): React.JSX.Element {
   const handleToggleIntegration = useCallback(
     (event: ChangeEvent<HTMLInputElement>, key: SearchIntegrationKey) => {
       return produce(searchIntegrations, (draft) => {
-        if (event.target.checked) {
+        if (event.currentTarget.checked) {
           draft.push(key)
         } else {
           const index = draft.indexOf(key)
@@ -64,7 +64,7 @@ export function IntegrationSettings(): React.JSX.Element {
   )
   const handleChangeEpgStationUrl: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
-      setEpgStationUrl(event.target.value)
+      setEpgStationUrl(event.currentTarget.value)
     },
     [setEpgStationUrl]
   )

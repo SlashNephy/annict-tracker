@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c37c6c0fcf94bc46e67696884ab91363>>
+ * @generated SignedSource<<833eeda9091a09dd2a74566c43129d46>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 export type SeasonName = "AUTUMN" | "SPRING" | "SUMMER" | "WINTER";
 import { FragmentRefs } from "relay-runtime";
 export type useFilterBySeasons_LibraryEntry$data = {

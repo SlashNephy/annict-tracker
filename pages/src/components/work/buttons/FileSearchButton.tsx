@@ -13,18 +13,18 @@ import React, { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import { hasLength } from 'ts-array-length'
 
-import { useShouldDisableButton } from './useShouldDisableButton.ts'
 import { annictChannelIds } from '../../../lib/annict/isStreamingService.ts'
 import { useAnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
+import { useShouldDisableButton } from './useShouldDisableButton.ts'
 
+import type { IconProps } from '@tabler/icons-react'
+import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
+import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 import type {
   EffectiveSearchIntegrationConfigs,
   SearchIntegrationConfig,
   SearchIntegrationKey,
 } from './useIntegrationConfigs.ts'
-import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
-import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
-import type { TablerIconsProps } from '@tabler/icons-react'
 
 type SearchIntegrationActionContext<K extends SearchIntegrationKey> = {
   work: { title: string; annictId: number }
@@ -36,7 +36,7 @@ type SearchIntegrationAction<K extends SearchIntegrationKey> = {
   title: string
   type: 'search' | 'vod'
   vod?: AnnictVodData
-  icon: React.FC<TablerIconsProps>
+  icon: React.FC<IconProps>
   isAvailable(context: SearchIntegrationActionContext<K>): boolean
   search(context: SearchIntegrationActionContext<K>): void
 }

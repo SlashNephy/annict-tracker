@@ -1,7 +1,7 @@
 import { minutesToMilliseconds } from 'date-fns'
 import useSWR, { preload } from 'swr'
 
-import type { VersionResponse } from 'functions/api/version.types.ts'
+import type { VersionResponse } from '../../../../functions/api/version.types.ts'
 
 const key = 'version'
 

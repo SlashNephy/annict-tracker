@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ce436f29f9d58ca4a2710b6b663b02b9>>
+ * @generated SignedSource<<d516e3aef2e7d85a322418ed2af5bf2c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type LibraryGridItem_LibraryEntry$data = {
   readonly " $fragmentSpreads": FragmentRefs<"WorkCard_LibraryEntry" | "useFilterByCurrentSeason_LibraryEntry" | "useFilterBySeasons_LibraryEntry" | "useNextProgram_LibraryEntry" | "useSortNumber_LibraryEntry">;
