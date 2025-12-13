@@ -1,0 +1,10 @@
+packages:
+  - pages
+  - functions
+  - vercel
+
+onlyBuiltDependencies:
+  - '@sentry/cli'
+  - '@swc/core'
+  - esbuild
+  - workerd
