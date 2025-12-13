@@ -12,12 +12,8 @@
     "build": "pnpm -r build",
     "deploy": "pnpm build && wrangler pages deploy pages/dist",
     "dev": "wrangler pages dev --compatibility-date=2023-09-04 -- pnpm --filter pages dev",
-    "format": "pnpm format:eslint && pnpm format:prettier",
-    "format:eslint": "pnpm lint:eslint --fix",
-    "format:prettier": "pnpm lint:prettier --write",
-    "lint": "pnpm run \"/^lint:.*/\"",
-    "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --check ."
+    "format": "eslint --fix .",
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": "@slashnephy/eslint-config",
@@ -56,9 +52,7 @@
   },
   "devDependencies": {
     "@slashnephy/eslint-config": "2.3.1",
-    "@slashnephy/prettier-config": "1.0.73",
     "eslint": "8.57.0",
-    "prettier": "3.1.1",
     "wrangler": "3.62.0"
   },
   "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501",
