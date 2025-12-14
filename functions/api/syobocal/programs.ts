@@ -1,4 +1,4 @@
-import { hoursToMilliseconds } from 'date-fns'
+import { hoursToSeconds } from 'date-fns'
 import { StatusCodes } from 'http-status-codes'
 import queryString from 'query-string'
 import { z } from 'zod'
@@ -54,7 +54,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       } satisfies SyobocalProgramsResponse,
       {
         headers: {
-          'Cache-Control': `max-age=${hoursToMilliseconds(6)} stale-while-revalidate=${hoursToMilliseconds(2)}`,
+          'Cache-Control': `max-age=${hoursToSeconds(6)} stale-while-revalidate=${hoursToSeconds(2)}`,
         },
       },
     )

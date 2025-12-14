@@ -1,4 +1,4 @@
-import { hoursToMilliseconds, minutesToMilliseconds } from 'date-fns'
+import { hoursToSeconds, minutesToSeconds } from 'date-fns'
 import { StatusCodes } from 'http-status-codes'
 
 import { verifyJwt } from '../lib/jwt.ts'
@@ -34,7 +34,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     } satisfies VersionResponse,
     {
       headers: {
-        'Cache-Control': `max-age=${hoursToMilliseconds(1)} stale-while-revalidate=${minutesToMilliseconds(15)}`,
+        'Cache-Control': `max-age=${hoursToSeconds(1)} stale-while-revalidate=${minutesToSeconds(15)}`,
       },
     },
   )
