@@ -1,7 +1,9 @@
 import { Anchor, Card, Center, Container, Text, Title } from '@mantine/core'
-import { IconBrandGithub, type ReactNode } from '@tabler/icons-react'
+import { IconBrandGithub } from '@tabler/icons-react'
 
 import { AnnictSignInButton } from './AnnictSignInButton.tsx'
+
+import type { ReactNode } from 'react'
 
 export function GuestUser(): ReactNode {
   return (

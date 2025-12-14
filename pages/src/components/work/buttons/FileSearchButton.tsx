@@ -9,7 +9,7 @@ import {
   IconMovie,
   IconSearch,
 } from '@tabler/icons-react'
-import { useMemo, type FunctionComponent } from 'react'
+import { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import { hasLength } from 'ts-array-length'
 
@@ -24,7 +24,8 @@ import type {
 } from './useIntegrationConfigs.ts'
 import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
 import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
-import type { IconProps, ReactNode } from '@tabler/icons-react'
+import type { IconProps } from '@tabler/icons-react'
+import type { ElementType, ReactNode } from 'react'
 
 type SearchIntegrationActionContext<K extends SearchIntegrationKey> = {
   work: { title: string, annictId: number }
@@ -36,7 +37,7 @@ type SearchIntegrationAction<K extends SearchIntegrationKey> = {
   title: string
   type: 'search' | 'vod'
   vod?: AnnictVodData
-  icon: FunctionComponent<IconProps>
+  icon: ElementType<IconProps>
   isAvailable(context: SearchIntegrationActionContext<K>): boolean
   search(context: SearchIntegrationActionContext<K>): void
 }
