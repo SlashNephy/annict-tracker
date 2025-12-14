@@ -52,6 +52,7 @@ export function FeedbackForm({
         name: values.name,
         email: values.email,
         message: values.comments,
+        associatedEventId: eventId,
       })
       onSubmit()
     },
