@@ -1,6 +1,8 @@
-import { IconLogin, type ReactNode } from '@tabler/icons-react'
+import { IconLogin } from '@tabler/icons-react'
 
 import { SignInButton } from '../../lib/auth/SignInButton.tsx'
+
+import type { ReactNode } from 'react'
 
 export function AnnictSignInButton(): ReactNode {
   return (

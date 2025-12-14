@@ -1,13 +1,13 @@
 import { Anchor, Group, Text, ThemeIcon, Tooltip } from '@mantine/core'
-import { type ComponentProps, type FunctionComponent } from 'react'
 
 import { useIsMobile } from '../../lib/useIsMobile.ts'
 
-import type { IconProps, ReactNode } from '@tabler/icons-react'
+import type { IconProps } from '@tabler/icons-react'
+import type { ComponentProps, ElementType, ReactNode } from 'react'
 
 export type NavbarLinkIconProps<C> = ComponentProps<typeof Anchor<C>> & {
   title: string
-  icon: FunctionComponent<IconProps>
+  icon: ElementType<IconProps>
 }
 
 export function NavbarLinkIcon<C>({ title, icon: Icon, ...props }: NavbarLinkIconProps<C>): ReactNode {

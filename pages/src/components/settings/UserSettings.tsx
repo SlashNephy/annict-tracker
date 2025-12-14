@@ -1,9 +1,11 @@
 import { Avatar, Group, Stack, Text } from '@mantine/core'
-import { IconLogout, IconUser, type ReactNode } from '@tabler/icons-react'
+import { IconLogout, IconUser } from '@tabler/icons-react'
 
 import { SignOutButton } from '../../lib/auth/SignOutButton.tsx'
 import { useAnnictSession } from '../../lib/auth/useAnnictSession.ts'
 import { AnnictSignInButton } from '../tracker/AnnictSignInButton.tsx'
+
+import type { ReactNode } from 'react'
 
 export function UserSettings(): ReactNode {
   const session = useAnnictSession()

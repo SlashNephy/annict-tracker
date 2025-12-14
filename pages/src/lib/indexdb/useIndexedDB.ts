@@ -14,13 +14,13 @@ export function useIndexedDB(): IDBPDatabase<DatabaseSchema> | undefined {
     let database: IDBPDatabase<DatabaseSchema> | undefined
     void openDB<DatabaseSchema>(databaseName, databaseVersion, {
       upgrade(database) {
-        database.createObjectStore('work-image-cache')
+        if (!database.objectStoreNames.contains('work-image-cache')) {
+          database.createObjectStore('work-image-cache')
+        }
 
         // かつて SWR でキャッシュしていたストアを削除する
-        try {
+        if (database.objectStoreNames.contains('swr-cache')) {
           database.deleteObjectStore('swr-cache')
-        } catch (_: unknown) {
-          // ignore
         }
       },
     })

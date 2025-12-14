@@ -19,7 +19,7 @@ export function SyobocalSourceBadge({ entryRef }: SyobocalSourceBadgeBadge): Rea
   }, [nextProgram])
 
   if (nextProgram?.source.name !== 'syobocal') {
-    return <></>
+    return null
   }
 
   return (

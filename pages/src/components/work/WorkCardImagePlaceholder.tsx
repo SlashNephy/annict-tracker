@@ -1,5 +1,7 @@
 import { Box, Center } from '@mantine/core'
-import { IconPhotoOff, type ReactNode } from '@tabler/icons-react'
+import { IconPhotoOff } from '@tabler/icons-react'
+
+import type { ReactNode } from 'react'
 
 export function WorkCardImagePlaceholder(): ReactNode {
   return (

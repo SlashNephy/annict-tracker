@@ -1,7 +1,9 @@
 import { Group, Modal, Space, Text } from '@mantine/core'
-import { IconMessageReport, type ReactNode } from '@tabler/icons-react'
+import { IconMessageReport } from '@tabler/icons-react'
 
 import { FeedbackForm } from './FeedbackForm.tsx'
+
+import type { ReactNode } from 'react'
 
 export type FeedbackModalProps = {
   isOpened: boolean
