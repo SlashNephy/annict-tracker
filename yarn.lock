@@ -3749,12 +3749,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.14.8":
-  version: 20.14.8
-  resolution: "@types/node@npm:20.14.8"
+"@types/node@npm:24.10.4":
+  version: 24.10.4
+  resolution: "@types/node@npm:24.10.4"
   dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 73822f66f269ce865df7e2f586787ac7444bd1169fd265cbed1e851b72787f1170517c5b616e0308ec2fbc0934ec6403b0f28d4152acbb0486071aec41167d51
+    undici-types: "npm:~7.16.0"
+  checksum: a0b318b99a97103d151589a10e20d7d3ce93188a0e6466040eb2ce5fae33ca6785306737b4006560fe3152073cbb2b14747b854fa303296275c22afc8a37da2a
   languageName: node
   linkType: hard
 
@@ -8627,7 +8627,7 @@ __metadata:
     "@swc-jotai/debug-label": "npm:0.1.0"
     "@swc-jotai/react-refresh": "npm:0.1.0"
     "@tabler/icons-react": "npm:2.47.0"
-    "@types/node": "npm:20.14.8"
+    "@types/node": "npm:24.10.4"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     "@types/react-relay": "npm:16.0.6"
@@ -10473,6 +10473,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici-types@npm:~7.16.0":
+  version: 7.16.0
+  resolution: "undici-types@npm:7.16.0"
+  checksum: db43439f69c2d94cc29f75cbfe9de86df87061d6b0c577ebe9bb3255f49b22c50162a7d7eb413b0458b6510b8ca299ac7cff38c3a29fbd31af9f504bcf7fbc0d
+  languageName: node
+  linkType: hard
+
 "undici@npm:^5.28.4":
   version: 5.28.4
   resolution: "undici@npm:5.28.4"
@@ -10715,7 +10722,7 @@ __metadata:
     "@mantine/core": "npm:7.10.2"
     "@mantine/hooks": "npm:7.10.2"
     "@tabler/icons-react": "npm:2.47.0"
-    "@types/node": "npm:20.14.8"
+    "@types/node": "npm:24.10.4"
     "@types/react": "npm:18.3.3"
     "@types/react-dom": "npm:18.3.0"
     next: "npm:14.2.4"
