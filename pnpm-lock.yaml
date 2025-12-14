@@ -118,8 +118,8 @@ importers:
         specifier: 2.3.7
         version: 2.3.7(react@19.2.3)
       ts-array-length:
-        specifier: 0.1.2
-        version: 0.1.2
+        specifier: 0.1.3
+        version: 0.1.3
     devDependencies:
       '@sentry/vite-plugin':
         specifier: 4.6.1
@@ -4843,8 +4843,8 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  ts-array-length@0.1.2:
-    resolution: {integrity: sha512-x/e5IkAhltwO/O9RZU4MQXlu8cAY9NJH6vwv53FgjK4Bmvwim3Ll6z5XB5xbP79v8Yu3g/fMI5sK42JKKEDudA==}
+  ts-array-length@0.1.3:
+    resolution: {integrity: sha512-f0qY4hUogp24j/Cq6qjUyPRKlB/Plr3Z+q6OeWPnNx5K0S38KyZWyVwIl6KOgfSEBJj7/2cGRbQ8tJSY1hJUfg==}
 
   ts-declaration-location@1.0.7:
     resolution: {integrity: sha512-EDyGAwH1gO0Ausm9gV6T2nUvBgXT5kGoCMJPllOaooZ+4VvJiKBdZE7wK18N1deEowhcUptS+5GXZK8U/fvpwA==}
@@ -10249,7 +10249,7 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
-  ts-array-length@0.1.2: {}
+  ts-array-length@0.1.3: {}
 
   ts-declaration-location@1.0.7(typescript@5.9.3):
     dependencies:
