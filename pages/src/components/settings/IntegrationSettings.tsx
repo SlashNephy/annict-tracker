@@ -3,7 +3,7 @@ import { IconChecks, IconSparkles, IconTrash, IconWorldWww } from '@tabler/icons
 import { produce } from 'immer'
 import { useAtom } from 'jotai'
 import { group, unique } from 'radash'
-import React, { useCallback, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
 import { epgStationUrlAtom, searchIntegrationKeysAtom } from '../../lib/jotai/integrations.ts'
 import { enableSyobocalAtom, syobocalChannelsAtom } from '../../lib/jotai/syobocal.ts'
@@ -12,10 +12,10 @@ import { useSayaDatastore } from '../../lib/saya/useSayaDatastore.ts'
 import { CheckboxWithLabel } from '../common/CheckboxWithLabel.tsx'
 import { getSearchIntegrationLabel, searchIntegrationKeys } from '../work/buttons/useIntegrationConfigs.ts'
 
-import type { ChangeEvent, ChangeEventHandler } from 'react'
 import type { SearchIntegrationKey } from '../work/buttons/useIntegrationConfigs.ts'
+import type { ChangeEvent, ChangeEventHandler, ReactNode } from 'react'
 
-export function IntegrationSettings(): React.JSX.Element {
+export function IntegrationSettings(): ReactNode {
   const [enableSyobocal, setEnableSyobocal] = useAtom(enableSyobocalAtom)
   const [syobocalChannels, setSyobocalChannels] = useAtom(syobocalChannelsAtom)
   const [searchIntegrations, setSearchIntegrations] = useAtom(searchIntegrationKeysAtom)
@@ -24,11 +24,11 @@ export function IntegrationSettings(): React.JSX.Element {
   const saya = useSayaDatastore(enableSyobocal)
   const availableChannels = useMemo(
     () => unique(saya?.definition.channels ?? [], (c) => c.syobocalId ?? 0).filter((c) => !!c.syobocalId),
-    [saya]
+    [saya],
   )
   const availableChannelIds = useMemo(
     () => availableChannels.map((c) => c.syobocalId?.toString()).filter((c): c is NonNullable<typeof c> => !!c),
-    [availableChannels]
+    [availableChannels],
   )
   const isAllChannelsSelected = availableChannelIds.length === syobocalChannels.length
 
@@ -48,25 +48,25 @@ export function IntegrationSettings(): React.JSX.Element {
         }
       })
     },
-    [searchIntegrations]
+    [searchIntegrations],
   )
   const handleToggleEverythingIntegration: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
       setSearchIntegrations(handleToggleIntegration(event, 'everything'))
     },
-    [handleToggleIntegration, setSearchIntegrations]
+    [handleToggleIntegration, setSearchIntegrations],
   )
   const handleToggleEpgStationIntegration: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
       setSearchIntegrations(handleToggleIntegration(event, 'epgstation'))
     },
-    [handleToggleIntegration, setSearchIntegrations]
+    [handleToggleIntegration, setSearchIntegrations],
   )
   const handleChangeEpgStationUrl: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
       setEpgStationUrl(event.currentTarget.value)
     },
-    [setEpgStationUrl]
+    [setEpgStationUrl],
   )
 
   return (
@@ -104,8 +104,8 @@ export function IntegrationSettings(): React.JSX.Element {
                   const channelIds = channels
                     .map((c) => c.syobocalId?.toString())
                     .filter((c): c is NonNullable<typeof c> => !!c)
-                  const isAllSelected =
-                    channelIds.filter((c) => syobocalChannels.includes(c)).length === channels.length
+                  const isAllSelected = channelIds
+                    .filter((c) => syobocalChannels.includes(c)).length === channels.length
 
                   return (
                     <Stack key={type}>
@@ -129,7 +129,7 @@ export function IntegrationSettings(): React.JSX.Element {
                                   }
 
                                   return unique([...draft, ...channelIds])
-                                })
+                                }),
                               )
                             }}
                           >

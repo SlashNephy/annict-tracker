@@ -4,8 +4,8 @@ packages:
   - vercel
 
 onlyBuiltDependencies:
-  - '@sentry/cli'
-  - '@swc/core'
+  - "@sentry/cli"
+  - "@swc/core"
   - esbuild
   - workerd
   - sharp

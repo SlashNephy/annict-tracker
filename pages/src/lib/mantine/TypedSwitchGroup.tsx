@@ -1,5 +1,5 @@
 import { Switch } from '@mantine/core'
-import React, { useCallback } from 'react'
+import { useCallback, type ReactNode } from 'react'
 
 import type { MantinePropsOf } from './type.ts'
 
@@ -13,7 +13,7 @@ export function TypedSwitchGroup<T>({
   onChange,
   onToggle,
   ...props
-}: TypedSwitchGroupProps<T>): React.JSX.Element {
+}: TypedSwitchGroupProps<T>): ReactNode {
   const handleChange = useCallback(
     (value: string[]) => {
       onChange?.(value)
@@ -21,7 +21,7 @@ export function TypedSwitchGroup<T>({
       // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       onToggle?.(value as T[])
     },
-    [onChange, onToggle]
+    [onChange, onToggle],
   )
 
   return <Switch.Group value={value} onChange={handleChange} {...props} />

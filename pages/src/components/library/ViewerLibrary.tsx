@@ -1,13 +1,13 @@
 import { useAtomValue } from 'jotai'
-import React from 'react'
 import { graphql, useLazyLoadQuery } from 'react-relay'
 
 import { LibraryGrid } from './LibraryGrid.tsx'
 import { watchStatusFiltersAtom } from '../../lib/jotai/filters.ts'
 
 import type { ViewerLibrary_Query } from '../../__generated__/ViewerLibrary_Query.graphql.ts'
+import type { ReactNode } from 'react'
 
-export function ViewerLibrary(): React.JSX.Element {
+export function ViewerLibrary(): ReactNode {
   const states = useAtomValue(watchStatusFiltersAtom)
   const { viewer } = useLazyLoadQuery<ViewerLibrary_Query>(
     graphql`
@@ -19,7 +19,7 @@ export function ViewerLibrary(): React.JSX.Element {
     `,
     {
       states,
-    }
+    },
   )
 
   if (!viewer) {

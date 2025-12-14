@@ -1,6 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable @typescript-eslint/naming-convention */
-
 import { XMLParser } from 'fast-xml-parser'
 
 import type { SyobocalProgram, SyobocalProgramFlag } from '../api/syobocal/programs.types.ts'
@@ -22,6 +19,7 @@ type RawSyobocalProgramsResponse = {
         Flag: RawSyobocalProgramFlag
         Deleted: 0 | 1
         Warn: 0 | 1
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         ChID: number
         Revision: number
       }[]
@@ -71,7 +69,7 @@ export function parseSyobocalProgramsResponse(response: RawSyobocalProgramsRespo
           count: item.Count || undefined,
           flags: parseSyobocalProgramFlags(item.Flag, item.Warn),
           note: item.ProgComment || undefined,
-        }) satisfies SyobocalProgram
+        }) satisfies SyobocalProgram,
     ) ?? []
   )
 }

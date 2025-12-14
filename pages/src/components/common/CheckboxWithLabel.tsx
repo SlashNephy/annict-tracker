@@ -1,11 +1,11 @@
 import { Checkbox, Group, Stack, Text } from '@mantine/core'
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 
-import type { ChangeEventHandler } from 'react'
 import type { MantinePropsOf } from '../../lib/mantine/type'
+import type { ChangeEventHandler, ReactNode } from 'react'
 
 export type CheckboxWithLabelProps = Omit<MantinePropsOf<typeof Checkbox>, 'onToggle'> & {
-  description: string | React.JSX.Element
+  description: string | ReactNode
   onToggle?(checked: boolean): void
 }
 
@@ -14,26 +14,28 @@ export function CheckboxWithLabel({
   onChange,
   onToggle,
   ...props
-}: CheckboxWithLabelProps): React.JSX.Element {
+}: CheckboxWithLabelProps): ReactNode {
   const handleChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     (event) => {
       onChange?.(event)
       onToggle?.(event.currentTarget.checked)
     },
-    [onChange, onToggle]
+    [onChange, onToggle],
   )
 
   return (
     <Stack>
       <Checkbox onChange={handleChange} {...props} />
       <Group>
-        {typeof description === 'string' ? (
-          <Text ml="lg" size="sm">
-            {description}
-          </Text>
-        ) : (
-          description
-        )}
+        {typeof description === 'string'
+          ? (
+              <Text ml="lg" size="sm">
+                {description}
+              </Text>
+            )
+          : (
+              description
+            )}
       </Group>
     </Stack>
   )

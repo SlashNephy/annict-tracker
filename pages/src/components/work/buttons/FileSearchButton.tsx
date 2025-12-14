@@ -9,25 +9,25 @@ import {
   IconMovie,
   IconSearch,
 } from '@tabler/icons-react'
-import React, { useMemo } from 'react'
+import { useMemo, type FunctionComponent } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import { hasLength } from 'ts-array-length'
 
+import { useShouldDisableButton } from './useShouldDisableButton.ts'
 import { annictChannelIds } from '../../../lib/annict/isStreamingService.ts'
 import { useAnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
-import { useShouldDisableButton } from './useShouldDisableButton.ts'
 
-import type { IconProps } from '@tabler/icons-react'
-import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
-import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 import type {
   EffectiveSearchIntegrationConfigs,
   SearchIntegrationConfig,
   SearchIntegrationKey,
 } from './useIntegrationConfigs.ts'
+import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
+import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
+import type { IconProps, ReactNode } from '@tabler/icons-react'
 
 type SearchIntegrationActionContext<K extends SearchIntegrationKey> = {
-  work: { title: string; annictId: number }
+  work: { title: string, annictId: number }
   config: SearchIntegrationConfig<K>
   vods?: AnnictVodData[]
 }
@@ -36,7 +36,7 @@ type SearchIntegrationAction<K extends SearchIntegrationKey> = {
   title: string
   type: 'search' | 'vod'
   vod?: AnnictVodData
-  icon: React.FC<IconProps>
+  icon: FunctionComponent<IconProps>
   isAvailable(context: SearchIntegrationActionContext<K>): boolean
   search(context: SearchIntegrationActionContext<K>): void
 }
@@ -77,7 +77,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     icon: IconMovie,
     isAvailable({ work, vods }): boolean {
       this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime && x.vod_code !== undefined
+        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime && x.vod_code !== undefined,
       )
 
       return this.vod !== undefined
@@ -93,7 +93,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
 
       // 単に検索させる
       const url = `https://animestore.docomo.ne.jp/animestore/sch_pc?searchKey=${encodeURIComponent(
-        work.title
+        work.title,
       )}&vodTypeList=svod_tvod`
       window.open(url)
     },
@@ -105,7 +105,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     isAvailable({ work, vods }): boolean {
       this.vod = vods?.find(
         (x) =>
-          x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime_niconico && x.vod_code !== undefined
+          x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime_niconico && x.vod_code !== undefined,
       )
 
       return this.vod !== undefined
@@ -121,7 +121,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
 
       // 単に検索させる
       const url = `https://ch.nicovideo.jp/search/${encodeURIComponent(
-        work.title
+        work.title,
       )}?channel_id=ch2632720&mode=s&sort=t&order=d&type=video`
       window.open(url)
     },
@@ -132,7 +132,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     icon: IconMovie,
     isAvailable({ work, vods }): boolean {
       this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.abema && x.vod_code !== undefined
+        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.abema && x.vod_code !== undefined,
       )
 
       return this.vod !== undefined
@@ -157,7 +157,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     icon: IconBrandNetflix,
     isAvailable({ work, vods }): boolean {
       this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.netflix && x.vod_code !== undefined
+        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.netflix && x.vod_code !== undefined,
       )
 
       return this.vod !== undefined
@@ -182,7 +182,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     icon: IconBrandAmazon,
     isAvailable({ work, vods }): boolean {
       this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.prime_video && x.vod_code !== undefined
+        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.prime_video && x.vod_code !== undefined,
       )
 
       return this.vod !== undefined
@@ -208,7 +208,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     isAvailable({ work, vods }): boolean {
       this.vod = vods?.find(
         (x) =>
-          x.work_id === work.annictId && x.channel_id === annictChannelIds.niconico_channel && x.vod_code !== undefined
+          x.work_id === work.annictId && x.channel_id === annictChannelIds.niconico_channel && x.vod_code !== undefined,
       )
 
       return this.vod !== undefined
@@ -234,7 +234,7 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
     isAvailable({ work, vods }): boolean {
       this.vod = vods?.find(
         (x) =>
-          x.work_id === work.annictId && x.channel_id === annictChannelIds.bandai_channel && x.vod_code !== undefined
+          x.work_id === work.annictId && x.channel_id === annictChannelIds.bandai_channel && x.vod_code !== undefined,
       )
 
       return this.vod !== undefined
@@ -276,7 +276,7 @@ export type FileSearchButtonProps = {
   configs: EffectiveSearchIntegrationConfigs
 }
 
-export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): React.JSX.Element {
+export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): ReactNode {
   const entry = useFragment(
     graphql`
       fragment FileSearchButton_LibraryEntry on LibraryEntry {
@@ -287,7 +287,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
         ...useShouldDisableButton_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
   const isDisabled = useShouldDisableButton(entry)
 
@@ -298,7 +298,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
         ...actions[config.key],
         config,
       })),
-    [configs]
+    [configs],
   )
 
   const vods = useAnnictVodData()

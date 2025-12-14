@@ -1,5 +1,4 @@
 import { Card, Center, Container, Divider, Stack } from '@mantine/core'
-import React from 'react'
 
 import { AppLayout } from '../components/layout/AppLayout.tsx'
 import { GeneralSettings } from '../components/settings/GeneralSettings.tsx'
@@ -7,7 +6,9 @@ import { IntegrationSettings } from '../components/settings/IntegrationSettings.
 import { ThemeSettings } from '../components/settings/ThemeSettings.tsx'
 import { UserSettings } from '../components/settings/UserSettings.tsx'
 
-export function Settings(): React.JSX.Element {
+import type { ReactNode } from 'react'
+
+export function Settings(): ReactNode {
   return (
     <AppLayout>
       <Container mt="xl">

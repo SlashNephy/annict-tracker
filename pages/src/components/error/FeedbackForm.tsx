@@ -2,7 +2,7 @@ import { ActionIcon, Button, Group, Stack, Textarea, TextInput } from '@mantine/
 import { hasLength, isEmail, useForm } from '@mantine/form'
 import { captureFeedback } from '@sentry/react'
 import { IconReload, IconSend } from '@tabler/icons-react'
-import React, { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, type ReactNode } from 'react'
 
 import { useRandomAniListCharacterName } from '../../lib/anilist/useRandomAniListCharacterName.ts'
 
@@ -20,7 +20,7 @@ export function FeedbackForm({
   cancelLabel,
   onSubmit,
   onCancel,
-}: FeedbackFormProps): React.JSX.Element {
+}: FeedbackFormProps): ReactNode {
   const form = useForm({
     initialValues: {
       name: '',
@@ -29,7 +29,7 @@ export function FeedbackForm({
     },
     validate: {
       name: hasLength({ min: 0, max: 32 }, '32文字以内で入力してください。'),
-      email: (value) => {
+      email: async (value) => {
         if (!value) {
           return null
         }
@@ -56,7 +56,7 @@ export function FeedbackForm({
       onSubmit()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps -- typeof form で依存関係を増やす必要はない
-    [eventId, onSubmit]
+    [eventId, onSubmit],
   )
 
   return (
@@ -66,11 +66,11 @@ export function FeedbackForm({
           label="おなまえ"
           placeholder="シド・カゲノー"
           {...form.getInputProps('name')}
-          rightSection={
+          rightSection={(
             <ActionIcon variant="transparent" onClick={redraw}>
               <IconReload />
             </ActionIcon>
-          }
+          )}
         />
         <TextInput label="メールアドレス" placeholder="example@annict.com" {...form.getInputProps('email')} />
         <Textarea autosize required label="コメント" placeholder="..." {...form.getInputProps('comments')} />

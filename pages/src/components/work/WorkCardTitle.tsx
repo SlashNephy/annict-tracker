@@ -1,14 +1,14 @@
 import { Anchor, Title } from '@mantine/core'
-import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
 import type { WorkCardTitle_LibraryEntry$key } from '../../__generated__/WorkCardTitle_LibraryEntry.graphql.ts'
+import type { ReactNode } from 'react'
 
 export type WorkCardTitleProps = {
   entryRef: WorkCardTitle_LibraryEntry$key
 }
 
-export function WorkCardTitle({ entryRef }: WorkCardTitleProps): React.JSX.Element {
+export function WorkCardTitle({ entryRef }: WorkCardTitleProps): ReactNode {
   const { work } = useFragment(
     graphql`
       fragment WorkCardTitle_LibraryEntry on LibraryEntry {
@@ -18,7 +18,7 @@ export function WorkCardTitle({ entryRef }: WorkCardTitleProps): React.JSX.Eleme
         }
       }
     `,
-    entryRef
+    entryRef,
   )
 
   return (

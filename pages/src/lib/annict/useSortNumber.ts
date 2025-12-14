@@ -16,7 +16,7 @@ export function useSortNumber(entryRef: useSortNumber_LibraryEntry$key): number 
         ...useNextProgram_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
   const {
     work: { seasonYear, seasonName },

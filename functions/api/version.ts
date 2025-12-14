@@ -3,8 +3,8 @@ import { StatusCodes } from 'http-status-codes'
 
 import { verifyJwt } from '../lib/jwt.ts'
 
-import type { VersionResponse } from './version.types.ts'
 import type { Env } from '../env.ts'
+import type { VersionResponse } from './version.types.ts'
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const jwt = await verifyJwt(context.request.headers, context.env)
@@ -14,7 +14,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         success: false,
         error: 'unauthorized',
       } satisfies VersionResponse,
-      { status: StatusCodes.UNAUTHORIZED }
+      { status: StatusCodes.UNAUTHORIZED },
     )
   }
 
@@ -36,6 +36,6 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       headers: {
         'Cache-Control': `max-age=${hoursToMilliseconds(1)} stale-while-revalidate=${minutesToMilliseconds(15)}`,
       },
-    }
+    },
   )
 }

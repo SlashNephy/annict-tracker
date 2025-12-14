@@ -16,7 +16,7 @@ export function useFilterByCurrentSeason(entryRef: useFilterByCurrentSeason_Libr
         }
       }
     `,
-    entryRef
+    entryRef,
   )
 
   const showOnlyCurrentSeason = useAtomValue(showOnlyCurrentSeasonAtom)

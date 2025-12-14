@@ -1,8 +1,8 @@
-import { Group, Modal, Text, Space, Button } from '@mantine/core'
+import { Button, Group, Modal, Space, Text } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { captureException } from '@sentry/react'
 import { IconMessageReport, IconReload } from '@tabler/icons-react'
-import React, { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, type ReactNode } from 'react'
 
 import { FeedbackForm } from './FeedbackForm.tsx'
 import { FetchError } from '../../lib/errors/FetchError.ts'
@@ -14,7 +14,7 @@ export type ErrorModalProps = {
   error: unknown
 }
 
-export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
+export function ErrorModal({ error }: ErrorModalProps): ReactNode {
   const [isOpened, { close }] = useDisclosure(true)
 
   const handleReload = useCallback(() => {
@@ -79,12 +79,12 @@ export function ErrorModal({ error }: ErrorModalProps): React.JSX.Element {
       closeOnEscape={false}
       opened={isOpened}
       size="lg"
-      title={
+      title={(
         <Group>
           <IconMessageReport />
           <Text>annict-tracker で問題が発生しました。</Text>
         </Group>
-      }
+      )}
       onClose={close}
     >
       {content}

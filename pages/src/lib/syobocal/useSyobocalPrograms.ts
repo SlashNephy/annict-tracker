@@ -3,8 +3,8 @@ import { useMemo } from 'react'
 import { graphql, useFragment } from 'react-relay'
 import useSWRImmutable from 'swr/immutable'
 
-import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
 import { lookupSyobocalPrograms } from './lookupSyobocalPrograms.ts'
+import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
 
 import type { SyobocalProgram } from '../../../../functions/api/syobocal/programs.types.ts'
 import type { useSyobocalPrograms_LibraryEntry$key } from '../../__generated__/useSyobocalPrograms_LibraryEntry.graphql.ts'
@@ -23,7 +23,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
         }
       }
     `,
-    entryRef
+    entryRef,
   )
 
   // useSWR のキャッシュキーにクラスインスタンスを渡すと上手く動かないので外で事前計算しておく
@@ -47,7 +47,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
     },
     {
       refreshInterval: minutesToMilliseconds(30),
-    }
+    },
   )
 
   return data ?? []

@@ -24,6 +24,6 @@ if (root !== null) {
           <RouterProvider router={router} />
         </App>
       </Provider>
-    </StrictMode>
+    </StrictMode>,
   )
 }

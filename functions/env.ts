@@ -8,13 +8,12 @@ export type Env = CloudflarePagesEnv & {
 }
 
 // https://developers.cloudflare.com/pages/platform/build-configuration/#environment-variables
-type CloudflarePagesEnv =
-  | {
-      CF_PAGES: undefined
-    }
-  | {
-      CF_PAGES: '1'
-      CF_PAGES_COMMIT_SHA: string
-      CF_PAGES_BRANCH: string
-      CF_PAGES_URL: string
-    }
+type CloudflarePagesEnv = {
+  CF_PAGES: undefined
+}
+| {
+  CF_PAGES: '1'
+  CF_PAGES_COMMIT_SHA: string
+  CF_PAGES_BRANCH: string
+  CF_PAGES_URL: string
+}

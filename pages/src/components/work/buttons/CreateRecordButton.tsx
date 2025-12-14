@@ -2,7 +2,7 @@ import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
 import { captureException } from '@sentry/react'
 import { IconCheck } from '@tabler/icons-react'
-import React, { useCallback } from 'react'
+import { useCallback, type ReactNode } from 'react'
 import { graphql, useFragment, useMutation } from 'react-relay'
 
 import { useShouldDisableButton } from './useShouldDisableButton.ts'
@@ -15,7 +15,7 @@ export type CreateRecordButtonProps = {
   entryRef: CreateRecordButton_LibraryEntry$key
 }
 
-export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React.JSX.Element {
+export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): ReactNode {
   const entry = useFragment(
     graphql`
       fragment CreateRecordButton_LibraryEntry on LibraryEntry {
@@ -31,7 +31,7 @@ export function CreateRecordButton({ entryRef }: CreateRecordButtonProps): React
         ...useShouldDisableButton_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
   const { nextEpisode, work } = entry
   const nextEpisodeTitle = useNextEpisodeTitle(entry)

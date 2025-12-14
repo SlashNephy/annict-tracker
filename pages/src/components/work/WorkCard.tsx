@@ -1,5 +1,4 @@
 import { Button, Card, Stack } from '@mantine/core'
-import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
 import { CreateRecordButton } from './buttons/CreateRecordButton.tsx'
@@ -11,12 +10,13 @@ import { WorkCardImage } from './WorkCardImage.tsx'
 import { WorkCardTitle } from './WorkCardTitle.tsx'
 
 import type { WorkCard_LibraryEntry$key } from '../../__generated__/WorkCard_LibraryEntry.graphql.ts'
+import type { ReactNode } from 'react'
 
 export type WorkCardProps = {
   entryRef: WorkCard_LibraryEntry$key
 }
 
-export function WorkCard({ entryRef }: WorkCardProps): React.JSX.Element {
+export function WorkCard({ entryRef }: WorkCardProps): ReactNode {
   const entry = useFragment(
     graphql`
       fragment WorkCard_LibraryEntry on LibraryEntry {
@@ -28,7 +28,7 @@ export function WorkCard({ entryRef }: WorkCardProps): React.JSX.Element {
         ...FileSearchButton_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
   const configs = useIntegrationConfigs()
 

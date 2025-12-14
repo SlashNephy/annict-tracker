@@ -49,8 +49,8 @@ type GeneralSearchIntegrationConfig<K extends SearchIntegrationKey> = {
 }
 export type SearchIntegrationConfig<K extends SearchIntegrationKey> = K extends 'epgstation'
   ? GeneralSearchIntegrationConfig<'epgstation'> & {
-      url: string
-    }
+    url: string
+  }
   : GeneralSearchIntegrationConfig<K>
 export type EffectiveSearchIntegrationConfigs = { [K in SearchIntegrationKey]?: SearchIntegrationConfig<K> }
 

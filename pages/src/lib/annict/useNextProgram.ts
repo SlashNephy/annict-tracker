@@ -37,7 +37,7 @@ export function useNextProgram(entryRef: useNextProgram_LibraryEntry$key): NextP
         ...useSyobocalPrograms_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
 
   // Annict の放送情報が利用できるかどうか

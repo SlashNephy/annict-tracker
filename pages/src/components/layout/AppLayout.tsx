@@ -1,7 +1,7 @@
 import { Anchor, AppShell, Burger, Card, Container, Group, Stack, Text } from '@mantine/core'
 import { useDisclosure, useDocumentTitle } from '@mantine/hooks'
 import { IconBrandGithub, IconDeviceTv, IconHelp, IconSettings, IconSpeakerphone } from '@tabler/icons-react'
-import React, { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, type PropsWithChildren, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { NavbarLinkIcon } from './NavbarLinkIcon.tsx'
@@ -10,7 +10,7 @@ import { useCheckUpdate } from '../../lib/workers/useCheckUpdate.ts'
 import { routes } from '../../routes/router.tsx'
 import { FeedbackModal } from '../error/FeedbackModal.tsx'
 
-export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Element {
+export function AppLayout({ children }: PropsWithChildren): ReactNode {
   const [isNavbarOpened, { toggle: toggleNavbar, close: closeNavbar }] = useDisclosure(false)
   const isMobile = useIsMobile()
 
@@ -76,8 +76,10 @@ export function AppLayout({ children }: React.PropsWithChildren): React.JSX.Elem
               <IconBrandGithub style={{ marginRight: '4px', display: 'inline-block', verticalAlign: 'middle' }} />
               <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
                 annict-tracker
-              </Anchor>{' '}
-              made with &hearts; by{' '}
+              </Anchor>
+              {' '}
+              made with &hearts; by
+              {' '}
               <Anchor href="https://github.com/SlashNephy" target="_blank">
                 @SlashNephy
               </Anchor>

@@ -1,9 +1,10 @@
 import { Card, Center, Container, Text } from '@mantine/core'
-import React from 'react'
 
 import { AppLayout } from '../components/layout/AppLayout.tsx'
 
-export function Help(): React.JSX.Element {
+import type { ReactNode } from 'react'
+
+export function Help(): ReactNode {
   return (
     <AppLayout>
       <Container mt="xl">

@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "author": "SlashNephy",
+  "type": "module",
   "scripts": {
     "build": "pnpm -r build",
     "deploy": "pnpm build && wrangler pages deploy pages/dist",
@@ -16,7 +17,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@slashnephy/eslint-config": "3.0.111",
+    "@slashnephy/eslint-config": "3.0.116",
     "eslint": "9.39.2",
     "wrangler": "4.54.0"
   },

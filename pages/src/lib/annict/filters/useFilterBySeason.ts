@@ -14,7 +14,7 @@ export function useFilterBySeason(entryRef: useFilterBySeasons_LibraryEntry$key)
         }
       }
     `,
-    entryRef
+    entryRef,
   )
 
   if (!work.seasonName) {

@@ -1,7 +1,8 @@
 import { Center, Group, Loader, Text } from '@mantine/core'
-import React from 'react'
 
-export function LoadingSpinner(): React.JSX.Element {
+import type { ReactNode } from 'react'
+
+export function LoadingSpinner(): ReactNode {
   return (
     <Center m="xl" p="xl">
       <Group>
