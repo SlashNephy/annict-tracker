@@ -35,6 +35,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     session: {
       strategy: 'jwt',
     },
+    basePath: '/api/auth',
     // TODO: 適切にホストを検証する
     trustHost: true,
     callbacks: {
