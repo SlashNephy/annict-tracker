@@ -20,12 +20,12 @@ export const useCheckUpdate = (): void => {
     const commitSha = import.meta.env.VITE_CF_PAGES_COMMIT_SHA
     const branch = import.meta.env.VITE_CF_PAGES_BRANCH
     if (
-      !commitSha ||
-      !branch ||
-      !version ||
-      !version.success ||
-      version.result.environment === 'development' ||
-      version.result.branch !== branch
+      !commitSha
+      || !branch
+      || !version
+      || !version.success
+      || version.result.environment === 'development'
+      || version.result.branch !== branch
     ) {
       return false
     }

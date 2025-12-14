@@ -13,7 +13,7 @@ export function useNextEpisodeTitle(entry: useNextEpisodeTitle_LibraryEntry$key)
         }
       }
     `,
-    entry
+    entry,
   )
 
   if (!nextEpisode?.numberText && !nextEpisode?.number) {

@@ -1,21 +1,20 @@
 import { Anchor, Group, Text, ThemeIcon, Tooltip } from '@mantine/core'
-import React from 'react'
+import { type ComponentProps, type FunctionComponent } from 'react'
 
 import { useIsMobile } from '../../lib/useIsMobile.ts'
 
-import type { MantinePropsOf } from '../../lib/mantine/type.ts'
-import type { AnchorProps } from '@mantine/core'
-import type { TablerIconsProps } from '@tabler/icons-react'
+import type { IconProps, ReactNode } from '@tabler/icons-react'
 
-export type NavbarLinkIconProps<C> = MantinePropsOf<C, AnchorProps> & {
+export type NavbarLinkIconProps<C> = ComponentProps<typeof Anchor<C>> & {
   title: string
-  icon: React.FC<TablerIconsProps>
+  icon: FunctionComponent<IconProps>
 }
 
-export function NavbarLinkIcon<C>({ title, icon: Icon, ...props }: NavbarLinkIconProps<C>): React.JSX.Element {
+export function NavbarLinkIcon<C>({ title, icon: Icon, ...props }: NavbarLinkIconProps<C>): ReactNode {
   const isMobile = useIsMobile()
 
   return (
+    // @ts-expect-error -- component の型が上手く推論できない
     <Anchor mb="lg" {...props}>
       <Group>
         <Tooltip label={title} position="right">

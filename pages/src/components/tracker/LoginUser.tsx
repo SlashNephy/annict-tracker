@@ -1,5 +1,5 @@
 import { Container } from '@mantine/core'
-import React, { Suspense, useCallback } from 'react'
+import { Suspense, useCallback, type ReactNode } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import { FilterCard } from './FilterCard.tsx'
@@ -9,7 +9,7 @@ import { ViewerLibrary } from '../library/ViewerLibrary.tsx'
 
 import type { FallbackProps } from 'react-error-boundary'
 
-export function LoginUser(): React.JSX.Element {
+export function LoginUser(): ReactNode {
   const fallbackRender = useCallback(({ error }: FallbackProps) => {
     return <ErrorModal error={error} />
   }, [])

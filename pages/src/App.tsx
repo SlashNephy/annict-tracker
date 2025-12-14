@@ -1,7 +1,7 @@
 import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import { ErrorBoundary } from '@sentry/react'
-import React, { useCallback } from 'react'
+import { useCallback, type ReactNode } from 'react'
 import { SWRConfig } from 'swr'
 
 import { ErrorPage } from './components/error/ErrorPage.tsx'
@@ -9,16 +9,16 @@ import { useCustomTheme } from './lib/mantine/useCustomTheme.ts'
 
 import type { FallbackRender } from '@sentry/react'
 
-// eslint-disable-next-line import/order
+/* eslint-disable import-x/order */
 import '@mantine/core/styles.css'
-// eslint-disable-next-line import/order
 import '@mantine/notifications/styles.css'
+/* eslint-enable import-x/order */
 
 export type AppProps = {
-  children: React.JSX.Element
+  children: ReactNode
 }
 
-export function App({ children }: AppProps): React.JSX.Element {
+export function App({ children }: AppProps): ReactNode {
   const theme = useCustomTheme()
 
   const fallbackRender: FallbackRender = useCallback(({ error }) => {

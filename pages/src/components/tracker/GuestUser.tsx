@@ -1,10 +1,9 @@
 import { Anchor, Card, Center, Container, Text, Title } from '@mantine/core'
-import { IconBrandGithub } from '@tabler/icons-react'
-import React from 'react'
+import { IconBrandGithub, type ReactNode } from '@tabler/icons-react'
 
 import { AnnictSignInButton } from './AnnictSignInButton.tsx'
 
-export function GuestUser(): React.JSX.Element {
+export function GuestUser(): ReactNode {
   return (
     <Container mt="xl">
       <Center>
@@ -28,10 +27,14 @@ export function GuestUser(): React.JSX.Element {
             <br />
             アプリケーションの改善のため、パフォーマンス情報やバグレポートを収集する場合があります。
             <br />
-            ソースコードは{' '}
+            ソースコードは
+            {' '}
             <Anchor href="https://github.com/SlashNephy/annict-tracker" target="_blank">
-              <IconBrandGithub size={16} style={{ display: 'inline-block', verticalAlign: 'middle' }} /> GitHub
-            </Anchor>{' '}
+              <IconBrandGithub size={16} style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              {' '}
+              GitHub
+            </Anchor>
+            {' '}
             で公開しています。
           </Text>
         </Card>

@@ -1,6 +1,5 @@
 import { Group, Modal, Space, Text } from '@mantine/core'
-import { IconMessageReport } from '@tabler/icons-react'
-import React from 'react'
+import { IconMessageReport, type ReactNode } from '@tabler/icons-react'
 
 import { FeedbackForm } from './FeedbackForm.tsx'
 
@@ -9,7 +8,7 @@ export type FeedbackModalProps = {
   onClose(): void
 }
 
-export function FeedbackModal({ isOpened, onClose }: FeedbackModalProps): React.JSX.Element {
+export function FeedbackModal({ isOpened, onClose }: FeedbackModalProps): ReactNode {
   return (
     <Modal
       centered
@@ -17,12 +16,12 @@ export function FeedbackModal({ isOpened, onClose }: FeedbackModalProps): React.
       closeOnEscape={false}
       opened={isOpened}
       size="lg"
-      title={
+      title={(
         <Group>
           <IconMessageReport />
           <Text>フィードバック</Text>
         </Group>
-      }
+      )}
       onClose={onClose}
     >
       <Text>annict-tracker を改善するため、フィードバックをお寄せください。</Text>

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d9e49f7215ab2af678e4cc066d468351>>
+ * @generated SignedSource<<066beae7c15ae009835f67b09de17cad>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type useWatchProgramSchedule_LibraryEntry$data = {
   readonly id: string;

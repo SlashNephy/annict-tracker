@@ -1,12 +1,11 @@
-export type SyobocalProgramsResponse =
-  | {
-      success: true
-      result: SyobocalProgram[]
-    }
-  | {
-      success: false
-      error: string
-    }
+export type SyobocalProgramsResponse = {
+  success: true
+  result: SyobocalProgram[]
+}
+| {
+  success: false
+  error: string
+}
 
 export type SyobocalProgramFlag = 'warning' | 'exclamation' | 'first' | 'last' | 'rebroadcast'
 

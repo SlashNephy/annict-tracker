@@ -1,9 +1,9 @@
-import { ColorSchemeScript, MantineProvider } from '@mantine/core'
-import React from 'react'
+import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core'
 
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 
-// eslint-disable-next-line import/order
+// eslint-disable-next-line import-x/order
 import '@mantine/core/styles.css'
 
 export const metadata: Metadata = {
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   },
 }
 
-export type RootLayoutProps = {
-  children: React.JSX.Element
+type Props = {
+  children: ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps): React.JSX.Element {
+export default function RootLayout({ children }: Props): ReactNode {
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript defaultColorScheme="auto" />
       </head>

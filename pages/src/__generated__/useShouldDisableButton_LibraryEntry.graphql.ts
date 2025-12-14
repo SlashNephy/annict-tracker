@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<50bc762771cbe2f16013c98716d9f610>>
+ * @generated SignedSource<<14d439b873cdef9f58a0b04e3c447649>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 export type SeasonName = "AUTUMN" | "SPRING" | "SUMMER" | "WINTER";
 import { FragmentRefs } from "relay-runtime";
 export type useShouldDisableButton_LibraryEntry$data = {

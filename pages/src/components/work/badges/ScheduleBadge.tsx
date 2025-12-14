@@ -1,17 +1,17 @@
 import { Badge } from '@mantine/core'
 import { add, isAfter } from 'date-fns'
-import React from 'react'
 
 import { useRelativeTimeGroup } from '../../../lib/annict/relativeTimeGroups.ts'
 import { useNextProgram } from '../../../lib/annict/useNextProgram.ts'
 
 import type { useNextProgram_LibraryEntry$key } from '../../../__generated__/useNextProgram_LibraryEntry.graphql.ts'
+import type { ReactNode } from 'react'
 
 export type WorkScheduleBadgeProps = {
   entryRef: useNextProgram_LibraryEntry$key
 }
 
-export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): React.JSX.Element {
+export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): ReactNode {
   const nextProgram = useNextProgram(entryRef)
   const group = useRelativeTimeGroup(entryRef)
 
@@ -29,12 +29,12 @@ export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): React.JSX.E
             今日
           </Badge>
           {/* 今日放送であっても終了していたら出す。番組の長さを30分に仮定している */}
-          {nextProgram &&
-            isAfter(new Date(), nextProgram.endAt ? nextProgram.endAt : add(nextProgram.startAt, { minutes: 30 })) && (
-              <Badge key="finished" c="black" color="teal.3">
-                終了
-              </Badge>
-            )}
+          {nextProgram
+            && isAfter(new Date(), nextProgram.endAt ?? add(nextProgram.startAt, { minutes: 30 })) && (
+            <Badge key="finished" c="black" color="teal.3">
+              終了
+            </Badge>
+          )}
         </>
       )
     case 'tomorrow':
@@ -49,6 +49,8 @@ export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): React.JSX.E
           終了
         </Badge>
       )
+    case 'future':
+    case 'undetermined':
     default:
       return <></>
   }

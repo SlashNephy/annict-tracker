@@ -8,13 +8,13 @@ import {
   differenceInYears,
   secondsToMilliseconds,
 } from 'date-fns'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
 
 export type RelativeTimeTextProps = {
   time: Date
 }
 
-export function RelativeTimeText({ time }: RelativeTimeTextProps): React.JSX.Element {
+export function RelativeTimeText({ time }: RelativeTimeTextProps): ReactNode {
   const createText = useCallback(() => {
     const now = new Date()
     const years = differenceInYears(time, now)

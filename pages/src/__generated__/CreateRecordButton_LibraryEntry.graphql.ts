@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f2f0fa480e9428e8f7f608de6358d6ea>>
+ * @generated SignedSource<<752e4cf0eef1f0cf546673c5c9eb98fd>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type CreateRecordButton_LibraryEntry$data = {
   readonly id: string;

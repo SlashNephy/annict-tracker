@@ -27,12 +27,13 @@ export function useNotificationPermission(): UseNotificationPermissionReturn {
   const requestPermission = useCallback((options?: RequestPermissionOptions) => {
     if (!window.Notification) {
       options?.onUnavailable?.()
+
       return
     }
 
     switch (Notification.permission) {
       case 'default':
-        Notification.requestPermission()
+        void Notification.requestPermission()
           .then((permission) => {
             switch (permission) {
               case 'granted': {

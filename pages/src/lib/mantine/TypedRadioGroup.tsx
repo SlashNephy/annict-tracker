@@ -1,9 +1,9 @@
 import { Radio } from '@mantine/core'
-import React, { useCallback } from 'react'
+import { useCallback, type ReactNode } from 'react'
 
 import type { MantinePropsOf } from './type.ts'
 
-export type TypedRadioGroupProps<T> = MantinePropsOf<typeof Radio.Group> & {
+export type TypedRadioGroupProps<T> = Omit<MantinePropsOf<typeof Radio.Group>, 'onToggle'> & {
   value: T
   onToggle?(value: T): void
 }
@@ -13,7 +13,7 @@ export function TypedRadioGroup<T>({
   onChange,
   onToggle,
   ...props
-}: TypedRadioGroupProps<T>): React.JSX.Element {
+}: TypedRadioGroupProps<T>): ReactNode {
   const handleChange = useCallback(
     (value: string) => {
       onChange?.(value)
@@ -21,7 +21,7 @@ export function TypedRadioGroup<T>({
       // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       onToggle?.(value as T)
     },
-    [onChange, onToggle]
+    [onChange, onToggle],
   )
 
   return <Radio.Group value={value} onChange={handleChange} {...props} />

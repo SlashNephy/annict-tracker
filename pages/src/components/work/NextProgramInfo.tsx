@@ -1,7 +1,6 @@
 import { Group, Stack, Text } from '@mantine/core'
 import { format } from 'date-fns'
 import { ja } from 'date-fns/locale'
-import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
 import { RebroadcastBadge } from './badges/RebroadcastBadge.tsx'
@@ -12,12 +11,13 @@ import { useWatchProgramSchedule } from '../../lib/annict/useWatchProgramSchedul
 import { RelativeTimeText } from '../common/RelativeTimeText.tsx'
 
 import type { NextProgramInfo_LibraryEntry$key } from '../../__generated__/NextProgramInfo_LibraryEntry.graphql.ts'
+import type { ReactNode } from 'react'
 
 export type WorkNextProgramInfoProps = {
   entryRef: NextProgramInfo_LibraryEntry$key
 }
 
-export function NextProgramInfo({ entryRef }: WorkNextProgramInfoProps): React.JSX.Element {
+export function NextProgramInfo({ entryRef }: WorkNextProgramInfoProps): ReactNode {
   const entry = useFragment(
     graphql`
       fragment NextProgramInfo_LibraryEntry on LibraryEntry {
@@ -25,7 +25,7 @@ export function NextProgramInfo({ entryRef }: WorkNextProgramInfoProps): React.J
         ...useWatchProgramSchedule_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
   const nextProgram = useNextProgram(entry)
 
@@ -45,7 +45,9 @@ export function NextProgramInfo({ entryRef }: WorkNextProgramInfoProps): React.J
           <Text span>
             {format(nextProgram.startAt, 'yyyy/MM/dd (EE) HH:mm', { locale: ja })}
             <Text span ml={4} size="sm">
-              (<RelativeTimeText time={nextProgram.startAt} />)
+              (
+              <RelativeTimeText time={nextProgram.startAt} />
+              )
             </Text>
           </Text>
         </Text>

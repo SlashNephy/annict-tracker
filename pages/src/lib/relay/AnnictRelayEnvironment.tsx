@@ -1,14 +1,14 @@
-import React, { useMemo } from 'react'
+import { useMemo, type ReactNode } from 'react'
 import { RelayEnvironmentProvider } from 'react-relay'
 
 import { createAnnictEnvironment } from './environment.ts'
 
 export type RelayEnvironmentProps = {
   bearerToken: string
-  children: React.JSX.Element
+  children: ReactNode
 }
 
-export function AnnictRelayEnvironment({ bearerToken, children }: RelayEnvironmentProps): React.JSX.Element {
+export function AnnictRelayEnvironment({ bearerToken, children }: RelayEnvironmentProps): ReactNode {
   const environment = useMemo(() => {
     return createAnnictEnvironment(bearerToken)
   }, [bearerToken])

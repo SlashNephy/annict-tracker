@@ -32,7 +32,7 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
         }
       }
     `,
-    entryRef
+    entryRef,
   )
 
   // useSWR のキャッシュキーにクラスインスタンスを渡すと上手く動かないので外で事前計算しておく
@@ -87,7 +87,7 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
           return url
         }
       }
-    }
+    },
   )
 
   return {

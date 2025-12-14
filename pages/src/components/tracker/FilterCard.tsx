@@ -1,6 +1,6 @@
 import { Accordion, Card, Chip, Group, Text } from '@mantine/core'
 import { useAtom } from 'jotai'
-import React, { useCallback } from 'react'
+import { useCallback, type ReactNode } from 'react'
 
 import { daysOfWeek, getDayOfWeekLabel } from '../../lib/annict/dayOfWeek.ts'
 import { getRelativeTimeGroupLabel, relativeTimeGroups } from '../../lib/annict/relativeTimeGroups.ts'
@@ -23,7 +23,7 @@ import type { SeasonName } from '../../lib/annict/season.ts'
 import type { WatchStatus } from '../../lib/annict/watchStatus.ts'
 import type { CardProps } from '@mantine/core'
 
-export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Element {
+export function FilterCard(props: Omit<CardProps, 'children'>): ReactNode {
   const [showOnlyCurrentSeason, setShowOnlyCurrentSeason] = useAtom(showOnlyCurrentSeasonAtom)
   const [hideRebroadcasting, setHideRebroadcasting] = useAtom(hideRebroadcastingAtom)
   const [hideStreamingServices, setHideStreamingServices] = useAtom(hideStreamingServicesAtom)
@@ -43,7 +43,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
       // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setWatchStatusFilters(value as WatchStatus[])
     },
-    [setWatchStatusFilters]
+    [setWatchStatusFilters],
   )
   const handleChangeTimeFilters = useCallback(
     (value: string[]) => {
@@ -51,7 +51,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
       // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setTimeFilters(value as RelativeTimeGroup[])
     },
-    [setTimeFilters]
+    [setTimeFilters],
   )
   const handleChangeSeasonFilters = useCallback(
     (value: string[]) => {
@@ -59,7 +59,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
       // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setSeasonFilters(value as SeasonName[])
     },
-    [setSeasonFilters]
+    [setSeasonFilters],
   )
   const handleChangeDayFilters = useCallback(
     (value: string[]) => {
@@ -67,7 +67,7 @@ export function FilterCard(props: Omit<CardProps, 'children'>): React.JSX.Elemen
       // eslint-disable-next-line @susisu/safe-typescript/no-type-assertion
       setDayFilters(value as DayOfWeek[])
     },
-    [setDayFilters]
+    [setDayFilters],
   )
 
   return (

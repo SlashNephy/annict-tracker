@@ -1,17 +1,16 @@
-export type VersionResponse =
-  | {
-      success: true
-      result:
-        | {
-            environment: 'development'
-          }
-        | {
-            environment: 'production'
-            commit_sha: string
-            branch: string
-          }
+export type VersionResponse = {
+  success: true
+  result:
+    | {
+      environment: 'development'
     }
-  | {
-      success: false
-      error: string
+    | {
+      environment: 'production'
+      commit_sha: string
+      branch: string
     }
+}
+| {
+  success: false
+  error: string
+}

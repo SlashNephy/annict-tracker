@@ -1,4 +1,4 @@
-import type { SyobocalProgram, SyobocalProgramsResponse } from 'functions/api/syobocal/programs.types.ts'
+import type { SyobocalProgram, SyobocalProgramsResponse } from '../../../../functions/api/syobocal/programs.types.ts'
 
 export async function lookupSyobocalPrograms(tid: number): Promise<SyobocalProgram[]> {
   // CORS でオリジナルの API を叩けないので Cloudflare Workers でプロキシする

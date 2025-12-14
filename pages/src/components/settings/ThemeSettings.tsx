@@ -10,13 +10,13 @@ import {
 } from '@mantine/core'
 import { IconPaint } from '@tabler/icons-react'
 import { useAtom } from 'jotai'
-import React, { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, type ReactNode } from 'react'
 
 import { customColorAtom, customColorFormatAtom, customColorFormats } from '../../lib/jotai/theme.ts'
 import { colorSchemeLabels, colorSchemes } from '../../lib/mantine/colorSchemes.ts'
 import { TypedRadioGroup } from '../../lib/mantine/TypedRadioGroup.tsx'
 
-export function ThemeSettings(): React.JSX.Element {
+export function ThemeSettings(): ReactNode {
   const { colorScheme, setColorScheme } = useMantineColorScheme()
   const [customColor, setCustomColor] = useAtom(customColorAtom)
   const [customColorFormat, setCustomColorFormat] = useAtom(customColorFormatAtom)

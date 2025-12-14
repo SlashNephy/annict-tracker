@@ -1,8 +1,0 @@
-pages/src/__generated__/*.graphql.ts
-pages/dist/
-pages/vite.config.js
-pages/vite.config.d.ts
-pages/dev-dist/
-
-vercel/out/
-vercel/out/.next/

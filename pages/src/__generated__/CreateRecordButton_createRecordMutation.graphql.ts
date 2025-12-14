@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3042b06f6ebac0ed15a98d2c5a79ec99>>
+ * @generated SignedSource<<bd4daacbfd17be5587990d8345f1d545>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest, Mutation } from 'relay-runtime';
+import { ConcreteRequest } from 'relay-runtime';
 export type CreateRecordButton_createRecordMutation$variables = {
   episodeId: string;
 };

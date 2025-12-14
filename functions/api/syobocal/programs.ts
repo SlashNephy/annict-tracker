@@ -22,9 +22,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     return Response.json(
       {
         success: false,
-        error: query.error.toString(),
+        error: JSON.stringify(query.error),
       } satisfies SyobocalProgramsResponse,
-      { status: StatusCodes.BAD_REQUEST }
+      { status: StatusCodes.BAD_REQUEST },
     )
   }
 
@@ -35,7 +35,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         success: false,
         error: 'unauthorized',
       } satisfies SyobocalProgramsResponse,
-      { status: StatusCodes.UNAUTHORIZED }
+      { status: StatusCodes.UNAUTHORIZED },
     )
   }
 
@@ -56,7 +56,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         headers: {
           'Cache-Control': `max-age=${hoursToMilliseconds(6)} stale-while-revalidate=${hoursToMilliseconds(2)}`,
         },
-      }
+      },
     )
   } catch (e: unknown) {
     console.error(`failed to fetch programs: ${e}`)
@@ -66,7 +66,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         success: false,
         error: 'failed to fetch programs',
       } satisfies SyobocalProgramsResponse,
-      { status: StatusCodes.INTERNAL_SERVER_ERROR }
+      { status: StatusCodes.INTERNAL_SERVER_ERROR },
     )
   }
 }

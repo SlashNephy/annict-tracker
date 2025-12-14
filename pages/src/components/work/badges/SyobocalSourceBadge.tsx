@@ -1,5 +1,5 @@
 import { Badge } from '@mantine/core'
-import React, { useCallback } from 'react'
+import { useCallback, type ReactNode } from 'react'
 
 import { useNextProgram } from '../../../lib/annict/useNextProgram.ts'
 
@@ -9,7 +9,7 @@ export type SyobocalSourceBadgeBadge = {
   entryRef: useNextProgram_LibraryEntry$key
 }
 
-export function SyobocalSourceBadge({ entryRef }: SyobocalSourceBadgeBadge): React.JSX.Element {
+export function SyobocalSourceBadge({ entryRef }: SyobocalSourceBadgeBadge): ReactNode {
   const nextProgram = useNextProgram(entryRef)
 
   const handleClick = useCallback(() => {

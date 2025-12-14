@@ -1,8 +1,7 @@
 import { Box, Center } from '@mantine/core'
-import { IconPhotoOff } from '@tabler/icons-react'
-import React from 'react'
+import { IconPhotoOff, type ReactNode } from '@tabler/icons-react'
 
-export function WorkCardImagePlaceholder(): React.JSX.Element {
+export function WorkCardImagePlaceholder(): ReactNode {
   return (
     <Center h={200}>
       <Box>

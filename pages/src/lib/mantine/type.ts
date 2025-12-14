@@ -19,9 +19,9 @@ type PolymorphicRef<C> = C extends React.ElementType ? React.ComponentPropsWithR
 
 type PolymorphicComponentProps<C, Props = unknown> = C extends React.ElementType
   ? InheritedProps<C, Props & ComponentProp<C>> & {
-      ref?: PolymorphicRef<C>
-      renderRoot?(props: unknown): unknown
-    }
-  : Props & { component: React.ElementType; renderRoot?(props: Record<string, unknown>): unknown }
+    ref?: PolymorphicRef<C>
+    renderRoot?(props: unknown): unknown
+  }
+  : Props & { component: React.ElementType, renderRoot?(props: Record<string, unknown>): unknown }
 
 export type MantinePropsOf<C, Props = unknown> = PolymorphicComponentProps<C, Props>

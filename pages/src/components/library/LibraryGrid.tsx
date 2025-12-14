@@ -2,7 +2,7 @@ import { Button, Center, Grid, Space } from '@mantine/core'
 import { useNetwork } from '@mantine/hooks'
 import { captureException } from '@sentry/react'
 import { minutesToMilliseconds } from 'date-fns'
-import React, { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, type ReactNode } from 'react'
 import { graphql, usePaginationFragment } from 'react-relay'
 
 import { LibraryGridItem } from './LibraryGridItem.tsx'
@@ -14,7 +14,7 @@ export type LibraryGridProps = {
   viewerRef: LibraryGrid_User$key
 }
 
-export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element {
+export function LibraryGrid({ viewerRef }: LibraryGridProps): ReactNode {
   const {
     data,
     refetch: _refetch,
@@ -47,7 +47,7 @@ export function LibraryGrid({ viewerRef }: LibraryGridProps): React.JSX.Element 
         }
       }
     `,
-    viewerRef
+    viewerRef,
   )
 
   const handleClickLoadMore = useCallback(() => {

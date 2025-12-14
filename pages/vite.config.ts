@@ -16,10 +16,11 @@ export default defineConfig(() => {
   return {
     plugins: [
       react({
-        plugins: [
-          ['@swc-jotai/react-refresh', {}],
-          ['@swc-jotai/debug-label', {}],
-        ],
+        // XXX: 上手く SWC プラグインが動作しないので一時的に無効化
+        // plugins: [
+        //   ['@swc-jotai/react-refresh', {}],
+        //   ['@swc-jotai/debug-label', {}],
+        // ],
       }),
       relay,
       chunkSplitPlugin(),

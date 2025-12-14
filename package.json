@@ -8,64 +8,21 @@
   },
   "license": "MIT",
   "author": "SlashNephy",
-  "workspaces": [
-    "pages",
-    "functions",
-    "vercel"
-  ],
+  "type": "module",
   "scripts": {
-    "build": "yarn workspaces foreach -piA run build",
-    "deploy": "yarn build && wrangler pages deploy pages/dist",
-    "dev": "wrangler pages dev --compatibility-date=2023-09-04 -- yarn workspace pages dev",
-    "format": "concurrently -n format: -m 1 'yarn:format:*'",
-    "format:eslint": "yarn lint:eslint --fix",
-    "format:prettier": "yarn lint:prettier --write",
-    "lint": "concurrently -n lint: 'yarn:lint:*'",
-    "lint:eslint": "eslint .",
-    "lint:prettier": "prettier --check ."
-  },
-  "eslintConfig": {
-    "extends": "@slashnephy/eslint-config",
-    "overrides": [
-      {
-        "files": "functions/**/*.ts",
-        "parserOptions": {
-          "project": "./functions/tsconfig.json"
-        }
-      },
-      {
-        "files": "pages/src/**/*.{ts,tsx}",
-        "parserOptions": {
-          "project": "./pages/tsconfig.json"
-        },
-        "rules": {
-          "import/no-cycle": "off"
-        }
-      },
-      {
-        "files": "pages/vite.config.ts",
-        "parserOptions": {
-          "project": "./pages/tsconfig.node.json"
-        }
-      },
-      {
-        "files": "vercel/**/*.{ts,tsx}",
-        "parserOptions": {
-          "project": "./vercel/tsconfig.json"
-        },
-        "rules": {
-          "react-refresh/only-export-components": "off"
-        }
-      }
-    ]
+    "build": "pnpm -r build",
+    "deploy": "pnpm build && wrangler pages deploy pages/dist",
+    "dev": "wrangler pages dev --compatibility-date=2023-09-04 -- pnpm --filter pages dev",
+    "format": "eslint --fix .",
+    "lint": "eslint ."
   },
   "devDependencies": {
-    "@slashnephy/eslint-config": "2.3.1",
-    "@slashnephy/prettier-config": "1.0.73",
-    "concurrently": "8.2.2",
-    "eslint": "8.57.0",
-    "prettier": "3.1.1",
-    "wrangler": "3.62.0"
+    "@slashnephy/eslint-config": "3.0.116",
+    "eslint": "9.39.2",
+    "wrangler": "4.54.0"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501",
+  "engines": {
+    "node": ">=24"
+  }
 }

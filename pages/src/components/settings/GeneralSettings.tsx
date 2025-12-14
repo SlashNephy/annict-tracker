@@ -1,14 +1,14 @@
 import { Anchor, Code, Group, Stack, Text } from '@mantine/core'
 import { IconSettings } from '@tabler/icons-react'
 import { useAtom } from 'jotai'
-import React, { useCallback } from 'react'
+import { useCallback, type ReactNode } from 'react'
 
 import { enableBrowserNotificationAtom } from '../../lib/jotai/notification.ts'
 import { enableAutoUpdateAtom, enableUpdateCheckAtom } from '../../lib/jotai/update.ts'
 import { useRequestNotificationPermission } from '../../lib/notification/useRequestNotificationPermission.tsx'
 import { CheckboxWithLabel } from '../common/CheckboxWithLabel.tsx'
 
-export function GeneralSettings(): React.JSX.Element {
+export function GeneralSettings(): ReactNode {
   const [enableBrowserNotification, setEnableBrowserNotification] = useAtom(enableBrowserNotificationAtom)
   const [enableUpdateCheck, setEnableUpdateCheck] = useAtom(enableUpdateCheckAtom)
   const [enableAutoUpdate, setEnableAutoUpdate] = useAtom(enableAutoUpdateAtom)
@@ -21,7 +21,7 @@ export function GeneralSettings(): React.JSX.Element {
         requestNotificationPermission()
       }
     },
-    [setEnableBrowserNotification, requestNotificationPermission]
+    [setEnableBrowserNotification, requestNotificationPermission],
   )
 
   return (
@@ -34,7 +34,7 @@ export function GeneralSettings(): React.JSX.Element {
       <CheckboxWithLabel
         checked={enableBrowserNotification}
         label="放送予定の通知を有効にする"
-        description={
+        description={(
           <>
             <Text ml="lg" size="sm">
               放送時間が近付いたとき (約5分前) に放送予定の通知が表示されます。
@@ -44,17 +44,22 @@ export function GeneralSettings(): React.JSX.Element {
               が非アクティブの状態でも通知を受け取ることができます。
             </Text>
             <Text ml="lg" size="sm">
-              (annict-tracker のタブが開かれていて、かつ、<Code>annict-tracker.pages.dev</Code> に対して{' '}
+              (annict-tracker のタブが開かれていて、かつ、
+              <Code>annict-tracker.pages.dev</Code>
+              {' '}
+              に対して
+              {' '}
               <Anchor
                 href="https://support.google.com/chrome/answer/12929150?hl=ja#zippy=%2C特定のサイトを常にアクティブにする"
                 target="_blank"
               >
                 メモリセーバーなどの除外設定
-              </Anchor>{' '}
+              </Anchor>
+              {' '}
               を行う必要があります。)
             </Text>
           </>
-        }
+        )}
         onToggle={handleToggleEnableBrowserNotification}
       />
 

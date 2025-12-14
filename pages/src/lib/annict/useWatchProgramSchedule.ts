@@ -29,7 +29,7 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
         ...useNextEpisodeTitle_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
   const { id, work } = entry
   const nextProgram = useNextProgram(entry)
@@ -60,8 +60,10 @@ export function useWatchProgramSchedule(entryRef: useWatchProgramSchedule_Librar
       return
     }
 
-    const _ = new Notification(work.title, {
+    new Notification(work.title, {
       body: `${nextProgram.channel.name}で${diff + 1}分後に始まります\n\n${nextEpisodeLabel}`,
+      // @ts-expect-error -- Notification.image はまだ experimental
+      // https://developer.mozilla.org/ja/docs/Web/API/Notification/image
       image: work.image?.recommendedImageUrl ?? undefined,
       lang: 'ja',
     })

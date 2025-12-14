@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1552370f960de0f6ef88971fe104b361>>
+ * @generated SignedSource<<51ce24b96a0974404517bb4c8c0f1b8b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type useNextProgram_LibraryEntry$data = {
   readonly nextProgram: {

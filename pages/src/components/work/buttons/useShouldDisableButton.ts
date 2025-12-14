@@ -20,7 +20,7 @@ export function useShouldDisableButton(entryRef: useShouldDisableButton_LibraryE
         ...useNextProgram_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
   const {
     nextEpisode,

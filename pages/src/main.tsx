@@ -1,4 +1,4 @@
-import { init, BrowserTracing } from '@sentry/react'
+import { browserTracingIntegration, init } from '@sentry/react'
 import { Provider } from 'jotai'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -10,7 +10,7 @@ import { router } from './routes/router.tsx'
 init({
   environment: import.meta.env.PROD ? 'production' : 'development',
   dsn: 'https://406bfa633652c954c74eb4251033d857@o4505899258871808.ingest.sentry.io/4505900803686400',
-  integrations: [new BrowserTracing()],
+  integrations: [browserTracingIntegration()],
   sampleRate: import.meta.env.PROD ? 1 : 0,
   tracesSampleRate: import.meta.env.PROD ? 0.25 : 0,
 })
@@ -24,6 +24,6 @@ if (root !== null) {
           <RouterProvider router={router} />
         </App>
       </Provider>
-    </StrictMode>
+    </StrictMode>,
   )
 }

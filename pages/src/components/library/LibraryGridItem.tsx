@@ -1,5 +1,4 @@
 import { Grid } from '@mantine/core'
-import React from 'react'
 import { graphql, useFragment } from 'react-relay'
 
 import { useFilterByCurrentSeason } from '../../lib/annict/filters/useFilterByCurrentSeason.ts'
@@ -12,16 +11,16 @@ import { useSortNumber } from '../../lib/annict/useSortNumber.ts'
 import { WorkCard } from '../work/WorkCard.tsx'
 
 import type { LibraryGridItem_LibraryEntry$key } from '../../__generated__/LibraryGridItem_LibraryEntry.graphql.ts'
+import type { ReactNode } from 'react'
 
 export type LibraryGridItemProps = {
   entryRef: LibraryGridItem_LibraryEntry$key
 }
 
-export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.Element {
+export function LibraryGridItem({ entryRef }: LibraryGridItemProps): ReactNode {
   const entry = useFragment(
     graphql`
       fragment LibraryGridItem_LibraryEntry on LibraryEntry {
-        # eslint-disable-next-line relay/must-colocate-fragment-spreads
         ...useNextProgram_LibraryEntry
         ...useFilterByCurrentSeason_LibraryEntry
         ...useFilterBySeasons_LibraryEntry
@@ -29,7 +28,7 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): React.JSX.E
         ...WorkCard_LibraryEntry
       }
     `,
-    entryRef
+    entryRef,
   )
 
   // 放送時間が古い順に並び替える。ソート順は非同期で確定されるため、CSS order を使う
