@@ -69,7 +69,7 @@ export function ErrorModal({ error }: ErrorModalProps): ReactNode {
   }, [error, handleReload])
 
   if (!content) {
-    return <></>
+    return null
   }
 
   return (

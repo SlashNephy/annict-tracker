@@ -12,7 +12,7 @@ export type RebroadcastBadge = {
 export function RebroadcastBadge({ entryRef }: RebroadcastBadge): ReactNode {
   const nextProgram = useNextProgram(entryRef)
   if (!nextProgram?.isRebroadcast) {
-    return <></>
+    return null
   }
 
   return (

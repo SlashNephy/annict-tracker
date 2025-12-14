@@ -22,7 +22,7 @@ export function NextEpisodeTitle({ entryRef }: WorkNextEpisodeTitleProps): React
 
   const nextEpisodeTitle = useNextEpisodeTitle(entry)
   if (!nextEpisodeTitle) {
-    return <></>
+    return null
   }
 
   return (

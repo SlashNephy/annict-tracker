@@ -43,7 +43,7 @@ export function LibraryGridItem({ entryRef }: LibraryGridItemProps): ReactNode {
     useFilterByDayOfWeek(entry),
   ].every(Boolean)
   if (!isEnabled) {
-    return <></>
+    return null
   }
 
   return (

@@ -52,6 +52,6 @@ export function ScheduleBadge({ entryRef }: WorkScheduleBadgeProps): ReactNode {
     case 'future':
     case 'undetermined':
     default:
-      return <></>
+      return null
   }
 }
