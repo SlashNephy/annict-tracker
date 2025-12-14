@@ -8,7 +8,7 @@ export default config(
       'pages/dist/',
       'pages/vite.config.js',
       'pages/dev-dist/',
-      'vercel/out/*',
+      'vercel/out/**',
     ],
   },
   [
