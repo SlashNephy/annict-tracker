@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core'
-import { useMemo, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 import { useCsrfToken } from './useCsrfToken.ts'
 
@@ -11,7 +11,7 @@ export type SignInButtonProps = ButtonProps & {
 
 export function SignInButton({ providerId, children, ...props }: SignInButtonProps): ReactNode {
   const csrfToken = useCsrfToken()
-  const origin = useMemo(() => window.location.origin, [])
+  const origin = typeof window !== 'undefined' ? window.location.origin : ''
 
   return (
     <form action={`/api/auth/signin/${providerId}`} method="POST">

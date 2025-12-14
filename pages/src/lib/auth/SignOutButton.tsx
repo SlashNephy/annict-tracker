@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core'
-import { useMemo, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 import { useCsrfToken } from './useCsrfToken.ts'
 
@@ -9,7 +9,7 @@ export type SignOutButtonProps = ButtonProps
 
 export function SignOutButton({ children, ...props }: SignOutButtonProps): ReactNode {
   const csrfToken = useCsrfToken()
-  const origin = useMemo(() => window.location.origin, [])
+  const origin = typeof window !== 'undefined' ? window.location.origin : ''
 
   return (
     <form action="/api/auth/signout" method="POST">
