@@ -128,8 +128,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0
       '@swc-jotai/react-refresh':
-        specifier: 0.4.0
-        version: 0.4.0
+        specifier: 0.5.0
+        version: 0.5.0
       '@types/node':
         specifier: 25.0.1
         version: 25.0.1
@@ -2222,8 +2222,8 @@ packages:
   '@swc-jotai/debug-label@0.5.0':
     resolution: {integrity: sha512-qaQ2cBlNrrtyeplZY82riSw79t84TwvIWG2tzs5vUR8QF93HOP6iKnjuN7Q2T5tmrUzYw5aibIiNUPyg+/hPaA==}
 
-  '@swc-jotai/react-refresh@0.4.0':
-    resolution: {integrity: sha512-vTCfLXK6SBqbF2WVTFQOuOv0ekhG2bKICkwaEjdxyBZwkw8PWuoyoK7yGtqduMVrgvIxqWVVQRP5QARYQRSl/g==}
+  '@swc-jotai/react-refresh@0.5.0':
+    resolution: {integrity: sha512-TXCQJ/eZ8mZXGnO0W1nK73VKGDt5dVsrPd3wSYypLOth5tSdBRtbU2opYeUJEXY4iUI5sVu1zUAmRJSJ7V+h8A==}
 
   '@swc/core-darwin-arm64@1.15.4':
     resolution: {integrity: sha512-NU/Of+ShFGG/i0lXKsF6GaGeTBNsr9iD8uUzdXxFfGbEjTeuKNXc5CWn3/Uo4Gr4LMAGD3hsRwG2Jq5iBDMalw==}
@@ -7410,7 +7410,7 @@ snapshots:
 
   '@swc-jotai/debug-label@0.5.0': {}
 
-  '@swc-jotai/react-refresh@0.4.0': {}
+  '@swc-jotai/react-refresh@0.5.0': {}
 
   '@swc/core-darwin-arm64@1.15.4':
     optional: true
