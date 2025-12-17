@@ -125,8 +125,8 @@ importers:
         specifier: 4.6.1
         version: 4.6.1
       '@swc-jotai/debug-label':
-        specifier: 0.4.0
-        version: 0.4.0
+        specifier: 0.5.0
+        version: 0.5.0
       '@swc-jotai/react-refresh':
         specifier: 0.4.0
         version: 0.4.0
@@ -2063,8 +2063,8 @@ packages:
       typescript-eslint:
         optional: true
 
-  '@swc-jotai/debug-label@0.4.0':
-    resolution: {integrity: sha512-vz/mTIQx2q8MrR5wfXXt1GT6uy08fbpfOo+odYko+hG4+/N+QQdHoDHrDxJTeQyg/JV4jAEpWHrgbhYLhqb78Q==}
+  '@swc-jotai/debug-label@0.5.0':
+    resolution: {integrity: sha512-qaQ2cBlNrrtyeplZY82riSw79t84TwvIWG2tzs5vUR8QF93HOP6iKnjuN7Q2T5tmrUzYw5aibIiNUPyg+/hPaA==}
 
   '@swc-jotai/react-refresh@0.4.0':
     resolution: {integrity: sha512-vTCfLXK6SBqbF2WVTFQOuOv0ekhG2bKICkwaEjdxyBZwkw8PWuoyoK7yGtqduMVrgvIxqWVVQRP5QARYQRSl/g==}
@@ -7169,7 +7169,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@swc-jotai/debug-label@0.4.0': {}
+  '@swc-jotai/debug-label@0.5.0': {}
 
   '@swc-jotai/react-refresh@0.4.0': {}
 
