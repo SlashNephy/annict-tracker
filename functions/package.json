@@ -16,7 +16,7 @@
     "zod": "4.3.5"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20260107.1",
+    "@cloudflare/workers-types": "4.20260108.0",
     "typescript": "5.9.3"
   }
 }
