@@ -143,8 +143,8 @@ importers:
         specifier: 18.2.1
         version: 18.2.1
       '@types/relay-runtime':
-        specifier: 20.1.0
-        version: 20.1.0
+        specifier: 20.1.1
+        version: 20.1.1
       '@vitejs/plugin-react-swc':
         specifier: 4.2.2
         version: 4.2.2(vite@7.3.1(@types/node@25.0.5)(jiti@2.6.1)(sugarss@5.0.1(postcss@8.5.6))(terser@5.44.1)(yaml@2.8.2))
@@ -2258,8 +2258,8 @@ packages:
   '@types/react@19.2.7':
     resolution: {integrity: sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==}
 
-  '@types/relay-runtime@20.1.0':
-    resolution: {integrity: sha512-KujDVDPWjvRxd4YBTp0ppYqOCrJhsVwH8v18vicUBFRfgG/mqEPfK1rpI2Bz7vL08/CUiyHv7CR3CnqE4PUpbA==}
+  '@types/relay-runtime@20.1.1':
+    resolution: {integrity: sha512-loM2iJteknnJcsxrynmBVb7pIDkSkJUuCMnAa/oDFcrvaxkDvq8iy0J2UshMdDy14iJJocDblXeAu7c6Q1+Ucw==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -7434,13 +7434,13 @@ snapshots:
   '@types/react-relay@18.2.1':
     dependencies:
       '@types/react': 19.2.7
-      '@types/relay-runtime': 20.1.0
+      '@types/relay-runtime': 20.1.1
 
   '@types/react@19.2.7':
     dependencies:
       csstype: 3.2.3
 
-  '@types/relay-runtime@20.1.0': {}
+  '@types/relay-runtime@20.1.1': {}
 
   '@types/resolve@1.20.2': {}
 
