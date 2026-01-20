@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@slashnephy/eslint-config':
-        specifier: 3.0.160
-        version: 3.0.160(@types/estree@1.0.8)(@types/node@25.0.9)(@typescript-eslint/eslint-plugin@8.53.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(storybook@10.1.11(@testing-library/dom@10.4.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+        specifier: 3.0.161
+        version: 3.0.161(@types/estree@1.0.8)(@types/node@25.0.9)(@typescript-eslint/eslint-plugin@8.53.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(storybook@10.1.11(@testing-library/dom@10.4.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.6.1)
@@ -1960,8 +1960,8 @@ packages:
     resolution: {integrity: sha512-P1Cz1dWaFfR4IR+U13mqqiGsLFf1KbayybWwdd2vfctdV6hDpUkgCY0nKOLLTMSoRd/jJNjtbqzf13K8DCCXQw==}
     engines: {node: '>=18'}
 
-  '@slashnephy/eslint-config@3.0.160':
-    resolution: {integrity: sha512-Ya1uAPjePyvUTyX38LzHIRJYYUOnLcVrs15isfbI66ydVIBUMEjVNsVNUEoH3E2yqi5Ky6uwallftHx38Np5ig==}
+  '@slashnephy/eslint-config@3.0.161':
+    resolution: {integrity: sha512-WmVLNalHDp1VzN54it9SskAKExqBdJ4x+3j9/IRN2cdk1PKRTSwcMF3c0OUfi2OGcCuIdazbmQ9FLoRPbOL0eg==}
     engines: {node: '>= 24'}
     peerDependencies:
       eslint: ^9
@@ -2202,12 +2202,6 @@ packages:
 
   '@typescript-eslint/tsconfig-utils@8.46.4':
     resolution: {integrity: sha512-+/XqaZPIAk6Cjg7NWgSGe27X4zMGqrFqZ8atJsX3CWxH/jACqWnrWI68h7nHQld0y+k9eTTjb9r+KU4twLoo9A==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      typescript: '>=4.8.4 <6.0.0'
-
-  '@typescript-eslint/tsconfig-utils@8.52.0':
-    resolution: {integrity: sha512-jl+8fzr/SdzdxWJznq5nvoI7qn2tNYV/ZBAEcaFMVXf+K6jmXvAFrgo/+5rxgnL152f//pDEAYAhhBAZGrVfwg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       typescript: '>=4.8.4 <6.0.0'
@@ -6984,7 +6978,7 @@ snapshots:
 
   '@sindresorhus/is@7.2.0': {}
 
-  '@slashnephy/eslint-config@3.0.160(@types/estree@1.0.8)(@types/node@25.0.9)(@typescript-eslint/eslint-plugin@8.53.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(storybook@10.1.11(@testing-library/dom@10.4.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
+  '@slashnephy/eslint-config@3.0.161(@types/estree@1.0.8)(@types/node@25.0.9)(@typescript-eslint/eslint-plugin@8.53.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(storybook@10.1.11(@testing-library/dom@10.4.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.6.0(eslint@9.39.2(jiti@2.6.1))
       '@eslint/js': 9.39.2
@@ -7259,7 +7253,7 @@ snapshots:
 
   '@typescript-eslint/project-service@8.46.4(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.52.0(typescript@5.9.3)
+      '@typescript-eslint/tsconfig-utils': 8.53.0(typescript@5.9.3)
       '@typescript-eslint/types': 8.53.0
       debug: 4.4.3
       typescript: 5.9.3
@@ -7286,10 +7280,6 @@ snapshots:
       '@typescript-eslint/visitor-keys': 8.53.0
 
   '@typescript-eslint/tsconfig-utils@8.46.4(typescript@5.9.3)':
-    dependencies:
-      typescript: 5.9.3
-
-  '@typescript-eslint/tsconfig-utils@8.52.0(typescript@5.9.3)':
     dependencies:
       typescript: 5.9.3
 
