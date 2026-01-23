@@ -41,7 +41,7 @@
     "@swc-jotai/debug-label": "0.5.0",
     "@swc-jotai/react-refresh": "0.5.0",
     "@types/node": "25.0.9",
-    "@types/react": "19.2.8",
+    "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
     "@types/react-relay": "18.2.1",
     "@types/relay-runtime": "20.1.1",
