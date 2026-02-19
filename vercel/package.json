@@ -10,8 +10,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@mantine/core": "8.3.14",
-    "@mantine/hooks": "8.3.14",
+    "@mantine/core": "8.3.15",
+    "@mantine/hooks": "8.3.15",
     "@tabler/icons-react": "3.36.1",
     "next": "16.1.6",
     "react": "19.2.4",
