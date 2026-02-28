@@ -30,8 +30,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       fast-xml-parser:
-        specifier: 5.3.8
-        version: 5.3.8
+        specifier: 5.4.1
+        version: 5.4.1
       http-status-codes:
         specifier: 2.3.0
         version: 2.3.0
@@ -3114,8 +3114,11 @@ packages:
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
-  fast-xml-parser@5.3.8:
-    resolution: {integrity: sha512-53jIF4N6u/pxvaL1eb/hEZts/cFLWZ92eCfLrNyCI0k38lettCG/Bs40W9pPwoPXyHQlKu2OUbQtiEIZK/J6Vw==}
+  fast-xml-builder@1.0.0:
+    resolution: {integrity: sha512-fpZuDogrAgnyt9oDDz+5DBz0zgPdPZz6D4IR7iESxRXElrlGTRkHJ9eEt+SACRJwT0FNFrt71DFQIUFBJfX/uQ==}
+
+  fast-xml-parser@5.4.1:
+    resolution: {integrity: sha512-BQ30U1mKkvXQXXkAGcuyUA/GA26oEB7NzOtsxCDtyu62sjGw5QraKFhx2Em3WQNjPw9PG6MQ9yuIIgkSDfGu5A==}
     hasBin: true
 
   fastq@1.20.1:
@@ -8328,8 +8331,11 @@ snapshots:
 
   fast-uri@3.1.0: {}
 
-  fast-xml-parser@5.3.8:
+  fast-xml-builder@1.0.0: {}
+
+  fast-xml-parser@5.4.1:
     dependencies:
+      fast-xml-builder: 1.0.0
       strnum: 2.1.2
 
   fastq@1.20.1:
