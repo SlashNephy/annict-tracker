@@ -19,7 +19,7 @@
     "@mantine/hooks": "8.3.16",
     "@mantine/notifications": "8.3.16",
     "@sentry/react": "10.42.0",
-    "@tabler/icons-react": "3.38.0",
+    "@tabler/icons-react": "3.39.0",
     "chroma-js": "3.2.0",
     "date-fns": "4.1.0",
     "idb": "8.0.3",
