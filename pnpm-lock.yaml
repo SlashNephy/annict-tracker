@@ -46,8 +46,8 @@ importers:
         specifier: 4.20260402.1
         version: 4.20260402.1
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
 
   pages:
     dependencies:
@@ -164,8 +164,8 @@ importers:
         specifier: 20.1.1
         version: 20.1.1
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
       vite:
         specifier: 7.3.1
         version: 7.3.1(@types/node@25.5.0)(jiti@2.6.1)(sugarss@5.0.1(postcss@8.5.8))(terser@5.46.1)(yaml@2.8.3)
@@ -219,8 +219,8 @@ importers:
         specifier: 7.0.1
         version: 7.0.1(postcss@8.5.8)
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
 
 packages:
 
@@ -4873,6 +4873,11 @@ packages:
 
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -10230,6 +10235,8 @@ snapshots:
       - supports-color
 
   typescript@5.9.3: {}
+
+  typescript@6.0.2: {}
 
   ua-parser-js@1.0.41: {}
 
