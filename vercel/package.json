@@ -21,7 +21,7 @@
     "@types/node": "25.6.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "postcss": "8.5.13",
+    "postcss": "8.5.14",
     "postcss-preset-mantine": "1.18.0",
     "postcss-simple-vars": "7.0.1",
     "typescript": "5.9.3"
