@@ -161,8 +161,8 @@ importers:
         specifier: 7.0.1
         version: 7.0.1(postcss@8.5.18)
       relay-compiler:
-        specifier: 20.1.1
-        version: 20.1.1
+        specifier: 21.0.1
+        version: 21.0.1
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -4713,8 +4713,8 @@ packages:
     resolution: {integrity: sha512-dLsljMd9sqwRkby8zhO1gSg3PnJIBFid8f4CQj/sXx+7cKx+E7u0PKhZ+U4wmhx7EfmtvnA318oVaIkAB1lRJw==}
     hasBin: true
 
-  relay-compiler@20.1.1:
-    resolution: {integrity: sha512-J/FFFLS/3vnbDkyQMw8l3Ev7dNHXMgC1RAs0fITz4Q63TFPOw142knKxY1Mm5ZZBABkAs9g2JghXaqM+phwTxw==}
+  relay-compiler@21.0.1:
+    resolution: {integrity: sha512-Wqlg3MtHyBlAYByVo24Wy9H3n2bAw991gPmzdo3XfNv+TzhI8zuGogtiae+7NORI7zhghgZaHC7Sp8S8ZPRYEA==}
     hasBin: true
 
   relay-runtime@20.1.1:
@@ -10202,7 +10202,7 @@ snapshots:
     dependencies:
       jsesc: 3.1.0
 
-  relay-compiler@20.1.1: {}
+  relay-compiler@21.0.1: {}
 
   relay-runtime@20.1.1:
     dependencies:
