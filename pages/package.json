@@ -46,7 +46,7 @@
     "@types/react-relay": "18.2.1",
     "@types/relay-runtime": "20.1.1",
     "@vitejs/plugin-react-swc": "4.3.3",
-    "babel-plugin-relay": "20.1.1",
+    "babel-plugin-relay": "21.0.1",
     "postcss": "8.5.25",
     "postcss-preset-mantine": "1.18.0",
     "postcss-simple-vars": "7.0.1",
