@@ -14,13 +14,13 @@
     "@mantine/hooks": "8.3.18",
     "@tabler/icons-react": "3.44.0",
     "next": "16.2.12",
-    "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@types/node": "25.9.5",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
     "postcss": "8.5.25",
     "postcss-preset-mantine": "1.18.0",
     "postcss-simple-vars": "7.0.1",
