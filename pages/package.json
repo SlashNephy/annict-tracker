@@ -29,7 +29,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-error-boundary": "6.1.2",
-    "react-relay": "20.1.1",
+    "react-relay": "21.0.1",
     "react-router-dom": "7.15.1",
     "react-use-promise": "0.5.0",
     "relay-runtime": "20.1.1",
