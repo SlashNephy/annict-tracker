@@ -27,8 +27,8 @@ importers:
         specifier: 1.1.1
         version: 1.1.1
       date-fns:
-        specifier: 4.2.1
-        version: 4.2.1
+        specifier: 4.4.0
+        version: 4.4.0
       fast-xml-parser:
         specifier: 5.8.0
         version: 5.8.0
@@ -79,8 +79,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0
       date-fns:
-        specifier: 4.2.1
-        version: 4.2.1
+        specifier: 4.4.0
+        version: 4.4.0
       idb:
         specifier: 8.0.3
         version: 8.0.3
@@ -3275,8 +3275,8 @@ packages:
   dataloader@2.2.3:
     resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
 
-  date-fns@4.2.1:
-    resolution: {integrity: sha512-37RhSdxaG1suen6VDCza6rNrQfooyQh57HFVPwQGEq2QWliVLzPQZ8Oa017weOu+HZCnzI7N3Pf/wyoBKfEqrA==}
+  date-fns@4.4.0:
+    resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -8744,7 +8744,7 @@ snapshots:
 
   dataloader@2.2.3: {}
 
-  date-fns@4.2.1: {}
+  date-fns@4.4.0: {}
 
   debug@3.2.7:
     dependencies:
