@@ -112,8 +112,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(react@19.2.8)
       relay-runtime:
-        specifier: 20.1.1
-        version: 20.1.1
+        specifier: 21.0.1
+        version: 21.0.1
       swr:
         specifier: 2.5.1
         version: 2.5.1(react@19.2.8)
@@ -4933,6 +4933,9 @@ packages:
 
   relay-runtime@20.1.1:
     resolution: {integrity: sha512-N98ZkkyuIHdXmHaPuljihM1QbFYXATF0gxA0CESFphszsQzXs9A/zZloVfzdOI/xg3B3CfM/5nozvIoeTDIcfw==}
+
+  relay-runtime@21.0.1:
+    resolution: {integrity: sha512-OS+We56sp6gkGVEcce9VCNOeg/sMbxT9unEoerQPgNAICHowSWrXNc6LJxF2OqjypxYF7kaLDSPPiaPii2Pw1g==}
 
   remove-trailing-separator@1.1.0:
     resolution: {integrity: sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw==}
@@ -10591,6 +10594,14 @@ snapshots:
   relay-compiler@20.1.1: {}
 
   relay-runtime@20.1.1:
+    dependencies:
+      '@babel/runtime': 7.29.7
+      fbjs: 3.0.5
+      invariant: 2.2.4
+    transitivePeerDependencies:
+      - encoding
+
+  relay-runtime@21.0.1:
     dependencies:
       '@babel/runtime': 7.29.7
       fbjs: 3.0.5
