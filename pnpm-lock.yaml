@@ -103,8 +103,8 @@ importers:
         specifier: 6.1.3
         version: 6.1.3(@types/react@19.2.18)(react@19.2.8)
       react-relay:
-        specifier: 20.1.1
-        version: 20.1.1(react@19.2.8)
+        specifier: 21.0.1
+        version: 21.0.1(react@19.2.8)
       react-router-dom:
         specifier: 7.18.2
         version: 7.18.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -4825,8 +4825,8 @@ packages:
       react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react-relay@20.1.1:
-    resolution: {integrity: sha512-pwl7wHHXCOx32dOg4TVNkhVojgGVvOBMo9pcMGeM1BIFYvmwGauKTtBB+qr5buXHGooCL8TXjMVg+ZLizIsbeQ==}
+  react-relay@21.0.1:
+    resolution: {integrity: sha512-08BBmpdolP8vslClnszG+g4vkcbVHvaoR0BDHyhicwpCfbtnVGe73/MfPja/xj30eLWSP5WPYNqZupTdEPZvtw==}
     peerDependencies:
       react: ^16.9.0 || ^17 || ^18 || ^19
 
@@ -4942,6 +4942,9 @@ packages:
 
   relay-runtime@20.1.1:
     resolution: {integrity: sha512-N98ZkkyuIHdXmHaPuljihM1QbFYXATF0gxA0CESFphszsQzXs9A/zZloVfzdOI/xg3B3CfM/5nozvIoeTDIcfw==}
+
+  relay-runtime@21.0.1:
+    resolution: {integrity: sha512-OS+We56sp6gkGVEcce9VCNOeg/sMbxT9unEoerQPgNAICHowSWrXNc6LJxF2OqjypxYF7kaLDSPPiaPii2Pw1g==}
 
   remove-trailing-separator@1.1.0:
     resolution: {integrity: sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw==}
@@ -10474,14 +10477,14 @@ snapshots:
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  react-relay@20.1.1(react@19.2.8):
+  react-relay@21.0.1(react@19.2.8):
     dependencies:
       '@babel/runtime': 7.29.7
       fbjs: 3.0.5
       invariant: 2.2.4
       nullthrows: 1.1.1
       react: 19.2.8
-      relay-runtime: 20.1.1
+      relay-runtime: 21.0.1
     transitivePeerDependencies:
       - encoding
 
@@ -10611,6 +10614,14 @@ snapshots:
   relay-compiler@20.1.1: {}
 
   relay-runtime@20.1.1:
+    dependencies:
+      '@babel/runtime': 7.29.7
+      fbjs: 3.0.5
+      invariant: 2.2.4
+    transitivePeerDependencies:
+      - encoding
+
+  relay-runtime@21.0.1:
     dependencies:
       '@babel/runtime': 7.29.7
       fbjs: 3.0.5
