@@ -19,7 +19,7 @@
   "devDependencies": {
     "@slashnephy/eslint-config": "3.0.307",
     "eslint": "9.39.5",
-    "wrangler": "4.151.1"
+    "wrangler": "4.151.2"
   },
   "packageManager": "pnpm@10.34.7+sha512.ba98abc585539933375b5971f4bc6d6c73a1b4b7edc4a879e7d102fe5423d1e02309d67c60a11f04955093a96e521ad9c3b138cdd654ca5be563f378b3ae48bd",
   "engines": {
