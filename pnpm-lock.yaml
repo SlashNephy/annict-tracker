@@ -89,7 +89,7 @@ importers:
         version: 11.2.9
       jotai:
         specifier: 2.20.3
-        version: 2.20.3(@babel/core@7.29.7)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1)
+        version: 2.20.3(@babel/core@8.0.9)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1)
       radash:
         specifier: 12.1.1
         version: 12.1.1
@@ -112,8 +112,8 @@ importers:
         specifier: 0.5.0
         version: 0.5.0(react@19.3.1)
       relay-runtime:
-        specifier: 20.1.1
-        version: 20.1.1
+        specifier: 21.0.1
+        version: 21.0.1
       swr:
         specifier: 2.5.1
         version: 2.5.1(react@19.3.1)
@@ -192,7 +192,7 @@ importers:
         version: 3.49.0(react@19.3.1)
       next:
         specifier: 16.4.3
-        version: 16.4.3(@babel/core@8.0.9)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        version: 16.4.3(@babel/core@7.29.7)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
         specifier: 19.3.1
         version: 19.3.1
@@ -4716,6 +4716,9 @@ packages:
 
   relay-runtime@20.1.1:
     resolution: {integrity: sha512-N98ZkkyuIHdXmHaPuljihM1QbFYXATF0gxA0CESFphszsQzXs9A/zZloVfzdOI/xg3B3CfM/5nozvIoeTDIcfw==}
+
+  relay-runtime@21.0.1:
+    resolution: {integrity: sha512-OS+We56sp6gkGVEcce9VCNOeg/sMbxT9unEoerQPgNAICHowSWrXNc6LJxF2OqjypxYF7kaLDSPPiaPii2Pw1g==}
 
   remove-trailing-separator@1.1.0:
     resolution: {integrity: sha512-/hS+Y0u3aOfIETiaiirUFwDBDzmXPvO+jAfKTitUngIPzdKc6Z0LoFjM/CK5PL4C+eKwHohlHAb6H0VFfmmUsw==}
@@ -9628,9 +9631,9 @@ snapshots:
 
   jose@6.2.13: {}
 
-  jotai@2.20.3(@babel/core@7.29.7)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1):
+  jotai@2.20.3(@babel/core@8.0.9)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1):
     optionalDependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 8.0.9
       '@babel/template': 8.0.0
       '@types/react': 19.3.0
       react: 19.3.1
@@ -9802,7 +9805,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@16.4.3(@babel/core@8.0.9)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+  next@16.4.3(@babel/core@7.29.7)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@next/env': 16.4.3
       '@swc/helpers': 0.5.23
@@ -9811,7 +9814,7 @@ snapshots:
       postcss: 8.5.23
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
-      styled-jsx: 5.1.6(@babel/core@8.0.9)(react@19.3.1)
+      styled-jsx: 5.1.6(@babel/core@7.29.7)(react@19.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.4.3
       '@next/swc-darwin-x64': 16.4.3
@@ -10292,6 +10295,14 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  relay-runtime@21.0.1:
+    dependencies:
+      '@babel/runtime': 7.29.10
+      fbjs: 3.0.5
+      invariant: 2.2.4
+    transitivePeerDependencies:
+      - encoding
+
   remove-trailing-separator@1.1.0: {}
 
   require-from-string@2.0.2: {}
@@ -10663,12 +10674,12 @@ snapshots:
     dependencies:
       anynum: 1.0.1
 
-  styled-jsx@5.1.6(@babel/core@8.0.9)(react@19.3.1):
+  styled-jsx@5.1.6(@babel/core@7.29.7)(react@19.3.1):
     dependencies:
       client-only: 0.0.1
       react: 19.3.1
     optionalDependencies:
-      '@babel/core': 8.0.9
+      '@babel/core': 7.29.7
 
   sugarss@5.0.2(postcss@8.5.31):
     dependencies:
