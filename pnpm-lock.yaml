@@ -89,7 +89,7 @@ importers:
         version: 11.2.9
       jotai:
         specifier: 2.20.3
-        version: 2.20.3(@babel/core@7.29.7)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1)
+        version: 2.20.3(@babel/core@8.0.9)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1)
       radash:
         specifier: 12.1.1
         version: 12.1.1
@@ -161,8 +161,8 @@ importers:
         specifier: 7.0.1
         version: 7.0.1(postcss@8.5.31)
       relay-compiler:
-        specifier: 20.1.1
-        version: 20.1.1
+        specifier: 21.0.1
+        version: 21.0.1
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -192,7 +192,7 @@ importers:
         version: 3.49.0(react@19.3.1)
       next:
         specifier: 16.4.3
-        version: 16.4.3(@babel/core@8.0.9)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        version: 16.4.3(@babel/core@7.29.7)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
         specifier: 19.3.1
         version: 19.3.1
@@ -4710,8 +4710,8 @@ packages:
     resolution: {integrity: sha512-EWV80YgFaVgFrjGCAsV7oybp4GOxbls5RzBg8OB0nKEVXsBJR1JlV8Di1JhCROg3MzTfe1RI8yitIm1eOs68iA==}
     hasBin: true
 
-  relay-compiler@20.1.1:
-    resolution: {integrity: sha512-J/FFFLS/3vnbDkyQMw8l3Ev7dNHXMgC1RAs0fITz4Q63TFPOw142knKxY1Mm5ZZBABkAs9g2JghXaqM+phwTxw==}
+  relay-compiler@21.0.1:
+    resolution: {integrity: sha512-Wqlg3MtHyBlAYByVo24Wy9H3n2bAw991gPmzdo3XfNv+TzhI8zuGogtiae+7NORI7zhghgZaHC7Sp8S8ZPRYEA==}
     hasBin: true
 
   relay-runtime@20.1.1:
@@ -9628,9 +9628,9 @@ snapshots:
 
   jose@6.2.13: {}
 
-  jotai@2.20.3(@babel/core@7.29.7)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1):
+  jotai@2.20.3(@babel/core@8.0.9)(@babel/template@8.0.0)(@types/react@19.3.0)(react@19.3.1):
     optionalDependencies:
-      '@babel/core': 7.29.7
+      '@babel/core': 8.0.9
       '@babel/template': 8.0.0
       '@types/react': 19.3.0
       react: 19.3.1
@@ -9802,7 +9802,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@16.4.3(@babel/core@8.0.9)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+  next@16.4.3(@babel/core@7.29.7)(@types/node@25.9.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       '@next/env': 16.4.3
       '@swc/helpers': 0.5.23
@@ -9811,7 +9811,7 @@ snapshots:
       postcss: 8.5.23
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
-      styled-jsx: 5.1.6(@babel/core@8.0.9)(react@19.3.1)
+      styled-jsx: 5.1.6(@babel/core@7.29.7)(react@19.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.4.3
       '@next/swc-darwin-x64': 16.4.3
@@ -10282,7 +10282,7 @@ snapshots:
     dependencies:
       jsesc: 3.1.0
 
-  relay-compiler@20.1.1: {}
+  relay-compiler@21.0.1: {}
 
   relay-runtime@20.1.1:
     dependencies:
@@ -10663,12 +10663,12 @@ snapshots:
     dependencies:
       anynum: 1.0.1
 
-  styled-jsx@5.1.6(@babel/core@8.0.9)(react@19.3.1):
+  styled-jsx@5.1.6(@babel/core@7.29.7)(react@19.3.1):
     dependencies:
       client-only: 0.0.1
       react: 19.3.1
     optionalDependencies:
-      '@babel/core': 8.0.9
+      '@babel/core': 7.29.7
 
   sugarss@5.0.2(postcss@8.5.31):
     dependencies:
