@@ -5,7 +5,7 @@ import { graphql, useFragment } from 'react-relay'
 import useSWRImmutable from 'swr/immutable'
 
 import { fetchAniListImage } from '../anilist/fetchAniListImage.ts'
-import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
+import { useArmDatastore } from '../arm/useArmDatastore.ts'
 import { find, put } from '../indexdb/database.ts'
 import { useIndexedDB } from '../indexdb/useIndexedDB.ts'
 import { fetchJikanAnimePictures } from '../jikan/fetchJikanAnimePictures.ts'
@@ -36,7 +36,7 @@ export function useWorkImage(entryRef: useWorkImage_LibraryEntry$key): WorkImage
   )
 
   // useSWR のキャッシュキーにクラスインスタンスを渡すと上手く動かないので外で事前計算しておく
-  const arm = useArmSupplementaryDatastore()
+  const arm = useArmDatastore()
   const [aniListId, malId] = useMemo(() => {
     const armEntry = arm?.findByAnnictId(work.annictId)
 

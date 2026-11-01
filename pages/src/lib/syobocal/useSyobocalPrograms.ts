@@ -4,7 +4,7 @@ import { graphql, useFragment } from 'react-relay'
 import useSWRImmutable from 'swr/immutable'
 
 import { lookupSyobocalPrograms } from './lookupSyobocalPrograms.ts'
-import { useArmSupplementaryDatastore } from '../arm/useArmSupplementaryDatastore.ts'
+import { useArmDatastore } from '../arm/useArmDatastore.ts'
 
 import type { SyobocalProgram } from '../../../../functions/api/syobocal/programs.types.ts'
 import type { useSyobocalPrograms_LibraryEntry$key } from '../../__generated__/useSyobocalPrograms_LibraryEntry.graphql.ts'
@@ -27,7 +27,7 @@ export function useSyobocalPrograms(entryRef: useSyobocalPrograms_LibraryEntry$k
   )
 
   // useSWR のキャッシュキーにクラスインスタンスを渡すと上手く動かないので外で事前計算しておく
-  const arm = useArmSupplementaryDatastore(enabled)
+  const arm = useArmDatastore(enabled)
   const syobocalTid = useMemo(() => arm?.findByAnnictId(work.annictId)?.syobocal_tid ?? work.syobocalTid, [arm, work])
 
   const { data } = useSWRImmutable(
