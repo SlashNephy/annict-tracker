@@ -14,8 +14,6 @@ import { graphql, useFragment } from 'react-relay'
 import { hasLength } from 'ts-array-length'
 
 import { useShouldDisableButton } from './useShouldDisableButton.ts'
-import { annictChannelIds } from '../../../lib/annict/isStreamingService.ts'
-import { useAnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 
 import type {
   EffectiveSearchIntegrationConfigs,
@@ -23,20 +21,16 @@ import type {
   SearchIntegrationKey,
 } from './useIntegrationConfigs.ts'
 import type { FileSearchButton_LibraryEntry$key } from '../../../__generated__/FileSearchButton_LibraryEntry.graphql.ts'
-import type { AnnictVodData } from '../../../lib/annict/useAnnictVodData.ts'
 import type { IconProps } from '@tabler/icons-react'
 import type { ElementType, ReactNode } from 'react'
 
 type SearchIntegrationActionContext<K extends SearchIntegrationKey> = {
-  work: { title: string, annictId: number }
+  work: { title: string }
   config: SearchIntegrationConfig<K>
-  vods?: AnnictVodData[]
 }
 
 type SearchIntegrationAction<K extends SearchIntegrationKey> = {
   title: string
-  type: 'search' | 'vod'
-  vod?: AnnictVodData
   icon: ElementType<IconProps>
   isAvailable(context: SearchIntegrationActionContext<K>): boolean
   search(context: SearchIntegrationActionContext<K>): void
@@ -45,7 +39,6 @@ type SearchIntegrationAction<K extends SearchIntegrationKey> = {
 const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   everything: {
     title: 'Everything',
-    type: 'search',
     icon: IconBrandWindows,
     isAvailable(): boolean {
       return window.navigator.userAgent.toLowerCase().includes('windows')
@@ -57,7 +50,6 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   epgstation: {
     title: 'EPGStation',
-    type: 'search',
     icon: IconDeviceTvOld,
     isAvailable({ config }): boolean {
       try {
@@ -74,25 +66,11 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   d_anime: {
     title: 'dアニメストア',
-    type: 'vod',
     icon: IconMovie,
-    isAvailable({ work, vods }): boolean {
-      this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime && x.vod_code !== undefined,
-      )
-
-      return this.vod !== undefined
+    isAvailable(): boolean {
+      return true
     },
-    search({ work }) {
-      // 参照可能な場合は直接開く
-      if (this.vod !== undefined) {
-        const url = `https://animestore.docomo.ne.jp/animestore/ci_pc?workId=${this.vod.vod_code}`
-        window.open(url)
-
-        return
-      }
-
-      // 単に検索させる
+    search: ({ work }) => {
       const url = `https://animestore.docomo.ne.jp/animestore/sch_pc?searchKey=${encodeURIComponent(
         work.title,
       )}&vodTypeList=svod_tvod`
@@ -101,26 +79,11 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   d_anime_niconico: {
     title: 'dアニメストア ニコニコ支店',
-    type: 'vod',
     icon: IconMovie,
-    isAvailable({ work, vods }): boolean {
-      this.vod = vods?.find(
-        (x) =>
-          x.work_id === work.annictId && x.channel_id === annictChannelIds.d_anime_niconico && x.vod_code !== undefined,
-      )
-
-      return this.vod !== undefined
+    isAvailable(): boolean {
+      return true
     },
-    search({ work }) {
-      // 参照可能な場合は直接開く
-      if (this.vod !== undefined) {
-        const url = `https://www.nicovideo.jp/series/${this.vod.vod_code}`
-        window.open(url)
-
-        return
-      }
-
-      // 単に検索させる
+    search: ({ work }) => {
       const url = `https://ch.nicovideo.jp/search/${encodeURIComponent(
         work.title,
       )}?channel_id=ch2632720&mode=s&sort=t&order=d&type=video`
@@ -129,134 +92,61 @@ const actions: { [K in SearchIntegrationKey]: SearchIntegrationAction<K> } = {
   },
   abema: {
     title: 'ABEMA',
-    type: 'vod',
     icon: IconMovie,
-    isAvailable({ work, vods }): boolean {
-      this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.abema && x.vod_code !== undefined,
-      )
-
-      return this.vod !== undefined
+    isAvailable(): boolean {
+      return true
     },
-    search({ work }) {
-      // 参照可能な場合は直接開く
-      if (this.vod !== undefined) {
-        const url = `https://abema.tv/video/title/${this.vod.vod_code}`
-        window.open(url)
-
-        return
-      }
-
-      // 単に検索させる
+    search: ({ work }) => {
       const url = `https://abema.tv/search?q=${encodeURIComponent(work.title)}`
       window.open(url)
     },
   },
   netflix: {
     title: 'Netflix',
-    type: 'vod',
     icon: IconBrandNetflix,
-    isAvailable({ work, vods }): boolean {
-      this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.netflix && x.vod_code !== undefined,
-      )
-
-      return this.vod !== undefined
+    isAvailable(): boolean {
+      return true
     },
-    search({ work }) {
-      // 参照可能な場合は直接開く
-      if (this.vod !== undefined) {
-        const url = `https://www.netflix.com/title/${this.vod.vod_code}`
-        window.open(url)
-
-        return
-      }
-
-      // 単に検索させる
+    search: ({ work }) => {
       const url = `https://www.netflix.com/search?q=${encodeURIComponent(work.title)}`
       window.open(url)
     },
   },
   prime_video: {
     title: 'Prime Video',
-    type: 'vod',
     icon: IconBrandAmazon,
-    isAvailable({ work, vods }): boolean {
-      this.vod = vods?.find(
-        (x) => x.work_id === work.annictId && x.channel_id === annictChannelIds.prime_video && x.vod_code !== undefined,
-      )
-
-      return this.vod !== undefined
+    isAvailable(): boolean {
+      return true
     },
-    search({ work }) {
-      // 参照可能な場合は直接開く
-      if (this.vod !== undefined) {
-        const url = `https://www.amazon.co.jp/dp/${this.vod.vod_code}`
-        window.open(url)
-
-        return
-      }
-
-      // 単に検索させる
+    search: ({ work }) => {
       const url = `https://www.amazon.co.jp/s?k=${encodeURIComponent(work.title)}&i=instant-video`
       window.open(url)
     },
   },
   niconico_channel: {
     title: 'ニコニコチャンネル',
-    type: 'vod',
     icon: IconMovie,
-    isAvailable({ work, vods }): boolean {
-      this.vod = vods?.find(
-        (x) =>
-          x.work_id === work.annictId && x.channel_id === annictChannelIds.niconico_channel && x.vod_code !== undefined,
-      )
-
-      return this.vod !== undefined
+    isAvailable(): boolean {
+      return true
     },
-    search({ work }) {
-      // 参照可能な場合は直接開く
-      if (this.vod !== undefined) {
-        const url = `https://ch.nicovideo.jp/${this.vod.vod_code}`
-        window.open(url)
-
-        return
-      }
-
-      // 単に検索させる
+    search: ({ work }) => {
       const url = `https://ch.nicovideo.jp/search/${encodeURIComponent(work.title)}?type=channel&mode=s`
       window.open(url)
     },
   },
   bandai_channel: {
     title: 'バンダイチャンネル',
-    type: 'vod',
     icon: IconMovie,
-    isAvailable({ work, vods }): boolean {
-      this.vod = vods?.find(
-        (x) =>
-          x.work_id === work.annictId && x.channel_id === annictChannelIds.bandai_channel && x.vod_code !== undefined,
-      )
-
-      return this.vod !== undefined
+    isAvailable(): boolean {
+      return true
     },
-    search({ work }) {
-      // 参照可能な場合は直接開く
-      if (this.vod !== undefined) {
-        const url = `https://www.b-ch.com/ttl/index.php?ttl_c=${this.vod.vod_code}`
-        window.open(url)
-
-        return
-      }
-
-      // 単に検索させる
+    search: ({ work }) => {
       const url = `https://www.b-ch.com/search/text/?search_txt=${encodeURIComponent(work.title)}`
       window.open(url)
     },
   },
   youtube: {
     title: 'YouTube',
-    type: 'search',
     icon: IconBrandYoutube,
     isAvailable(): boolean {
       return true
@@ -283,7 +173,6 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
       fragment FileSearchButton_LibraryEntry on LibraryEntry {
         work {
           title
-          annictId
         }
         ...useShouldDisableButton_LibraryEntry
       }
@@ -302,8 +191,6 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
     [configs],
   )
 
-  const vods = useAnnictVodData()
-
   // 検索ソースが1つのときはそのまま検索ボタンにする
   if (hasLength(integrations, 1)) {
     const [integration] = integrations
@@ -318,7 +205,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
         variant="light"
         // eslint-disable-next-line react/jsx-no-bind
         onClick={() => {
-          integration.search({ work: entry.work, config: integration.config, vods })
+          integration.search({ work: entry.work, config: integration.config })
         }}
       >
         {integration.title}
@@ -343,7 +230,7 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
       </Menu.Target>
       <Menu.Dropdown>
         {integrations
-          .filter((integration) => integration.isAvailable({ work: entry.work, config: integration.config, vods }))
+          .filter((integration) => integration.isAvailable({ work: entry.work, config: integration.config }))
           .map((integration) => {
             const { icon: Icon } = integration
 
@@ -353,10 +240,10 @@ export function FileSearchButton({ entryRef, configs }: FileSearchButtonProps): 
                 leftSection={<Icon size="1rem" stroke={1.5} />}
                 // eslint-disable-next-line react/jsx-no-bind
                 onClick={() => {
-                  integration.search({ work: entry.work, config: integration.config, vods })
+                  integration.search({ work: entry.work, config: integration.config })
                 }}
               >
-                {`${integration.title} で${integration.type === 'search' ? '検索' : '視聴'}`}
+                {`${integration.title} で検索`}
               </Menu.Item>
             )
           })}
