@@ -20,7 +20,7 @@
     "@mantine/notifications": "8.3.18",
     "@sentry/react": "10.78.0",
     "@tabler/icons-react": "3.51.0",
-    "chroma-js": "3.2.0",
+    "chroma-js": "3.3.0",
     "date-fns": "4.4.0",
     "idb": "8.0.4",
     "immer": "11.2.9",
